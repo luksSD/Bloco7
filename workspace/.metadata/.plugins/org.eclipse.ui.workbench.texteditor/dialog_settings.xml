@@ -6,6 +6,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value="lds"/>
 		<list key="findhistory">
+			<item value="pessoa"/>
 			<item value="lds"/>
 			<item value="us"/>
 			<item value="usu"/>
@@ -13,7 +14,6 @@
 			<item value="use"/>
 			<item value="resultado"/>
 			<item value="event"/>
-			<item value="put"/>
 		</list>
 		<list key="replacehistory">
 			<item value="/resources"/>

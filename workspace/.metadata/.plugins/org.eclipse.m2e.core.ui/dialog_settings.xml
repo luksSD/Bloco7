@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="L:\estudo\FAI\3 ANO\2 SEMESTRE\FAITEC\Bloco7\bloco7-projeto\bloco7-teste"/>
 			<item value="C:\Faculdade\6 periodo\Lds 2\projeto\lds-db"/>
 			<item value="C:\Faculdade\6 periodo\Lds 2\projeto\lds-model"/>
 		</list>
@@ -82,6 +83,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="L:\estudo\FAI\3 ANO\2 SEMESTRE\FAITEC\Bloco7\bloco7-projeto"/>
 			<item value="C:\Users\Vinicius\Desktop\FaiTec\Code\Bloco7\bloco7-projeto"/>
 			<item value="C:\Faculdade\6 periodo\Lds 2\projeto"/>
 			<item value="C:\Faculdade\5 periodo\Lds\lds-html\springboot\projetos\vinicius"/>

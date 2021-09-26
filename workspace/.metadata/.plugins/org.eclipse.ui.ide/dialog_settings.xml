@@ -6,7 +6,7 @@
 		<item value="org.eclipse.buildship:3.1.4.v20200326-1743"/>
 		<item value="org.eclipse.egit.gitflow.feature:5.10.0.202012080955-r"/>
 		<item value="org.eclipse.egit:5.10.0.202012080955-r"/>
-		<item value="org.eclipse.emf.common:2.22.0.v20210114-1734"/>
+		<item value="org.eclipse.emf.common:2.21.0.v20200917-1439"/>
 		<item value="org.eclipse.emf.ecore:2.23.0.v20200630-0516"/>
 		<item value="org.eclipse.epp.mpc:1.9.0.v20201125-0811"/>
 		<item value="org.eclipse.help:2.3.400.v20201202-1800"/>
@@ -50,5 +50,7 @@
 			<item value="C:\Faculdade\6 periodo\Lds 2\projeto\lds-api"/>
 			<item value="C:\Faculdade\6 periodo\Lds 2\projeto"/>
 		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 </section>

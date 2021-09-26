@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.jdt.uiformatter_page.modify_dialog_tab_page.last_focus_index" value="0"/>
-	<item key="clean_up_save_particpant_modify_dialog.last_focus" value="5"/>
+	<item key="org.eclipse.jdt.uiformatter_page.modify_dialog_tab_page.last_focus_index" value="-1"/>
+	<item key="clean_up_save_particpant_modify_dialog.last_focus" value="2"/>
 	<item key="clean_up_save_particpant_modify_dialog.preferred_width" value="1045"/>
-	<item key="clean_up_save_particpant_modify_dialog.preferred_height" value="728"/>
-	<item key="clean_up_save_particpant_modify_dialog.preferred_x" value="2098"/>
-	<item key="clean_up_save_particpant_modify_dialog.preferred_y" value="147"/>
+	<item key="clean_up_save_particpant_modify_dialog.preferred_height" value="860"/>
+	<item key="clean_up_save_particpant_modify_dialog.preferred_x" value="555"/>
+	<item key="clean_up_save_particpant_modify_dialog.preferred_y" value="0"/>
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-13"/>
 	<item key="filters_last_used" value="filter_imports;"/>

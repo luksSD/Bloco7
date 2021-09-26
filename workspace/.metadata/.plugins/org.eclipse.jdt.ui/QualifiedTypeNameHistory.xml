@@ -16,7 +16,6 @@
     <fullyQualifiedTypeName name="br.fai.lds.db.connection.ConnectionFactory"/>
     <fullyQualifiedTypeName name="java.nio.file.attribute.AclEntry"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="springfox.documentation.swagger2.annotations.EnableSwagger2"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
@@ -37,4 +36,7 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="br.fai.lds.db.dao.FormularioDao"/>
     <fullyQualifiedTypeName name="br.fai.lds.web.service.FormularioService"/>
+    <fullyQualifiedTypeName name="br.fai.bloco7.model.BasePojo"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="br.fai.bloco7.db.dao.PessoaDao"/>
 </qualifiedTypeNameHistroy>
