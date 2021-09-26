@@ -22,13 +22,6 @@ import br.fai.bloco7.model.Usuario;
 @CrossOrigin(origins = "*")
 public class UserRestController {
 
-//	@GetMapping("/primeira-request")
-//	public ResponseEntity<String> minhaPrimeiraRequest() {
-//
-//		return ResponseEntity.ok("Boa noite!");
-//
-//	}
-
 	@Autowired
 	private UserService service;
 
