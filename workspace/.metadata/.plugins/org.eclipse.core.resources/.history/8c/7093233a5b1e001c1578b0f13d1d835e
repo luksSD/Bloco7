@@ -1,0 +1,12 @@
+package br.fai.bloco7.model;
+
+import java.sql.Timestamp;
+
+public class Chat extends BasePojo {
+
+	private Timestamp dataHora;
+	private Long anuncioId;
+	private Long usuarioInteressadoId;
+	private Long usuarioAnuncianteId;
+
+}

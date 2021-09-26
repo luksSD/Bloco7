@@ -1,0 +1,22 @@
+package br.fai.bloco7.model;
+
+public class AnuncioFoto extends BasePojo {
+	
+	private String fotoPath;
+	private Long anuncioId;
+	public String getFotoPath() {
+		return fotoPath;
+	}
+	public void setFotoPath(String fotoPath) {
+		this.fotoPath = fotoPath;
+	}
+	public Long getAnuncioId() {
+		return anuncioId;
+	}
+	public void setAnuncioId(Long anuncioId) {
+		this.anuncioId = anuncioId;
+	}
+	
+	
+
+}

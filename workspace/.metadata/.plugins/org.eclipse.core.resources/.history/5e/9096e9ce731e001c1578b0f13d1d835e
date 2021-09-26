@@ -1,0 +1,43 @@
+package br.fai.bloco7.db.dao.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import br.fai.bloco7.db.dao.AnuncioDao;
+import br.fai.bloco7.model.Anuncio;
+
+@Repository
+public class AnuncioDaoImpl implements AnuncioDao {
+
+	@Override
+	public List<Anuncio> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Anuncio readById(final Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long create(final Anuncio entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean update(final Anuncio entity) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(final Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,13 @@
+package br.fai.bloco7.model;
+
+import java.sql.Timestamp;
+
+public class Mensagem extends BasePojo {
+
+	private Timestamp dataHora;
+	private String texto;
+	private Long usuarioRemetenteId;
+	private Long chatId;
+	
+	
+}

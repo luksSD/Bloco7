@@ -1,0 +1,6 @@
+package br.fai.bloco7.model;
+
+public class Chat extends BasePojo {
+
+	private TimeStamp dataHora;
+}

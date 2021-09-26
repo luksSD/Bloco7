@@ -1,0 +1,10 @@
+package br.fai.bloco7.model;
+
+public class Anuncio extends BasePojo {
+
+	private String descricao;
+	private String tipo;
+	private float preço;
+	private String logradouroAnuncio;
+
+}
