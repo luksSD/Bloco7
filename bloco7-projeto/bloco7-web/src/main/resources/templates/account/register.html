@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Crie sua conta</title>
+
+<script type="text/javascript">
+
+		function cadastroRealizado() {
+        	alert("Cadastro realizado com sucesso!")
+	        
+        }
+
+        function validaSenha() {
+
+            var senha = document.getElementById('inputPassword').value;
+            var confirmar_senha = document.getElementById('inputConfirmPassword').value;
+
+            if (confirmar_senha != senha) {
+              	document.getElementById("resultado").innerHTML="As senhas são diferentes!";
+              	document.getElementById("resultado").style.color ="#FF6347";
+              	event.preventDefault();
+        	}else if (confirmar_senha == senha && senha != "" && senha.length >= 6) {
+        		cadastroRealizado();
+        		
+        		}
+        }
+        
+</script>
+
+
+</head>
+<body>
+	<div layout:fragment="body">
+		<div class="row justify-content-center">
+			<div class="col-lg-7">
+				<div class="card shadow-lg border-0 rounded-lg mt-5">
+					<div class="card-header">
+						<h3 class="text-center font-weight-light my-4">Crie sua conta</h3>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/account/create-user}" method="POST"
+							th:object="${usuario}">
+							
+							
+							
+							<div class="form-row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="small mb-1" for="inputFirstName">Celular</label> <input class="form-control py-4" id="inputFirstName"
+											type="text" placeholder="Insira seu nome de usuário"
+											th:field="${usuario.celular}" />
+
+
+								<!--  
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="small mb-1" for="inputLastName">Nome
+											completo</label> <input class="form-control py-4" id="inputLastName"
+											type="text" placeholder="Insira o seu nome completo"
+											th:field="${usuario.nomeCompleto}" />
+									</div>
+								</div>
+							</div>
+							  -->
+							
+							<div class="form-group">
+								<label class="small mb-1" for="inputEmailAddress">Email</label>
+
+								<input class="form-control py-4" id="inputEmailAddress"
+									type="email" aria-describedby="emailHelp"
+									placeholder="Insira o endereço de email"
+									th:field="${usuario.email}" />
+
+
+							</div>
+							<div class="form-row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="small mb-1" for="inputPassword">Senha</label> <input
+											class="form-control py-4" id="inputPassword" type="password"
+											placeholder="Insira a senha" th:field="${usuario.senha}" />
+										<div colspan="2">
+											<p id="resultado">&nbsp;</p>
+										</div>
+
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="small mb-1" for="inputConfirmPassword">Confirme
+											a senha</label><input class="form-control py-4"
+											id="inputConfirmPassword" type="password"
+											placeholder="Confirme a senha" />
+
+									</div>
+								</div>
+								<div></div>
+							</div>
+
+
+							<div class="form-group mt-4 mb-0">
+								<button class="btn btn-primary btn-block"
+									onclick="validaSenha();" type="submit">Criar a conta</button>
+							</div>
+							<div th:if="${user == -1}">
+								<span style="color: Red;">Digite todos os campos</span>
+							</div>
+
+
+
+						</form>
+					</div>
+					<div class="card-footer text-center">
+						<div class="small">
+							<a href="register.html">Já possui uma conta? Faça o login</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

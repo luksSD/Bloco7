@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Detalhes do Usuario</title>
+</head>
+<body>
+
+	<div layout:fragment="body">
+		<div class="container-fluid">
+			<h1 class="mt-4">Usuários</h1>
+			<ol class="breadcrumb mb-4">
+				<li class="breadcrumb-item active">Detalhes</li>
+			</ol>
+
+			<div class="row">
+
+				<div class="mb-2 col-12 col-sm-5">
+					<div class="card">
+						<div class="card-body">
+							<div class="mb-3 text-center">
+								<img src="../resources/assets/img/avatar.jpg" width="200"
+									class="rounded-circle img-fluid" />
+							</div>
+							<div class="mb-2">
+								<p class="text-primary text-center"
+									th:text="${usuario.nomeUsuario}">Tiburssinho</p>
+								<p class="text-muted text-center">Desenvolvedor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-2 col-12 col-sm-7">
+
+					<div class="mb-2 card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3">Nome</div>
+								<div class="col-sm-9" th:text="${usuario.nomeCompleto}">Tiburssinho
+									Tiburssius</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">Email</div>
+								<div class="col-sm-9" th:text="${usuario.email}">tiburssinho@gmail.com</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">Idade</div>
+								<div class="col-sm-9">45 anos</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">Tipo</div>
+								<div class="col-sm-9" th:text="${usuario.tipo}">45 anos</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">Está ativo?</div>
+								<div class="col-sm-9" th:text="${usuario.estaAtivo}">45
+									anos</div>
+							</div>
+
+
+						</div>
+					</div>
+
+					<div class="mb-2">
+
+
+						<a th:href="@{/user/edit/{id} (id=${usuario.id})}"
+							class="btn btn-primary col-12">Editar</i></a>
+
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+</body>
+</html>
