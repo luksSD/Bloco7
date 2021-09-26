@@ -1,5 +1,3 @@
-//Lucas Dias
-
 package br.fai.bloco7.api.service.impl;
 
 import java.util.List;
@@ -49,5 +47,6 @@ public class UserServiceImpl implements UserService {
 
 		return dao.delete(id);
 	}
+	
 
 }
