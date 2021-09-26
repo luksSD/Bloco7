@@ -1,5 +1,0 @@
-package br.fai.bloco7.db.dao;
-
-public interface Pessoa {
-
-}

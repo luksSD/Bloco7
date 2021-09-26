@@ -1,7 +1,0 @@
-package br.fai.bloco7.db.dao.impl;
-
-import br.fai.bloco7.db.dao.AnuncioDao;
-
-public class AnuncioDaoImpl implements AnuncioDao {
-
-}

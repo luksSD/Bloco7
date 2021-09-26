@@ -1,7 +1,0 @@
-package br.fai.bloco7.model;
-
-public class Mensagem extends BasePojo {
-
-	
-	private Timestamp dataHora;
-}
