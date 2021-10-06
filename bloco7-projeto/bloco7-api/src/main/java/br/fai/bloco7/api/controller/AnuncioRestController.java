@@ -14,42 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.fai.bloco7.api.service.UserService;
-import br.fai.bloco7.model.Usuario;
+import br.fai.bloco7.api.service.AnuncioService;
+import br.fai.bloco7.model.Anuncio;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/anuncio")
 @CrossOrigin(origins = "*")
-public class UserRestController {
+public class AnuncioRestController {
 
 	@Autowired
-	private UserService service;
+	private AnuncioService service;
 
 	@GetMapping("/read-all")
-	public ResponseEntity<List<Usuario>> readAll() {
+	public ResponseEntity<List<Anuncio>> readAll() {
 
 		return ResponseEntity.ok(service.readAll());
 
 	}
 
 	@GetMapping("/read-by-id/{id}")
-	public ResponseEntity<Usuario> readById(@PathVariable("id") final long id) {
+	public ResponseEntity<Anuncio> readById(@PathVariable("id") final long id) {
 
 		return ResponseEntity.ok(service.readById(id));
 
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<Long> create(@RequestBody final Usuario usuario) {
+	public ResponseEntity<Long> create(@RequestBody final Anuncio anuncio) {
 
-		return ResponseEntity.ok(service.create(usuario));
+		return ResponseEntity.ok(service.create(anuncio));
 
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<Boolean> update(@RequestBody final Usuario usuario) {
+	public ResponseEntity<Boolean> update(@RequestBody final Anuncio anuncio) {
 
-		return ResponseEntity.ok(service.update(usuario));
+		return ResponseEntity.ok(service.update(anuncio));
 
 	}
 
@@ -59,4 +59,5 @@ public class UserRestController {
 		return ResponseEntity.ok(service.delete(id));
 
 	}
+
 }
