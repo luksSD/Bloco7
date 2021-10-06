@@ -1032,6 +1032,50 @@ a:hover {
 }
 
 /*--------------------------------------------------------------
+
+/*------/ Second Intro Single /------*/
+.second-intro-single {
+  padding: 3rem 0 3rem;
+}
+@media (max-width: 767px) {
+  .second-intro-single  {
+    padding-top: 9rem;
+  }
+}
+.second-intro-single  .title-single-box {
+  padding: 1rem 0 1rem 2rem;
+}
+.second-intro-single  .title-single-box {
+  border-left: 3px solid #ffce00;
+}
+.second-intro-single  .title-single-box .title-single {
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+@media (min-width: 768px) {
+  .second-intro-single  .title-single-box .title-single {
+    font-size: 2.1rem;
+  }
+}
+@media (min-width: 992px) {
+  .second-intro-single  .title-single-box .title-single {
+    font-size: 2.5rem;
+  }
+}
+.second-intro-single  .breadcrumb-box {
+  padding: 1rem 0 0 0.5rem;
+}
+.second-intro-single  .breadcrumb {
+  background-color: transparent;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/*--------------------------------------------------------------
+
+
+
+
 # Card General
 --------------------------------------------------------------*/
 @media (max-width: 767px) {
