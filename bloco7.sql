@@ -9,7 +9,7 @@ CREATE TABLE cidade
     id BIGSERIAL primary key,
     estado VARCHAR (50) not null,
     nome VARCHAR (50)  not null
-    
+    check (nome in ('Pouso Alegre' , 'Santa Rita do Sapucai' , 'Poços de Caldas' , 'Itajuba'))
 );
 
 --Colocando UK entre estado e nome
