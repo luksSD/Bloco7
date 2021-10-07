@@ -1,4 +1,4 @@
-package br.fai.bloco7.web.service.imbl;
+package br.fai.bloco7.web.service.impl;
 
 import java.util.Arrays;
 import java.util.List;

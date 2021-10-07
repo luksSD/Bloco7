@@ -78,7 +78,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM pessoa where id = ?";
+			final String sql = "SELECT * FROM anuncio where id = ?";
 
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setLong(1, id);
@@ -89,6 +89,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 				anuncio = new Anuncio();
 				anuncio.setId(resultSet.getLong("id"));
+				anuncio.setDescricao(resultSet.getString("descricao"));
 				anuncio.setQuartos(resultSet.getInt("quartos"));
 				anuncio.setBanheiros(resultSet.getInt("banheiros"));
 				anuncio.setVaga_garagem(resultSet.getInt("vaga_garagem"));
