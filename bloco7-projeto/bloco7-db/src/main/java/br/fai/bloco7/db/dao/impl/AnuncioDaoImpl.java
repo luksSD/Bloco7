@@ -57,6 +57,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		} catch (final Exception e) {
 
+			System.out.println(e.getMessage());
+
 		} finally {
 			ConnectionFactory.close(resultSet, preparedStatement, connection);
 		}
