@@ -47,8 +47,25 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 	@Override
 	public Anuncio readById(final Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/read-by-id/" + id;
+
+		Anuncio response = null;
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+
+			final ResponseEntity<Anuncio> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
+					Anuncio.class);
+
+			response = requestResponse.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
 	}
 
 	@Override
