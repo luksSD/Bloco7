@@ -23,11 +23,11 @@ CREATE TABLE pessoa
     id BIGSERIAL primary key,
     cpf VARCHAR (20) unique not null,
     nome VARCHAR (200) not null,
-    logradouro VARCHAR (200) not null,
-    numero VARCHAR (10) not null,
-    bairro VARCHAR (100) not null,
-    cep VARCHAR (15) not null,
-    cidade_id integer not null
+    logradouro VARCHAR (200),
+    numero VARCHAR (10),
+    bairro VARCHAR (100),
+    cep VARCHAR (15),
+    cidade_id integer
 
 );
 
@@ -59,7 +59,7 @@ CREATE TABLE anuncio
     vaga_garagem integer,
     tipo_propriedade VARCHAR (50) not null,
     status VARCHAR (50) not null,
-    area integer (50),
+    area integer,
     valor VARCHAR (20) not null,
     endereço VARCHAR (200) not null,
     bairro VARCHAR (20) not null,
@@ -121,3 +121,28 @@ CREATE TABLE mensagem
 --Tornando usuario_remetente_id/chat_id uma FK de chat
 alter table mensagem add constraint fk1_mensagem foreign key (usuario_remetente_id) references usuario(id) on update cascade on delete cascade;
 alter table mensagem add constraint fk2_mensagem foreign key (chat_id) references chat(id) on update cascade on delete cascade;
+
+
+--Adicionando cidades que o site vai atender inicialmente
+----------------------
+INSERT INTO cidade (id , estado, nome) 
+values ('1' , 'Minas Gerais' , 'Pouso Alegre');
+
+INSERT INTO cidade (id , estado, nome) 
+values ('2' , 'Minas Gerais' , 'Itajuba');
+
+INSERT INTO cidade (id , estado, nome) 
+values ('3' , 'Minas Gerais' , 'Poços de Caldas');
+
+INSERT INTO cidade (id , estado, nome) 
+values ('4' , 'Minas Gerais' , 'Santa Rita do Sapucai');
+
+
+
+--Adicionando valores para teste
+
+INSERT INTO pessoa (id , cpf, nome, logradouro, numero, bairro, cep, cidade_id) 
+values ('1' , '123.456.789.11' , 'Vinicius Teste' , 'Rua Francisco' , '27' , 'Centro' , '37550000' , '1');
+
+INSERT INTO usuario (id , senha, email, celular, pessoa_id)
+ values ('1' , '123' , 'teste@gmail.com' , '999999999' , '1');
