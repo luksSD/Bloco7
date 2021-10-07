@@ -90,4 +90,4 @@ target/
 
 /bin
 
-/bloco7-db/src/main/java/br/fai/bloco7/db/connection/*
+ConnectionFactory
