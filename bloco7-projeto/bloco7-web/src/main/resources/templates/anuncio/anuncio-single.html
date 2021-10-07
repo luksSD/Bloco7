@@ -31,7 +31,7 @@
 									</li>
 									<li class="breadcrumb-item"><a href="property-grid.html">Anúncio</a>
 									</li>
-									<li class="breadcrumb-item active" aria-current="page">
+									<li class="breadcrumb-item active"  th:text="${anuncio.id}" aria-current="page" >
 										Imóvel 304</li>
 								</ol>
 							</nav>
@@ -89,9 +89,9 @@
 										</div>
 										<div class="summary-list">
 											<ul class="list">
-												<li class="d-flex justify-content-between"><strong>ID do imóvel:</strong> <span>1134</span></li>
-												<li class="d-flex justify-content-between"><strong>Localização:</strong>
-													<span>Chicago, IL 606543</span></li>
+												<li class="d-flex justify-content-between"><strong>ID do imóvel:</strong> <span  th:text="${anuncio.id}">1134</span></li>
+												<li class="d-flex justify-content-between" ><strong>Localização:</strong>
+													<span  th:text="${anuncio.endereco}">Chicago, IL 606543</span></li>
 												<li class="d-flex justify-content-between"><strong>Tipo:</strong> <span>House</span></li>
 												<li class="d-flex justify-content-between"><strong>Status:</strong>
 													<span>Sale</span></li>
@@ -117,18 +117,13 @@
 										</div>
 									</div>
 									<div class="property-description">
-										<p class="description color-text-a">Vestibulum ante ipsum
+										<p class="description color-text-a" >Vestibulum ante ipsum
 											primis in faucibus orci luctus et ultrices posuere cubilia
 											Curae; Donec velit neque, auctor sit amet aliquam vel,
 											ullamcorper sit amet ligula. Cras ultricies ligula sed magna
 											dictum porta. Curabitur aliquet quam id dui posuere blandit.
 											Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
 											quam id dui posuere blandit.</p>
-										<p class="description color-text-a no-margin">Curabitur
-											arcu erat, accumsan id imperdiet et, porttitor at sem. Donec
-											rutrum congue leo eget malesuada. Quisque velit nisi, pretium
-											ut lacinia in, elementum id enim. Donec sollicitudin molestie
-											malesuada.</p>
 									</div>
 									
 								</div>
