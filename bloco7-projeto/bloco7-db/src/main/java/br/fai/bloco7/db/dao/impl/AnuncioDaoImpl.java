@@ -39,6 +39,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 				final Anuncio anuncio = new Anuncio();
 				anuncio.setId(resultSet.getLong("id"));
+				anuncio.setDescricao(resultSet.getString("descricao"));
 				anuncio.setQuartos(resultSet.getInt("quartos"));
 				anuncio.setBanheiros(resultSet.getInt("banheiros"));
 				anuncio.setVaga_garagem(resultSet.getInt("vaga_garagem"));
