@@ -29,7 +29,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM anuncio";
+			final String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id";
 
 			preparedStatement = connection.prepareStatement(sql);
 
@@ -51,6 +51,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
+				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
+				anuncio.setNomeCidade(resultSet.getString("nome"));
 
 				anuncios.add(anuncio);
 
@@ -102,6 +104,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
+				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 
 			}
 

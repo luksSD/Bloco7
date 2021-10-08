@@ -21,7 +21,7 @@ alter table cidade add constraint uk1_cidade unique(estado, nome);
 CREATE TABLE pessoa
 (
     id BIGSERIAL primary key,
-    cpf VARCHAR (20) unique not null,
+    cpf VARCH AR (20) unique not null,
     nome VARCHAR (200) not null,
     logradouro VARCHAR (200),
     numero VARCHAR (10),
