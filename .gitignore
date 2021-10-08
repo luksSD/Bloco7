@@ -139,3 +139,5 @@ ConnectionFactory
 bloco7-projeto/bloco7-db/src/main/java/br/fai/bloco7/db/connection/ConnectionFactory.java
 bloco7-projeto/bloco7-db/src/main/java/br/fai/bloco7/db/connection/ConnectionFactory.java
 bloco7-projeto/bloco7-db/target/classes/br/fai/bloco7/db/connection/ConnectionFactory.class
+bloco7-projeto/bloco7-db/src/main/java/br/fai/bloco7/db/connection/ConnectionFactory.java
+bloco7-projeto/bloco7-db/target/classes/br/fai/bloco7/db/connection/ConnectionFactory.class
