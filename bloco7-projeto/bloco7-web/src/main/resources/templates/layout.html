@@ -158,12 +158,12 @@
 				id="navbarDefault">
 				<ul class="navbar-nav">
 
-					<li class="nav-item"><a class="nav-link active"
-						href="/">Home</a></li>
+					<li th:class="${activePage == 'home'} ? 'nav-item active' : 'nav-item'"><a class="nav-link"
+						th:href="@{/}">Home</a></li>
 
 
-					<li class="nav-item"><a class="nav-link "
-						href="/anuncios/listar">Anúncios</a></li>
+					<li th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'"><a class="nav-link "
+						th:href="@{/anuncios/listar}">Anúncios</a></li>
 
 					<li class="nav-item"><a class="nav-link " th:href="@{/user/login}">Conta</a>
 					</li>

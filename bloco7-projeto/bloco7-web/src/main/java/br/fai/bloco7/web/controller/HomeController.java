@@ -21,11 +21,13 @@ public class HomeController {
 	private CidadeService cidadeService;
 
 	@GetMapping("/")
-	public String getHomePage(final Model model) {
+	public String getHomePage(final Model model, final Model activePage) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
 		model.addAttribute("listaDeAnuncio", anuncios);
+		activePage.addAttribute("activePage", "home");
+
 		return "home";
 
 	}

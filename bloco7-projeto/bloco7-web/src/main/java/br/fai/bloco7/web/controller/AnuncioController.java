@@ -35,11 +35,12 @@ public class AnuncioController {
 	private CidadeService cidadeService;
 
 	@GetMapping("/listar")
-	public String getAnuncioGridPage(final Model model) {
+	public String getAnuncioGridPage(final Model model, final Model activePage) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
 		model.addAttribute("listaDeAnuncio", anuncios);
+		activePage.addAttribute("activePage", "anuncio");
 
 		return "anuncio/anuncios-grid";
 	}
