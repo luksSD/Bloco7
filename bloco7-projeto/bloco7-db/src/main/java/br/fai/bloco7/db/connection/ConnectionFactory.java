@@ -10,7 +10,16 @@ public class ConnectionFactory {
 
 	private static final String url = "jdbc:postgresql://localhost:5432/bloco7";
 	private static final String username = "postgres";
+<<<<<<< HEAD
 	private static final String password = "123";
+=======
+<<<<<<< HEAD
+
+	private static final String password = "235";
+=======
+	private static final String password = "matheuszz2";
+>>>>>>> 419a44f1c367c1d56b33b64d33e4d454babf3a24
+>>>>>>> 2bd4a593a20de37b82afddb72f911bf2f0e50c1f
 
 	private static Connection connection = null;
 
