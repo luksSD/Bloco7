@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Pessoa;
+import br.fai.bloco7.model.Usuario;
 import br.fai.bloco7.web.service.AnuncioService;
+import br.fai.bloco7.web.service.PessoaService;
+import br.fai.bloco7.web.service.UserService;
 
 @Controller
 @RequestMapping("/anuncios")
@@ -18,6 +22,12 @@ public class AnuncioController {
 
 	@Autowired
 	private AnuncioService anuncioService;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private PessoaService pessoaService;
 
 	@GetMapping("/listar")
 	public String getAnuncioGridPage(final Model model) {
@@ -30,10 +40,17 @@ public class AnuncioController {
 	}
 
 	@GetMapping("/detalhes/{id}")
-	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
+	public String getDetailPage(@PathVariable("id") final long idAnuncio, final Model anuncioModel,
+			final Model usuarioModel, final Model pessoaModel) {
 
-		final Anuncio anuncio = anuncioService.readById(id);
-		model.addAttribute("anuncio", anuncio);
+		final Anuncio anuncio = anuncioService.readById(idAnuncio);
+		anuncioModel.addAttribute("anuncio", anuncio);
+
+		final Usuario user = userService.readById(anuncio.getUsuarioAnuncianteId());
+		usuarioModel.addAttribute("usuario", user);
+
+		final Pessoa pessoa = pessoaService.readById(user.getPessoaId());
+		pessoaModel.addAttribute("pessoa", pessoa);
 
 		return "anuncio/anuncio-single";
 	}

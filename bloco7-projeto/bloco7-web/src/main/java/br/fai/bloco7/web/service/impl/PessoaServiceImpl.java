@@ -9,26 +9,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import br.fai.bloco7.model.Usuario;
-import br.fai.bloco7.web.service.UserService;
+import br.fai.bloco7.model.Pessoa;
+import br.fai.bloco7.web.service.PessoaService;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class PessoaServiceImpl implements PessoaService {
 
 	@Override
-	public List<Usuario> readAll() {
+	public List<Pessoa> readAll() {
 
-		final String endpoint = "http://localhost:2000/api/v1/user/read-all";
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/read-all";
 
-		List<Usuario> response = null;
+		List<Pessoa> response = null;
 
 		try {
 			final RestTemplate restTemplate = new RestTemplate();
 
 			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
 
-			final ResponseEntity<Usuario[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
-					httpEntity, Usuario[].class);
+			final ResponseEntity<Pessoa[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
+					Pessoa[].class);
 
 			response = Arrays.asList(requestResponse.getBody());
 
@@ -40,16 +40,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Long create(final Usuario entity) {
+	public Long create(final Pessoa entity) {
 
 		Long id = Long.valueOf(-1);
 
-		final String endpoint = "http://localhost:2000/api/v1/user/create";
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/create";
 
 		try {
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Usuario> httpEntity = new HttpEntity<Usuario>(entity);
+			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity);
 
 			final ResponseEntity<Long> responseEntity = restTemplate.exchange(endpoint, HttpMethod.POST, httpEntity,
 					Long.class);
@@ -65,18 +65,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Usuario readById(final Long id) {
-		final String endpoint = "http://localhost:2000/api/v1/user/read-by-id/" + id;
+	public Pessoa readById(final Long id) {
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/read-by-id/" + id;
 
-		Usuario response = null;
+		Pessoa response = null;
 
 		try {
 			final RestTemplate restTemplate = new RestTemplate();
 
 			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
 
-			final ResponseEntity<Usuario> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
-					Usuario.class);
+			final ResponseEntity<Pessoa> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
+					Pessoa.class);
 
 			response = requestResponse.getBody();
 
@@ -88,16 +88,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean update(final Usuario entity) {
+	public boolean update(final Pessoa entity) {
 
 		boolean response = false;
 
-		final String endpoint = "http://localhost:2000/api/v1/user/update";
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/update";
 
 		try {
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Usuario> httpEntity = new HttpEntity<Usuario>(entity);
+			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity);
 
 			final ResponseEntity<Boolean> responseEntity = restTemplate.exchange(endpoint, HttpMethod.PUT, httpEntity,
 					Boolean.class);
@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
 
 		boolean response = false;
 
-		final String endpoint = "http://localhost:2000/api/v1/user/delete/" + id;
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/delete/" + id;
 
 		try {
 			final RestTemplate restTemplate = new RestTemplate();

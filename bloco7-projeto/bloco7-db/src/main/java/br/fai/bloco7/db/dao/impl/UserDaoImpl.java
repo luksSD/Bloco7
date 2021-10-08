@@ -42,6 +42,7 @@ public class UserDaoImpl implements UserDao {
 				user.setCelular(resultSet.getString("celular"));
 				user.setSenha(resultSet.getString("senha"));
 				user.setEmail(resultSet.getString("email"));
+				user.setPessoaId(resultSet.getLong("pessoa_id"));
 
 				users.add(user);
 
@@ -82,6 +83,7 @@ public class UserDaoImpl implements UserDao {
 				user.setCelular(resultSet.getString("celular"));
 				user.setSenha(resultSet.getString("senha"));
 				user.setEmail(resultSet.getString("email"));
+				user.setPessoaId(resultSet.getLong("pessoa_id"));
 
 			}
 

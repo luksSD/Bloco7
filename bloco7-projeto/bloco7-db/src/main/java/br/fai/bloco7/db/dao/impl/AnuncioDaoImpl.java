@@ -50,6 +50,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
+				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 
 				anuncios.add(anuncio);
 
@@ -100,6 +101,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
+				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 
 			}
 
