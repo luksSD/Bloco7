@@ -60,7 +60,7 @@ CREATE TABLE anuncio
     tipo_propriedade VARCHAR (50) not null,
     status VARCHAR (50) not null,
     area integer,
-    valor VARCHAR (20) not null,
+    preco real not null,
     endereco VARCHAR (200) not null,
     bairro VARCHAR (20) not null,
     cep VARCHAR (20) not null,
@@ -162,16 +162,16 @@ INSERT INTO usuario (id , senha, email, celular, pessoa_id)
 
 
  INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, valor , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
  values ('1' , 'Linda casa em bairro familiar' , '4' , '2' , '2' , 'Casa' , 'Alugar' , '1000', '2000' ,'Rua Francisco Nº 30' , 'Centro' , '37550-000' , '1' , '1');
 
 
 INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, valor , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
  values ('2' , 'Ap. para solteiro' , '1' , '1' , '0' , 'Apartamento' , 'Alugar' , '100', '500', 'Rua João Nº 60' , 'Fatima' , '37550-000' , '2' , '2');
 
  INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, valor , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
  values ('3' , 'Alugo casa que aceita animais' , '2' , '1' , '1' , 'Casa' , 'Alugar' , '500', '1500' ,'Rua Roberto Nº 145' , 'Bento' , '37550-000' , '3' , '3');
 
 

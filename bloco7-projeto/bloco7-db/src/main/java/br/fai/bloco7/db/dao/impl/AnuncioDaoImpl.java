@@ -39,16 +39,26 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 				final Anuncio anuncio = new Anuncio();
 				anuncio.setId(resultSet.getLong("id"));
-				anuncio.setTipo(resultSet.getString("tipo"));
+				anuncio.setDescricao(resultSet.getString("descricao"));
+				anuncio.setQuartos(resultSet.getInt("quartos"));
+				anuncio.setBanheiros(resultSet.getInt("banheiros"));
+				anuncio.setVaga_garagem(resultSet.getInt("vaga_garagem"));
+				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
+				anuncio.setStatus(resultSet.getString("status"));
+				anuncio.setArea(resultSet.getInt("area"));
 				anuncio.setPreco(resultSet.getFloat("preco"));
-				anuncio.setLogradouroAnuncio(resultSet.getString("logradouro"));
+				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
+				anuncio.setCep(resultSet.getString("cep"));
+				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 
 				anuncios.add(anuncio);
 
 			}
 
 		} catch (final Exception e) {
+
+			System.out.println(e.getMessage());
 
 		} finally {
 			ConnectionFactory.close(resultSet, preparedStatement, connection);
@@ -69,7 +79,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM pessoa where id = ?";
+			final String sql = "SELECT * FROM anuncio where id = ?";
 
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setLong(1, id);
@@ -81,10 +91,17 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio = new Anuncio();
 				anuncio.setId(resultSet.getLong("id"));
 				anuncio.setDescricao(resultSet.getString("descricao"));
-				anuncio.setTipo(resultSet.getString("tipo"));
+				anuncio.setQuartos(resultSet.getInt("quartos"));
+				anuncio.setBanheiros(resultSet.getInt("banheiros"));
+				anuncio.setVaga_garagem(resultSet.getInt("vaga_garagem"));
+				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
+				anuncio.setStatus(resultSet.getString("status"));
+				anuncio.setArea(resultSet.getInt("area"));
 				anuncio.setPreco(resultSet.getFloat("preco"));
-				anuncio.setLogradouroAnuncio(resultSet.getString("logradouro"));
+				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
+				anuncio.setCep(resultSet.getString("cep"));
+				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 
 			}
 
@@ -105,9 +122,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		ResultSet resultSet = null;
 
 		String sql = "INSERT INTO anuncio";
-		sql += " (descricao, tipo, preco,";
-		sql += " logradouro, numero, bairro, cep, cidadeId, usuario_anunciante_id)";
-		sql += "VALUES(?,?,?,?,?,?,?,?,?)";
+		sql += " (descricao, quartos, banheiros,";
+		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidadeId, usuarioAnuncianteId)";
+		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		Long id = Long.valueOf(-1);
 
@@ -119,14 +136,18 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			preparedStatement.setString(1, entity.getDescricao());
-			preparedStatement.setString(2, entity.getTipo());
-			preparedStatement.setFloat(3, entity.getPreco());
-			preparedStatement.setString(4, entity.getLogradouroAnuncio());
-			preparedStatement.setString(5, entity.getNumero());
-			preparedStatement.setString(6, entity.getBairro());
-			preparedStatement.setString(7, entity.getCep());
-			preparedStatement.setLong(8, entity.getCidadeId());
-			preparedStatement.setLong(9, entity.getUsuarioAnuncianteId());
+			preparedStatement.setInt(2, entity.getQuartos());
+			preparedStatement.setInt(3, entity.getBanheiros());
+			preparedStatement.setInt(4, entity.getVaga_garagem());
+			preparedStatement.setString(5, entity.getTipo_propriedade());
+			preparedStatement.setString(6, entity.getStatus());
+			preparedStatement.setInt(7, entity.getArea());
+			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(9, entity.getEndereco());
+			preparedStatement.setString(10, entity.getBairro());
+			preparedStatement.setString(11, entity.getCep());
+			preparedStatement.setLong(12, entity.getCidadeId());
+			preparedStatement.setLong(13, entity.getUsuarioAnuncianteId());
 
 			preparedStatement.execute();
 
@@ -158,10 +179,14 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		String sql = "UPDATE anuncio SET";
 		sql += " descricao = ?,";
-		sql += " tipo = ?,";
+		sql += " quartos = ?,";
+		sql += " banheiros = ?,";
+		sql += " vaga_garagem = ?,";
+		sql += " tipo_propriedade = ?,";
+		sql += " status = ?,";
+		sql += " area = ?,";
 		sql += " preco = ?,";
-		sql += " logradouro = ?,";
-		sql += " numero = ?,";
+		sql += " endereco = ?,";
 		sql += " bairro = ?,";
 		sql += " cep = ?,";
 		sql += " cidade_id = ?,";
@@ -175,13 +200,17 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			preparedStatement.setString(1, entity.getDescricao());
-			preparedStatement.setString(2, entity.getTipo());
-			preparedStatement.setFloat(3, entity.getPreco());
-			preparedStatement.setString(4, entity.getLogradouroAnuncio());
-			preparedStatement.setString(5, entity.getNumero());
-			preparedStatement.setString(6, entity.getBairro());
-			preparedStatement.setString(7, entity.getCep());
-			preparedStatement.setLong(8, entity.getCidadeId());
+			preparedStatement.setInt(2, entity.getQuartos());
+			preparedStatement.setInt(3, entity.getBanheiros());
+			preparedStatement.setInt(4, entity.getVaga_garagem());
+			preparedStatement.setString(5, entity.getTipo_propriedade());
+			preparedStatement.setString(6, entity.getStatus());
+			preparedStatement.setInt(7, entity.getArea());
+			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(9, entity.getEndereco());
+			preparedStatement.setString(10, entity.getBairro());
+			preparedStatement.setString(11, entity.getCep());
+			preparedStatement.setLong(12, entity.getCidadeId());
 
 			preparedStatement.execute();
 
