@@ -68,7 +68,7 @@
 								<div class="card-overlay-a-content">
 									<div class="card-header-a">
 										<h2 class="card-title-a">
-											<a href="#" th:text="${anuncio.bairro}">Aqui vai o bairro</a>
+											<a th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}"> <span th:text="${anuncio.nomeCidade}"> Cidade aqui</span> <br> <span th:text="${anuncio.bairro}"> Bairro aqui</span> </a>
 										</h2>
 									</div>
 									<div class="card-body-a">
