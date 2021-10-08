@@ -1484,3 +1484,22 @@ footer .copyright-footer {
 footer .credits {
   font-size: 14px;
 }
+
+
+.space{
+	margin-top: 100px;
+	
+	padding: 40px;
+	background-color: white;
+	border-radius: 30px;
+	height: 100%;
+}
+
+@media(max-width: 768px){
+	.space{
+		margin-left:10px;
+		margin-right:10px;
+		height: 90%
+	}
+}
+

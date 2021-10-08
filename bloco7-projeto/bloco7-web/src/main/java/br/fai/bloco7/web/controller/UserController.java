@@ -63,5 +63,12 @@ public class UserController {
 
 		return getListPage(model);
 	}
+	
+	
+	@GetMapping("/login")
+	public String login() {
+		return "user/login";
+	}
+	
 
 }
