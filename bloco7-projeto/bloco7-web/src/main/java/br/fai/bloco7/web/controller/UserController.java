@@ -70,5 +70,11 @@ public class UserController {
 		return "user/login";
 	}
 	
+	
+	@GetMapping("/create")
+	public String create() {
+		return "user/create";
+	}
+	
 
 }
