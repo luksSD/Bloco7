@@ -15,9 +15,18 @@ public class Anuncio extends BasePojo {
 	private String cep;
 	private Long cidadeId;
 	private Long usuarioAnuncianteId;
+	private String nomeCidade;
 
 	public String getDescricao() {
 		return descricao;
+	}
+
+	public String getNomeCidade() {
+		return nomeCidade;
+	}
+
+	public void setNomeCidade(final String nomeCidade) {
+		this.nomeCidade = nomeCidade;
 	}
 
 	public void setDescricao(final String descricao) {

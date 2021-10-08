@@ -19,7 +19,7 @@
 
 				<!-- Primeiro elemento do carrossel -->
 				<div class="swiper-slide carousel-item-a intro-item bg-image"
-					style="background-image: url(resources/img/slide-1.jpg)">
+					style="background-image: url(resources/img/slide-1.jpg)"  th:each="anuncio : ${listaDeAnuncio}">
 					<div class="overlay overlay-a"></div>
 					<div class="intro-content display-table">
 						<div class="table-cell">
@@ -28,62 +28,10 @@
 									<div class="col-lg-8">
 										<div class="intro-body">
 											<h1 class="intro-title mb-4 ">
-												<span class="color-b">Ibirá </span> <br>Pouso Alegre
-											</h1>
+												<span class="color-b" th:text="${anuncio.bairro}">Ibirá </span> <br><span th:text="${anuncio.nomeCidade}">Nome da cidade</span></h1>
+											
 											<p class="intro-subtitle intro-price">
-												<a href="/anuncios/1"><span class="price-a">venda | R$
-														1.200.000</span></a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- 				Segundo elemento do carrossel -->
-				<div class="swiper-slide carousel-item-a intro-item bg-image"
-					style="background-image: url(resources/img/slide-2.jpg)">
-					<div class="overlay overlay-a"></div>
-					<div class="intro-content display-table">
-						<div class="table-cell">
-							<div class="container">
-								<div class="row">
-									<div class="col-lg-8">
-										<div class="intro-body">
-											<h1 class="intro-title mb-4">
-												<span class="color-b">Centro </span> <br> Santa Rita do
-												Sapucaí
-											</h1>
-											<p class="intro-subtitle intro-price">
-												<a href="#"><span class="price-a">aluguel | R$
-														12.000</span></a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- 				Terceiro elemento do carrossel -->
-				<div class="swiper-slide carousel-item-a intro-item bg-image"
-					style="background-image: url(resources/img/slide-3.jpg)">
-					<div class="overlay overlay-a"></div>
-					<div class="intro-content display-table">
-						<div class="table-cell">
-							<div class="container">
-								<div class="row">
-									<div class="col-lg-8">
-										<div class="intro-body">
-											<h1 class="intro-title mb-4">
-												<span class="color-b">Centro </span><br>Itajubá
-											</h1>
-											<p class="intro-subtitle intro-price">
-												<a href="#"><span class="price-a">aluguel | R$
-														12.000</span></a>
+												<a  th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}"><span class="price-a" th:text="${anuncio.status + ' | R$ ' + anuncio.preco} "></span></a>
 											</p>
 										</div>
 									</div>
