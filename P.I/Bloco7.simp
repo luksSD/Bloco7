@@ -27,7 +27,7 @@
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>1173</value>
+        <value>1208</value>
       </counter>
       <counter>
         <item-type type-id="package" type="Package" />
@@ -132,7 +132,7 @@
   </types>
   <items>
     <item id="a23116706be94985bf3b5a11341f5a8e" cid="PROP005" type="property" name="quartos" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:01" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -159,7 +159,7 @@
       <property />
     </item>
     <item id="f9bea16393c64051bed7974b97a2e688" cid="PROP004" type="property" name="descricao" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:22:39" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -186,7 +186,7 @@
       <property />
     </item>
     <item id="dafe9e835dfb4e218a8a0ed9b1dccbde" cid="PROP006" type="property" name="banheiros" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:09" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -213,7 +213,7 @@
       <property />
     </item>
     <item id="ed74dd701fe3415a9f5ee9c4e84d44e2" cid="PROP007" type="property" name="vaga_garagem" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:26" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -240,7 +240,7 @@
       <property />
     </item>
     <item id="9e0116b122294e699de21fe70a02cb45" cid="PROP008" type="property" name="tipo_propriedade" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:32" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -267,7 +267,7 @@
       <property />
     </item>
     <item id="b9b0f302788546678fb051cc0e1ee6f5" cid="PROP009" type="property" name="status" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:40" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -294,7 +294,7 @@
       <property />
     </item>
     <item id="db0b853d0a364311a6398dd768792a79" cid="PROP010" type="property" name="area" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:48" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -321,7 +321,7 @@
       <property />
     </item>
     <item id="c80127520b764a5e8a4a4096a1c7220d" cid="PROP011" type="property" name="preco" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:23:56" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -348,7 +348,7 @@
       <property />
     </item>
     <item id="e40965f5caa94bd98da7df51a2c839dc" cid="PROP012" type="property" name="endereco" style-class="" owner="f789590a63a34d839d5afe7f36d1d54a" creator="" creation-date="09/30/2021 00:24:07" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -389,7 +389,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-model" id="pa973fdcdafb7453aaa218bf1b62fba63_137428483" name="DPK-Bloco7-WEB-Visão-Geral" order-index="1" overview-order-index="7" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-150,25" zoom="0.6">
+      <diagram type="uml-model" id="pa973fdcdafb7453aaa218bf1b62fba63_137428483" name="DPK-Bloco7-WEB-Visão-Geral" order-index="1" overview-order-index="7" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-193,25" zoom="0.6">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -441,6 +441,8 @@
           <item id="f32eb2ae0a514f4db8bf950bb715ecd4" cid="DEP004" type="dependency" name="" style-class="" change-tracking-state="added" creator="" creation-date="09/23/2021 19:28:36" from="58585c804ed94792acbe697676f95d8a" to="c3046a9f554141db83b81b790f44db21" visibility="package" />
           <item id="c3046a9f554141db83b81b790f44db21" cid="PKG008" type="package" name="Model" style-class="" change-tracking-state="added" creator="" creation-date="09/23/2021 19:26:39" visibility="undefined">
             <owned-items>
+              <owned-item ref="di5482f9c734f9407686902460c3b2bd427054" />
+              <owned-item ref="033d9a832c94452288dbb0deb9d82471" />
               <owned-item ref="di5482f9c734f9407686902460c3b2bd427054" />
               <owned-item ref="033d9a832c94452288dbb0deb9d82471" />
             </owned-items>
@@ -521,7 +523,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-class" id="p8fadda4c424949afabf9c8ebf7187ced_152178328" name="Bloco7-Model:Entity" order-index="2" overview-order-index="23" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="91,46" zoom="0.7">
+      <diagram type="uml-class" id="p8fadda4c424949afabf9c8ebf7187ced_152178328" name="Bloco7-Model:Entity" order-index="2" overview-order-index="23" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="31,-44" zoom="0.7">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -590,6 +592,15 @@
               <owned-item ref="d89eebdd28fe4350934abd777ceeeb08" />
               <owned-item ref="128811d6e8424c45b3978655899780e0" />
               <owned-item ref="517e2d4a0ba341539de19df4b4e797cf" />
+              <owned-item ref="a23116706be94985bf3b5a11341f5a8e" />
+              <owned-item ref="f9bea16393c64051bed7974b97a2e688" />
+              <owned-item ref="dafe9e835dfb4e218a8a0ed9b1dccbde" />
+              <owned-item ref="ed74dd701fe3415a9f5ee9c4e84d44e2" />
+              <owned-item ref="9e0116b122294e699de21fe70a02cb45" />
+              <owned-item ref="b9b0f302788546678fb051cc0e1ee6f5" />
+              <owned-item ref="db0b853d0a364311a6398dd768792a79" />
+              <owned-item ref="c80127520b764a5e8a4a4096a1c7220d" />
+              <owned-item ref="e40965f5caa94bd98da7df51a2c839dc" />
             </owned-items>
             <attributes>
               <attribute id="a3208dc6156944a9483d60730e75bacd8236" cid="PROP004" name="descricao" creation-date="09/30/2021 00:22:39" property-ref="f9bea16393c64051bed7974b97a2e688" />
@@ -1149,7 +1160,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-package" id="pfb3206ade9d341b9a6623ac3e36262ad_208198651" name="DPK-Bloco7-API-Visão-Geral" order-index="4" overview-order-index="9" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-206,-118" zoom="0.5">
+      <diagram type="uml-package" id="pfb3206ade9d341b9a6623ac3e36262ad_208198651" name="DPK-Bloco7-API-Visão-Geral" order-index="4" overview-order-index="9" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-188,-50" zoom="0.5">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1256,7 +1267,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-package" id="p96c828be22a0403b92a89a3aca4313e8_441893455" name="DCL-Bloco7-API-Controller" order-index="5" overview-order-index="13" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-64,-65" zoom="0.7">
+      <diagram type="uml-package" id="p96c828be22a0403b92a89a3aca4313e8_441893455" name="DCL-Bloco7-API-Controller" order-index="5" overview-order-index="13" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-189,-69" zoom="0.6">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1389,6 +1400,13 @@
             </property>
           </item>
           <item id="dic06ce061b8f146c99adae2bd6a838bd66518" cid="C071" type="class" name="AnuncioRestController" style-class="" owner="fe496f3f9acc491f8113395aac46c43d" change-tracking-state="added" creation-date="09/30/2021 00:42:08" visibility="undefined">
+            <owned-items>
+              <owned-item ref="dicaeaccd1018247ee8f641e79feabdc9b6518" />
+              <owned-item ref="di66f8a8d2db094457a1cbbf494026029d6518" />
+              <owned-item ref="dic1fa931c350b47beb74f13fd3d7120286518" />
+              <owned-item ref="di071429bb01d243fd940335df73fe4fd76518" />
+              <owned-item ref="di1e9d35afe6c642179fe181f9730a48076518" />
+            </owned-items>
             <attributes>
               <attribute id="a9e372b11f71d47edaf53b6457d232147528" cid="PROP053" name="readAll()" creation-date="10/08/2021 12:26:11" property-ref="dicaeaccd1018247ee8f641e79feabdc9b6518" />
               <attribute id="af24ffbd26e394183a4cb19d2e5fa30da196" cid="PROP054" name="readById()" creation-date="10/08/2021 12:26:20" property-ref="di66f8a8d2db094457a1cbbf494026029d6518" />
@@ -1455,6 +1473,13 @@
             </property>
           </item>
           <item id="di72ca23c8ef1840b8b707a573220f159d7110" cid="C072" type="class" name="PessoaRestController" style-class="" owner="fe496f3f9acc491f8113395aac46c43d" change-tracking-state="added" creation-date="09/30/2021 00:42:08" visibility="undefined">
+            <owned-items>
+              <owned-item ref="dic011376cd65943908c462bb83d1502f17110" />
+              <owned-item ref="dif0858ef9ec6e4206835b8bd68b571ee07110" />
+              <owned-item ref="difc3a8d9cc23d4e4f9f57d53b6918fc7e7110" />
+              <owned-item ref="di7f58dfc9ed924d699b31fdd455f3edbb7110" />
+              <owned-item ref="di780b18d6bb7443f4a182fa63ac79d1567110" />
+            </owned-items>
             <attributes>
               <attribute id="a9e372b11f71d47edaf53b6457d232147528" cid="PROP059" name="readAll()" creation-date="10/08/2021 12:26:11" property-ref="dic011376cd65943908c462bb83d1502f17110" />
               <attribute id="af24ffbd26e394183a4cb19d2e5fa30da196" cid="PROP060" name="readById()" creation-date="10/08/2021 12:26:20" property-ref="dif0858ef9ec6e4206835b8bd68b571ee07110" />
@@ -1548,7 +1573,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-class" id="p20dd57b92808436699e00983ac315c60_252879812" name="DCL-Bloco7-API-Service" order-index="6" overview-order-index="11" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="123,0" zoom="0.7">
+      <diagram type="uml-class" id="p20dd57b92808436699e00983ac315c60_252879812" name="DCL-Bloco7-API-Service" order-index="6" overview-order-index="11" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" zoom="0.7">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1560,7 +1585,7 @@
           </authors>
           <description />
           <creation-date>09/30/2021 00:43:27</creation-date>
-          <change-date>10/08/2021 12:16:26</change-date>
+          <change-date>10/08/2021 23:31:25</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -1683,14 +1708,6 @@
           </item>
           <item id="di179c868acaf64f048b9595044f46357e9044" cid="C035" type="class" name="PessoaServiceImpl" style-class="" owner="cda949a566af4b6384b288e86c6fc2b5" change-tracking-state="added" creation-date="09/30/2021 00:44:10" visibility="undefined" />
           <item id="di23fe2f79b42f4c2081728e32810abbd59044" cid="REA009" type="realization" name="" style-class="" change-tracking-state="added" creation-date="09/16/2021 19:45:29" from="di179c868acaf64f048b9595044f46357e9044" to="dic4658f1d79c04518b2dd63835d12eab59044" visibility="package" />
-          <item id="d24cd5754e3b4c748f8efb880f07704d" cid="ELEM001" type="usage" name="" style-class="" change-tracking-state="added" creation-date="10/08/2021 12:16:26" from="cda949a566af4b6384b288e86c6fc2b5" to="cda949a566af4b6384b288e86c6fc2b5" visibility="package">
-            <stereotypes>
-              <stereotype name="use" />
-            </stereotypes>
-            <stereotype-instances>
-              <stereotype id="d24cd5754e3b4c748f8efb880f07704d_use_c" type="use" ref="" />
-            </stereotype-instances>
-          </item>
         </abstract-items>
         <layer id="30ad16bb29ca4856a820c81f53c526a8" name="Default" visible="true" enabled="true" locked="false">
           <item id="cda949a566af4b6384b288e86c6fc2b5" iid="0b478394ca9446edb7852337f831a6e6" creation-date="09/30/2021 00:43:30" order-index="0" type="entity">
@@ -1765,20 +1782,9 @@
             </layout>
             <relation from="di179c868acaf64f048b9595044f46357e9044" from-iid="0f50c5b2377049bb9bc77cae8e91857d" to="dic4658f1d79c04518b2dd63835d12eab59044" to-iid="e202ccd54a2748899c9b56cf4fe9171a" />
           </item>
-          <item id="d24cd5754e3b4c748f8efb880f07704d" iid="fa2894038b914b26a75ff47354a69853" creation-date="10/08/2021 12:16:26" order-index="7" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="514" y1="157" x2="514" y2="157" start-border-pos="0.0597652081109925" end-border-pos="0.0597652081109925" start-local-pos="224" end-local-pos="224" name-position="0,20">
-              <points>
-                <point x="514" y="157" />
-                <point x="514" y="107" />
-                <point x="514" y="107" />
-                <point x="514" y="157" />
-              </points>
-            </layout>
-            <relation from="cda949a566af4b6384b288e86c6fc2b5" from-iid="0b478394ca9446edb7852337f831a6e6" to="cda949a566af4b6384b288e86c6fc2b5" to-iid="0b478394ca9446edb7852337f831a6e6" />
-          </item>
         </layer>
       </diagram>
-      <diagram type="uml-class" id="p46b2e48d9f6b462194e02b37d20a0441_129837526" name="DLC-Bloco7-DB-DAO" order-index="7" overview-order-index="14" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="67,31" zoom="0.7">
+      <diagram type="uml-class" id="p46b2e48d9f6b462194e02b37d20a0441_129837526" name="DLC-Bloco7-DB-DAO" order-index="7" overview-order-index="14" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="144,-55" zoom="0.7">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1944,7 +1950,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-package" id="pa26a7782267e482d948ee435c853322d_972476081" name="DCL-Bloco7-WEB-Controller" order-index="8" overview-order-index="28" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-198,-44" zoom="0.6">
+      <diagram type="uml-package" id="pa26a7782267e482d948ee435c853322d_972476081" name="DCL-Bloco7-WEB-Controller" order-index="8" overview-order-index="28" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-198,-49" zoom="0.6">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1961,7 +1967,13 @@
           <version />
         </meta>
         <abstract-items>
-          <item id="di8912facde44c4169be17442021f682b08987" cid="PKG030" type="package" name="Bloco7-Controller" style-class="" change-tracking-state="added" creation-date="09/30/2021 00:41:18" visibility="undefined" />
+          <item id="di8912facde44c4169be17442021f682b08987" cid="PKG030" type="package" name="Bloco7-Web-Controller" style-class="" change-tracking-state="added" creation-date="09/30/2021 00:41:18" visibility="undefined">
+            <owned-items>
+              <owned-item ref="dif8bd77a3698345c5817c032c84679be98987" />
+              <owned-item ref="di13624d2e9983420888f727008edca3143217" />
+              <owned-item ref="die2651d837ec54d3f88255a2639f481183217" />
+            </owned-items>
+          </item>
           <item id="dif8bd77a3698345c5817c032c84679be98987" cid="C038" type="class" name="AnuncioController" style-class="" owner="di8912facde44c4169be17442021f682b08987" change-tracking-state="added" creation-date="09/30/2021 00:42:08" visibility="undefined">
             <source-codes>
               <source-code language="ActionScript" />
@@ -2038,7 +2050,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-class" id="p6f5ba50c2fd2494692a41b1a1d063a04_275298440" name="DCL-Bloco7-WEB-Service" order-index="9" overview-order-index="24" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="67,17" zoom="0.7">
+      <diagram type="uml-class" id="p6f5ba50c2fd2494692a41b1a1d063a04_275298440" name="DCL-Bloco7-WEB-Service" order-index="9" overview-order-index="24" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-33,17" zoom="0.7">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -2055,7 +2067,18 @@
           <version />
         </meta>
         <abstract-items>
-          <item id="diaab0d0ca8d914da1952814962e0c578c2907" cid="PKG032" type="package" name="Bloco7-API-Service" style-class="" change-tracking-state="added" creation-date="09/30/2021 00:43:30" visibility="undefined" />
+          <item id="diaab0d0ca8d914da1952814962e0c578c2907" cid="PKG032" type="package" name="Bloco7-WEB-Service" style-class="" change-tracking-state="added" creation-date="09/30/2021 00:43:30" visibility="undefined">
+            <owned-items>
+              <owned-item ref="dia0680e9e6e844336be1631b3ea6f8ef12907" />
+              <owned-item ref="did6c89d028a704f209d9ec4d951f7de202907" />
+              <owned-item ref="di3a725dbce27646d3a3819287002805692907" />
+              <owned-item ref="di408089244be94da8a5df449e155001e42907" />
+              <owned-item ref="di6bd5c47d25cc441da3379e735c4ead6e2907" />
+              <owned-item ref="di334e33cba9b645c9a5588e098f7163f12907" />
+              <owned-item ref="did6114efc6605469c99e50136dd5f9d222907" />
+              <owned-item ref="dicf929f529f42424abf8d1b478d551a572907" />
+            </owned-items>
+          </item>
           <item id="dia0680e9e6e844336be1631b3ea6f8ef12907" cid="C042" type="class" name="UserService" style-class="" owner="diaab0d0ca8d914da1952814962e0c578c2907" change-tracking-state="added" creation-date="09/30/2021 00:44:00" visibility="undefined">
             <operations>
               <operation id="oc5ed92de279d4929ae7999d7658979a2282" cid="OP001" name="readById" creation-date="09/30/2021 00:48:39" type="" type-id="" visibility="undefined">
@@ -2226,7 +2249,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-package" id="paa187d04308c48d4b02252df92782613_714330925" name="DCL-Bloco7-WEB-View" order-index="10" overview-order-index="29" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-54,22" zoom="0.5">
+      <diagram type="uml-package" id="paa187d04308c48d4b02252df92782613_714330925" name="DCL-Bloco7-WEB-View" order-index="10" overview-order-index="29" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-66,22" zoom="0.5">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -2252,7 +2275,7 @@
               <owned-item ref="35c36791fbc24a6694cdf307fd86e7aa" />
             </owned-items>
           </item>
-          <item id="6a89473b349b41b787b19a806134b4a9" cid="PKG035" type="package" name="Anuncio" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:09:49">
+          <item id="6a89473b349b41b787b19a806134b4a9" cid="PKG035" type="package" name="Anuncio" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:09:49" visibility="undefined">
             <owned-items>
               <owned-item ref="38845d63ecea4b089b43af4bfdfd945d" />
               <owned-item ref="535bf781254748538b71c95f531d2b25" />
@@ -2286,8 +2309,8 @@
             </style>
           </item>
           <item id="diaacb8cc1c62e49d6af6339f7a6dbf7615135" cid="DEP011" type="dependency" name="" style-class="" change-tracking-state="added" creation-date="09/24/2021 09:14:43" from="di3088046b1eca4c07ba6d81a38a892ecd5135" to="di8e5738c17f434134ac71fec91884a2b35135" visibility="package" />
-          <item id="38845d63ecea4b089b43af4bfdfd945d" cid="C053" type="class" name="anuncios-grid" style-class="" owner="6a89473b349b41b787b19a806134b4a9" change-tracking-state="added" creation-date="10/08/2021 12:10:23" />
-          <item id="535bf781254748538b71c95f531d2b25" cid="C054" type="class" name="anuncio-single" style-class="" owner="6a89473b349b41b787b19a806134b4a9" change-tracking-state="added" creation-date="10/08/2021 12:10:33" />
+          <item id="38845d63ecea4b089b43af4bfdfd945d" cid="C053" type="class" name="anuncios-grid" style-class="" owner="6a89473b349b41b787b19a806134b4a9" change-tracking-state="added" creation-date="10/08/2021 12:10:23" visibility="undefined" />
+          <item id="535bf781254748538b71c95f531d2b25" cid="C054" type="class" name="anuncio-single" style-class="" owner="6a89473b349b41b787b19a806134b4a9" change-tracking-state="added" creation-date="10/08/2021 12:10:33" visibility="undefined" />
           <item id="di49750a536471453b930787790be1d06a7407" cid="C058" type="class" name="detail" style-class="" owner="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" change-tracking-state="added" creation-date="10/08/2021 12:10:33" visibility="undefined" />
           <item id="di03a30c88dd394a20a9b530577383e2b57407" cid="C057" type="class" name="create" style-class="" owner="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" change-tracking-state="added" creation-date="10/08/2021 12:10:23" visibility="undefined" />
           <item id="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" cid="PKG037" type="package" name="User" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:09:49" visibility="undefined">
@@ -2295,14 +2318,16 @@
               <owned-item ref="dif2b621682f4d4853937722f265dfeebf5385" />
               <owned-item ref="dife922ec0b50049ccbeab628300d7aab55385" />
               <owned-item ref="f85fa90c1c154345a0b2da75e3e3c8c4" />
+              <owned-item ref="di49750a536471453b930787790be1d06a7407" />
+              <owned-item ref="di03a30c88dd394a20a9b530577383e2b57407" />
             </owned-items>
           </item>
-          <item id="f85fa90c1c154345a0b2da75e3e3c8c4" cid="C063" type="class" name="login" style-class="" owner="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" change-tracking-state="added" creation-date="10/08/2021 12:12:42" />
+          <item id="f85fa90c1c154345a0b2da75e3e3c8c4" cid="C063" type="class" name="login" style-class="" owner="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" change-tracking-state="added" creation-date="10/08/2021 12:12:42" visibility="undefined" />
           <item id="dife922ec0b50049ccbeab628300d7aab55385" cid="C062" type="class" name="list" style-class="" owner="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" change-tracking-state="added" creation-date="10/08/2021 12:10:33" visibility="undefined" />
           <item id="dif2b621682f4d4853937722f265dfeebf5385" cid="C061" type="class" name="edit" style-class="" owner="di0e7a5ebf9aa94b3ab6804eb4d649b7e37407" change-tracking-state="added" creation-date="10/08/2021 12:10:23" visibility="undefined" />
-          <item id="25bbca45e9be487698b1469218d70e17" cid="C064" type="class" name="Home" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:14:03" />
-          <item id="2049b4e891c648bdb55e722635dac26a" cid="C065" type="class" name="Layout" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:14:19" />
-          <item id="35c36791fbc24a6694cdf307fd86e7aa" cid="C066" type="class" name="Layout-painel" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:14:43" />
+          <item id="25bbca45e9be487698b1469218d70e17" cid="C064" type="class" name="Home" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:14:03" visibility="undefined" />
+          <item id="2049b4e891c648bdb55e722635dac26a" cid="C065" type="class" name="Layout" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:14:19" visibility="undefined" />
+          <item id="35c36791fbc24a6694cdf307fd86e7aa" cid="C066" type="class" name="Layout-painel" style-class="" owner="di3088046b1eca4c07ba6d81a38a892ecd5135" change-tracking-state="added" creation-date="10/08/2021 12:14:43" visibility="undefined" />
         </abstract-items>
         <layer id="e64323f7502e40f49108ccd118e9254b" name="Default" visible="true" enabled="true" locked="false">
           <item id="di3088046b1eca4c07ba6d81a38a892ecd5135" iid="b52ebd4624c544f382171c76aa966e10" creation-date="09/30/2021 00:41:18" order-index="0" type="entity">
@@ -2314,7 +2339,7 @@
             <package name-in-body="false" />
           </item>
           <item id="diaacb8cc1c62e49d6af6339f7a6dbf7615135" iid="25abaed8ff21485ca471de250f047b55" creation-date="09/24/2021 09:14:43" order-index="3" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="260" y1="564" x2="36" y2="566" start-border-pos="0.859709478914738" end-border-pos="0.37390835585082" start-local-pos="184" end-local-pos="100.5" name-position="0,20">
+            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="260" y1="564" x2="36" y2="566" start-border-pos="0.859709478914738" end-border-pos="0.373908331576104" start-local-pos="184" end-local-pos="100.5" name-position="0,20">
               <points>
                 <point x="260" y="564" />
                 <point x="36" y="566" />
@@ -2372,7 +2397,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-package" id="p1183ad61d68d46fa86b29614c2292c08_879997059" name="DLC-Bloco7-DB-Connection" order-index="11" overview-order-index="30" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-177,0" zoom="0.7">
+      <diagram type="uml-package" id="p1183ad61d68d46fa86b29614c2292c08_879997059" name="DLC-Bloco7-DB-Connection" order-index="11" overview-order-index="30" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-280,-6" zoom="0.7">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -2389,7 +2414,11 @@
           <version />
         </meta>
         <abstract-items>
-          <item id="dibce5e197e45742d49a45dd96da92bd1d7671" cid="PKG039" type="package" name="Bloco7-Connection" style-class="" change-tracking-state="added" creation-date="09/30/2021 00:41:18" visibility="undefined" />
+          <item id="dibce5e197e45742d49a45dd96da92bd1d7671" cid="PKG039" type="package" name="Bloco7-Connection" style-class="" change-tracking-state="added" creation-date="09/30/2021 00:41:18" visibility="undefined">
+            <owned-items>
+              <owned-item ref="di4d4ceaac55ad400fa5e426de1252fb257671" />
+            </owned-items>
+          </item>
           <item id="c9dda957c5fd414dbd41290d02b004f9" cid="PROP043" type="property" name="getConnection()" style-class="" owner="di4d4ceaac55ad400fa5e426de1252fb257671" creation-date="10/08/2021 12:23:56" visibility="private">
             <feature />
             <structural-feature type="" type-id="" />
@@ -2452,6 +2481,9 @@
               <owned-item ref="32b17dc28d464214b8b954ec093aa039" />
               <owned-item ref="cf24cc78dd6945e5bb8ebf59bc84da9e" />
               <owned-item ref="385cbd0a2611453ca69fcc423117162a" />
+              <owned-item ref="c9dda957c5fd414dbd41290d02b004f9" />
+              <owned-item ref="1eb48d985b684bb38d475758446c60ea" />
+              <owned-item ref="32b17dc28d464214b8b954ec093aa039" />
             </owned-items>
             <attributes>
               <attribute id="a6ed5aff3a0b54a41b0e393a7f5b507cd307" cid="PROP043" name="getConnection()" creation-date="10/08/2021 12:23:56" property-ref="c9dda957c5fd414dbd41290d02b004f9" />
