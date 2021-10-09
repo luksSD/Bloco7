@@ -223,4 +223,47 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	@Override
+	public Usuario authentication(Usuario entity) {
+		
+		Usuario user = null;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		String sql = "select * from usuario where ";
+		sql += " email = ?,";
+		sql += " and senha = ?,";
+
+		try {
+
+			connection = ConnectionFactory.getConnection();
+			connection.setAutoCommit(false);
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, entity.getEmail());
+			preparedStatement.setString(2, entity.getSenha());
+
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+
+				user = new Usuario();
+				user.setId(resultSet.getLong("id"));
+				user.setEmail(resultSet.getString("email"));
+				user.setSenha(resultSet.getString("senha"));
+
+			}
+			return user;
+		} catch (final Exception e) {
+
+		} finally {
+			ConnectionFactory.close(resultSet, preparedStatement, connection);
+		}
+		
+		return user;
+	}
+
 }

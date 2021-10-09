@@ -50,4 +50,15 @@ public class UserServiceImpl implements UserService {
 		return dao.delete(id);
 	}
 
+	@Override
+	public Usuario authentication(Usuario entity) {
+		
+		if(entity==null) {
+			return null;
+		}else {
+			return dao.authentication(entity);
+		}
+		
+	}
+
 }

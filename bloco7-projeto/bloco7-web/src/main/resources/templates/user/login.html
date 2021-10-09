@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="~{Layout}">
 <head>
 <meta charset="UTF-8">
 <title>Bloco 7 | Login</title>
@@ -18,8 +18,7 @@
 
 </head>
 <body style="background-color: #ffce00">
-	
-	<div class="container">
+	<div layout:fragment="body" class="container" style="margin-top:40px">
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6 space">
@@ -31,19 +30,20 @@
 				<center><h3>Faça seu login</h3></center>
 				<br>
 				<br>	
-				<form>
+				<form th:action="@{/user/authentication}" method="POST" th:object="${usuario}">
 					<label for="email">E-mail:</label>
-					<input id="email" type="email" required class="form-control" placeholder="Digite seu e-mail">
+					<input id="email" type="email" required class="form-control" placeholder="Digite seu e-mail"
+					th:field="${usuario.email}" />
 					<br>
 					
 					<label for="senha">Senha:</label>
-					<input id="senha" type="password" required class="form-control" placeholder="Digite sua senha">
+					<input id="senha" type="password" required class="form-control" placeholder="Digite sua senha"
+					th:field="${usuario.senha}" />
 					<br>
 					<center><button class="btn btn-primary " type="submit">Entrar</button></center>
 				</form>
 				
 				<br>
-				<center><a th:href="@{/user/create}">Não possui uma conta? Cadastre-se já!</a></center>
 				
 			</div>
 			<div class="col-md-3"></div>

@@ -59,4 +59,12 @@ public class UserRestController {
 		return ResponseEntity.ok(service.delete(id));
 
 	}
+	
+	
+	@GetMapping("/authentication/{usuario}")
+	public ResponseEntity<Usuario> authentication(@PathVariable("usuario") Usuario usuario){
+		return ResponseEntity.ok(service.authentication(usuario));
+	}
+	
+	
 }

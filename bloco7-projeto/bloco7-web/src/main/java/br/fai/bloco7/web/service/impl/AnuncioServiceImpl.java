@@ -40,9 +40,26 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public Long create(final Anuncio entity) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long create( Anuncio entity) {
+
+		Long id = Long.valueOf(-1);
+
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/create";
+
+		try {
+
+			final RestTemplate restTemplate = new RestTemplate();
+			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(entity);
+			final ResponseEntity<Long> responseEntity = restTemplate.exchange(endpoint, HttpMethod.POST, httpEntity,
+					Long.class);
+			id = responseEntity.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return id;
+
 	}
 
 	@Override

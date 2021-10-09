@@ -15,5 +15,7 @@ public interface UserService {
 	boolean update(Usuario entity);
 
 	boolean deleteById(Long id);
+	
+	Usuario authentication (Usuario entity);
 
 }

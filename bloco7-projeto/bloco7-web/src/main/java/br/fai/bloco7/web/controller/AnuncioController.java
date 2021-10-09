@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.fai.bloco7.model.Anuncio;
@@ -33,6 +34,11 @@ public class AnuncioController {
 
 	@Autowired
 	private CidadeService cidadeService;
+	
+	@GetMapping("/register")
+	public String getRegisterPage(Anuncio anuncio) {
+		return "anuncio/register";
+	}
 
 	@GetMapping("/listar")
 	public String getAnuncioGridPage(final Model model) {
@@ -42,6 +48,17 @@ public class AnuncioController {
 		model.addAttribute("listaDeAnuncio", anuncios);
 
 		return "anuncio/anuncios-grid";
+	}
+	
+	
+	@GetMapping("/listar-logado")
+	public String getAnuncioGridPageLogado(final Model model) {
+
+		final List<Anuncio> anuncios = anuncioService.readAll();
+
+		model.addAttribute("listaDeAnuncio", anuncios);
+
+		return "anuncio/anuncios-grid-logado";
 	}
 
 	@GetMapping("/detalhes/{id}")
@@ -61,6 +78,19 @@ public class AnuncioController {
 		cidadeModel.addAttribute("cidade", cidade);
 
 		return "anuncio/anuncio-single";
+	}
+	
+	
+	@PostMapping("/create")
+	public String createAnuncio(Anuncio anuncio) {
+
+		final Long id = anuncioService.create(anuncio);
+
+		if (id != -1) {
+			return "redirect:/anuncios/listar-logado";
+		}
+
+		return "redirect:/dashboard/";
 	}
 
 }
