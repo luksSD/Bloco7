@@ -52,7 +52,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
-				anuncio.setNomeCidade(resultSet.getString("nome"));
+				
 
 				anuncios.add(anuncio);
 
@@ -126,7 +126,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		String sql = "INSERT INTO anuncio";
 		sql += " (descricao, quartos, banheiros,";
-		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidadeId, usuarioAnuncianteId)";
+		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)";
 		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		Long id = Long.valueOf(-1);
@@ -138,19 +138,19 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, entity.getDescricao());
+			preparedStatement.setString(1, "casa linda");
 			preparedStatement.setInt(2, entity.getQuartos());
 			preparedStatement.setInt(3, entity.getBanheiros());
 			preparedStatement.setInt(4, entity.getVaga_garagem());
-			preparedStatement.setString(5, entity.getTipo_propriedade());
-			preparedStatement.setString(6, entity.getStatus());
+			preparedStatement.setString(5, "Apartamento");
+			preparedStatement.setString(6, "Alugar");
 			preparedStatement.setInt(7, entity.getArea());
 			preparedStatement.setFloat(8, entity.getPreco());
 			preparedStatement.setString(9, entity.getEndereco());
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
-			preparedStatement.setLong(12, entity.getCidadeId());
-			preparedStatement.setLong(13, entity.getUsuarioAnuncianteId());
+			preparedStatement.setLong(12, 1);
+			preparedStatement.setLong(13, 1);
 
 			preparedStatement.execute();
 

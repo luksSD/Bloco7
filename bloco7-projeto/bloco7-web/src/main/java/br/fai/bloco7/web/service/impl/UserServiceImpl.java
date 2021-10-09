@@ -135,4 +135,31 @@ public class UserServiceImpl implements UserService {
 		return response;
 	}
 
+	@Override
+	public Usuario authentication(Usuario entity) {
+		
+		Usuario response = null;
+				
+		String endpoint = "http://localhost:2000/api/v1/user/authentication/"+entity;
+		
+		
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+
+			final ResponseEntity<Usuario> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
+					Usuario.class);
+
+			response = requestResponse.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		
+		return response;
+		
+	}
+
 }

@@ -66,7 +66,7 @@ public class UserController {
 	
 	
 	@GetMapping("/login")
-	public String login() {
+	public String login(Usuario usuario) {
 		return "user/login";
 	}
 	
@@ -74,6 +74,13 @@ public class UserController {
 	@GetMapping("/create")
 	public String create() {
 		return "user/create";
+	}
+	
+	@PostMapping("/authentication")
+	public String authentication(Usuario usuario) {
+		
+		userService.authentication(usuario);
+		return "redirect:/dashboard/";
 	}
 	
 

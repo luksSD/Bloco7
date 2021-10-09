@@ -15,5 +15,7 @@ public interface UserDao {
 	boolean update(Usuario entity);
 
 	boolean delete(Long id);
-
+	
+	Usuario authentication(Usuario entity);
+	
 }
