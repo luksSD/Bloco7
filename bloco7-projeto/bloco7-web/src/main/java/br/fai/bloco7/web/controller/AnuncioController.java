@@ -112,6 +112,14 @@ public class AnuncioController {
 		return getDetailPage(anuncio.getId(), model);
 	}
 
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") final Long id, final Model model) {
+
+		anuncioService.deleteById(id);
+
+		return getAnuncioGridPage(model);
+	}
+
 	@GetMapping("/pesquisar")
 	public String getPaginaPesquisar(final Anuncio anuncio, final Model model) {
 
