@@ -34,9 +34,9 @@ public class AnuncioController {
 
 	@Autowired
 	private CidadeService cidadeService;
-	
+
 	@GetMapping("/register")
-	public String getRegisterPage(Anuncio anuncio) {
+	public String getRegisterPage(final Anuncio anuncio) {
 		return "anuncio/register";
 	}
 
@@ -51,8 +51,7 @@ public class AnuncioController {
 
 		return "anuncio/anuncios-grid";
 	}
-	
-	
+
 	@GetMapping("/listar-logado")
 	public String getAnuncioGridPageLogado(final Model model) {
 
@@ -83,10 +82,18 @@ public class AnuncioController {
 
 		return "anuncio/anuncio-single";
 	}
-	
-	
+
+	@GetMapping("/edit/{id}")
+	public String getEditPage(@PathVariable("id") final long id, final Model model) {
+
+		final Anuncio anuncio = anuncioService.readById(id);
+		model.addAttribute("anuncio", anuncio);
+
+		return "anuncio/edit";
+	}
+
 	@PostMapping("/create")
-	public String createAnuncio(Anuncio anuncio) {
+	public String createAnuncio(final Anuncio anuncio) {
 
 		final Long id = anuncioService.create(anuncio);
 
@@ -95,6 +102,14 @@ public class AnuncioController {
 		}
 
 		return "redirect:/dashboard/";
+	}
+
+	@PostMapping("/update")
+	public String update(final Anuncio anuncio, final Model model) {
+
+		anuncioService.update(anuncio);
+
+		return getDetailPage(anuncio.getId(), model);
 	}
 
 	@GetMapping("/pesquisar")
