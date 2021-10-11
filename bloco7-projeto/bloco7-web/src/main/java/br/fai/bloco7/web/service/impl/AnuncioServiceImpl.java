@@ -80,4 +80,10 @@ public class AnuncioServiceImpl implements AnuncioService {
 		return false;
 	}
 
+	@Override
+	public List<Anuncio> pesquisar(final Anuncio entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

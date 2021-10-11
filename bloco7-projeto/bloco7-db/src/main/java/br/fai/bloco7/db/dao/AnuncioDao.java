@@ -16,4 +16,5 @@ public interface AnuncioDao {
 
 	boolean delete(Long id);
 
+	List<Anuncio> pesquisar(Anuncio entity);
 }
