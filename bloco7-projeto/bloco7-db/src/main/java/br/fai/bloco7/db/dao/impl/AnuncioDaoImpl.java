@@ -52,7 +52,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
-				
+				anuncio.setNomeCidade(resultSet.getString("nome"));
 
 				anuncios.add(anuncio);
 
@@ -105,6 +105,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
+				anuncio.setNomeCidade(resultSet.getString("nome"));
 
 			}
 
