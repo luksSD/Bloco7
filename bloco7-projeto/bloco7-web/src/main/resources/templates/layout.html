@@ -52,30 +52,30 @@
 		</div>
 		<span class="close-box-collapse right-boxed bi bi-x"></span>
 		<div class="box-collapse-wrap form">
-			<form class="form-a">
+			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="get" th:object="@{anuncio}">
 				<div class="row">
 					<div class="col-md-12 mb-2">
 						<div class="form-group">
-							<label class="pb-2" for="Type">Palavra-chave</label> <input
+							<label class="pb-2" for="tipo">Palavra-chave</label> <input
 								type="text" class="form-control form-control-lg form-control-a"
-								placeholder="Keyword">
+								placeholder="Palavra-chave">
 						</div>
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="Type">Tipo</label> <select
-								class="form-control form-select form-control-a" id="Type">
+							<label class="pb-2" for="tipo">Tipo</label> <select
+								class="form-control form-select form-control-a" id="tipo">
 								<option>Todos os Tipos</option>
-								<option>For Rent</option>
-								<option>For Sale</option>
-								<option>Open House</option>
+								<option>Aluguel</option>
+								<option>Venda</option>
+								<option>Temporada</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="city">Cidade</label> <select
-								class="form-control form-select form-control-a" id="city">
+							<label class="pb-2" for="cidade">Cidade</label> <select
+								class="form-control form-select form-control-a" id="cidade">
 								<option>Todas as Cidades</option>
 								<option>Santa Rita do Sapucaí</option>
 								<option>Pouso Alegre</option>
@@ -86,8 +86,8 @@
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="bedrooms">Quartos</label> <select
-								class="form-control form-select form-control-a" id="bedrooms">
+							<label class="pb-2" for="quartos">Quartos</label> <select
+								class="form-control form-select form-control-a" id="quartos">
 								<option>Todos</option>
 								<option>01</option>
 								<option>02</option>
@@ -97,8 +97,8 @@
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="garages">Garages</label> <select
-								class="form-control form-select form-control-a" id="garages">
+							<label class="pb-2" for="garagens">Garages</label> <select
+								class="form-control form-select form-control-a" id="garagens">
 								<option>Todos</option>
 								<option>01</option>
 								<option>02</option>
@@ -109,8 +109,8 @@
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="bathrooms">Bathrooms</label> <select
-								class="form-control form-select form-control-a" id="bathrooms">
+							<label class="pb-2" for="banheiros">Banheiros</label> <select
+								class="form-control form-select form-control-a" id="banheiros">
 								<option>Todos</option>
 								<option>01</option>
 								<option>02</option>
@@ -120,8 +120,8 @@
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="price">Min Price</label> <select
-								class="form-control form-select form-control-a" id="price">
+							<label class="pb-2" for="valor">Valor Mínimo</label> <select
+								class="form-control form-select form-control-a" id="valor">
 								<option>Ilimitado</option>
 								<option>R$50,000</option>
 								<option>R$100,000</option>
