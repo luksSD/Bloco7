@@ -40,13 +40,14 @@ public class AnuncioController {
 		return "anuncio/register";
 	}
 
+//	Metodo para exibição da pagina de anuncios
 	@GetMapping("/listar")
-	public String getAnuncioGridPage(final Model model, final Model activePage) {
+	public String getAnuncioGridPage(final Model model) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
 		model.addAttribute("listaDeAnuncio", anuncios);
-		activePage.addAttribute("activePage", "anuncio");
+		model.addAttribute("activePage", "anuncio");
 
 		return "anuncio/anuncios-grid";
 	}
@@ -62,21 +63,23 @@ public class AnuncioController {
 		return "anuncio/anuncios-grid-logado";
 	}
 
+//	Metodo para detalhes de anuncio especifico
 	@GetMapping("/detalhes/{id}")
-	public String getDetailPage(@PathVariable("id") final long idAnuncio, final Model anuncioModel,
-			final Model usuarioModel, final Model pessoaModel, final Model cidadeModel) {
+	public String getDetailPage(@PathVariable("id") final long idAnuncio, final Model model) {
 
 		final Anuncio anuncio = anuncioService.readById(idAnuncio);
-		anuncioModel.addAttribute("anuncio", anuncio);
+		model.addAttribute("anuncio", anuncio);
 
 		final Usuario user = userService.readById(anuncio.getUsuarioAnuncianteId());
-		usuarioModel.addAttribute("usuario", user);
+		model.addAttribute("usuario", user);
 
 		final Pessoa pessoa = pessoaService.readById(user.getPessoaId());
-		pessoaModel.addAttribute("pessoa", pessoa);
+		model.addAttribute("pessoa", pessoa);
 
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
-		cidadeModel.addAttribute("cidade", cidade);
+		model.addAttribute("cidade", cidade);
+
+		model.addAttribute("activePage", "anuncio");
 
 		return "anuncio/anuncio-single";
 	}
@@ -92,6 +95,16 @@ public class AnuncioController {
 		}
 
 		return "redirect:/dashboard/";
+	}
+
+	@GetMapping("/pesquisar")
+	public String getPaginaPesquisar(final Anuncio anuncio, final Model model) {
+
+		final List<Anuncio> pesquisa = anuncioService.pesquisar(anuncio);
+
+		model.addAttribute("pesquisar", pesquisa);
+
+		return null;
 	}
 
 }
