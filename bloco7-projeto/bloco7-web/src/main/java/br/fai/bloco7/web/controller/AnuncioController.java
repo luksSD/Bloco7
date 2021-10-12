@@ -93,14 +93,14 @@ public class AnuncioController {
 	}
 
 	@PostMapping("/create")
-	public String createAnuncio(final Anuncio anuncio) {
+	public String createAnuncio(final Anuncio anuncio, final Model model) {
 
 		final Long id = anuncioService.create(anuncio);
 
 		if (id != -1) {
 			return "redirect:/anuncios/listar-logado";
 		}
-
+		model.addAttribute("anuncio", id);
 		return "redirect:/dashboard/";
 	}
 
