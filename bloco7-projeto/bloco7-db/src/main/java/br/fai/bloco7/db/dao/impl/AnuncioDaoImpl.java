@@ -150,7 +150,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(9, entity.getEndereco());
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
-			preparedStatement.setLong(12, 1);
+			preparedStatement.setLong(12, entity.getCidadeId());
 			preparedStatement.setLong(13, 1);
 
 			preparedStatement.execute();
