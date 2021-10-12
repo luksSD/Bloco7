@@ -116,11 +116,7 @@ public class PessoaDaoImpl implements PessoaDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 
-		String sql = "START TRANSACTION;";
-		sql += " INSERT INTO usuario (senha, email, celular) values (? , ? , ?);,";
-		sql += " INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id )";
-		sql += "VALUES(? , ? , ? , ? , ? , ? , ? , ?);,";
-		sql += " COMMIT;";
+		final String sql = " INSERT INTO usuario (senha, email, celular) values (? , ? , ?);";
 
 		Long id = Long.valueOf(-1);
 
@@ -134,15 +130,6 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement.setString(1, entity.getSenha());
 			preparedStatement.setString(2, entity.getEmail());
 			preparedStatement.setString(3, entity.getCelular());
-			preparedStatement.setLong(4, entity.getId());
-			preparedStatement.setString(5, entity.getCpf());
-			preparedStatement.setString(6, entity.getNome());
-			preparedStatement.setString(7, entity.getLogradouro());
-			preparedStatement.setString(8, entity.getNumero());
-			preparedStatement.setString(9, entity.getBairro());
-			preparedStatement.setString(10, entity.getCep());
-			preparedStatement.setLong(11, entity.getCidadeId());
-
 			preparedStatement.execute();
 
 			resultSet = preparedStatement.getGeneratedKeys();
@@ -150,6 +137,40 @@ public class PessoaDaoImpl implements PessoaDao {
 				id = resultSet.getLong(1);
 			}
 			connection.commit();
+
+			resultSet = preparedStatement.getGeneratedKeys();
+			if (resultSet.next()) {
+				id = resultSet.getLong(1);
+			}
+			connection.commit();
+
+		} catch (final Exception e) {
+
+			try {
+				connection.rollback();
+			} catch (final SQLException e1) {
+				System.out.println(e1.getMessage());
+			}
+		} finally {
+			ConnectionFactory.close(preparedStatement, connection);
+		}
+
+		final String sql2 = "INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, bairro, cidade_id ) values (? , ? , ? , ? , ? , ? );";
+		try {
+
+			connection = ConnectionFactory.getConnection();
+			connection.setAutoCommit(false);
+
+			preparedStatement = connection.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
+
+			preparedStatement.setLong(1, id);
+			preparedStatement.setString(2, entity.getCpf());
+			preparedStatement.setString(3, entity.getNome());
+			preparedStatement.setString(4, entity.getLogradouro());
+			preparedStatement.setString(5, entity.getBairro());
+			preparedStatement.setLong(6, entity.getCidadeId());
+
+			preparedStatement.execute();
 
 		} catch (final Exception e) {
 

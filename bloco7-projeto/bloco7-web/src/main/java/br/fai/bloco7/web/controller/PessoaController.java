@@ -79,7 +79,7 @@ public class PessoaController {
 		return "pessoa/register";
 	}
 
-	@GetMapping("/create")
+	@PostMapping("/create")
 	public String createPessoa(final Pessoa pessoa) {
 		final Long id = pessoaService.create(pessoa);
 		if (id != -1) {
