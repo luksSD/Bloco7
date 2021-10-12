@@ -2,6 +2,7 @@ package br.fai.bloco7.web.service.impl;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -132,16 +133,16 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+	public List<Anuncio> pesquisar(final Map<String, String> pesquisa) {
 
-		final String endpoint = "http://localhost:2000/api/v1/anuncio/pesquisar";
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/pesquisar/" + pesquisa;
 
 		List<Anuncio> response = null;
 
 		try {
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(pesquisa);
+			final HttpEntity<Map<String, String>> httpEntity = new HttpEntity<Map<String, String>>(pesquisa);
 
 			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
 					httpEntity, Anuncio[].class);

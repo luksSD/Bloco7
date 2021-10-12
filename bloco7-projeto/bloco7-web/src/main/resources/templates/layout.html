@@ -52,7 +52,7 @@
 		</div>
 		<span class="close-box-collapse right-boxed bi bi-x"></span>
 		<div class="box-collapse-wrap form">
-			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="get" th:object="${anuncios}">
+			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="GET" th:object="${pesquisa}">
 				<div class="row">
 					<div class="col-md-12 mb-2">
 						<div class="form-group">
@@ -63,12 +63,12 @@
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="tipo">Tipo</label> <select
-								class="form-control form-select form-control-a" th:field="${anuncios.tipo_propriedade}">
+							<label class="pb-2" for="tipo">Tipo</label> 
+							<select	class="form-control form-select form-control-a" th:field="${pesquisa.tipo_propriedade}">								
 								<option value="Todos">Todos os Tipos</option>
 								<option value="Aluguel">Aluguel</option>
 								<option value="Venda">Venda</option>
-								<option value="Temporada">Temporada</option>
+								<option value="Temporada">Temporada</option>								
 							</select>
 						</div>
 					</div>

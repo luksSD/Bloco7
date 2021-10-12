@@ -1,6 +1,7 @@
 package br.fai.bloco7.web.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -121,14 +122,14 @@ public class AnuncioController {
 	}
 
 //	Metodo para realizar pesquisa
-	@GetMapping("/pesquisar")
-	public String search(final Anuncio pesquisa, final Model model) {
+	@GetMapping("/pesquisar/{id}/{nome}")
+	public String search(@PathVariable("pesquisa") final Map<String, String> pesquisa, final Model model) {
 
 		// Cria lista do tipo anuncios para receber o resultado do metodo pesquisar()
 		final List<Anuncio> anuncios = anuncioService.pesquisar(pesquisa);
 
 		// Injeta o resultado da pesquisa na view
-		model.addAttribute("listaDeAnuncio", anuncios);
+		model.addAttribute("resultPesquisa", anuncios);
 		// Indicador de pagina ativa
 		model.addAttribute("activePage", "anuncio");
 
