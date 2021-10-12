@@ -273,7 +273,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 	}
 
 	@Override
-	public List<Anuncio> pesquisar(final Anuncio entity) {
+	public List<Anuncio> pesquiar(final Anuncio pesquisa) {
 
 		final List<Anuncio> anuncios = new ArrayList<Anuncio>();
 
@@ -284,7 +284,13 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id";
+			String sql = "SELECT * FROM anuncio WHERE";
+
+			if (pesquisa.getTipo_propriedade() != "Todos") {
+				sql += " tipo_propiedade = ?,";
+			} else {
+				sql = "SELECT * FROM anuncio";
+			}
 
 			preparedStatement = connection.prepareStatement(sql);
 
@@ -313,9 +319,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 			}
 
-		} catch (final Exception e) {
+		} catch (
 
-			System.out.println(e.getMessage());
+		final Exception e) {
 
 		} finally {
 			ConnectionFactory.close(resultSet, preparedStatement, connection);

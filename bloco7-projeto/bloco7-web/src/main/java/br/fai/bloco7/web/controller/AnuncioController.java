@@ -120,14 +120,20 @@ public class AnuncioController {
 		return getAnuncioGridPage(model);
 	}
 
+//	Metodo para realizar pesquisa
 	@GetMapping("/pesquisar")
-	public String getPaginaPesquisar(final Anuncio anuncio, final Model model) {
+	public String search(final Anuncio pesquisa, final Model model) {
 
-		final List<Anuncio> pesquisa = anuncioService.pesquisar(anuncio);
+		// Cria lista do tipo anuncios para receber o resultado do metodo pesquisar()
+		final List<Anuncio> anuncios = anuncioService.pesquisar(pesquisa);
 
-		model.addAttribute("pesquisar", pesquisa);
+		// Injeta o resultado da pesquisa na view
+		model.addAttribute("listaDeAnuncio", anuncios);
+		// Indicador de pagina ativa
+		model.addAttribute("activePage", "anuncio");
 
-		return null;
+		// Retorna pagina de pesquisa
+		return "anuncio/anuncios-pesquisa";
 	}
 
 }
