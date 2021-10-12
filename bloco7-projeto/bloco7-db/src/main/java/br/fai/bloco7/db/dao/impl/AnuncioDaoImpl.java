@@ -139,18 +139,18 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, "casa linda");
+			preparedStatement.setString(1, entity.getDescricao());
 			preparedStatement.setInt(2, entity.getQuartos());
 			preparedStatement.setInt(3, entity.getBanheiros());
 			preparedStatement.setInt(4, entity.getVaga_garagem());
-			preparedStatement.setString(5, "Apartamento");
-			preparedStatement.setString(6, "Alugar");
+			preparedStatement.setString(5, entity.getTipo_propriedade());
+			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
 			preparedStatement.setFloat(8, entity.getPreco());
 			preparedStatement.setString(9, entity.getEndereco());
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
-			preparedStatement.setLong(12, 1);
+			preparedStatement.setLong(12, entity.getCidadeId());
 			preparedStatement.setLong(13, 1);
 
 			preparedStatement.execute();
@@ -210,7 +210,6 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
 			preparedStatement.setFloat(8, entity.getPreco());
-			preparedStatement.setLong(9, entity.getId());
 //			preparedStatement.setString(9, entity.getEndereco());
 //			preparedStatement.setString(10, entity.getBairro());
 //			preparedStatement.setString(11, entity.getCep());
