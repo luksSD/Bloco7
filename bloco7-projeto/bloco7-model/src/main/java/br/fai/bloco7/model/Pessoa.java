@@ -1,6 +1,6 @@
 package br.fai.bloco7.model;
 
-public class Pessoa extends BasePojo {
+public class Pessoa extends Usuario {
 
 	private String nome;
 	private String cpf;

@@ -3,6 +3,7 @@ drop database if exists bloco7;
 CREATE DATABASE bloco7 WITH OWNER = postgres
 ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 
+
 --Criando tabela cidade
 CREATE TABLE cidade
 (
@@ -17,11 +18,20 @@ alter table cidade add constraint uk1_cidade unique(estado, nome);
 
 
 
+--Criando tabela usuario
+CREATE TABLE usuario
+(
+    id BIGSERIAL primary key,
+    senha VARCHAR (50) not null,
+    email VARCHAR (50) unique not null,
+    celular VARCHAR (20) unique not null
+);
+
 --Criando tabela pessoa
 CREATE TABLE pessoa
 (
-    id BIGSERIAL primary key,
-    cpf VARCH AR (20) unique not null,
+    usuario_id integer primary key,
+    cpf VARCHAR (20) unique not null,
     nome VARCHAR (200) not null,
     logradouro VARCHAR (200),
     numero VARCHAR (10),
@@ -31,22 +41,13 @@ CREATE TABLE pessoa
 
 );
 
---Tornando cidade_id uma FK de pessoa
+--Tornando cidade_id/usuario_id uma FK de pessoa
 alter table pessoa add constraint fk1_pessoa foreign key (cidade_id) references cidade(id) on update cascade on delete cascade;
+alter table pessoa add constraint fk2_pessoa foreign key (usuario_id) references usuario(id) on update cascade on delete cascade;
 
 
---Criando tabela pessoa
-CREATE TABLE usuario
-(
-    id BIGSERIAL primary key,
-    senha VARCHAR (50) not null,
-    email VARCHAR (50) unique not null,
-    celular VARCHAR (20) unique not null,
-    pessoa_id integer unique not null
-);
 
---Tornando pessoa_id uma FK de usuario
-alter table usuario add constraint fk1_usuario foreign key (pessoa_id) references pessoa(id) on update cascade on delete cascade;
+
 
 
 --Criando tabela anuncio
@@ -141,24 +142,25 @@ values ('4' , 'Minas Gerais' , 'Santa Rita do Sapucai');
 
 --Adicionando valores para teste
 
-INSERT INTO pessoa (id , cpf, nome, logradouro, numero, bairro, cep, cidade_id) 
+INSERT INTO usuario (id , senha, email, celular)
+ values ('1' , '123' , 'teste@gmail.com' , '999999999');
+
+INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id ) 
 values ('1' , '123.456.789.11' , 'Vinicius Teste' , 'Rua Francisco' , '27' , 'Centro' , '37550000' , '1');
 
-INSERT INTO usuario (id , senha, email, celular, pessoa_id)
- values ('1' , '123' , 'teste@gmail.com' , '999999999' , '1');
 
+INSERT INTO usuario (id , senha, email, celular)
+ values ('2' , '123' , 'teste02@hotmail.com' , '333333333333');
 
-INSERT INTO pessoa (id , cpf, nome, logradouro, numero, bairro, cep, cidade_id) 
+INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id )
 values ('2' , '111.111.111.11' , 'Lucas Teste' , 'Rua Joao' , '46' , 'Fatima' , '37550000' , '2');
 
-INSERT INTO usuario (id , senha, email, celular, pessoa_id)
- values ('2' , '123' , 'teste02@hotmail.com' , '333333333333' , '2');
 
- INSERT INTO pessoa (id , cpf, nome, logradouro, numero, bairro, cep, cidade_id) 
+INSERT INTO usuario (id , senha, email, celular)
+ values ('3' , '123' , 'teste03@hotmail.com' , '444444444');
+
+ INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id )
 values ('3' , '222.222.222.22' , 'Matheus Teste' , 'Rua Roberto' , '46' , 'Bento' , '37550000' , '3');
-
-INSERT INTO usuario (id , senha, email, celular, pessoa_id)
- values ('3' , '123' , 'teste03@hotmail.com' , '444444444' , '3');
 
 
  INSERT INTO anuncio
@@ -173,7 +175,5 @@ INSERT INTO anuncio
  INSERT INTO anuncio
  (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
  values ('3' , 'Alugo casa que aceita animais' , '2' , '1' , '1' , 'Casa' , 'Alugar' , '500', '1500' ,'Rua Roberto Nº 145' , 'Bento' , '37550-000' , '3' , '3');
-
-
 
 

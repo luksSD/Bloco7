@@ -29,7 +29,7 @@ public class PessoaDaoImpl implements PessoaDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM pessoa";
+			final String sql = "select * from pessoa P inner join Usuario U on U.id = P.usuario_id";
 
 			preparedStatement = connection.prepareStatement(sql);
 
@@ -39,6 +39,9 @@ public class PessoaDaoImpl implements PessoaDao {
 
 				final Pessoa person = new Pessoa();
 				person.setId(resultSet.getLong("id"));
+				person.setCelular(resultSet.getString("celular"));
+				person.setSenha(resultSet.getString("senha"));
+				person.setEmail(resultSet.getString("email"));
 				person.setCpf(resultSet.getString("cpf"));
 				person.setNome(resultSet.getString("nome"));
 				person.setLogradouro(resultSet.getString("logradouro"));
@@ -73,7 +76,8 @@ public class PessoaDaoImpl implements PessoaDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM pessoa where id = ?";
+			String sql = "select * from pessoa P inner join Usuario U on U.id = P.usuario_id";
+			sql += " where U.id = ?";
 
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setLong(1, id);
@@ -84,6 +88,9 @@ public class PessoaDaoImpl implements PessoaDao {
 
 				person = new Pessoa();
 				person.setId(resultSet.getLong("id"));
+				person.setCelular(resultSet.getString("celular"));
+				person.setSenha(resultSet.getString("senha"));
+				person.setEmail(resultSet.getString("email"));
 				person.setCpf(resultSet.getString("cpf"));
 				person.setNome(resultSet.getString("nome"));
 				person.setLogradouro(resultSet.getString("logradouro"));
@@ -91,7 +98,6 @@ public class PessoaDaoImpl implements PessoaDao {
 				person.setCidadeId(resultSet.getLong("cidade_id"));
 				person.setCep(resultSet.getString("cep"));
 				person.setNumero(resultSet.getString("numero"));
-
 			}
 
 		} catch (final Exception e) {
@@ -110,10 +116,11 @@ public class PessoaDaoImpl implements PessoaDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 
-		String sql = "INSERT INTO pessoa";
-		sql += " (cpf, nome, logradouro,";
-		sql += " numero, bairro, cep, cidade_id)";
-		sql += "VALUES(?,?,?,?,?,?,?)";
+		String sql = "START TRANSACTION;";
+		sql += " INSERT INTO usuario (senha, email, celular) values (? , ? , ?);,";
+		sql += " INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id )";
+		sql += "VALUES(? , ? , ? , ? , ? , ? , ? , ?);,";
+		sql += " COMMIT;";
 
 		Long id = Long.valueOf(-1);
 
@@ -124,13 +131,17 @@ public class PessoaDaoImpl implements PessoaDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, entity.getCpf());
-			preparedStatement.setString(2, entity.getNome());
-			preparedStatement.setString(3, entity.getLogradouro());
-			preparedStatement.setString(4, entity.getNumero());
-			preparedStatement.setString(5, entity.getBairro());
-			preparedStatement.setString(6, entity.getCep());
-			preparedStatement.setLong(7, entity.getCidadeId());
+			preparedStatement.setString(1, entity.getSenha());
+			preparedStatement.setString(2, entity.getEmail());
+			preparedStatement.setString(3, entity.getCelular());
+			preparedStatement.setLong(4, entity.getId());
+			preparedStatement.setString(5, entity.getCpf());
+			preparedStatement.setString(6, entity.getNome());
+			preparedStatement.setString(7, entity.getLogradouro());
+			preparedStatement.setString(8, entity.getNumero());
+			preparedStatement.setString(9, entity.getBairro());
+			preparedStatement.setString(10, entity.getCep());
+			preparedStatement.setLong(11, entity.getCidadeId());
 
 			preparedStatement.execute();
 
@@ -160,7 +171,12 @@ public class PessoaDaoImpl implements PessoaDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String sql = "UPDATE pessoa SET";
+		String sql = "START TRANSACTION;";
+		sql += " UPDATE usuario SET";
+		sql += " senha = ?,";
+		sql += " celular = ?,";
+		sql += " where id = ?;";
+		sql += " UPDATE pessoa SET";
 		sql += " cpf = ?,";
 		sql += " nome = ?,";
 		sql += " logradouro = ?,";
@@ -169,6 +185,7 @@ public class PessoaDaoImpl implements PessoaDao {
 		sql += " cep = ?,";
 		sql += " cidade_id = ?,";
 		sql += " where id = ?;";
+		sql += " COMMIT;";
 
 		try {
 
@@ -177,14 +194,17 @@ public class PessoaDaoImpl implements PessoaDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, entity.getCpf());
-			preparedStatement.setString(2, entity.getNome());
-			preparedStatement.setString(3, entity.getLogradouro());
-			preparedStatement.setString(4, entity.getNumero());
-			preparedStatement.setString(5, entity.getBairro());
-			preparedStatement.setString(6, entity.getCep());
-			preparedStatement.setLong(7, entity.getCidadeId());
-			preparedStatement.setLong(8, entity.getId());
+			preparedStatement.setString(1, entity.getSenha());
+			preparedStatement.setString(2, entity.getCelular());
+			preparedStatement.setLong(3, entity.getId());
+			preparedStatement.setString(4, entity.getCpf());
+			preparedStatement.setString(5, entity.getNome());
+			preparedStatement.setString(6, entity.getLogradouro());
+			preparedStatement.setString(7, entity.getNumero());
+			preparedStatement.setString(8, entity.getBairro());
+			preparedStatement.setString(9, entity.getCep());
+			preparedStatement.setLong(10, entity.getCidadeId());
+			preparedStatement.setLong(11, entity.getId());
 
 			preparedStatement.execute();
 
@@ -211,7 +231,10 @@ public class PessoaDaoImpl implements PessoaDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		final String sql = "DELETE FROM pessoa WHERE id = ?;";
+		String sql = "START TRANSACTION;";
+		sql += "DELETE FROM pessoa WHERE usuario_id = ?;";
+		sql += "DELETE FROM usuario WHERE id = ?;";
+		sql += "COMMIT;";
 
 		try {
 
@@ -221,6 +244,7 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setLong(1, id);
+			preparedStatement.setLong(2, id);
 
 			preparedStatement.execute();
 
