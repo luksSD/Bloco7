@@ -126,10 +126,14 @@ public class AnuncioController {
 	public String search(@PathVariable("pesquisa") final Map<String, String> pesquisa, final Model model) {
 
 		// Cria lista do tipo anuncios para receber o resultado do metodo pesquisar()
-		final List<Anuncio> anuncios = anuncioService.pesquisar(pesquisa);
+		final List<Anuncio> anuncio = anuncioService.pesquisar(pesquisa);
 
 		// Injeta o resultado da pesquisa na view
+<<<<<<< HEAD
 		model.addAttribute("resultPesquisa", anuncios);
+=======
+		model.addAttribute("listaDeAnuncio", anuncio);
+>>>>>>> main
 		// Indicador de pagina ativa
 		model.addAttribute("activePage", "anuncio");
 

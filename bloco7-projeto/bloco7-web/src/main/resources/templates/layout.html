@@ -52,8 +52,12 @@
 		</div>
 		<span class="close-box-collapse right-boxed bi bi-x"></span>
 		<div class="box-collapse-wrap form">
+<<<<<<< HEAD
 			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="GET" th:object="${pesquisa}">
 				<div class="row">
+=======
+			<form th:action="@{/anuncios/pesquisar}" method="GET" th:object="${listaDeAnuncio}">
+>>>>>>> main
 					<div class="col-md-12 mb-2">
 						<div class="form-group">
 							<label class="pb-2" for="tipo">Palavra-chave</label> <input
@@ -63,8 +67,13 @@
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
+<<<<<<< HEAD
 							<label class="pb-2" for="tipo">Tipo</label> 
 							<select	class="form-control form-select form-control-a" th:field="${pesquisa.tipo_propriedade}">								
+=======
+							<label class="pb-2" for="tipo">Tipo</label> <select
+								class="form-control form-select form-control-a">
+>>>>>>> main
 								<option value="Todos">Todos os Tipos</option>
 								<option value="Aluguel">Aluguel</option>
 								<option value="Venda">Venda</option>
@@ -133,7 +142,6 @@
 					<div class="col-md-12">
 						<button type="submit" class="btn btn-b">Pesquisar</button>
 					</div>
-				</div>
 			</form>
 		</div>
 	</div>

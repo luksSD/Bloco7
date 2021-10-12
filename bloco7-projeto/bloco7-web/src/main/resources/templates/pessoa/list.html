@@ -40,33 +40,33 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr th:each="usuario : ${listaDeUsuarios}">
-									<td th:text="${usuario.id}">1</td>
-									<td th:text="${usuario.nomeCompleto}">Tiburssinho
+								<tr th:each="pessoa : ${listaDePessoas}">
+									<td th:text="${pessoa.id}">1</td>
+									<td th:text="${pessoa.nome}">Tiburssinho
 										Tiburrsius</td>
-									<td th:text="${usuario.email}">tiburssinho@gmail.com</td>
+									<td th:text="${pessoa.email}">tiburssinho@gmail.com</td>
 									<td>
-										<div class="row">
-											<div class="col-4">
+<!-- 										<div class="row"> -->
+<!-- 											<div class="col-4"> -->
 
-												<a th:href="@{/user/detail/{id} (id=${usuario.id})}"
-													class="btn btn-primary"><i class="fas fa-address-card"></i></a>
+<!-- 												<a th:href="@{/user/detail/{id} (id=${usuario.id})}" -->
+<!-- 													class="btn btn-primary"><i class="fas fa-address-card"></i></a> -->
 
-											</div>
+<!-- 											</div> -->
 
-											<div class="col-4">
+<!-- 											<div class="col-4"> -->
 												
-												<a th:href="@{/user/edit/{id} (id=${usuario.id})}"
-													class="btn btn-warning"><i class="fas fa-lock"></i></a>
+<!-- 												<a th:href="@{/user/edit/{id} (id=${usuario.id})}" -->
+<!-- 													class="btn btn-warning"><i class="fas fa-lock"></i></a> -->
 
-											</div>
-											<div class="col-4">
+<!-- 											</div> -->
+<!-- 											<div class="col-4"> -->
 												
-												<a th:href="@{/user/delete/{id} (id=${usuario.id})}"
-													class="btn btn-danger"><i class="fas fa-user-alt-slash"></i></a>
+<!-- 												<a th:href="@{/user/delete/{id} (id=${usuario.id})}" -->
+<!-- 													class="btn btn-danger"><i class="fas fa-user-alt-slash"></i></a> -->
 
-											</div>
-										</div>
+<!-- 											</div> -->
+<!-- 										</div> -->
 									</td>
 								</tr>
 
