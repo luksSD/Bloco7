@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Usuario;
 import br.fai.bloco7.web.service.UserService;
 
@@ -63,25 +64,22 @@ public class UserController {
 
 		return getListPage(model);
 	}
-	
-	
+
 	@GetMapping("/login")
-	public String login(Usuario usuario) {
+	public String login(final Usuario usuario, final Anuncio anuncio) {
 		return "user/login";
 	}
-	
-	
+
 	@GetMapping("/create")
 	public String create() {
 		return "user/create";
 	}
-	
+
 	@PostMapping("/authentication")
-	public String authentication(Usuario usuario) {
-		
+	public String authentication(final Usuario usuario) {
+
 		userService.authentication(usuario);
 		return "redirect:/dashboard/";
 	}
-	
 
 }
