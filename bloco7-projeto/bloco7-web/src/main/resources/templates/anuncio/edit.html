@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Editar Anuncio</title>
+</head>
+<body>
+
+	<div layout:fragment="body">
+		<div class="container-fluid">
+			<h1 class="mt-4">ANUNCIOS</h1>
+			<ol class="breadcrumb mb-4">
+				<li class="breadcrumb-item active">EDITAR TELA PARA TESTES</li>
+			</ol>
+
+			<div class="row">
+
+
+				<div class="mb-2 col-12 col-sm-7">
+
+
+					<form th:action="@{/anuncios/update}" method="POST"
+						th:object="${anuncio}">
+
+						<div class="mb-2 card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-3">Descricao</div>
+									<div class="col-sm-9">
+										<input type="text" class="form-control"
+											th:field="${anuncio.descricao}">
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">quartos</div>
+									<div class="col-sm-9">
+										<input type="number" class="form-control"
+											th:field="${anuncio.quartos}">
+									</div>
+								</div>
+								<hr>
+
+								<div class="row">
+									<div class="col-sm-3">Banheiro</div>
+									<div class="col-sm-9">
+										<input type="number" class="form-control"
+											th:field="${anuncio.banheiros}">
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">Vaga Garagem</div>
+									<div class="col-sm-9">
+										<input type="number" class="form-control"
+											th:field="${anuncio.vaga_garagem}">
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">Tipo propriedade</div>
+									<div class="col-sm-9">
+										<input type="text" class="form-control"
+											th:field="${anuncio.tipo_propriedade}">
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">Alugar ou Vender</div>
+									<select class="form-control" id="status"
+										th:field="${anuncio.status}">
+										<option value="Alugar">Alugar</option>
+										<option value="Vender">Vender</option>
+
+
+									</select> <br>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">Area</div>
+									<div class="col-sm-9">
+										<input type="number" class="form-control"
+											th:field="${anuncio.area}">
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">Preço</div>
+									<div class="col-sm-9">
+										<input type="number" class="form-control"
+											th:field="${anuncio.preco}">
+									</div>
+								</div>
+
+
+
+
+							</div>
+						</div>
+
+						<div class="mb-2">
+							<button class="btn btn-primary col-12" type="submit">Atualizar</button>
+
+							<input th:field="${anuncio.id}" type="hidden">
+						</div>
+
+					</form>
+
+
+
+
+				</div>
+
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+</body>
+</html>

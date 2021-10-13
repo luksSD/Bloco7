@@ -47,13 +47,13 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
-				
+				anuncio.setNomeCidade(resultSet.getString("nome"));
 
 				anuncios.add(anuncio);
 
@@ -100,12 +100,13 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
+				anuncio.setNomeCidade(resultSet.getString("nome"));
 
 			}
 
@@ -139,19 +140,19 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, "casa linda");
+			preparedStatement.setString(1, entity.getDescricao());
 			preparedStatement.setInt(2, entity.getQuartos());
 			preparedStatement.setInt(3, entity.getBanheiros());
 			preparedStatement.setInt(4, entity.getVaga_garagem());
-			preparedStatement.setString(5, "Apartamento");
-			preparedStatement.setString(6, "Alugar");
+			preparedStatement.setString(5, entity.getTipo_propriedade());
+			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
-			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(8, entity.getPreco());
 			preparedStatement.setString(9, entity.getEndereco());
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
-			preparedStatement.setLong(12, 1);
-			preparedStatement.setLong(13, 1);
+			preparedStatement.setLong(12, entity.getCidadeId());
+			preparedStatement.setLong(13, 3);
 
 			preparedStatement.execute();
 
@@ -181,19 +182,18 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String sql = "UPDATE anuncio SET";
-		sql += " descricao = ?,";
+		String sql = "UPDATE anuncio SET descricao = ?,";
 		sql += " quartos = ?,";
 		sql += " banheiros = ?,";
 		sql += " vaga_garagem = ?,";
 		sql += " tipo_propriedade = ?,";
 		sql += " status = ?,";
 		sql += " area = ?,";
-		sql += " preco = ?,";
-		sql += " endereco = ?,";
-		sql += " bairro = ?,";
-		sql += " cep = ?,";
-		sql += " cidade_id = ?,";
+		sql += " preco = ?";
+//		sql += " endereco = ?,";
+//		sql += " bairro = ?,";
+//		sql += " cep = ?,";
+//		sql += " cidade_id = ?,";
 		sql += " where id = ?;";
 
 		try {
@@ -210,11 +210,12 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(5, entity.getTipo_propriedade());
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
-			preparedStatement.setFloat(8, entity.getPreco());
-			preparedStatement.setString(9, entity.getEndereco());
-			preparedStatement.setString(10, entity.getBairro());
-			preparedStatement.setString(11, entity.getCep());
-			preparedStatement.setLong(12, entity.getCidadeId());
+			preparedStatement.setString(8, entity.getPreco());
+			preparedStatement.setLong(9, entity.getId());
+//			preparedStatement.setString(9, entity.getEndereco());
+//			preparedStatement.setString(10, entity.getBairro());
+//			preparedStatement.setString(11, entity.getCep());
+//			preparedStatement.setLong(12, entity.getCidadeId());
 
 			preparedStatement.execute();
 
@@ -270,6 +271,64 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		} finally {
 			ConnectionFactory.close(preparedStatement, connection);
 		}
+	}
+
+	@Override
+	public List<Anuncio> pesquiar(final Anuncio pesquisa) {
+
+		final List<Anuncio> anuncios = new ArrayList<Anuncio>();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = ConnectionFactory.getConnection();
+
+			String sql = "SELECT * FROM anuncio WHERE";
+
+			if (pesquisa.getTipo_propriedade() != "Todos") {
+				sql += " tipo_propiedade = ?,";
+			} else {
+				sql = "SELECT * FROM anuncio";
+			}
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				final Anuncio anuncio = new Anuncio();
+				anuncio.setId(resultSet.getLong("id"));
+				anuncio.setDescricao(resultSet.getString("descricao"));
+				anuncio.setQuartos(resultSet.getInt("quartos"));
+				anuncio.setBanheiros(resultSet.getInt("banheiros"));
+				anuncio.setVaga_garagem(resultSet.getInt("vaga_garagem"));
+				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
+				anuncio.setStatus(resultSet.getString("status"));
+				anuncio.setArea(resultSet.getInt("area"));
+				anuncio.setPreco(resultSet.getString("preco"));
+				anuncio.setEndereco(resultSet.getString("endereco"));
+				anuncio.setBairro(resultSet.getString("bairro"));
+				anuncio.setCep(resultSet.getString("cep"));
+				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
+				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
+				anuncio.setNomeCidade(resultSet.getString("nome"));
+
+				anuncios.add(anuncio);
+
+			}
+
+		} catch (
+
+		final Exception e) {
+
+		} finally {
+			ConnectionFactory.close(resultSet, preparedStatement, connection);
+		}
+
+		return anuncios;
 	}
 
 }

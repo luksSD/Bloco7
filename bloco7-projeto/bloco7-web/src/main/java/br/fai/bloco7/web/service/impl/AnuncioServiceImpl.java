@@ -40,7 +40,7 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public Long create( Anuncio entity) {
+	public Long create(final Anuncio entity) {
 
 		Long id = Long.valueOf(-1);
 
@@ -87,14 +87,72 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 	@Override
 	public boolean update(final Anuncio entity) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean response = false;
+
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/update";
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(entity);
+
+			final ResponseEntity<Boolean> responseEntity = restTemplate.exchange(endpoint, HttpMethod.PUT, httpEntity,
+					Boolean.class);
+
+			response = responseEntity.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
 	}
 
 	@Override
 	public boolean deleteById(final Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean response = false;
+
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/delete/" + id;
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+
+			final ResponseEntity<Boolean> requestResponse = restTemplate.exchange(endpoint, HttpMethod.DELETE,
+					httpEntity, Boolean.class);
+
+			response = requestResponse.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
+	}
+
+	@Override
+	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/pesquisar";
+
+		List<Anuncio> response = null;
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(pesquisa);
+
+			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
+					httpEntity, Anuncio[].class);
+
+			response = Arrays.asList(requestResponse.getBody());
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
 	}
 
 }

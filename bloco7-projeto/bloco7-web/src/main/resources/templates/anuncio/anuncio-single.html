@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Anúncios</title>
+<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco | Anúncios</title>
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 											<span class="bi bi-cash"> R$</span>
 										</div>
 										<div class="card-title-c align-self-center">
-											<h5 class="title-c" th:text="${anuncio.preco}">15.000</h5>
+											<h5 class="title-c" th:text="${anuncio.preco + ',00' }">15.000</h5>
 										</div>
 									</div>
 								</div>
@@ -186,9 +186,9 @@
 									<h4 class="title-agent" th:text="${pessoa.nome}">Anabella Geller</h4>
 									<ul class="list-unstyled">
 										<li class="d-flex justify-content-between"><strong>Telefone/Celular:</strong>
-											<span class="color-text-a" th:text="${usuario.celular}">777 287 378 737</span></li>
+											<span class="color-text-a" th:text="${pessoa.celular}">777 287 378 737</span></li>
 										<li class="d-flex justify-content-between"><strong>Email:</strong>
-											<span class="color-text-a" th:text="${usuario.email}">annabella@example.com</span></li>
+											<span class="color-text-a" th:text="${pessoa.email}">annabella@example.com</span></li>
 									</ul>
 									<div class="socials-a">
 										<ul class="list-inline">

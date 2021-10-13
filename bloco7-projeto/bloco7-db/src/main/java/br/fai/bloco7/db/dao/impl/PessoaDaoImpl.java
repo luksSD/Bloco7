@@ -29,7 +29,7 @@ public class PessoaDaoImpl implements PessoaDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM pessoa";
+			final String sql = "select * from pessoa P inner join Usuario U on U.id = P.usuario_id";
 
 			preparedStatement = connection.prepareStatement(sql);
 
@@ -39,6 +39,9 @@ public class PessoaDaoImpl implements PessoaDao {
 
 				final Pessoa person = new Pessoa();
 				person.setId(resultSet.getLong("id"));
+				person.setCelular(resultSet.getString("celular"));
+				person.setSenha(resultSet.getString("senha"));
+				person.setEmail(resultSet.getString("email"));
 				person.setCpf(resultSet.getString("cpf"));
 				person.setNome(resultSet.getString("nome"));
 				person.setLogradouro(resultSet.getString("logradouro"));
@@ -73,7 +76,8 @@ public class PessoaDaoImpl implements PessoaDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM pessoa where id = ?";
+			String sql = "select * from pessoa P inner join Usuario U on U.id = P.usuario_id";
+			sql += " where U.id = ?";
 
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setLong(1, id);
@@ -84,6 +88,9 @@ public class PessoaDaoImpl implements PessoaDao {
 
 				person = new Pessoa();
 				person.setId(resultSet.getLong("id"));
+				person.setCelular(resultSet.getString("celular"));
+				person.setSenha(resultSet.getString("senha"));
+				person.setEmail(resultSet.getString("email"));
 				person.setCpf(resultSet.getString("cpf"));
 				person.setNome(resultSet.getString("nome"));
 				person.setLogradouro(resultSet.getString("logradouro"));
@@ -91,7 +98,6 @@ public class PessoaDaoImpl implements PessoaDao {
 				person.setCidadeId(resultSet.getLong("cidade_id"));
 				person.setCep(resultSet.getString("cep"));
 				person.setNumero(resultSet.getString("numero"));
-
 			}
 
 		} catch (final Exception e) {
@@ -108,12 +114,12 @@ public class PessoaDaoImpl implements PessoaDao {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedStatement2 = null;
 		ResultSet resultSet = null;
 
-		String sql = "INSERT INTO pessoa";
-		sql += " (cpf, nome, logradouro,";
-		sql += " numero, bairro, cep, cidade_id)";
-		sql += "VALUES(?,?,?,?,?,?,?)";
+		final String sql = " INSERT INTO usuario (senha, email, celular) values (? , ? , ?);";
+
+		final String sql2 = "INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, bairro, cidade_id ) values (? , ? , ? , ? , ? , ? );";
 
 		Long id = Long.valueOf(-1);
 
@@ -124,20 +130,27 @@ public class PessoaDaoImpl implements PessoaDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, entity.getCpf());
-			preparedStatement.setString(2, entity.getNome());
-			preparedStatement.setString(3, entity.getLogradouro());
-			preparedStatement.setString(4, entity.getNumero());
-			preparedStatement.setString(5, entity.getBairro());
-			preparedStatement.setString(6, entity.getCep());
-			preparedStatement.setLong(7, entity.getCidadeId());
+			preparedStatement.setString(1, entity.getSenha());
+			preparedStatement.setString(2, entity.getEmail());
+			preparedStatement.setString(3, entity.getCelular());
 
 			preparedStatement.execute();
-
 			resultSet = preparedStatement.getGeneratedKeys();
 			if (resultSet.next()) {
 				id = resultSet.getLong(1);
 			}
+
+			connection.commit();
+
+			preparedStatement2 = connection.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
+
+			preparedStatement2.setLong(1, id);
+			preparedStatement2.setString(2, entity.getCpf());
+			preparedStatement2.setString(3, entity.getNome());
+			preparedStatement2.setString(4, entity.getLogradouro());
+			preparedStatement2.setString(5, entity.getBairro());
+			preparedStatement2.setLong(6, entity.getCidadeId());
+			preparedStatement2.execute();
 			connection.commit();
 
 		} catch (final Exception e) {
@@ -160,15 +173,19 @@ public class PessoaDaoImpl implements PessoaDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String sql = "UPDATE pessoa SET";
+		String sql = "START TRANSACTION;";
+		sql += " UPDATE usuario SET";
+		sql += " senha = ?,";
+		sql += " celular = ?,";
+		sql += " where id = ?;";
+		sql += " UPDATE pessoa SET";
 		sql += " cpf = ?,";
 		sql += " nome = ?,";
 		sql += " logradouro = ?,";
-		sql += " numero = ?,";
 		sql += " bairro = ?,";
-		sql += " cep = ?,";
 		sql += " cidade_id = ?,";
 		sql += " where id = ?;";
+		sql += " COMMIT;";
 
 		try {
 
@@ -177,15 +194,15 @@ public class PessoaDaoImpl implements PessoaDao {
 
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			preparedStatement.setString(1, entity.getCpf());
-			preparedStatement.setString(2, entity.getNome());
-			preparedStatement.setString(3, entity.getLogradouro());
-			preparedStatement.setString(4, entity.getNumero());
-			preparedStatement.setString(5, entity.getBairro());
-			preparedStatement.setString(6, entity.getCep());
-			preparedStatement.setLong(7, entity.getCidadeId());
-			preparedStatement.setLong(8, entity.getId());
-
+			preparedStatement.setString(1, entity.getSenha());
+			preparedStatement.setString(2, entity.getCelular());
+			preparedStatement.setLong(3, entity.getId());
+			preparedStatement.setString(4, entity.getCpf());
+			preparedStatement.setString(5, entity.getNome());
+			preparedStatement.setString(6, entity.getLogradouro());
+			preparedStatement.setString(7, entity.getBairro());
+			preparedStatement.setLong(8, entity.getCidadeId());
+			preparedStatement.setLong(9, entity.getId());
 			preparedStatement.execute();
 
 			connection.commit();
@@ -211,7 +228,10 @@ public class PessoaDaoImpl implements PessoaDao {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		final String sql = "DELETE FROM pessoa WHERE id = ?;";
+		String sql = "START TRANSACTION;";
+		sql += "DELETE FROM pessoa WHERE usuario_id = ?;";
+		sql += "DELETE FROM usuario WHERE id = ?;";
+		sql += "COMMIT;";
 
 		try {
 
@@ -221,6 +241,7 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setLong(1, id);
+			preparedStatement.setLong(2, id);
 
 			preparedStatement.execute();
 

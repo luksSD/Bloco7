@@ -16,4 +16,5 @@ public interface AnuncioService {
 
 	boolean delete(Long id);
 
+	List<Anuncio> pesquisar(Anuncio pesquisa);
 }

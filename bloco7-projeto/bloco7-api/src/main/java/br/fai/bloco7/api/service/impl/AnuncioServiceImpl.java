@@ -48,4 +48,10 @@ public class AnuncioServiceImpl implements AnuncioService {
 		return dao.delete(id);
 	}
 
+	@Override
+	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+
+		return dao.pesquiar(pesquisa);
+	}
+
 }
