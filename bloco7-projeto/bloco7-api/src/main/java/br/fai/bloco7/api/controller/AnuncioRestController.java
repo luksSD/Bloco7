@@ -63,7 +63,7 @@ public class AnuncioRestController {
 	@PostMapping("/pesquisar")
 	public ResponseEntity<List<Anuncio>> pesquisar(@RequestBody final Anuncio pesquisa) {
 
-		return ResponseEntity.ok(service.pesquisar(pesquisa));
+		return ResponseEntity.ok(service.readByCriteria(pesquisa));
 
 	}
 

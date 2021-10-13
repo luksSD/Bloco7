@@ -16,7 +16,6 @@ import br.fai.bloco7.model.Pessoa;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
-import br.fai.bloco7.web.service.UserService;
 
 @Controller
 @RequestMapping("/anuncios")
@@ -24,9 +23,6 @@ public class AnuncioController {
 
 	@Autowired
 	private AnuncioService anuncioService;
-
-	@Autowired
-	private UserService userService;
 
 	@Autowired
 	private PessoaService pessoaService;
@@ -117,11 +113,11 @@ public class AnuncioController {
 	}
 
 //	Metodo para realizar pesquisa
-	@GetMapping("/pesquisar")
-	public String search(final Anuncio pesquisa, final Model model) {
+	@PostMapping("/pesquisar")
+	public String readByCriteria(final Anuncio anuncio, final Model model) {
 
 		// Cria lista do tipo anuncios para receber o resultado do metodo pesquisar()
-		final List<Anuncio> anuncios = anuncioService.pesquisar(pesquisa);
+		final List<Anuncio> anuncios = anuncioService.readByCriteria(anuncio);
 
 		// Injeta o resultado da pesquisa na view
 		model.addAttribute("resultPesquisa", anuncios);

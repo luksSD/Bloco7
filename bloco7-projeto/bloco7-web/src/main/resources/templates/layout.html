@@ -68,9 +68,9 @@
 							<label class="pb-2" for="tipo">Tipo</label> 
 							<select	class="form-control form-select form-control-a"	id="tipo" name="selectTipo" th:field="${anuncio.tipo_propriedade}">
 									<option value="TODOS">Todos os Tipos</option>
-									<option value="ALUGUEL">Aluguel</option>
-									<option value="VENDA">Venda</option>
-									<option value="TEMPORADA">Temporada</option>
+									<option value="Casa">Casa</option>
+									<option value="Apartamento">Apartamento</option>
+									
 							</select>
 						</div>
 					</div>
@@ -79,10 +79,10 @@
 							<label class="pb-2" for="cidade">Cidade</label> 
 							<select	class="form-control form-select form-control-a" id="cidade" name="selectCidade" th:field="${anuncio.nomeCidade}">
 								<option value="TODOS">Todas as Cidades</option>
-								<option value="SRS">Santa Rita do Sapucaí</option>
-								<option value="PA">Pouso Alegre</option>
-								<option value="ITJ">Itajubá</option>
-								<option value="PC">Poços de Caldas</option>
+								<option value="Santa Rita do Sapucaí">Santa Rita do Sapucaí</option>
+								<option value="Pouso Alegre">Pouso Alegre</option>
+								<option value="Itajubá">Itajubá</option>
+								<option value="Poços de Caldas">Poços de Caldas</option>
 							</select>
 						</div>
 					</div>
@@ -94,6 +94,7 @@
 								<option type="number" value="1">01</option>
 								<option type="number" value="2">02</option>
 								<option type="number" value="3">03</option>
+								<option type="number" value="4">04</option>
 							</select>
 						</div>
 					</div>

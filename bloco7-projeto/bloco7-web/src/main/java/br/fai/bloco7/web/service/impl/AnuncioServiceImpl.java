@@ -132,7 +132,7 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Anuncio pesquisa) {
 
 		final String endpoint = "http://localhost:2000/api/v1/anuncio/pesquisar";
 

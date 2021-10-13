@@ -51,20 +51,31 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Anuncio pesquisa) {
 
 		final Map<String, String> criteria = new HashMap<String, String>();
 
-		if (pesquisa.getDescricao().equals("")) {
-			criteria.put("descricao", "%%");
-		} else {
-			criteria.put("descricao", pesquisa.getDescricao());
+//		if (pesquisa.getDescricao().equals("")) {
+//			criteria.put("descricao", "ilike '%%'");
+//		} else {
+//			criteria.put("descricao", "ilike '%" + pesquisa.getDescricao() + "%'");
+//		}
+
+		if (!pesquisa.getTipo_propriedade().equals("TODOS")) {
+			criteria.put("tipo_propriedade", "= '" + pesquisa.getTipo_propriedade() + "'");
 		}
 
-		criteria.put("tipo_propiedade", pesquisa.getTipo_propriedade());
-		criteria.put("quartos", String.valueOf(pesquisa.getQuartos()));
-		criteria.put("vaga_garagem", String.valueOf(pesquisa.getVaga_garagem()));
-		criteria.put("banheiros", String.valueOf(pesquisa.getBanheiros()));
+		if (pesquisa.getQuartos() != 0) {
+			criteria.put("quartos", "= " + String.valueOf(pesquisa.getQuartos()));
+		}
+
+		if (pesquisa.getVaga_garagem() != 0) {
+			criteria.put("vaga_garagem", "= " + String.valueOf(pesquisa.getVaga_garagem()));
+		}
+
+		if (pesquisa.getBanheiros() != 0) {
+			criteria.put("banheiros", "= " + String.valueOf(pesquisa.getBanheiros()));
+		}
 
 		return dao.readByCriteria(criteria);
 	}
