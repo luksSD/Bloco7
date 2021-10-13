@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{Layout}">
+<html layout:decorate="~{Layout-panel}">
 <head>
 <meta charset="UTF-8">
 <title>Listar Usuarios</title>
@@ -26,25 +26,25 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-									<th>Nome</th>
 									<th>Email</th>
+									<th>Celular</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
 									<th>Id</th>
-									<th>Nome</th>
 									<th>Email</th>
+									<th>Celular</th>
 									<th></th>
 								</tr>
 							</tfoot>
 							<tbody>
 								<tr th:each="usuario : ${listaDeUsuarios}">
 									<td th:text="${usuario.id}">1</td>
-									<td th:text="${usuario.nomeCompleto}">Tiburssinho
+									<td th:text="${usuario.email}">Tiburssinho
 										Tiburrsius</td>
-									<td th:text="${usuario.email}">tiburssinho@gmail.com</td>
+									<td th:text="${usuario.celular}">tiburssinho@gmail.com</td>
 									<td>
 										<div class="row">
 											<div class="col-4">
