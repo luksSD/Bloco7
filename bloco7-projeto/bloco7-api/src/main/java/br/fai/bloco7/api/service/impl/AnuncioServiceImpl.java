@@ -55,11 +55,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 		final Map<String, String> criteria = new HashMap<String, String>();
 
-//		if (pesquisa.getDescricao().equals("")) {
-//			criteria.put("descricao", "ilike '%%'");
-//		} else {
-//			criteria.put("descricao", "ilike '%" + pesquisa.getDescricao() + "%'");
-//		}
+		if (pesquisa.getDescricao().equals("")) {
+			criteria.put("descricao", "ilike '%%'");
+		} else {
+			criteria.put("descricao", "ilike '%" + pesquisa.getDescricao() + "%'");
+		}
 
 		if (!pesquisa.getTipo_propriedade().equals("TODOS")) {
 			criteria.put("tipo_propriedade", "= '" + pesquisa.getTipo_propriedade() + "'");
@@ -75,6 +75,18 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 		if (pesquisa.getBanheiros() != 0) {
 			criteria.put("banheiros", "= " + String.valueOf(pesquisa.getBanheiros()));
+		}
+
+		if (pesquisa.getBanheiros() != 0) {
+			criteria.put("banheiros", "= " + String.valueOf(pesquisa.getBanheiros()));
+		}
+
+		if (!pesquisa.getNomeCidade().equals("TODOS")) {
+			criteria.put("nome", "= " + pesquisa.getNomeCidade());
+		}
+
+		if (!pesquisa.getStatus().equals("TODOS")) {
+			criteria.put("status", "= " + pesquisa.getStatus());
 		}
 
 		return dao.readByCriteria(criteria);
