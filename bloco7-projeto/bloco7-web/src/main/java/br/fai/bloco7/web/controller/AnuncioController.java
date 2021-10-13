@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Cidade;
 import br.fai.bloco7.model.Pessoa;
-import br.fai.bloco7.model.Usuario;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
@@ -69,10 +68,7 @@ public class AnuncioController {
 		final Anuncio anuncio = anuncioService.readById(idAnuncio);
 		model.addAttribute("anuncio", anuncio);
 
-		final Usuario user = userService.readById(anuncio.getUsuarioAnuncianteId());
-		model.addAttribute("usuario", user);
-
-		final Pessoa pessoa = pessoaService.readById(user.getPessoaId());
+		final Pessoa pessoa = pessoaService.readById(anuncio.getUsuarioAnuncianteId());
 		model.addAttribute("pessoa", pessoa);
 
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
