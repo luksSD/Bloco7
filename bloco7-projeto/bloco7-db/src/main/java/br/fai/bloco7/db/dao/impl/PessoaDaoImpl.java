@@ -182,9 +182,7 @@ public class PessoaDaoImpl implements PessoaDao {
 		sql += " cpf = ?,";
 		sql += " nome = ?,";
 		sql += " logradouro = ?,";
-		sql += " numero = ?,";
 		sql += " bairro = ?,";
-		sql += " cep = ?,";
 		sql += " cidade_id = ?,";
 		sql += " where id = ?;";
 		sql += " COMMIT;";
@@ -202,12 +200,9 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement.setString(4, entity.getCpf());
 			preparedStatement.setString(5, entity.getNome());
 			preparedStatement.setString(6, entity.getLogradouro());
-			preparedStatement.setString(7, entity.getNumero());
-			preparedStatement.setString(8, entity.getBairro());
-			preparedStatement.setString(9, entity.getCep());
-			preparedStatement.setLong(10, entity.getCidadeId());
-			preparedStatement.setLong(11, entity.getId());
-
+			preparedStatement.setString(7, entity.getBairro());
+			preparedStatement.setLong(8, entity.getCidadeId());
+			preparedStatement.setLong(9, entity.getId());
 			preparedStatement.execute();
 
 			connection.commit();
