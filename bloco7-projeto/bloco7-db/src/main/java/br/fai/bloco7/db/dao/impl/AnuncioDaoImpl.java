@@ -46,7 +46,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
@@ -99,7 +99,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
@@ -146,7 +146,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(5, entity.getTipo_propriedade());
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
-			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(8, entity.getPreco());
 			preparedStatement.setString(9, entity.getEndereco());
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
@@ -209,7 +209,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(5, entity.getTipo_propriedade());
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
-			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(8, entity.getPreco());
+			preparedStatement.setLong(9, entity.getId());
 //			preparedStatement.setString(9, entity.getEndereco());
 //			preparedStatement.setString(10, entity.getBairro());
 //			preparedStatement.setString(11, entity.getCep());
@@ -306,7 +307,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));

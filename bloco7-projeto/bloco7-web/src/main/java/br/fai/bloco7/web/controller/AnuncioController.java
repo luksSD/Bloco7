@@ -16,7 +16,6 @@ import br.fai.bloco7.model.Pessoa;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
-import br.fai.bloco7.web.service.UserService;
 
 @Controller
 @RequestMapping("/anuncios")
@@ -24,9 +23,6 @@ public class AnuncioController {
 
 	@Autowired
 	private AnuncioService anuncioService;
-
-	@Autowired
-	private UserService userService;
 
 	@Autowired
 	private PessoaService pessoaService;

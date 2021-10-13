@@ -61,7 +61,7 @@ CREATE TABLE anuncio
     tipo_propriedade VARCHAR (50) not null,
     status VARCHAR (50) not null,
     area integer,
-    preco real not null,
+    preco VARCHAR (200) not null,
     endereco VARCHAR (200) not null,
     bairro VARCHAR (20) not null,
     cep VARCHAR (20) not null,
