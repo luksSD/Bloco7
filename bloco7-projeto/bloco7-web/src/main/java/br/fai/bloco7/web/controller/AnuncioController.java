@@ -37,7 +37,7 @@ public class AnuncioController {
 
 //	Metodo para exibição da pagina de anuncios
 	@GetMapping("/listar")
-	public String getAnuncioGridPage(final Model model) {
+	public String getAnuncioGridPage(final Anuncio pesquisa, final Model model) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
@@ -48,7 +48,7 @@ public class AnuncioController {
 	}
 
 	@GetMapping("/listar-logado")
-	public String getAnuncioGridPageLogado(final Model model) {
+	public String getAnuncioGridPageLogado(final Anuncio pesquisa, final Model model) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
@@ -105,22 +105,23 @@ public class AnuncioController {
 	}
 
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") final Long id, final Model model) {
+	public String delete(@PathVariable("id") final Long id, final Model model, final Anuncio anuncio) {
 
 		anuncioService.deleteById(id);
 
-		return getAnuncioGridPage(model);
+		return getAnuncioGridPage(anuncio, model);
 	}
 
 //	Metodo para realizar pesquisa
-	@GetMapping("/pesquisar")
-	public String search(final Anuncio pesquisa, final Model model) {
+	@PostMapping("/pesquisar")
+	public String readByCriteria(final Anuncio anuncio, final Model model) {
 
 		// Cria lista do tipo anuncios para receber o resultado do metodo pesquisar()
-		final List<Anuncio> anuncio = anuncioService.pesquisar(pesquisa);
+		final List<Anuncio> anuncios = anuncioService.readByCriteria(anuncio);
 
 		// Injeta o resultado da pesquisa na view
-		model.addAttribute("listaDeAnuncio", anuncio);
+		model.addAttribute("resultPesquisa", anuncios);
+
 		// Indicador de pagina ativa
 		model.addAttribute("activePage", "anuncio");
 

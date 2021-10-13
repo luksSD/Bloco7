@@ -16,6 +16,6 @@ public interface AnuncioService {
 
 	boolean deleteById(Long id);
 
-	List<Anuncio> pesquisar(Anuncio pesquisa);
+	List<Anuncio> readByCriteria(Anuncio pesquisa);
 
 }

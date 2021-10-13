@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -273,7 +274,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 	}
 
 	@Override
-	public List<Anuncio> pesquiar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Map<String, String> criteria) {
 
 		final List<Anuncio> anuncios = new ArrayList<Anuncio>();
 
@@ -284,12 +285,13 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			String sql = "SELECT * FROM anuncio WHERE";
+			String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id WHERE TRUE";
 
-			if (pesquisa.getTipo_propriedade() != "Todos") {
-				sql += " tipo_propiedade = ?,";
-			} else {
-				sql = "SELECT * FROM anuncio";
+			if (criteria != null && criteria.size() != 0) {
+
+				for (final String chave : criteria.keySet()) {
+					sql += " and " + chave + " " + criteria.get(chave);
+				}
 			}
 
 			preparedStatement = connection.prepareStatement(sql);
@@ -319,9 +321,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 			}
 
-		} catch (
+		} catch (final Exception e) {
 
-		final Exception e) {
+			System.out.println(e.getMessage());
 
 		} finally {
 			ConnectionFactory.close(resultSet, preparedStatement, connection);

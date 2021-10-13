@@ -132,7 +132,7 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Anuncio pesquisa) {
 
 		final String endpoint = "http://localhost:2000/api/v1/anuncio/pesquisar";
 
@@ -143,7 +143,7 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(pesquisa);
 
-			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
+			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.POST,
 					httpEntity, Anuncio[].class);
 
 			response = Arrays.asList(requestResponse.getBody());
