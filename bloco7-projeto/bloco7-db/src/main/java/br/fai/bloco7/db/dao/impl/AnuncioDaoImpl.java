@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -272,7 +273,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 	}
 
 	@Override
-	public List<Anuncio> pesquiar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Map<String, String> pesquisa) {
 
 		final List<Anuncio> anuncios = new ArrayList<Anuncio>();
 
@@ -283,13 +284,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			String sql = "SELECT * FROM anuncio WHERE";
-
-			if (pesquisa.getTipo_propriedade() != "Todos") {
-				sql += " tipo_propiedade = ?,";
-			} else {
-				sql = "SELECT * FROM anuncio";
-			}
+			final String sql = "SELECT * FROM anuncio WHERE";
 
 			preparedStatement = connection.prepareStatement(sql);
 

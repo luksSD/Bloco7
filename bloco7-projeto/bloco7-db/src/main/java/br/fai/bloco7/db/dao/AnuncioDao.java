@@ -1,6 +1,7 @@
 package br.fai.bloco7.db.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import br.fai.bloco7.model.Anuncio;
 
@@ -16,6 +17,6 @@ public interface AnuncioDao {
 
 	boolean delete(Long id);
 
-	List<Anuncio> pesquiar(Anuncio pesquisa);
+	List<Anuncio> readByCriteria(Map<String, String> pesquisa);
 
 }

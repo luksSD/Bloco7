@@ -1,6 +1,8 @@
 package br.fai.bloco7.api.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +53,20 @@ public class AnuncioServiceImpl implements AnuncioService {
 	@Override
 	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
 
-		return dao.pesquiar(pesquisa);
+		final Map<String, String> criteria = new HashMap<String, String>();
+
+		if (pesquisa.getDescricao().equals("")) {
+			criteria.put("descricao", "%%");
+		} else {
+			criteria.put("descricao", pesquisa.getDescricao());
+		}
+
+		criteria.put("tipo_propiedade", pesquisa.getTipo_propriedade());
+		criteria.put("quartos", String.valueOf(pesquisa.getQuartos()));
+		criteria.put("vaga_garagem", String.valueOf(pesquisa.getVaga_garagem()));
+		criteria.put("banheiros", String.valueOf(pesquisa.getBanheiros()));
+
+		return dao.readByCriteria(criteria);
 	}
 
 }
