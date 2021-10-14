@@ -94,7 +94,7 @@
 						<div class="col-md-10">
 							<label for="celular">Celular</label> <input id="celular" required
 								type="text" placeholder="(XX) X XXXX-XXXX" name="celular"
-								class="form-control"> <br>
+								class="form-control" th:field="${pessoa.celular}"> <br>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
@@ -103,7 +103,7 @@
 						<div class="col-md-10">
 							<label for="email">Email</label> <input id="email" required
 								type="email" placeholder="email@example.com" name="email"
-								class="form-control"> <br>
+								class="form-control" th:field="${pessoa.email}"> <br>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
@@ -112,7 +112,7 @@
 						<div class="col-md-10">
 							<label for="senha">Senha</label> <input id="senha" required
 								type="password" placeholder="********" name="senha"
-								class="form-control"> <br>
+								class="form-control" th:field="${pessoa.senha}"> <br>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
