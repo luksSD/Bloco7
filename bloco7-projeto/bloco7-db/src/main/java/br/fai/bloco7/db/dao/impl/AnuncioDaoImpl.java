@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;
 
 import br.fai.bloco7.db.connection.ConnectionFactory;
+import org.springframework.stereotype.Repository;
+
 import br.fai.bloco7.db.dao.AnuncioDao;
 import br.fai.bloco7.model.Anuncio;
 

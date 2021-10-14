@@ -21,13 +21,13 @@ body{
     overflow-x: hidden;
 }
 
-.container{
+.container-logado{
     position: relative;
     
     width: 100%;
 }
 
-.navigation{
+.navigation-logado{
     position: fixed;
     width: 300px;
     height: 100%;
@@ -37,18 +37,18 @@ body{
     overflow:hidden;
 }
 
-.navigation.active{
+.navigation-logado.active{
     width: 80px;
 }
 
-.navigation ul{
+.navigation-logado ul{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
 
-.navigation ul li{
+.navigation-logado ul li{
     position: relative;
     width: 100%;
     list-style: none;
@@ -56,31 +56,31 @@ body{
     border-bottom-left-radius: 30px;
 }
 
-.navigation ul li:hover,
-.navigation ul li.hovered{
+.navigation-logado ul li:hover,
+.navigation-logado ul li.hovered{
     background: var(--white);
 }
 
-.navigation ul li:nth-child(1){
+.navigation-logado ul li:nth-child(1){
     margin-bottom: 40px;
     pointer-events: none;
 }
 
-.navigation ul li a{
+.navigation-logado ul li a{
     position: relative;
     display: block;
     width: 100%;
     display: flex;
     text-decoration: none;
-    color: var(--white);
+    color:#520a0a;
 }
 
-.navigation ul li:hover,
-.navigation ul li.hovered a{
+.navigation-logado ul li:hover,
+.navigation-logado ul li.hovered a{
     color: var(--green);
 }
 
-.navigation ul li a .icon{
+.navigation-logado ul li a .icon-logado{
     position: relative;
     display: block;
     min-width: 60px;
@@ -90,11 +90,11 @@ body{
 }
 
 
-.navigation ul li a .icon ion-icon{
+.navigation-logado ul li a .icon ion-icon{
     font-size: 1.75em;
 }
 
-.navigation ul li a .title{
+.navigation-logado ul li a .title-logado{
     position: relative;
     display: block;
     padding: 0 10px;
@@ -106,8 +106,8 @@ body{
 
 /* curva da borda de fora, perto do container onde rodará as views*/
 
-.navigation ul li:hover a::before,
-.navigation ul li.hovered a::before{
+.navigation-logado ul li:hover a::before,
+.navigation-logado ul li.hovered a::before{
     content:'';
     position:absolute;
     right: 0;
@@ -120,8 +120,8 @@ body{
     pointer-events: none;
 }
 
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after{
+.navigation-logado ul li:hover a::after,
+.navigation-logado ul li.hovered a::after{
     content:'';
     position:absolute;
     right: 0;
@@ -137,7 +137,7 @@ body{
 
 
 /* main */
-.main{
+.main-logado{
     position:absolute;
     width: calc(100% - 300px);
     left: 300px;
@@ -146,12 +146,12 @@ body{
     transition: 0.5s;
 }
 
-.main.active{
+.main-logado.active{
     width: calc(100% - 80px);
     left: 80px;
 }
 
-.topbar{
+.topbar-logado{
     width: 100%;
     height: 60px;
     justify-content: space-between;
@@ -159,7 +159,7 @@ body{
     padding: 0 10px;
 }
 
-.toggle{
+.toggle-logado{
     position: relative;
     width: 60px;
     height: 60px;
@@ -168,6 +168,5 @@ body{
     align-items: center;
     font-size: 2.5em;
     cursor: pointer;
-    
-
 }
+	

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{Layout}">
+<html layout:decorate="~{Layout-panel}">
 <head>
 <meta charset="UTF-8">
 <title>Listar Usuarios</title>
@@ -26,25 +26,33 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-									<th>Nome</th>
 									<th>Email</th>
+									<th>Celular</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
 									<th>Id</th>
-									<th>Nome</th>
 									<th>Email</th>
+									<th>Celular</th>
 									<th></th>
 								</tr>
 							</tfoot>
 							<tbody>
+<<<<<<< HEAD:bloco7-projeto/bloco7-web/src/main/resources/templates/user/list.html
+								<tr th:each="usuario : ${listaDeUsuarios}">
+									<td th:text="${usuario.id}">1</td>
+									<td th:text="${usuario.email}">Tiburssinho
+										Tiburrsius</td>
+									<td th:text="${usuario.celular}">tiburssinho@gmail.com</td>
+=======
 								<tr th:each="pessoa : ${listaDePessoas}">
 									<td th:text="${pessoa.id}">1</td>
 									<td th:text="${pessoa.nome}">Tiburssinho
 										Tiburrsius</td>
 									<td th:text="${pessoa.email}">tiburssinho@gmail.com</td>
+>>>>>>> 2729363db93459a14da0460fcf1b4e15337f1e4b:bloco7-projeto/bloco7-web/src/main/resources/templates/pessoa/list.html
 									<td>
 <!-- 										<div class="row"> -->
 <!-- 											<div class="col-4"> -->
