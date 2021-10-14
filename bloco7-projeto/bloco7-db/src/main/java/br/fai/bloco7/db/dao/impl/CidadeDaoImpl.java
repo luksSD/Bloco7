@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 
 import org.springframework.stereotype.Repository;
 
-import br.fai.bloco7.db.connection.ConnectionFactory;
 import br.fai.bloco7.db.dao.CidadeDao;
 import br.fai.bloco7.model.Cidade;
+import connection.ConnectionFactory;
 
 @Repository
 public class CidadeDaoImpl implements CidadeDao {

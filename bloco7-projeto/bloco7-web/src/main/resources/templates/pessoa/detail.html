@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html layout:decorate="~{Layout}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 <head>
 <meta charset="UTF-8">
 <title>Detalhes do Usuario</title>
@@ -15,21 +16,7 @@
 
 			<div class="row">
 
-				<div class="mb-2 col-12 col-sm-5">
-					<div class="card">
-						<div class="card-body">
-							<div class="mb-3 text-center">
-								<img src="../resources/assets/img/avatar.jpg" width="200"
-									class="rounded-circle img-fluid" />
-							</div>
-							<div class="mb-2">
-								<p class="text-primary text-center"
-									th:text="${usuario.nomeUsuario}">Tiburssinho</p>
-								<p class="text-muted text-center">Desenvolvedor</p>
-							</div>
-						</div>
-					</div>
-				</div>
+
 
 				<div class="mb-2 col-12 col-sm-7">
 
@@ -37,28 +24,22 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col-sm-3">Nome</div>
-								<div class="col-sm-9" th:text="${usuario.nomeCompleto}">Tiburssinho
-									Tiburssius</div>
+								<div class="col-sm-9" th:text="${pessoa.nome}"></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">Email</div>
-								<div class="col-sm-9" th:text="${usuario.email}">tiburssinho@gmail.com</div>
+								<div class="col-sm-9" th:text="${pessoa.email}"></div>
 							</div>
 							<hr>
 							<div class="row">
-								<div class="col-sm-3">Idade</div>
-								<div class="col-sm-9">45 anos</div>
+								<div class="col-sm-3">CPF</div>
+								<div class="col-sm-9" th:text="${pessoa.cpf}"></div>
 							</div>
 							<hr>
 							<div class="row">
-								<div class="col-sm-3">Tipo</div>
-								<div class="col-sm-9" th:text="${usuario.tipo}">45 anos</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">Está ativo?</div>
-								<div class="col-sm-9" th:text="${usuario.estaAtivo}">45
+								<div class="col-sm-3">ID</div>
+								<div class="col-sm-9" th:text="${pessoa.id}">45
 									anos</div>
 							</div>
 
@@ -69,7 +50,7 @@
 					<div class="mb-2">
 
 
-						<a th:href="@{/user/edit/{id} (id=${usuario.id})}"
+						<a th:href="@{/pessoa/edit/{id} (id=${pessoa.id})}"
 							class="btn btn-primary col-12">Editar</i></a>
 
 					</div>

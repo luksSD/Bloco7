@@ -89,11 +89,14 @@ public class AnuncioController {
 
 		final Long id = anuncioService.create(anuncio);
 
+//		model.addAttribute("anuncio", id);
+
 		if (id != -1) {
-			return "redirect:/anuncios/listar-logado";
+			return getDetailPage(id, model);
 		}
+
 		model.addAttribute("anuncio", id);
-		return "redirect:/dashboard/";
+		return "anuncios/register";
 	}
 
 	@PostMapping("/update")

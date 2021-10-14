@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
-import br.fai.bloco7.db.connection.ConnectionFactory;
 import org.springframework.stereotype.Repository;
 
 import br.fai.bloco7.db.dao.AnuncioDao;
 import br.fai.bloco7.model.Anuncio;
+import connection.ConnectionFactory;
 
 @Repository
 public class AnuncioDaoImpl implements AnuncioDao {
@@ -158,6 +157,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.execute();
 
 			resultSet = preparedStatement.getGeneratedKeys();
+
 			if (resultSet.next()) {
 				id = resultSet.getLong(1);
 			}

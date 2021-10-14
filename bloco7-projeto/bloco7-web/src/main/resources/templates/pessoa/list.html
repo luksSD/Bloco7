@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html layout:decorate="~{Layout-panel}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 <head>
 <meta charset="UTF-8">
 <title>Listar Usuarios</title>
 </head>
 <body>
-
+	
 	<div layout:fragment="body">
 		<div class="container-fluid">
 			<h1 class="mt-4">Usuários</h1>
@@ -40,20 +41,17 @@
 								</tr>
 							</tfoot>
 							<tbody>
-<<<<<<< HEAD:bloco7-projeto/bloco7-web/src/main/resources/templates/user/list.html
-								<tr th:each="usuario : ${listaDeUsuarios}">
+									<tr th:each="usuario : ${listaDeUsuarios}">
 									<td th:text="${usuario.id}">1</td>
 									<td th:text="${usuario.email}">Tiburssinho
 										Tiburrsius</td>
 									<td th:text="${usuario.celular}">tiburssinho@gmail.com</td>
-=======
+
 								<tr th:each="pessoa : ${listaDePessoas}">
 									<td th:text="${pessoa.id}">1</td>
 									<td th:text="${pessoa.nome}">Tiburssinho
 										Tiburrsius</td>
-									<td th:text="${pessoa.email}">tiburssinho@gmail.com</td>
->>>>>>> 2729363db93459a14da0460fcf1b4e15337f1e4b:bloco7-projeto/bloco7-web/src/main/resources/templates/pessoa/list.html
-									<td>
+									<td th:text="${pessoa.email}">tiburssinho@gmail.com</td><td>
 <!-- 										<div class="row"> -->
 <!-- 											<div class="col-4"> -->
 

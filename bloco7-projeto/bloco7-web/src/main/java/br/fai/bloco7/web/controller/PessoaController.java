@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Pessoa;
-import br.fai.bloco7.model.Usuario;
+import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.PessoaService;
-import br.fai.bloco7.web.service.UserService;
 
 @Controller
 @RequestMapping("/pessoa")
@@ -23,10 +23,10 @@ public class PessoaController {
 	private PessoaService pessoaService;
 
 	@Autowired
-	private UserService userService;
+	private AnuncioService anuncioService;
 
 	@GetMapping("/list")
-	public String getListPage(final Model model) {
+	public String getListPage(final Model model, final Anuncio anuncio) {
 
 		final List<Pessoa> pessoa = pessoaService.readAll();
 
@@ -36,7 +36,7 @@ public class PessoaController {
 	}
 
 	@GetMapping("/edit/{id}")
-	public String getEditPage(@PathVariable("id") final long id, final Model model) {
+	public String getEditPage(@PathVariable("id") final long id, final Model model, final Anuncio anuncio) {
 
 		final Pessoa pessoa = pessoaService.readById(id);
 		model.addAttribute("pessoa", pessoa);
@@ -47,8 +47,10 @@ public class PessoaController {
 	@GetMapping("/detail/{id}")
 	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
 
+		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
 		model.addAttribute("pessoa", pessoa);
+		model.addAttribute("anuncio", anuncio);
 
 		return "pessoa/detail";
 	}
@@ -62,20 +64,21 @@ public class PessoaController {
 	}
 
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") final Long id, final Model model) {
+	public String delete(@PathVariable("id") final Long id, final Model model, final Anuncio anuncio) {
 
 		pessoaService.deleteById(id);
 
-		return getListPage(model);
+		return getListPage(model, anuncio);
 	}
 
 	@GetMapping("/login")
-	public String login(final Usuario usuario) {
-		return "user/login";
+	public String login(final Pessoa pessoa, final Anuncio anuncio) {
+
+		return "pessoa/login";
 	}
 
 	@GetMapping("/register")
-	public String getRegisterPage(final Pessoa pessoa) {
+	public String getRegisterPage(final Pessoa pessoa, final Anuncio anuncio) {
 		return "pessoa/register";
 	}
 
@@ -87,13 +90,6 @@ public class PessoaController {
 
 		}
 		return "redirect:/";
-	}
-
-	@PostMapping("/authentication")
-	public String authentication(final Usuario usuario) {
-
-		userService.authentication(usuario);
-		return "redirect:/dashboard/";
 	}
 
 }

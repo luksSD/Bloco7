@@ -10,9 +10,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.fai.bloco7.db.connection.ConnectionFactory;
 import br.fai.bloco7.db.dao.PessoaDao;
 import br.fai.bloco7.model.Pessoa;
+import connection.ConnectionFactory;
 
 @Repository
 public class PessoaDaoImpl implements PessoaDao {
@@ -154,6 +154,7 @@ public class PessoaDaoImpl implements PessoaDao {
 			connection.commit();
 
 		} catch (final Exception e) {
+			System.out.println(e.getMessage());
 
 			try {
 				connection.rollback();
@@ -162,6 +163,7 @@ public class PessoaDaoImpl implements PessoaDao {
 			}
 		} finally {
 			ConnectionFactory.close(preparedStatement, connection);
+
 		}
 
 		return id;
@@ -184,7 +186,7 @@ public class PessoaDaoImpl implements PessoaDao {
 		sql += " logradouro = ?,";
 		sql += " bairro = ?,";
 		sql += " cidade_id = ?,";
-		sql += " where id = ?;";
+		sql += " where usuario_id = ?;";
 		sql += " COMMIT;";
 
 		try {
