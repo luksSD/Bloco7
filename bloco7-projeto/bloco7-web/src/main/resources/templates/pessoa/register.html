@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bloco 7 | Crie sua conta</title>
+<link href="/resources/vendor/animate.css/animate.min.css"
+	rel="stylesheet">
+<link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="/resources/vendor/swiper/swiper-bundle.min.css"
+	rel="stylesheet">
+</head>
+<body style="background-color: #ffce00">
+	<div class="container"
+		style="background-color: white; margin-top: 40px; border-radius: 30px; padding: 10px">
+		<form th:action="@{/pessoa/create}" method="POST"
+			th:object="${pessoa}">
+			<div class="row">
+				<center>
+					<h1 style="margin-top: 10px">Cadastre-se Já!</h1>
+				</center>
+
+
+				<div class="col-md-6">
+					<center>
+						<h2 style="margin-top: 40px">Dados Pessoais</h2>
+					</center>
+
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="nome">Nome</label> <input id="nome" required
+								type="text" placeholder="Digite seu nome" class="form-control"
+								th:field="${pessoa.nome}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="cpf">CPF</label> <input id="cpf" required type="text"
+								placeholder="000.000.000-00" class="form-control"
+								th:field="${pessoa.cpf}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="rua">Logradouro</label> <input id="rua" required
+								type="text" placeholder="Av. Principal" class="form-control"
+								th:field="${pessoa.logradouro}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="bairro">Bairro</label> <input id="bairro" required
+								type="text" placeholder="Centro" class="form-control"
+								th:field="${pessoa.bairro}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="cidade">Cidade</label> <select class="form-control"
+								id="cidade" th:field="${pessoa.cidadeId}">
+								<option type="number" value=4>Santa Rita do Sapucaí</option>
+								<option type="number" value=1>Pouso Alegre</option>
+								<option type="number" value=3>Poços de Caldas</option>
+								<option type="number" value=2>Itajuba</option>
+							</select> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<center>
+						<h2 style="margin-top: 40px">Dados de Acesso</h2>
+					</center>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="celular">Celular</label> <input id="celular" required
+								type="text" placeholder="(XX) X XXXX-XXXX" name="celular"
+								class="form-control" th:field="${pessoa.celular}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="email">Email</label> <input id="email" required
+								type="email" placeholder="email@example.com" name="email"
+								class="form-control" th:field="${pessoa.email}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="senha">Senha</label> <input id="senha" required
+								type="password" placeholder="********" name="senha"
+								class="form-control" th:field="${pessoa.senha}"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="confirma_senha">Confirme a senha</label> <input
+								id="confirma_senha" required type="password"
+								placeholder="********" name="confirma_senha"
+								class="form-control"> <br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<center>
+								<h4 style="color: #000; margin-top: 1px">Confirme os dados
+									para prosseguir com o cadastro!</h4>
+							</center>
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<center>
+						<button class="btn btn-primary" type="submit">Cadastrar</button>
+					</center>
+
+
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+	</div>
+</body>
+</html>

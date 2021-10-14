@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html layout:decorate="~{Layout}">
+<head>
+<meta charset="UTF-8">
+<title>Editar Usuarios</title>
+</head>
+<body>
+
+	<div layout:fragment="body">
+		<div class="container-fluid">
+			<h1 class="mt-4">Usuários</h1>
+			<ol class="breadcrumb mb-4">
+				<li class="breadcrumb-item active">Editar</li>
+			</ol>
+
+			<div class="row">
+
+				<div class="mb-2 col-12 col-sm-5">
+					<div class="card">
+						<div class="card-body">
+							<div class="mb-3 text-center">
+								<img src="../resources/assets/img/avatar.jpg" width="200"
+									class="rounded-circle img-fluid" />
+							</div>
+							<div class="mb-2">
+								<button class="btn btn-primary col-12">Trocar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-2 col-12 col-sm-7">
+				
+				
+				<form th:action="@{/user/update}" method="POST" th:object="${usuario}">
+				
+				<div class="mb-2 card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3">Nome</div>
+								<div class="col-sm-9">
+									<input type="text" class="form-control"
+										th:field="${usuario.nomeCompleto}">
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">Email</div>
+								<div class="col-sm-9">
+									<input type="text" class="form-control"
+										th:field="${usuario.email}">
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">Idade</div>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" value="45 anos">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="mb-2">
+						<button class="btn btn-primary col-12" type="submit">Atualizar</button>
+						
+						<input th:field= "${usuario.id}" type="hidden">
+					</div>
+				
+				</form>
+
+					
+
+				
+				</div>
+
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+</body>
+</html>

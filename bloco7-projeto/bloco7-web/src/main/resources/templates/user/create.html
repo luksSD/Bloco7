@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bloco 7 | Crie sua conta</title>
+	<link href="/resources/vendor/animate.css/animate.min.css"
+	rel="stylesheet">
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet">
+	<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css"
+		rel="stylesheet">
+	<link href="/resources/vendor/swiper/swiper-bundle.min.css"
+		rel="stylesheet">
+</head>
+<body style="background-color: #ffce00">
+	<div class="container" style="background-color: white; margin-top: 40px; border-radius:30px; padding:10px">
+		<div class="row">
+			<center><h1 style="margin-top:10px">Cadastre-se Já!</h1></center>
+			<div class="col-md-6">
+				<center><h2 style="margin-top:40px">Dados Pessoais</h2></center>
+					<form>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="nome">Nome</label>
+							<input id="nome" required type="text" placeholder="Digite seu nome" name="nome" class="form-control">
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="cpf">CPF</label>
+							<input id="cpf" required type="text" placeholder="000.000.000-00" name="cpf" class="form-control">
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="rua">Logradouro</label>
+							<input id="rua" required type="text" placeholder="Av. Principal" name="rua" class="form-control">
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="num">N°</label>
+							<input id="num" required type="text" placeholder="130" name="num" class="form-control">
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="bairro">Bairro</label>
+							<input id="bairro" required type="text" placeholder="Centro" name="bairro" class="form-control">
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="cidade">Cidades</label>
+							<input id="cidade" required type="text" placeholder="Selecione a cidade" name="cidade" class="form-control">
+							<br>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+				
+			</div>
+			<div class="col-md-6">
+				<center><h2 style="margin-top:40px">Dados de Acesso</h2></center>
+
+				<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="celular">Celular</label>
+							<input id="celular" required type="text" placeholder="(XX) X XXXX-XXXX" name="celular" class="form-control">
+							<br>
+						</div>
+					<div class="col-md-1"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="email">Email</label>
+							<input id="email" required type="email" placeholder="email@example.com" name="email" class="form-control">
+							<br>
+						</div>
+					<div class="col-md-1"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="senha">Senha</label>
+							<input id="senha" required type="password" placeholder="********" name="senha" class="form-control">
+							<br>
+						</div>
+					<div class="col-md-1"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<label for="confirma_senha">Confirme a senha</label>
+							<input id="confirma_senha" required type="password" placeholder="********" name="confirma_senha" class="form-control">
+							<br>
+						</div>
+					<div class="col-md-1"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<center><h4 style="color:#000; margin-top:1px">Confirme os dados para prosseguir com o cadastro!</h4></center>
+							<br>
+						</div>
+					<div class="col-md-1"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<a class="btn btn-primary" th:href="@{/dashboard/}">CADASTRAR</a>
+							<br>
+						</div>
+					<div class="col-md-1"></div>
+				</div>
+
+
+			</div>
+			
+			</form>			
+		</div>
+	</div>
+</body>
+</html>

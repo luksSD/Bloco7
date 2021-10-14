@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout-panel}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="body">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div
+					style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
+					class="col-md-10">
+					<form th:action="@{/anuncios/create}" method="POST"
+						th:object="${anuncio}">
+						<div class="row">
+							<div class="col-md-6">
+								<center>
+									<h2 style="margin-top: 40px">Dados de Endereço</h2>
+								</center>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="cidade">Cidade</label> <select
+											class="form-control" id="cidade"
+											th:field="${anuncio.cidadeId}">
+											<option type="number" value=4>Santa Rita do Sapucaí</option>
+											<option type="number" value=1>Pouso Alegre</option>
+											<option type="number" value=3>Poços de Caldas</option>
+											<option type="number" value=2>Itajuba</option>
+										</select> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="endereco">Endereço</label> <input id="endereco"
+											type="text" placeholder="Av. Sinhá Moreira" name="endereco"
+											class="form-control" th:field="${anuncio.endereco}">
+										<br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="bairro">Bairro</label> <input id="bairro"
+											type="text" placeholder="Centro" name="bairro"
+											class="form-control" th:field="${anuncio.bairro}"> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="cep">CEP</label> <input id=cep type="text"
+											placeholder="99.999-999" name="cep" class="form-control"
+											th:field="${anuncio.cep}"> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="bairro">Descricao</label> <input id="descricao"
+											type="text" placeholder="Descrição" name="descricao"
+											class="form-control" th:field="${anuncio.descricao}">
+										<br>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="bairro">Tipo Propriedade</label> <input
+											id="tipo_propriedade" type="text"
+											placeholder="Tipo Propriedade" name="tipo_propriedade"
+											class="form-control" th:field="${anuncio.tipo_propriedade}">
+										<br>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="col-md-6">
+								<center>
+									<h2 style="margin-top: 40px">Dados Descritivos</h2>
+								</center>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="quartos">Quartos</label> <input id="quartos"
+											type="number" placeholder="2" name="quartos"
+											class="form-control" th:field="${anuncio.quartos}"> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="banheiros">Banheiros</label> <input id="banheiros"
+											type="number" placeholder="1" name="banheiros"
+											class="form-control" th:field="${anuncio.banheiros}">
+										<br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="vaga_garagem">Vaga Garagem</label> <input
+											id="vaga_garagem" type="number" placeholder="2"
+											name="vaga_garagem" class="form-control"
+											th:field="${anuncio.vaga_garagem}"> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="area">Área m²</label> <input id="area"
+											type="number" placeholder="200" name="area"
+											class="form-control" th:field="${anuncio.area}"> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="preco">Preço</label> <input id="preco" type="text"
+											placeholder="650" name="preco" class="form-control"
+											th:field="${anuncio.preco}"> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="status">Negócio</label> <select
+											class="form-control" id="status" th:field="${anuncio.status}">
+											<option value="Alugar">Alugar</option>
+											<option value="Vender">Vender</option>
+
+
+										</select> <br>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+
+
+
+
+
+							</div>
+
+							<center>
+								<button class="btn btn-primary" type="submit">Cadastrar</button>
+							</center>
+
+						</div>
+					</form>
+				</div>
+
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+	</div>
+
+</body>
+</html>
