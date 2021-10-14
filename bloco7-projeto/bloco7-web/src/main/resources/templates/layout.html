@@ -52,93 +52,110 @@
 		</div>
 		<span class="close-box-collapse right-boxed bi bi-x"></span>
 		<div class="box-collapse-wrap form">
-			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="GET" th:object="${pesquisa}">
+			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="POST"
+				th:object="${anuncio}">
+
 				<div class="row">
+
 					<div class="col-md-12 mb-2">
 						<div class="form-group">
 							<label class="pb-2" for="tipo">Palavra-chave</label> <input
 								type="text" class="form-control form-control-lg form-control-a"
-								placeholder="Palavra-chave">
+								placeholder="Palavra-chave" th:field="${anuncio.descricao}">
 						</div>
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
-							<label class="pb-2" for="tipo">Tipo</label> 
-							<select	class="form-control form-select form-control-a" th:field="${pesquisa.tipo_propriedade}">								
-								<option value="Todos">Todos os Tipos</option>
-								<option value="Aluguel">Aluguel</option>
-								<option value="Venda">Venda</option>
-								<option value="Temporada">Temporada</option>								
+							<label class="pb-2" for="tipo">Tipo de propriedade</label> <select
+								class="form-control form-select form-control-a" id="tipo"
+								name="selectTipo" th:field="${anuncio.tipo_propriedade}">
+								<option value="TODOS">Todos os Tipos</option>
+								<option value="Casa">Casa</option>
+								<option value="Apartamento">Apartamento</option>
+
 							</select>
 						</div>
 					</div>
+
+					<div class="col-md-6 mb-2">
+						<div class="form-group mt-3">
+							<label class="pb-2" for="status">Tipo de anúncio</label> <select
+								class="form-control form-select form-control-a" id="status"
+								name="selectStatus" th:field="${anuncio.status}">
+								<option value="TODOS">Todos os tipos</option>
+								<option value="'Venda'">Venda</option>
+								<option value="'Aluguel'">Aluguel</option>
+								<option value="'Temproada'">Temporada</option>
+							</select>
+						</div>
+					</div>
+
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
 							<label class="pb-2" for="cidade">Cidade</label> <select
-								class="form-control form-select form-control-a" id="cidade">
-								<option>Todas as Cidades</option>
-								<option>Santa Rita do Sapucaí</option>
-								<option>Pouso Alegre</option>
-								<option>Itajubá</option>
-								<option>Poços de Caldas</option>
+								class="form-control form-select form-control-a" id="cidade"
+								name="selectCidade" th:field="${anuncio.nomeCidade}">
+								<option value="TODOS">Todas as Cidades</option>
+								<option value="'Santa Rita do Sapucai'">Santa Rita do
+									Sapucaí</option>
+								<option value="'Pouso Alegre'">Pouso Alegre</option>
+								<option value="'Itajuba'">Itajubá</option>
+								<option value="'Poços de Caldas'">Poços de Caldas</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
 							<label class="pb-2" for="quartos">Quartos</label> <select
-								class="form-control form-select form-control-a" id="quartos">
-								<option>Todos</option>
-								<option>01</option>
-								<option>02</option>
-								<option>03</option>
+								class="form-control form-select form-control-a" id="quartos"
+								name="selectQuartos" th:field="${anuncio.quartos}">
+								<option type="number" value="0">Todos</option>
+								<option type="number" value="1">01</option>
+								<option type="number" value="2">02</option>
+								<option type="number" value="3">03</option>
+								<option type="number" value="4">04</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
 							<label class="pb-2" for="garagens">Garages</label> <select
-								class="form-control form-select form-control-a" id="garagens">
-								<option>Todos</option>
-								<option>01</option>
-								<option>02</option>
-								<option>03</option>
-								<option>04</option>
+								class="form-control form-select form-control-a" id="garagens"
+								name="selectGaragem" th:field="${anuncio.vaga_garagem}">
+								<option type="number" value="0">Todos</option>
+								<option type="number" value="1">01</option>
+								<option type="number" value="2">02</option>
+								<option type="number" value="3">03</option>
+								<option type="number" value="4">04</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
 							<label class="pb-2" for="banheiros">Banheiros</label> <select
-								class="form-control form-select form-control-a" id="banheiros">
-								<option>Todos</option>
-								<option>01</option>
-								<option>02</option>
-								<option>03</option>
+								class="form-control form-select form-control-a" id="banheiros"
+								name="selectBanheiro" th:field="${anuncio.banheiros}">
+								<option type="number" value="0">Todos</option>
+								<option type="number" value="1">01</option>
+								<option type="number" value="2">02</option>
+								<option type="number" value="3">03</option>
 							</select>
 						</div>
 					</div>
+
 					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="valor">Valor Mínimo</label> <select
-								class="form-control form-select form-control-a" id="valor">
-								<option>Ilimitado</option>
-								<option>R$50,000</option>
-								<option>R$100,000</option>
-								<option>R$150,000</option>
-								<option>R$200,000</option>
-							</select>
+						<div class="col-md-12 mt-4">
+							<button type="submit" class="btn btn-b mt-1">Pesquisar</button>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<button type="submit" class="btn btn-b">Pesquisar</button>
-					</div>
+
 				</div>
 			</form>
 		</div>
 	</div>
+
 	<!-- Fim da seção de pesquisa -->
-	>
+
 
 
 	<!-- ======= Header e Navbar ======= -->
@@ -151,22 +168,24 @@
 				aria-label="Toggle navigation">
 				<span></span> <span></span> <span></span>
 			</button>
-			<a class="navbar-brand text-brand" href="/"><img
-				class="logo" src="/resources/img/Bloco7-Logo.jpg"></a>
+			<a class="navbar-brand text-brand" href="/"><img class="logo"
+				src="/resources/img/Bloco7-Logo.jpg"></a>
 
 			<div class="navbar-collapse collapse justify-content-center"
 				id="navbarDefault">
 				<ul class="navbar-nav">
 
-					<li th:class="${activePage == 'home'} ? 'nav-item active' : 'nav-item'"><a class="nav-link"
-						th:href="@{/}">Home</a></li>
+					<li
+						th:class="${activePage == 'home'} ? 'nav-item active' : 'nav-item'"><a
+						class="nav-link" th:href="@{/}">Home</a></li>
 
 
-					<li th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'"><a class="nav-link "
-						th:href="@{/anuncios/listar}">Anúncios</a></li>
+					<li
+						th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'"><a
+						class="nav-link " th:href="@{/anuncios/listar}">Anúncios</a></li>
 
-					<li class="nav-item"><a class="nav-link " th:href="@{/user/login}">Conta</a>
-					</li>
+					<li class="nav-item"><a class="nav-link "
+						th:href="@{/pessoa/login}">Conta</a></li>
 				</ul>
 			</div>
 
@@ -195,7 +214,8 @@
 	<section class="section-footer">
 		<div class="container d-flex justify-content-center">
 			<div class="row">
-			<div class="col-md-2"></div>>
+				<div class="col-md-2"></div>
+				>
 				<div class="col-sm-12 col-md-4">
 					<div class="widget-a">
 						<div class="w-header-a">

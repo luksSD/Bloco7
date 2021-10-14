@@ -1,6 +1,8 @@
 package br.fai.bloco7.api.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,9 +51,45 @@ public class AnuncioServiceImpl implements AnuncioService {
 	}
 
 	@Override
-	public List<Anuncio> pesquisar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Anuncio pesquisa) {
 
-		return dao.pesquiar(pesquisa);
+		final Map<String, String> criteria = new HashMap<String, String>();
+
+		if (pesquisa.getDescricao().equals("")) {
+			criteria.put("descricao", "ilike '%%'");
+		} else {
+			criteria.put("descricao", "ilike '%" + pesquisa.getDescricao() + "%'");
+		}
+
+		if (!pesquisa.getTipo_propriedade().equals("TODOS")) {
+			criteria.put("tipo_propriedade", "= '" + pesquisa.getTipo_propriedade() + "'");
+		}
+
+		if (pesquisa.getQuartos() != 0) {
+			criteria.put("quartos", "= " + String.valueOf(pesquisa.getQuartos()));
+		}
+
+		if (pesquisa.getVaga_garagem() != 0) {
+			criteria.put("vaga_garagem", "= " + String.valueOf(pesquisa.getVaga_garagem()));
+		}
+
+		if (pesquisa.getBanheiros() != 0) {
+			criteria.put("banheiros", "= " + String.valueOf(pesquisa.getBanheiros()));
+		}
+
+		if (pesquisa.getBanheiros() != 0) {
+			criteria.put("banheiros", "= " + String.valueOf(pesquisa.getBanheiros()));
+		}
+
+		if (!pesquisa.getNomeCidade().equals("TODOS")) {
+			criteria.put("nome", "= " + pesquisa.getNomeCidade());
+		}
+
+		if (!pesquisa.getStatus().equals("TODOS")) {
+			criteria.put("status", "= " + pesquisa.getStatus());
+		}
+
+		return dao.readByCriteria(criteria);
 	}
 
 }

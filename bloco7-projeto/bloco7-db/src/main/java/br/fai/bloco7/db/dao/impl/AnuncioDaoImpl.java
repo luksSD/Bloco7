@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -46,7 +47,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
@@ -99,7 +100,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
@@ -146,16 +147,17 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(5, entity.getTipo_propriedade());
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
-			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(8, entity.getPreco());
 			preparedStatement.setString(9, entity.getEndereco());
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
 			preparedStatement.setLong(12, entity.getCidadeId());
-			preparedStatement.setLong(13, 1);
+			preparedStatement.setLong(13, 3);
 
 			preparedStatement.execute();
 
 			resultSet = preparedStatement.getGeneratedKeys();
+
 			if (resultSet.next()) {
 				id = resultSet.getLong(1);
 			}
@@ -209,7 +211,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(5, entity.getTipo_propriedade());
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
-			preparedStatement.setFloat(8, entity.getPreco());
+			preparedStatement.setString(8, entity.getPreco());
+			preparedStatement.setLong(9, entity.getId());
 //			preparedStatement.setString(9, entity.getEndereco());
 //			preparedStatement.setString(10, entity.getBairro());
 //			preparedStatement.setString(11, entity.getCep());
@@ -272,7 +275,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 	}
 
 	@Override
-	public List<Anuncio> pesquiar(final Anuncio pesquisa) {
+	public List<Anuncio> readByCriteria(final Map<String, String> criteria) {
 
 		final List<Anuncio> anuncios = new ArrayList<Anuncio>();
 
@@ -283,12 +286,13 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			String sql = "SELECT * FROM anuncio WHERE";
+			String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id WHERE TRUE";
 
-			if (pesquisa.getTipo_propriedade() != "Todos") {
-				sql += " tipo_propiedade = ?,";
-			} else {
-				sql = "SELECT * FROM anuncio";
+			if (criteria != null && criteria.size() != 0) {
+
+				for (final String chave : criteria.keySet()) {
+					sql += " and " + chave + " " + criteria.get(chave);
+				}
 			}
 
 			preparedStatement = connection.prepareStatement(sql);
@@ -306,7 +310,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
 				anuncio.setStatus(resultSet.getString("status"));
 				anuncio.setArea(resultSet.getInt("area"));
-				anuncio.setPreco(resultSet.getFloat("preco"));
+				anuncio.setPreco(resultSet.getString("preco"));
 				anuncio.setEndereco(resultSet.getString("endereco"));
 				anuncio.setBairro(resultSet.getString("bairro"));
 				anuncio.setCep(resultSet.getString("cep"));
@@ -318,9 +322,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 			}
 
-		} catch (
+		} catch (final Exception e) {
 
-		final Exception e) {
+			System.out.println(e.getMessage());
 
 		} finally {
 			ConnectionFactory.close(resultSet, preparedStatement, connection);

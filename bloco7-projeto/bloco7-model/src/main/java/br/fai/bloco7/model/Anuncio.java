@@ -9,7 +9,7 @@ public class Anuncio extends BasePojo {
 	private String tipo_propriedade;
 	private String status;
 	private int area;
-	private float preco;
+	private String preco;
 	private String endereco;
 	private String bairro;
 	private String cep;
@@ -81,11 +81,11 @@ public class Anuncio extends BasePojo {
 		this.area = area;
 	}
 
-	public float getPreco() {
+	public String getPreco() {
 		return preco;
 	}
 
-	public void setPreco(final float preco) {
+	public void setPreco(final String preco) {
 		this.preco = preco;
 	}
 

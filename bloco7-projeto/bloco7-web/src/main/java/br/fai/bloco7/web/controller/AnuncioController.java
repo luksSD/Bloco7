@@ -1,7 +1,6 @@
 package br.fai.bloco7.web.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Cidade;
 import br.fai.bloco7.model.Pessoa;
-import br.fai.bloco7.model.Usuario;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
-import br.fai.bloco7.web.service.UserService;
 
 @Controller
 @RequestMapping("/anuncios")
@@ -26,9 +23,6 @@ public class AnuncioController {
 
 	@Autowired
 	private AnuncioService anuncioService;
-
-	@Autowired
-	private UserService userService;
 
 	@Autowired
 	private PessoaService pessoaService;
@@ -43,7 +37,7 @@ public class AnuncioController {
 
 //	Metodo para exibição da pagina de anuncios
 	@GetMapping("/listar")
-	public String getAnuncioGridPage(final Model model) {
+	public String getAnuncioGridPage(final Anuncio pesquisa, final Model model) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
@@ -54,7 +48,7 @@ public class AnuncioController {
 	}
 
 	@GetMapping("/listar-logado")
-	public String getAnuncioGridPageLogado(final Model model) {
+	public String getAnuncioGridPageLogado(final Anuncio pesquisa, final Model model) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
@@ -70,10 +64,7 @@ public class AnuncioController {
 		final Anuncio anuncio = anuncioService.readById(idAnuncio);
 		model.addAttribute("anuncio", anuncio);
 
-		final Usuario user = userService.readById(anuncio.getUsuarioAnuncianteId());
-		model.addAttribute("usuario", user);
-
-		final Pessoa pessoa = pessoaService.readById(user.getPessoaId());
+		final Pessoa pessoa = pessoaService.readById(anuncio.getUsuarioAnuncianteId());
 		model.addAttribute("pessoa", pessoa);
 
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
@@ -94,15 +85,18 @@ public class AnuncioController {
 	}
 
 	@PostMapping("/create")
-	public String createAnuncio(final Anuncio anuncio) {
+	public String createAnuncio(final Anuncio anuncio, final Model model) {
 
 		final Long id = anuncioService.create(anuncio);
 
+//		model.addAttribute("anuncio", id);
+
 		if (id != -1) {
-			return "redirect:/anuncios/listar-logado";
+			return getDetailPage(id, model);
 		}
 
-		return "redirect:/dashboard/";
+		model.addAttribute("anuncio", id);
+		return "anuncios/register";
 	}
 
 	@PostMapping("/update")
@@ -114,22 +108,23 @@ public class AnuncioController {
 	}
 
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") final Long id, final Model model) {
+	public String delete(@PathVariable("id") final Long id, final Model model, final Anuncio anuncio) {
 
 		anuncioService.deleteById(id);
 
-		return getAnuncioGridPage(model);
+		return getAnuncioGridPage(anuncio, model);
 	}
 
 //	Metodo para realizar pesquisa
-	@GetMapping("/pesquisar/{id}/{nome}")
-	public String search(@PathVariable("pesquisa") final Map<String, String> pesquisa, final Model model) {
+	@PostMapping("/pesquisar")
+	public String readByCriteria(final Anuncio anuncio, final Model model) {
 
 		// Cria lista do tipo anuncios para receber o resultado do metodo pesquisar()
-		final List<Anuncio> anuncios = anuncioService.pesquisar(pesquisa);
+		final List<Anuncio> anuncios = anuncioService.readByCriteria(anuncio);
 
 		// Injeta o resultado da pesquisa na view
 		model.addAttribute("resultPesquisa", anuncios);
+
 		// Indicador de pagina ativa
 		model.addAttribute("activePage", "anuncio");
 

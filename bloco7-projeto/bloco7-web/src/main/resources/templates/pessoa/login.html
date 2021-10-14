@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<meta charset="UTF-8">
+<title>Bloco 7 | Login</title>
+</head>
+
+
+
+
+<link href="/resources/vendor/animate.css/animate.min.css"
+	rel="stylesheet">
+<link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="/resources/vendor/swiper/swiper-bundle.min.css"
+	rel="stylesheet">
+
+<link href="/resources/css/style.css" rel="stylesheet">
+
+</head>
+<body style="background-color: #ffce00">
+
+
+<!-- 	Injeção do fragmento body -->
+	<div layout:fragment="body">
+	<div class="mt-5">
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 space">
+
+				<div align="center">
+					<a class="navbar-brand text-brand" href="index.html"><img
+						class="logo" src="/resources/img/Bloco7-Logo.jpg"></a>
+				</div>
+				<br> <br>
+				<div align="center">
+					<h3>Faça seu login</h3>
+				</div>
+				<br> <br>
+				<form method="POST">
+					<label for="email">E-mail:</label> <input id="email" type="email"
+						required class="form-control" placeholder="Digite seu e-mail" /> <br>
+
+					<label for="senha">Senha:</label> <input id="senha" type="password"
+						required class="form-control" placeholder="Digite sua senha" />
+					<br>
+					<div align="center">
+						<button class="btn btn-primary " type="submit">Entrar</button>
+					</div>
+				</form>
+
+				<br>
+
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+</body>
+</html>

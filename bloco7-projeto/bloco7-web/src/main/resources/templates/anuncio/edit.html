@@ -67,10 +67,13 @@
 								<hr>
 								<div class="row">
 									<div class="col-sm-3">Alugar ou Vender</div>
-									<div class="col-sm-9">
-										<input type="text" class="form-control"
-											th:field="${anuncio.status}">
-									</div>
+									<select class="form-control" id="status"
+										th:field="${anuncio.status}">
+										<option value="Alugar">Alugar</option>
+										<option value="Vender">Vender</option>
+
+
+									</select> <br>
 								</div>
 								<hr>
 								<div class="row">
