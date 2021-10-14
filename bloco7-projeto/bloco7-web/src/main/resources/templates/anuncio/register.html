@@ -11,7 +11,7 @@
 				<div class="col-md-1"></div>
 				<div
 					style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
-					class="col-md-10">					
+					class="col-md-10">
 					<form th:action="@{/anuncios/create}" method="POST"
 						th:object="${anuncio}">
 						<div class="row">
@@ -24,12 +24,13 @@
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
 										<label for="cidade">Cidade</label> <select
-											class="form-control" id="cidade" th:field="${anuncio.cidadeId}">
-											<option type="number" value= 4 >Santa Rita do Sapucaí</option>
-											<option type="number" value= 1 >Pouso Alegre</option>
-											<option type="number" value= 3>Poços de Caldas</option>
-											<option type="number" value= 2>Itajuba</option>
-											</select> <br>
+											class="form-control" id="cidade"
+											th:field="${anuncio.cidadeId}">
+											<option type="number" value=4>Santa Rita do Sapucaí</option>
+											<option type="number" value=1>Pouso Alegre</option>
+											<option type="number" value=3>Poços de Caldas</option>
+											<option type="number" value=2>Itajuba</option>
+										</select> <br>
 									</div>
 									<div class="col-md-1"></div>
 								</div>
@@ -72,22 +73,25 @@
 									<div class="col-md-10">
 										<label for="bairro">Descricao</label> <input id="descricao"
 											type="text" placeholder="Descrição" name="descricao"
-											class="form-control" th:field="${anuncio.descricao}"> <br>
+											class="form-control" th:field="${anuncio.descricao}">
+										<br>
 									</div>
 								</div>
-								
+
 								<div class="row">
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
-										<label for="bairro">Tipo Propriedade</label> <input id="tipo_propriedade"
-											type="text" placeholder="Tipo Propriedade" name="tipo_propriedade"
-											class="form-control" th:field="${anuncio.tipo_propriedade}"> <br>
+										<label for="bairro">Tipo Propriedade</label> <input
+											id="tipo_propriedade" type="text"
+											placeholder="Tipo Propriedade" name="tipo_propriedade"
+											class="form-control" th:field="${anuncio.tipo_propriedade}">
+										<br>
 									</div>
 								</div>
 							</div>
-							
-							
-							
+
+
+
 							<div class="col-md-6">
 								<center>
 									<h2 style="margin-top: 40px">Dados Descritivos</h2>
@@ -142,16 +146,16 @@
 									</div>
 									<div class="col-md-1"></div>
 								</div>
-								
-									<div class="row">
+
+								<div class="row">
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
 										<label for="status">Negócio</label> <select
 											class="form-control" id="status" th:field="${anuncio.status}">
 											<option value="Alugar">Alugar</option>
 											<option value="Vender">Vender</option>
-											
-											
+
+
 										</select> <br>
 									</div>
 									<div class="col-md-1"></div>
@@ -163,18 +167,18 @@
 
 							</div>
 
-								<center>
-									<button class="btn btn-primary" type="submit">Cadastrar</button>
-								</center>
+							<center>
+								<button class="btn btn-primary" type="submit">Cadastrar</button>
+							</center>
 
-							</div>
-							</form>
 						</div>
-					
+					</form>
 				</div>
-				<div class="col-md-1"></div>
+
 			</div>
+			<div class="col-md-1"></div>
 		</div>
+	</div>
 	</div>
 
 </body>
