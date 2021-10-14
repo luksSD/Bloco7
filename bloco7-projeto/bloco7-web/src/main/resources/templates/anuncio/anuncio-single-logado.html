@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html layout:decorate="~{Layout-panel}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout-panel}">
+
 <head>
 <meta charset="UTF-8">
-<title>Editar Anuncio</title>
+<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco | Anúncios</title>
 </head>
+
 <body>
 
+	<!-- 	Injeção do fragmento body -->
 	<div layout:fragment="body">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-1"></div>
-				<div class="col-md-10">
-					<h1 class="mt-4">ANUNCIOS</h1>
+				<div class="col-md-8">
+					<h1 class="mt-4">ANUNCIO - <span th:text="${anuncio.id}"></span></h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">EDITE SEU ANÚNCIO</li>
+						<li class="breadcrumb-item active">Detalhes do Anúncio</li>
 					</ol>
 				</div>
-				<div class="col-md-1"></div>
+				<div class="col-md-3">
+					<a class="btn btn-warning" th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}">Editar</a>
+				</div>
 				
 			</div>
 			
@@ -25,11 +31,6 @@
 			
 				<div class="col-md-1"></div>
 				<div class="mb-2 col-md-10 col-sm-7">
-
-
-					<form th:action="@{/anuncios/update}" method="POST"
-						th:object="${anuncio}">
-
 						<div class="mb-2 card">
 							<div class="card-body">
 								<div class="row">
@@ -107,12 +108,10 @@
 						</div>
 
 						<div class="mb-2">
-							<button class="btn btn-primary col-12" type="submit">Atualizar</button>
-
 							<input th:field="${anuncio.id}" type="hidden">
 						</div>
 
-					</form>
+					
 
 
 
@@ -127,5 +126,9 @@
 		</div>
 	</div>
 
+
+
+
 </body>
+
 </html>

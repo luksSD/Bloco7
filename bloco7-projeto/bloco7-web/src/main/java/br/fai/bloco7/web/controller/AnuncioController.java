@@ -74,6 +74,24 @@ public class AnuncioController {
 
 		return "anuncio/anuncio-single";
 	}
+	
+//	Metodo para detalhes de anuncio especifico
+	@GetMapping("/detalhes-logado/{id}")
+	public String getDetailPageLogado(@PathVariable("id") final long idAnuncio, final Model model) {
+
+		final Anuncio anuncio = anuncioService.readById(idAnuncio);
+		model.addAttribute("anuncio", anuncio);
+
+		final Pessoa pessoa = pessoaService.readById(anuncio.getUsuarioAnuncianteId());
+		model.addAttribute("pessoa", pessoa);
+
+		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
+		model.addAttribute("cidade", cidade);
+
+		model.addAttribute("activePage", "anuncio");
+
+		return "anuncio/anuncio-single-logado";
+	}
 
 	@GetMapping("/edit/{id}")
 	public String getEditPage(@PathVariable("id") final long id, final Model model) {
@@ -82,7 +100,7 @@ public class AnuncioController {
 		model.addAttribute("anuncio", anuncio);
 
 		return "anuncio/edit";
-	}
+	}	
 
 	@PostMapping("/create")
 	public String createAnuncio(final Anuncio anuncio, final Model model) {
@@ -101,7 +119,7 @@ public class AnuncioController {
 
 		anuncioService.update(anuncio);
 
-		return getDetailPage(anuncio.getId(), model);
+		return getAnuncioGridPageLogado(model);
 	}
 
 	@GetMapping("/delete/{id}")
@@ -109,7 +127,11 @@ public class AnuncioController {
 
 		anuncioService.deleteById(id);
 
+<<<<<<< HEAD
 		return getAnuncioGridPage(anuncio, model);
+=======
+		return getAnuncioGridPageLogado(model);
+>>>>>>> usuarios
 	}
 
 //	Metodo para realizar pesquisa
