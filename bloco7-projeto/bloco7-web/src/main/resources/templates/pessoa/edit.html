@@ -8,83 +8,134 @@
 <body>
 
 	<div layout:fragment="body">
-		<div class="container-fluid">
-			<h1 class="mt-4">Usuário</h1>
-			<ol class="breadcrumb mb-4">
-				<li class="breadcrumb-item active">Editar</li>
-			</ol>
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md-1 mt-5 mb-5"></div>
+				<div class="mt-5 mb-5">
+					<div
+						style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
+						class="col-md-10 mt-5">
 
-			<div class="row">
-
-
-
-				<div class="mb-2 col-12 col-sm-7">
-
-
-					<form th:action="@{/pessoa/update}" method="POST"
-						th:object="${pessoa}">
-
-						<div class="mb-2 card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col-sm-3">Nome</div>
-									<div class="col-sm-9">
-										<input type="text" class="form-control"
-											th:field="${pessoa.nome}">
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-sm-3">Telefone</div>
-									<div class="col-sm-9">
-										<input type="text" class="form-control"
-											th:field="${pessoa.celular}">
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-sm-3">Senha</div>
-									<div class="col-sm-9">
-										<input type="password" required class="form-control"
-											th:field="${pessoa.senha}">
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-sm-3">Logradouro</div>
-									<div class="col-sm-9">
-										<input type="text" class="form-control"
-											th:field="${pessoa.logradouro}">
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-sm-3">Bairro</div>
-									<div class="col-sm-9">
-										<input type="text" class="form-control"
-											th:field="${pessoa.bairro}">
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-sm-3">Cidade</div>
-									<div class="col-sm-9">
-										<select
-											class="form-control" id="cidade"
-											th:field="${pessoa.cidadeId}">
-											<option type="number" value=4>Santa Rita do Sapucaí</option>
-											<option type="number" value=1>Pouso Alegre</option>
-											<option type="number" value=3>Poços de Caldas</option>
-											<option type="number" value=2>Itajuba</option>
-										</select> <br>
-									</div>
+						<form th:action="@{/pessoa/update}" method="POST"
+							th:object="${pessoa}">
+							<div class="row">
+								<div align="center">
+									<h1 style="margin-top: 10px">Atualizar Cadastro</h1>
 								</div>
 
-							</div>
-						</div>
 
-						<div class="mb-2">
-							<button class="btn btn-primary col-12" type="submit">Atualizar</button>
+								<div class="col-md-6">
+									<div align="center">
+										<h2 style="margin-top: 40px">Dados Pessoais</h2>
+									</div>
+
+
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											<label for="nome">Nome</label> <input id="nome" required
+												type="text" placeholder="Digite seu nome"
+												class="form-control" th:field="${pessoa.nome}"> <br>
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+
+
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											<label for="rua">Logradouro</label> <input id="rua" required
+												type="text" placeholder="Av. Principal" class="form-control"
+												th:field="${pessoa.logradouro}"> <br>
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+
+
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											<label for="bairro">Bairro</label> <input id="bairro"
+												required type="text" placeholder="Centro"
+												class="form-control" th:field="${pessoa.bairro}"> <br>
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											<label for="cidade">Cidade</label> <select
+												class="form-control" id="cidade"
+												th:field="${pessoa.cidadeId}">
+												<option type="number" value=4>Santa Rita do Sapucaí</option>
+												<option type="number" value=1>Pouso Alegre</option>
+												<option type="number" value=3>Poços de Caldas</option>
+												<option type="number" value=2>Itajuba</option>
+											</select> <br>
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div>
+										<h2 style="margin-top: 40px">Dados de Acesso</h2>
+										</align="center">
+
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-10">
+												<label for="celular">Celular</label> <input id="celular"
+													required type="text" placeholder="(XX) X XXXX-XXXX"
+													name="celular" class="form-control"
+													th:field="${pessoa.celular}"> <br>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-10">
+												<label for="email">Email</label> <input id="email" required
+													type="email" placeholder="email@example.com" name="email"
+													class="form-control" th:field="${pessoa.email}"> <br>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-10">
+												<label for="senha">Senha</label> <input id="senha" required
+													type="password" placeholder="********" name="senha"
+													class="form-control" th:field="${pessoa.senha}"> <br>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-10">
+												<label for="confirma_senha">Confirme a senha</label> <input
+													id="confirma_senha" required type="password"
+													placeholder="********" name="confirma_senha"
+													class="form-control"> <br>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-10">
+												<div align="center">
+													<h4 style="color: #000; margin-top: 1px">Confirme os
+														dados para prosseguir com o cadastro!</h4>
+												</div>
+												<br>
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+
+						<div align="center">
+									<button class="btn btn-b mt-1" type="submit">Atualizar</button>
 
 							<input th:field="${pessoa.id}" type="hidden">
 						</div>
@@ -102,6 +153,7 @@
 
 
 		</div>
+	</div>
 	</div>
 
 </body>
