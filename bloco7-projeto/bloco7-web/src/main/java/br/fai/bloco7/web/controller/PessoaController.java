@@ -33,6 +33,7 @@ public class PessoaController {
 
 		final List<Pessoa> pessoa = pessoaService.readAll();
 
+		model.addAttribute("activePage", "conta");
 		model.addAttribute("listaDePessoas", pessoa);
 
 		return "pessoa/list";
@@ -43,6 +44,7 @@ public class PessoaController {
 
 		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
+		model.addAttribute("activePage", "conta");
 		model.addAttribute("anuncio", anuncio);
 		model.addAttribute("pessoa", pessoa);
 
@@ -54,6 +56,7 @@ public class PessoaController {
 
 		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
+		model.addAttribute("activePage", "conta");
 		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("anuncio", anuncio);
 
@@ -77,13 +80,16 @@ public class PessoaController {
 	}
 
 	@GetMapping("/login")
-	public String login(final Pessoa pessoa, final Anuncio anuncio) {
+	public String login(final Pessoa pessoa, final Anuncio anuncio, final Model model) {
 
+		model.addAttribute("activePage", "conta");
 		return "pessoa/login";
 	}
 
 	@GetMapping("/register")
-	public String getRegisterPage(final Pessoa pessoa, final Anuncio anuncio) {
+	public String getRegisterPage(final Pessoa pessoa, final Anuncio anuncio, final Model model) {
+
+		model.addAttribute("activePage", "conta");
 		return "pessoa/register";
 	}
 
@@ -103,7 +109,7 @@ public class PessoaController {
 		final Pessoa response = pessoaService.authentication(pessoa);
 
 		if (response == null) {
-			redirectAttributes.addFlashAttribute("errorMessage", "Usuário ou senha inválidos");
+			redirectAttributes.addFlashAttribute("errorMessage", "* Usuário ou senha inválidos");
 			return "redirect:/pessoa/login";
 		} else {
 			final RedirectAttributes pessoaId = redirectAttributes.addFlashAttribute("userId", response.getId());
