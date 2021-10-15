@@ -27,6 +27,7 @@ public class HomeController {
 
 		model.addAttribute("listaDeAnuncio", anuncios);
 		model.addAttribute("activePage", "home");
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "home";
 

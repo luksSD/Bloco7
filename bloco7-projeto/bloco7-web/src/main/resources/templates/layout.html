@@ -184,8 +184,10 @@
 						th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'"><a
 						class="nav-link " th:href="@{/anuncios/listar}">Anúncios</a></li>
 
-					<li th:class="${activePage == 'conta'} ? 'nav-item active' : 'nav-item'"><a class="nav-link "
-						th:href="@{/pessoa/login}">Conta</a></li>
+					<li th:class="${activePage == 'conta'} ? 'nav-item active' : 'nav-item'">
+						<a class="nav-link" th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}" >Conta</a>
+						<a class="nav-link" th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}">Conta</a>
+					</li>
 				</ul>
 			</div>
 

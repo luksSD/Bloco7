@@ -35,6 +35,7 @@ public class PessoaController {
 
 		model.addAttribute("activePage", "conta");
 		model.addAttribute("listaDePessoas", pessoa);
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "pessoa/list";
 	}
@@ -47,6 +48,7 @@ public class PessoaController {
 		model.addAttribute("activePage", "conta");
 		model.addAttribute("anuncio", anuncio);
 		model.addAttribute("pessoa", pessoa);
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "pessoa/edit";
 	}
@@ -59,6 +61,7 @@ public class PessoaController {
 		model.addAttribute("activePage", "conta");
 		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("anuncio", anuncio);
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "pessoa/detail";
 	}
@@ -89,6 +92,7 @@ public class PessoaController {
 	@GetMapping("/register")
 	public String getRegisterPage(final Pessoa pessoa, final Anuncio anuncio, final Model model) {
 
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 		model.addAttribute("activePage", "conta");
 		return "pessoa/register";
 	}
