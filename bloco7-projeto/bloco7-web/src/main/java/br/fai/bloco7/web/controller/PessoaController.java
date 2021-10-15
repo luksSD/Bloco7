@@ -37,9 +37,11 @@ public class PessoaController {
 	}
 
 	@GetMapping("/edit/{id}")
-	public String getEditPage(@PathVariable("id") final long id, final Model model, final Anuncio anuncio) {
-
+	public String getEditPage(@PathVariable("id") final long id, final Model model) {
+		
+		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
+		model.addAttribute("anuncio",anuncio);
 		model.addAttribute("pessoa", pessoa);
 
 		return "pessoa/edit";
@@ -47,12 +49,12 @@ public class PessoaController {
 
 	@GetMapping("/detail/{id}")
 	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
-
+		
 		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
 		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("anuncio", anuncio);
-
+		
 		return "pessoa/detail";
 	}
 
@@ -94,7 +96,7 @@ public class PessoaController {
 	}
 	
 	@PostMapping("/authentication")
-	public String authentication(final Pessoa pessoa, RedirectAttributes redirectAttributes) {
+	public String authentication(final Pessoa pessoa, RedirectAttributes redirectAttributes, Model model) {
 		
 		Pessoa response = pessoaService.authentication(pessoa);
 		
@@ -102,8 +104,9 @@ public class PessoaController {
 			redirectAttributes.addFlashAttribute("errorMessage", "Usuário ou senha inválidos");
 			return "redirect:/pessoa/login";
 		}else {
-			redirectAttributes.addFlashAttribute("userId", response.getId());
-			return "redirect:/";
+			RedirectAttributes pessoaId = redirectAttributes.addFlashAttribute("userId", response.getId());
+			Long id = Long.valueOf(response.getId());
+			return "redirect:/"+getDetailPage(id, model)+"/"+id;
 		}
 		
 		
