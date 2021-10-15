@@ -67,8 +67,8 @@ public class AnuncioRestController {
 
 	}
 
-	@GetMapping("/read-by-anunciante")
-	public ResponseEntity<List<Anuncio>> readByAnunciante(final Long idAnunciante) {
+	@GetMapping("/read-by-anunciante/{id}")
+	public ResponseEntity<List<Anuncio>> readByAnunciante(@PathVariable("id") final long idAnunciante) {
 
 		return ResponseEntity.ok(service.readByAnuncianteId(idAnunciante));
 

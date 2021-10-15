@@ -57,14 +57,16 @@ public class PessoaController {
 	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
 
 		final Anuncio anuncio = new Anuncio();
-		final Pessoa pessoa = pessoaService.readById(id);
-		model.addAttribute("activePage", "conta");
-		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("anuncio", anuncio);
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+
+		final Pessoa pessoa = pessoaService.readById(id);
+		model.addAttribute("pessoa", pessoa);
 
 		final List<Anuncio> anuncios = anuncioService.readByAnuncianteId(idLogado);
 		model.addAttribute("listaAnunciosUsuario", anuncios);
+
+		model.addAttribute("activePage", "conta");
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "pessoa/detail";
 	}
