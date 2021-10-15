@@ -4,8 +4,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco |
-	Conta</title>
+<title>Bloco7 | Conta</title>
 </head>
 
 <body>
@@ -20,7 +19,7 @@
 				<div class="row">
 					<div class="col-md-12 col-lg-8">
 						<div class="title-single-box">
-							<h1 class="title-single">Perfíl</h1>
+							<h1 class="title-single">Conta</h1>
 
 						</div>
 					</div>
@@ -46,7 +45,7 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="title-box-d">
-									<h3 class="title-d">Descrição</h3>
+									<h3 class="title-d">Informaões do Períl</h3>
 								</div>
 							</div>
 						</div>
@@ -59,14 +58,20 @@
 
 			<!-- Detalhes -->
 			<div>
-				<div class="row">
-					<div class="col-2"></div>
-					<div class="summary-list col-4">
+				<div class="row col-12">
+					<div class="col-3"></div>
+					<div class="summary-list col-3">
 						<ul class="list">
 							<li class="d-flex justify-content-between"><strong>Nome:</strong>
 								<span th:text="${pessoa.nome}"></span></li>
 							<li class="d-flex justify-content-between"><strong>Telefone/Celular:</strong>
 								<span th:text="${pessoa.celular}"></span></li>
+							<span></span>
+
+						</ul>
+					</div>
+					<div class="summary-list col-3">
+						<ul class="list">
 							<li class="d-flex justify-content-between"><strong>Email:</strong>
 								<span th:text="${pessoa.email}"></span></li>
 							<li class="d-flex justify-content-between"><strong>ID
@@ -75,20 +80,31 @@
 
 						</ul>
 					</div>
-					<div class="summary-list col-4">
-						<ul class="list">
-							<li class="d-flex justify-content-between"><a
-								th:href="@{/pessoa/edit/{id} (id=${pessoa.id})}"
-								class="btn btn-b mt-1">Editar<i class="fas fa-lock"></i></a></li>
-							<span></span>
-						</ul>
+					<div class="col-3"></div>
+					<div class="col-12 d-flex justify-content-center">
+						<div class="row">
+							<div class="col-4">
+								<a th:href="@{/pessoa/edit/{id} (id=${pessoa.id})}"
+									class="btn btn-b mt-1">Editar<i class="fas fa-lock"></i></a>
+							</div>
+
+							<div class="col-4"></div>
+
+							<div class="col-4">
+								<a th:href="@{/pessoa/logoff}" class="btn btn-b mt-1">Sair<i
+									class="fas fa-lock"></i></a>
+
+							</div>
+
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
 
 
-		<!-- Sessao meus anuncios -->
+		<!-- Sessão meus anuncios -->
 		<section>
 			<div class="container">
 				<div class="row">
@@ -99,6 +115,12 @@
 									<h3 class="title-d">Meus Anúncios</h3>
 								</div>
 							</div>
+							<div class="col-sm-12 mb-5">
+								<a th:href="@{/anuncios/register}" class="btn btn-b mt-1">Novo
+									Anúncio<i class="fas fa-lock"></i>
+								</a>
+							</div>
+
 						</div>
 					</div>
 				</div>
