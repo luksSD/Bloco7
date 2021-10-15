@@ -190,11 +190,11 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		sql += " tipo_propriedade = ?,";
 		sql += " status = ?,";
 		sql += " area = ?,";
-		sql += " preco = ?";
-//		sql += " endereco = ?,";
-//		sql += " bairro = ?,";
-//		sql += " cep = ?,";
-//		sql += " cidade_id = ?,";
+		sql += " preco = ?,";
+		sql += " endereco = ?,";
+		sql += " bairro = ?,";
+		sql += " cep = ?,";
+		sql += " cidade_id = ?";
 		sql += " where id = ?;";
 
 		try {
@@ -212,11 +212,11 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(6, entity.getStatus());
 			preparedStatement.setInt(7, entity.getArea());
 			preparedStatement.setString(8, entity.getPreco());
-			preparedStatement.setLong(9, entity.getId());
-//			preparedStatement.setString(9, entity.getEndereco());
-//			preparedStatement.setString(10, entity.getBairro());
-//			preparedStatement.setString(11, entity.getCep());
-//			preparedStatement.setLong(12, entity.getCidadeId());
+			preparedStatement.setString(9, entity.getEndereco());
+			preparedStatement.setString(10, entity.getBairro());
+			preparedStatement.setString(11, entity.getCep());
+			preparedStatement.setLong(12, entity.getCidadeId());
+			preparedStatement.setLong(13, entity.getId());
 
 			preparedStatement.execute();
 
