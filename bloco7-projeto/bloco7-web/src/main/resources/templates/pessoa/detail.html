@@ -113,7 +113,7 @@
 					<!-- Linha de cards de anuncio -->
 					<div class="row">
 
-						<div class="col-md-4" th:each="anuncio : ${anuncio}">
+						<div class="col-md-4" th:each="anuncio : ${listaAnunciosUsuario}">
 							<div class="card-box-a card-shadow">
 								<div class="img-box-a">
 									<img src="/resources/img/property-1.jpg" alt=""
@@ -127,7 +127,7 @@
 													<span th:text="${anuncio.nomeCidade}"> Cidade aqui</span> <br>
 													<span th:text="${anuncio.bairro}"> Bairro aqui</span>
 												</a>
-											</h2>
+											</h2> 
 										</div>
 										<div class="card-body-a">
 											<div class="price-box d-flex">

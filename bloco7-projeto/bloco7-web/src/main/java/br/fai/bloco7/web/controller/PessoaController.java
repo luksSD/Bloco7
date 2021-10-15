@@ -63,6 +63,9 @@ public class PessoaController {
 		model.addAttribute("anuncio", anuncio);
 		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
+		final List<Anuncio> anuncios = anuncioService.readByAnuncianteId(idLogado);
+		model.addAttribute("listaAnunciosUsuario", anuncios);
+
 		return "pessoa/detail";
 	}
 
