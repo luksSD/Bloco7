@@ -1293,6 +1293,58 @@ a:hover {
   }
 }
 
+
+/*======================================
+//--//-->   PROPERTY - CARD-U
+======================================*/
+@media (min-width: 768px) {
+  .card-box-u:hover .card-overlay-u-content {
+    bottom: 0px;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .card-box-u:hover .card-overlay-u-content {
+    bottom: 0px;
+  }
+}
+@media (min-width: 768px) and (min-width: 992px) {
+  .card-box-u:hover .card-overlay-u-content {
+    bottom: 0px;
+  }
+}
+@media (min-width: 768px) {
+  .card-box-u:hover .card-body-u {
+    padding-bottom: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .card-box-u .card-overlay-u-content {
+    bottom: 0px;
+  }
+  .card-box-u .card-body-u {
+    padding-bottom: 1rem;
+  }
+}
+
+.card-overlay-u-content {
+  transition: all 0.5s ease-in;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  .card-overlay-u-content {
+    bottom: -20px;
+  }
+}
+@media (min-width: 992px) {
+  .card-overlay-u-content {
+    bottom: 0px;
+  }
+}
+
+
 /*------/ Property Grid /-----*/
 .property-grid .grid-option {
   text-align: right;

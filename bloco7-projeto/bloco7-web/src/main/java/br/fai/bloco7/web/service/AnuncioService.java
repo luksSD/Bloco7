@@ -18,4 +18,6 @@ public interface AnuncioService {
 
 	List<Anuncio> readByCriteria(Anuncio pesquisa);
 
+	List<Anuncio> readByAnuncianteId(Long idAnunciante);
+
 }

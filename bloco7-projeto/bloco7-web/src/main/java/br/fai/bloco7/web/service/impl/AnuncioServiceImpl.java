@@ -155,4 +155,29 @@ public class AnuncioServiceImpl implements AnuncioService {
 		return response;
 	}
 
+	@Override
+	public List<Anuncio> readByAnuncianteId(final Long id) {
+
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/read-by-anunciante/" + id;
+
+		List<Anuncio> response = null;
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<Long> httpEntity = new HttpEntity<Long>(id);
+
+			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
+					httpEntity, Anuncio[].class);
+
+			response = Arrays.asList(requestResponse.getBody());
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
+
+	}
+
 }

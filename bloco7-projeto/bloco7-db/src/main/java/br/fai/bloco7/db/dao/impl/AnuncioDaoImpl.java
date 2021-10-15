@@ -121,7 +121,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 	@Override
 	public Long create(final Anuncio entity) {
-		
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -294,6 +294,59 @@ public class AnuncioDaoImpl implements AnuncioDao {
 					sql += " and " + chave + " " + criteria.get(chave);
 				}
 			}
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				final Anuncio anuncio = new Anuncio();
+				anuncio.setId(resultSet.getLong("id"));
+				anuncio.setDescricao(resultSet.getString("descricao"));
+				anuncio.setQuartos(resultSet.getInt("quartos"));
+				anuncio.setBanheiros(resultSet.getInt("banheiros"));
+				anuncio.setVaga_garagem(resultSet.getInt("vaga_garagem"));
+				anuncio.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
+				anuncio.setStatus(resultSet.getString("status"));
+				anuncio.setArea(resultSet.getInt("area"));
+				anuncio.setPreco(resultSet.getString("preco"));
+				anuncio.setEndereco(resultSet.getString("endereco"));
+				anuncio.setBairro(resultSet.getString("bairro"));
+				anuncio.setCep(resultSet.getString("cep"));
+				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
+				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
+				anuncio.setNomeCidade(resultSet.getString("nome"));
+
+				anuncios.add(anuncio);
+
+			}
+
+		} catch (final Exception e) {
+
+			System.out.println(e.getMessage());
+
+		} finally {
+			ConnectionFactory.close(resultSet, preparedStatement, connection);
+		}
+
+		return anuncios;
+	}
+
+	@Override
+	public List<Anuncio> readByAnuncianteId(final Long idAnunciante) {
+
+		final List<Anuncio> anuncios = new ArrayList<Anuncio>();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = ConnectionFactory.getConnection();
+
+			String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id WHERE TRUE and usuario_anunciante_id = ";
+			sql += idAnunciante;
 
 			preparedStatement = connection.prepareStatement(sql);
 

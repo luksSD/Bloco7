@@ -19,4 +19,6 @@ public interface AnuncioDao {
 
 	List<Anuncio> readByCriteria(Map<String, String> pesquisa);
 
+	List<Anuncio> readByAnuncianteId(Long idAnunciante);
+
 }

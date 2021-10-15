@@ -92,4 +92,10 @@ public class AnuncioServiceImpl implements AnuncioService {
 		return dao.readByCriteria(criteria);
 	}
 
+	@Override
+	public List<Anuncio> readByAnuncianteId(final Long idAnunciante) {
+
+		return dao.readByAnuncianteId(idAnunciante);
+	}
+
 }
