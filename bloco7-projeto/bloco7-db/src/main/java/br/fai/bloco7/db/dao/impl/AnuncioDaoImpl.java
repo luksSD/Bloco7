@@ -121,7 +121,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 	@Override
 	public Long create(final Anuncio entity) {
-
+		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -152,7 +152,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(10, entity.getBairro());
 			preparedStatement.setString(11, entity.getCep());
 			preparedStatement.setLong(12, entity.getCidadeId());
-			preparedStatement.setLong(13, 3);
+			preparedStatement.setLong(13, entity.getUsuarioAnuncianteId());
 
 			preparedStatement.execute();
 

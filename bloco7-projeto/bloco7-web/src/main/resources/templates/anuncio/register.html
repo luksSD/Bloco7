@@ -19,6 +19,7 @@
 							<div class="col-md-6">
 								<div align="center">
 									<h2 style="margin-top: 40px">Dados de Endereço</h2>
+<!-- 									<span th:text="${pessoaIdLogado}"></span> -->
 								</div>
 
 								<div class="row">
@@ -170,6 +171,7 @@
 
 							<div align="center">
 								<button class="btn btn-b mt-1" type="submit">Cadastrar</button>
+								<input type="hidden" th:field="${anuncio.usuarioAnuncianteId}"/>
 							</div>
 
 						</div>

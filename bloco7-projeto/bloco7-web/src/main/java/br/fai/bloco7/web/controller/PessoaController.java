@@ -19,7 +19,9 @@ import br.fai.bloco7.web.service.PessoaService;
 @Controller
 @RequestMapping("/pessoa")
 public class PessoaController {
-
+	
+	public static Long idLogado = null;
+	
 	@Autowired
 	private PessoaService pessoaService;
 
@@ -106,11 +108,18 @@ public class PessoaController {
 		}else {
 			RedirectAttributes pessoaId = redirectAttributes.addFlashAttribute("userId", response.getId());
 			Long id = Long.valueOf(response.getId());
+			idLogado = id;
 			return "redirect:/"+getDetailPage(id, model)+"/"+id;
 		}
-		
-		
 	}
+	
+	
+	@GetMapping("/logoff")
+	public String logoff() {
+		idLogado = null;
+		return "redirect:/";
+	}
+	
 	
 
 }
