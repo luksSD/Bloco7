@@ -4,6 +4,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Editar Usuario</title>
+
+<script type="text/javascript">
+
+
+        function validaSenha() {
+
+            var senha = document.getElementById('senha').value;
+            var confirmar_senha = document.getElementById('confirma_senha').value;
+
+            if (confirmar_senha != senha) {
+              	document.getElementById("resultado").innerHTML="As senhas são diferentes!";
+              	document.getElementById("resultado").style.color ="#FF6347";
+              	event.preventDefault();
+        	  }
+        	   }
+        
+</script>
+
+
 </head>
 <body>
 
@@ -107,6 +126,7 @@
 												<label for="senha">Senha</label> <input id="senha" required
 													type="password" placeholder="********" name="senha"
 													class="form-control" th:field="${pessoa.senha}"> <br>
+
 											</div>
 											<div class="col-md-1"></div>
 										</div>
@@ -118,6 +138,9 @@
 													id="confirma_senha" required type="password"
 													placeholder="********" name="confirma_senha"
 													class="form-control"> <br>
+												<div colspan="2">
+													<p id="resultado">&nbsp;</p>
+												</div>
 											</div>
 											<div class="col-md-1"></div>
 										</div>
@@ -134,26 +157,26 @@
 											<div class="col-md-1"></div>
 										</div>
 
-						<div align="center">
-									<button class="btn btn-b mt-1" type="submit">Atualizar</button>
+										<div align="center">
+											<button class="btn btn-b mt-1" onclick="validaSenha();"
+												type="submit">Atualizar</button>
 
-							<input th:field="${pessoa.id}" type="hidden">
-						</div>
+											<input th:field="${pessoa.id}" type="hidden">
+										</div>
+						</form>
 
-					</form>
 
+
+
+					</div>
 
 
 
 				</div>
 
 
-
 			</div>
-
-
 		</div>
-	</div>
 	</div>
 
 </body>
