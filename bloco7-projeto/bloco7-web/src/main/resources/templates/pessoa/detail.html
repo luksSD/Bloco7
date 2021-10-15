@@ -115,19 +115,19 @@
 
 						<div class="col-md-4" th:each="anuncio : ${listaAnunciosUsuario}">
 							<div class="card-box-a card-shadow">
-								<div class="img-box-a">
+								<div class="img-box-b">
 									<img src="/resources/img/property-1.jpg" alt=""
 										class="img-a img-fluid">
 								</div>
 								<div class="card-overlay">
-									<div class="card-overlay-a-content">
+									<div class="card-overlay-u-content">
 										<div class="card-header-a">
 											<h2 class="card-title-a">
 												<a th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}">
 													<span th:text="${anuncio.nomeCidade}"> Cidade aqui</span> <br>
 													<span th:text="${anuncio.bairro}"> Bairro aqui</span>
 												</a>
-											</h2> 
+											</h2>
 										</div>
 										<div class="card-body-a">
 											<div class="price-box d-flex">
@@ -136,30 +136,14 @@
 													| $ 12.000</span>
 											</div>
 											<a th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}"
-												class="link-a">Detalhes<span class="bi bi-chevron-right"></span>
-											</a>
+												class="link-a">Detalhes<span>|</span>
+											</a> <a th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}"
+												class="link-a ml-2">Editar<span>|</span>
+											</a> <a th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}"
+												onclick="return confirm('Atenção! Deseja realmente excluir?')"
+												class="link-a">Excluir</a>
 										</div>
-										<div class="card-footer-a">
-											<ul class="card-info d-flex justify-content-around">
-												<li>
-													<h4 class="card-info-title">Area</h4> <span
-													th:text="${anuncio.area}">340m <sup>2</sup>
-												</span>
-												</li>
-												<li>
-													<h4 class="card-info-title">Quartos</h4> <span
-													th:text="${anuncio.quartos}">2</span>
-												</li>
-												<li>
-													<h4 class="card-info-title">Banheiros</h4> <span
-													th:text="${anuncio.banheiros}">4</span>
-												</li>
-												<li>
-													<h4 class="card-info-title">Garagem</h4> <span
-													th:text="${anuncio.vaga_garagem}">1</span>
-												</li>
-											</ul>
-										</div>
+
 									</div>
 								</div>
 							</div>
@@ -207,7 +191,14 @@
 	</div>
 
 
-
+	<script>
+		function confirmaExclusao() {
+		  
+		  if (!confirm("Atenção! Você deseja realmente excluir este anúncio?")) {
+		    event.preventDefault();
+		  } 
+		}
+</script>
 
 </body>
 
