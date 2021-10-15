@@ -178,6 +178,7 @@ public class PessoaDaoImpl implements PessoaDao {
 
 		String sql = "UPDATE usuario SET";
 		sql += " senha = ?,";
+		sql += " email = ?,";
 		sql += " celular = ?";
 		sql += " where id = ?;";
 
@@ -196,8 +197,9 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			preparedStatement.setString(1, entity.getSenha());
-			preparedStatement.setString(2, entity.getCelular());
-			preparedStatement.setLong(3, entity.getId());
+			preparedStatement.setString(2, entity.getEmail());
+			preparedStatement.setString(3, entity.getCelular());
+			preparedStatement.setLong(4, entity.getId());
 			preparedStatement.execute();
 			connection.commit();
 
