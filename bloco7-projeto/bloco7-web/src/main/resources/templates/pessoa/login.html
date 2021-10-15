@@ -42,16 +42,17 @@
 					<h3>Faça seu login</h3>
 				</div>
 				<br> <br>
-				<form method="POST">
-					<label for="email">E-mail:</label> <input id="email" type="email"
-						required class="form-control" placeholder="Digite seu e-mail" /> <br>
-
-					<label for="senha">Senha:</label> <input id="senha" type="password"
-						required class="form-control" placeholder="Digite sua senha" />
+				<form th:action="@{/pessoa/authentication}" method="POST" th:object="${pessoa}">
+					<label for="email">E-mail:</label>
+					<input id="email" type="email" required class="form-control" placeholder="Digite seu e-mail"
+					th:field="${pessoa.email}" />
 					<br>
-					<div align="center">
-						<button class="btn btn-primary " type="submit">Entrar</button>
-					</div>
+					
+					<label for="senha">Senha:</label>
+					<input id="senha" type="password" required class="form-control" placeholder="Digite sua senha"
+					th:field="${pessoa.senha}" />
+					<br>
+					<center><button class="btn btn-primary " type="submit">Entrar</button></center>
 				</form>
 
 				<br>

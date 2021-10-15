@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Pessoa;
@@ -91,5 +92,22 @@ public class PessoaController {
 		}
 		return "redirect:/";
 	}
+	
+	@PostMapping("/authentication")
+	public String authentication(final Pessoa pessoa, RedirectAttributes redirectAttributes) {
+		
+		Pessoa response = pessoaService.authentication(pessoa);
+		
+		if(response==null) {
+			redirectAttributes.addFlashAttribute("errorMessage", "Usuário ou senha inválidos");
+			return "redirect:/pessoa/login";
+		}else {
+			redirectAttributes.addFlashAttribute("userId", response.getId());
+			return "redirect:/";
+		}
+		
+		
+	}
+	
 
 }

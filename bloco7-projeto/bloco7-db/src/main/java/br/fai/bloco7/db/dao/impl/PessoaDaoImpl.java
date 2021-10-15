@@ -267,5 +267,46 @@ public class PessoaDaoImpl implements PessoaDao {
 			ConnectionFactory.close(preparedStatement, connection);
 		}
 	}
+	
+	
+	
+	@Override
+	public Pessoa authentication(Pessoa entity) {
+		
+		Pessoa pessoa = null;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		String sql = "select * from usuario where ";
+		sql += " email = ? ";
+		sql += " and senha = ?";
+		
+		try {
+
+			connection = ConnectionFactory.getConnection();
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, entity.getEmail());
+			preparedStatement.setString(2, entity.getSenha());
+
+			resultSet = preparedStatement.executeQuery();
+			
+			if (resultSet.next()) {
+				pessoa = new Pessoa();
+				pessoa.setId(resultSet.getLong("id"));
+				return pessoa;
+			}
+			
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			ConnectionFactory.close(resultSet, preparedStatement, connection);
+		}
+		return null;
+	}
+	
 
 }

@@ -59,5 +59,10 @@ public class PessoaRestController {
 		return ResponseEntity.ok(service.delete(id));
 
 	}
+	
+	@PostMapping("/authentication")
+	public ResponseEntity<Pessoa> authentication(@RequestBody final Pessoa pessoa){
+		return ResponseEntity.ok(service.authentication(pessoa));
+	}
 
 }

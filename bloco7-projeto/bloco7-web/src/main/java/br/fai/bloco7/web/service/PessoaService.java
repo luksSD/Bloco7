@@ -15,5 +15,7 @@ public interface PessoaService {
 	boolean update(Pessoa entity);
 
 	boolean deleteById(Long id);
+	
+	Pessoa authentication (Pessoa entity);
 
 }
