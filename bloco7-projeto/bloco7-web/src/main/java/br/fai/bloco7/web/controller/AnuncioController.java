@@ -16,7 +16,6 @@ import br.fai.bloco7.model.Pessoa;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
-import br.fai.bloco7.web.controller.PessoaController;
 
 @Controller
 @RequestMapping("/anuncios")
@@ -32,8 +31,8 @@ public class AnuncioController {
 	private CidadeService cidadeService;
 
 	@GetMapping("/register")
-	public String getRegisterPage(final Anuncio anuncio, Model model) {
-		model.addAttribute("pessoaIdLogado", PessoaController.idLogado);
+	public String getRegisterPage(final Anuncio anuncio, final Model model) {
+
 		return "anuncio/register";
 	}
 
@@ -88,12 +87,12 @@ public class AnuncioController {
 
 	@PostMapping("/create")
 	public String createAnuncio(final Anuncio anuncio, final Model model) {
-		
+
+		anuncio.setUsuarioAnuncianteId(PessoaController.idLogado);
 		final Long id = anuncioService.create(anuncio);
 
-//		model.addAttribute("anuncio", id);
-
 		if (id != -1) {
+			model.addAttribute("anuncio", id);
 			return getDetailPage(id, model);
 		}
 

@@ -134,16 +134,14 @@ public class PessoaServiceImpl implements PessoaService {
 
 		return response;
 	}
-	
-	
+
 	@Override
-	public Pessoa authentication(Pessoa entity) {
-		
+	public Pessoa authentication(final Pessoa entity) {
+
 		Pessoa response = null;
-				
-		String endpoint = "http://localhost:2000/api/v1/pessoa/authentication";
-		
-		
+
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/authentication";
+
 		try {
 			final RestTemplate restTemplate = new RestTemplate();
 
@@ -158,10 +156,8 @@ public class PessoaServiceImpl implements PessoaService {
 			System.out.println(e.getMessage());
 		}
 
-		
 		return response;
-		
+
 	}
-	
 
 }

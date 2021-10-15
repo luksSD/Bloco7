@@ -19,9 +19,9 @@ import br.fai.bloco7.web.service.PessoaService;
 @Controller
 @RequestMapping("/pessoa")
 public class PessoaController {
-	
+
 	public static Long idLogado = null;
-	
+
 	@Autowired
 	private PessoaService pessoaService;
 
@@ -40,10 +40,10 @@ public class PessoaController {
 
 	@GetMapping("/edit/{id}")
 	public String getEditPage(@PathVariable("id") final long id, final Model model) {
-		
+
 		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
-		model.addAttribute("anuncio",anuncio);
+		model.addAttribute("anuncio", anuncio);
 		model.addAttribute("pessoa", pessoa);
 
 		return "pessoa/edit";
@@ -51,12 +51,12 @@ public class PessoaController {
 
 	@GetMapping("/detail/{id}")
 	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
-		
+
 		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
 		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("anuncio", anuncio);
-		
+
 		return "pessoa/detail";
 	}
 
@@ -91,35 +91,32 @@ public class PessoaController {
 	public String createPessoa(final Pessoa pessoa) {
 		final Long id = pessoaService.create(pessoa);
 		if (id != -1) {
-			return "redirect:/pessoa/list";
+			return "redirect:/pessoa/login";
 
 		}
 		return "redirect:/";
 	}
-	
+
 	@PostMapping("/authentication")
-	public String authentication(final Pessoa pessoa, RedirectAttributes redirectAttributes, Model model) {
-		
-		Pessoa response = pessoaService.authentication(pessoa);
-		
-		if(response==null) {
+	public String authentication(final Pessoa pessoa, final RedirectAttributes redirectAttributes, final Model model) {
+
+		final Pessoa response = pessoaService.authentication(pessoa);
+
+		if (response == null) {
 			redirectAttributes.addFlashAttribute("errorMessage", "Usuário ou senha inválidos");
 			return "redirect:/pessoa/login";
-		}else {
-			RedirectAttributes pessoaId = redirectAttributes.addFlashAttribute("userId", response.getId());
-			Long id = Long.valueOf(response.getId());
+		} else {
+			final RedirectAttributes pessoaId = redirectAttributes.addFlashAttribute("userId", response.getId());
+			final Long id = Long.valueOf(response.getId());
 			idLogado = id;
-			return "redirect:/"+getDetailPage(id, model)+"/"+id;
+			return "redirect:/" + getDetailPage(id, model) + "/" + id;
 		}
 	}
-	
-	
+
 	@GetMapping("/logoff")
 	public String logoff() {
 		idLogado = null;
 		return "redirect:/";
 	}
-	
-	
 
 }
