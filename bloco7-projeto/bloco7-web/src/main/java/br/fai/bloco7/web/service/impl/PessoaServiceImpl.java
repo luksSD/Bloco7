@@ -134,5 +134,34 @@ public class PessoaServiceImpl implements PessoaService {
 
 		return response;
 	}
+	
+	
+	@Override
+	public Pessoa authentication(Pessoa entity) {
+		
+		Pessoa response = null;
+				
+		String endpoint = "http://localhost:2000/api/v1/pessoa/authentication";
+		
+		
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity);
+
+			final ResponseEntity<Pessoa> requestResponse = restTemplate.exchange(endpoint, HttpMethod.POST, httpEntity,
+					Pessoa.class);
+
+			response = requestResponse.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		
+		return response;
+		
+	}
+	
 
 }

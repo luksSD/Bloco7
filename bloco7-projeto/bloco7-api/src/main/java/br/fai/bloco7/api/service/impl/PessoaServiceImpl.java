@@ -47,5 +47,17 @@ public class PessoaServiceImpl implements PessoaService {
 
 		return dao.delete(id);
 	}
+	
+	@Override
+	public Pessoa authentication(Pessoa entity) {
+		
+		if(entity==null) {
+			return null;
+		}else {
+			return dao.authentication(entity);
+		}
+		
+	}
+	
 
 }
