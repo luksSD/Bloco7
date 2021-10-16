@@ -83,6 +83,7 @@ public class AnuncioController {
 	public String getEditPage(@PathVariable("id") final long id, final Model model) {
 
 		final Anuncio anuncio = anuncioService.readById(id);
+
 		model.addAttribute("anuncio", anuncio);
 		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 

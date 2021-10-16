@@ -27,8 +27,8 @@
 						<nav aria-label="breadcrumb"
 							class="breadcrumb-box d-flex justify-content-lg-end">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-								<li class="breadcrumb-item"><a href="property-grid.html">Anúncio</a>
+								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/anuncios/listar}">Anúncio</a>
 								</li>
 								<li class="breadcrumb-item active"
 									th:text="'Anúncio ' + ${anuncio.id}" aria-current="page">

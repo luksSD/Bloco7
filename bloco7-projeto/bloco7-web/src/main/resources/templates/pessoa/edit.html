@@ -27,23 +27,48 @@
 <body>
 
 	<div layout:fragment="body">
+		<!-- ======= Intro Editar Perfil ======= -->
+		<section class="intro-single">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-lg-8">
+						<div class="title-single-box">
+							<h1 class="title-single">Atualizar Cadastro</h1>
+							<span>Atualize suas informações</span>
+
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-4">
+						<nav aria-label="breadcrumb"
+							class="breadcrumb-box d-flex justify-content-lg-end">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/pessoa/detail/{id} (id=${pessoa.id})}">Conta</a></li>
+								<li class="breadcrumb-item">Atualizar Cadastro</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Fim Editar Perfil-->
+
+
+
 		<div class="container">
 			<div class="row mb-5">
-				<div class="col-md-1 mt-5 mb-5"></div>
-				<div class="mt-5 mb-5">
+				<div class="col-md-12"></div>
+				<div class="col-12 mb-5">
 					<div
 						style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
-						class="col-md-10 mt-5">
+						class="col-md-10 ">
 
 						<form th:action="@{/pessoa/update}" method="POST"
 							th:object="${pessoa}">
 							<div class="row">
-								<div align="center">
-									<h1 style="margin-top: 10px">Atualizar Cadastro</h1>
-								</div>
-
 
 								<div class="col-md-6">
+								
 									<div align="center">
 										<h2 style="margin-top: 40px">Dados Pessoais</h2>
 									</div>
@@ -96,11 +121,14 @@
 										<div class="col-md-1"></div>
 									</div>
 								</div>
+								
+<!-- ==================================================================== -->
+								
 								<div class="col-md-6">
-									<div>
+									<div align="center">
 										<h2 style="margin-top: 40px">Dados de Acesso</h2>
-										</align="center">
-
+									</div>
+									
 										<div class="row">
 											<div class="col-md-1"></div>
 											<div class="col-md-10">
@@ -163,6 +191,8 @@
 
 											<input th:field="${pessoa.id}" type="hidden">
 										</div>
+									</div>
+								</div>
 						</form>
 
 
