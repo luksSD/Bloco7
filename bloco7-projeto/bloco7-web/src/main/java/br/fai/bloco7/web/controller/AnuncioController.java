@@ -28,6 +28,9 @@ public class AnuncioController {
 	private PessoaService pessoaService;
 
 	@Autowired
+	private PessoaController pessoaController;
+
+	@Autowired
 	private CidadeService cidadeService;
 
 	@GetMapping("/register")
@@ -119,7 +122,7 @@ public class AnuncioController {
 
 		anuncioService.deleteById(id);
 
-		return getAnuncioGridPage(anuncio, model);
+		return pessoaController.getDetailPage(pessoaController.idLogado, model);
 	}
 
 //	Metodo para realizar pesquisa
