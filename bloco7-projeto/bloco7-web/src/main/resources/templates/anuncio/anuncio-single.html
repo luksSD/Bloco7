@@ -4,7 +4,8 @@
 
 <head>
 <meta charset="UTF-8">
-<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco | Anúncios</title>
+<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco |
+	Anúncios</title>
 </head>
 
 <body>
@@ -20,7 +21,9 @@
 					<div class="col-md-12 col-lg-8">
 						<div class="title-single-box">
 							<h1 class="title-single" th:text="${anuncio.status}">Aluguel</h1>
-							<span class="color-text-a" th:text="${anuncio.bairro + ' | ' +  cidade.nome}">Pouso Alegre - MG</span>
+							<span class="color-text-a"
+								th:text="${anuncio.bairro + ' | ' +  cidade.nome}">Pouso
+								Alegre - MG</span>
 						</div>
 					</div>
 					<div class="col-md-12 col-lg-4">
@@ -28,8 +31,8 @@
 							class="breadcrumb-box d-flex justify-content-lg-end">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-								<li class="breadcrumb-item"><a th:href="@{/anuncios/listar}">Anúncio</a>
-								</li>
+								<li class="breadcrumb-item"><a
+									th:href="@{/anuncios/listar}">Anúncio</a></li>
 								<li class="breadcrumb-item active"
 									th:text="'Anúncio ' + ${anuncio.id}" aria-current="page">
 									Imóvel 304</li>
@@ -48,10 +51,13 @@
 					<div>
 						<div id="property-single-carousel" class="swiper">
 							<div class="swiper-wrapper">
+
 								<div
 									class="carousel-item-b swiper-slide d-flex justify-content-center">
-									<img src="/resources/img/post-8.jpg" alt="">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto})}"
+										alt="">
 								</div>
+
 								<div
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
 									<img src="/resources/img/post-6.jpg" alt="">
@@ -72,8 +78,8 @@
 				<div class="row">
 					<div class="col-sm-12 mt-5">
 						<div class="row justify-content-between">
-						
-						<!-- Valor -->
+
+							<!-- Valor -->
 							<div class="col-md-5 col-lg-4">
 								<div class="property-price d-flex justify-content-center foo">
 									<div class="card-header-c d-flex">
@@ -97,7 +103,7 @@
 
 								</div>
 							</div>
-							
+
 							<!-- descrição -->
 							<div class="col-md-7 col-lg-7 section-md-t3">
 								<div class="row">
@@ -108,7 +114,8 @@
 									</div>
 								</div>
 								<div class="property-description">
-									<p class="description color-text-a" th:text="${anuncio.descricao}">Texto de descrição aqui!.</p>
+									<p class="description color-text-a"
+										th:text="${anuncio.descricao}">Texto de descrição aqui!.</p>
 								</div>
 
 							</div>
@@ -144,7 +151,7 @@
 												<span th:text="${anuncio.vaga_garagem}">1</span></li>
 										</ul>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -167,9 +174,9 @@
 
 						</div>
 					</div>
-					
-					
-					
+
+
+
 					<!-- Contato -->
 					<div class="col-md-12">
 						<div class="row section-t3">
@@ -183,10 +190,12 @@
 
 							<div class="col-md-6 col-lg-4">
 								<div class="property-agent">
-									<h4 class="title-agent" th:text="${pessoa.nome}">Anabella Geller</h4>
+									<h4 class="title-agent" th:text="${pessoa.nome}">Anabella
+										Geller</h4>
 									<ul class="list-unstyled">
 										<li class="d-flex justify-content-between"><strong>Telefone/Celular:</strong>
-											<span class="color-text-a" th:text="${pessoa.celular}">777 287 378 737</span></li>
+											<span class="color-text-a" th:text="${pessoa.celular}">777
+												287 378 737</span></li>
 										<li class="d-flex justify-content-between"><strong>Email:</strong>
 											<span class="color-text-a" th:text="${pessoa.email}">annabella@example.com</span></li>
 									</ul>
@@ -195,23 +204,26 @@
 							<div class="col-md-12 col-lg-8">
 								<div class="property-contact">
 									<div class="row">
-                                        <div class="col-md-3"></div>
-                                        <div class="col-md-6">
-                                            <center><h3>Gostou do anúncio? Entre em contato agora!</h3></center>
-                                            <hr>
-                                            <div align="center">
-                                            <a class="btn btn-success" th:href="@{'https://api.whatsapp.com/send?phone=55' + ${pessoa.celular} + '&text=Olá,%20estou%20interessado%20neste%20anuncio%20http://localhost:1000/anuncios/detalhes/'+ ${anuncio.id}}"> 
-                                            <i class="bi bi-whatsapp" aria-hidden="true"> Whatsapp</i>
-                                            </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3"></div>
-                                    </div>
+										<div class="col-md-3"></div>
+										<div class="col-md-6">
+											<center>
+												<h3>Gostou do anúncio? Entre em contato agora!</h3>
+											</center>
+											<hr>
+											<div align="center">
+												<a class="btn btn-success"
+													th:href="@{'https://api.whatsapp.com/send?phone=55' + ${pessoa.celular} + '&text=Olá,%20estou%20interessado%20neste%20anuncio%20http://localhost:1000/anuncios/detalhes/'+ ${anuncio.id}}">
+													<i class="bi bi-whatsapp" aria-hidden="true"> Whatsapp</i>
+												</a>
+											</div>
+										</div>
+										<div class="col-md-3"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 		</section>
 		<!-- End Property Single-->
 

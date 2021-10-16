@@ -16,6 +16,15 @@ public class Anuncio extends BasePojo {
 	private Long cidadeId;
 	private Long usuarioAnuncianteId;
 	private String nomeCidade;
+	private String foto;
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(final String foto) {
+		this.foto = foto;
+	}
 
 	public String getDescricao() {
 		return descricao;

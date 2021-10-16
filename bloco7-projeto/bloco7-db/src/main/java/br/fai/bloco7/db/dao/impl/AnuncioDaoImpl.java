@@ -54,7 +54,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
-
+				anuncio.setFoto(resultSet.getString("foto"));
 				anuncios.add(anuncio);
 
 			}
@@ -82,14 +82,16 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM anuncio where id = ?";
+			String sql = "SELECT * FROM anuncio a";
+			sql += " inner join cidade c on a.cidade_id = c.id";
+			sql += " where a.id = ? ";
 
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setLong(1, id);
 
 			resultSet = preparedStatement.executeQuery();
 
-			while (resultSet.next()) {
+			if (resultSet.next()) {
 
 				anuncio = new Anuncio();
 				anuncio.setId(resultSet.getLong("id"));
@@ -107,6 +109,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
+				anuncio.setFoto(resultSet.getString("foto"));
 
 			}
 
@@ -128,8 +131,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		String sql = "INSERT INTO anuncio";
 		sql += " (descricao, quartos, banheiros,";
-		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)";
-		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)";
+		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,? , ?)";
 
 		Long id = Long.valueOf(-1);
 
@@ -153,6 +156,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(11, entity.getCep());
 			preparedStatement.setLong(12, entity.getCidadeId());
 			preparedStatement.setLong(13, entity.getUsuarioAnuncianteId());
+			preparedStatement.setString(14, "/resources/img/" + entity.getFoto());
 
 			preparedStatement.execute();
 
