@@ -66,7 +66,8 @@ CREATE TABLE anuncio
     bairro VARCHAR (20) not null,
     cep VARCHAR (20) not null,
     cidade_id integer  not null,
-    usuario_anunciante_id integer not null
+    usuario_anunciante_id integer not null,
+    foto VARCHAR(200 ) not null
 );
 
 --Tornando cidade_id/usuario_anunciante_id uma FK de anuncio
