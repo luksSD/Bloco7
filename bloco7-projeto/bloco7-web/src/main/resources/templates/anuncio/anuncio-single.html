@@ -190,55 +190,23 @@
 										<li class="d-flex justify-content-between"><strong>Email:</strong>
 											<span class="color-text-a" th:text="${pessoa.email}">annabella@example.com</span></li>
 									</ul>
-									<div class="socials-a">
-										<ul class="list-inline">
-											<li class="list-inline-item"><a href="#"> <i
-													class="bi bi-facebook" aria-hidden="true"></i>
-											</a></li>
-											<li class="list-inline-item"><a href="#"> <i
-													class="bi bi-twitter" aria-hidden="true"></i>
-											</a></li>
-											<li class="list-inline-item"><a href="#"> <i
-													class="bi bi-instagram" aria-hidden="true"></i>
-											</a></li>
-											<li class="list-inline-item"><a href="#"> <i
-													class="bi bi-linkedin" aria-hidden="true"></i>
-											</a></li>
-										</ul>
-									</div>
 								</div>
 							</div>
 							<div class="col-md-12 col-lg-8">
 								<div class="property-contact">
-									<form class="form-a">
-										<div class="row">
-											<div class="col-md-12 mb-1">
-												<div class="form-group">
-													<input type="text"
-														class="form-control form-control-lg form-control-a"
-														id="inputName" placeholder="Nome *" required>
-												</div>
-											</div>
-											<div class="col-md-12 mb-1">
-												<div class="form-group">
-													<input type="email"
-														class="form-control form-control-lg form-control-a"
-														id="inputEmail1" placeholder="Email *" required>
-												</div>
-											</div>
-											<div class="col-md-12 mb-1">
-												<div class="form-group">
-													<textarea id="textMessage" class="form-control"
-														placeholder="Menssagem *" name="message" cols="45"
-														rows="8" required></textarea>
-												</div>
-											</div>
-											<div class="col-md-12 mt-3">
-												<button type="submit" class="btn btn-a">Enviar</button>
-											</div>
-										</div>
-									</form>
-								</div>
+									<div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <center><h3>Gostou do anúncio? Entre em contato agora!</h3></center>
+                                            <hr>
+                                            <div align="center">
+                                            <a class="btn btn-success" th:href="@{'https://api.whatsapp.com/send?phone=55' + ${pessoa.celular} + '&text=Olá,%20estou%20interessado%20neste%20anuncio%20http://localhost:1000/anuncios/detalhes/'+ ${anuncio.id}}"> 
+                                            <i class="bi bi-whatsapp" aria-hidden="true"> Whatsapp</i>
+                                            </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
 							</div>
 						</div>
 					</div>
