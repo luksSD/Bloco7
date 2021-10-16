@@ -7,13 +7,42 @@
 <body>
 
 	<div layout:fragment="body">
+		<!-- ======= Intro Editar Anuncio ======= -->
+		<section class="intro-single">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-lg-8">
+						<div class="title-single-box">
+							<h1 class="title-single">Editar Anúncio</h1>
+							<span class="color-text-a">Edite as informações do seu anúncio</span>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-4">
+						<nav aria-label="breadcrumb"
+							class="breadcrumb-box d-flex justify-content-lg-end">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/pessoa/detail/{id} (id=${anuncio.UsuarioAnuncianteId})}">Conta</a></li>
+								<li class="breadcrumb-item">Editar Anúncio</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Fim Editar Anuncio-->
+		
+		
+		
+		
+		
 		<div class="container">
-			<div class="row mb-5">
-				<div class="col-md-1 mt-5 mb-5"></div>
-				<div class="mt-5 mb-5">
+			<div class="row">
+				
+				
 					<div
 						style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
-						class="col-md-10 mt-5">
+						class="col-md-10">
 						<form th:action="@{/anuncios/update}" method="POST"
 							th:object="${anuncio}">
 							<div class="row">
@@ -182,7 +211,7 @@
 						</form>
 					</div>
 
-				</div>
+				
 			</div>
 			<div class="col-md-1"></div>
 		</div>

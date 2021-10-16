@@ -28,22 +28,44 @@
 </head>
 <body>
 	<div layout:fragment="body">
+
+		<!-- ======= Intro Registro Usuário ======= -->
+		<section class="intro-single">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-lg-8">
+						<div class="title-single-box">
+							<h1 class="title-single">Registrar</h1>
+							<span class="color-text-a">Cadastre-se já e comece a anunciar!</span>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-4">
+						<nav aria-label="breadcrumb"
+							class="breadcrumb-box d-flex justify-content-lg-end">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+								<li class="breadcrumb-item">Registrar</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Fim Editar Anuncio-->
+
+
 		<div class="container">
 			<div class="row mb-5">
-				<div class="col-md-1 mt-5 mb-5"></div>
-				<div class="mt-5 mb-5">
+				<div class="col-md-1"></div>
+
 					<div
 						style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
-						class="col-md-10 mt-5">
+						class="col-md-10">
 
 						<form th:action="@{/pessoa/create}" method="POST"
 							th:object="${pessoa}">
+							
 							<div class="row">
-								<div align="center">
-									<h1 style="margin-top: 10px">Cadastre-se Já!</h1>
-								</div>
-
-
 								<div class="col-md-6">
 									<div align="center">
 										<h2 style="margin-top: 40px">Dados Pessoais</h2>
@@ -108,8 +130,9 @@
 								</div>
 								<div class="col-md-6">
 									<div>
+										<div align="center">
 										<h2 style="margin-top: 40px">Dados de Acesso</h2>
-										</align="center">
+									</div>
 
 										<div class="row">
 											<div class="col-md-1"></div>
@@ -130,6 +153,7 @@
 											</div>
 											<div class="col-md-1"></div>
 										</div>
+										
 										<div class="row">
 											<div class="col-md-1"></div>
 											<div class="col-md-10">
@@ -150,7 +174,7 @@
 													id="confirma_senha" required type="password"
 													placeholder="********" name="confirma_senha"
 													class="form-control"> <br>
-												
+
 											</div>
 											<div class="col-md-1"></div>
 										</div>
@@ -168,7 +192,8 @@
 										</div>
 
 										<div align="center">
-											<button class="btn btn-b mt-1" onclick="validaSenha();" type="submit">Cadastrar</button>
+											<button class="btn btn-b mt-1" onclick="validaSenha();"
+												type="submit">Cadastrar</button>
 										</div>
 
 
@@ -177,7 +202,7 @@
 							</div>
 						</form>
 					</div>
-				</div>
+				
 			</div>
 		</div>
 
