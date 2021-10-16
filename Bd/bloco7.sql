@@ -4,7 +4,7 @@ CREATE DATABASE bloco7 WITH OWNER = postgres
 ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 
 
---Criando tabela cidade
+
 CREATE TABLE cidade
 (
     id BIGSERIAL primary key,
@@ -165,20 +165,19 @@ values ('3' , '123.456.789.13' , 'Matheus Felipe de Souza' , 'Rua Crescêncio Ri
 
 
  INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)
  values ('1' , 'Apartamento em frente a receita federal. Região central. Rápido acesso a bancos e lotéricas. Condomínio com segurança. Sala ampla, cozinha com armários. Possui elevador' 
-    , '4' , '2' , '1' , 'Apartamento' , 'Aluguel' , '100', '870' ,'Rua Francisco Nº 30' , 'Centro' , '37550-000' , '1' , '1');
+    , '4' , '2' , '1' , 'Apartamento' , 'Aluguel' , '100', '870' ,'Rua Francisco Nº 30' , 'Centro' , '37550-000' , '1' , '1', '/resources/img/post-single-2.jpg');
 
 
 INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)
  values ('2' , 'Casa sede em madeira com 140m a/c, 2 amplos dormitórios, sala em 2 ambientes, ampla cozinha e despensa. Na parte externa, piscina 4x8 com deck em pedra mineira, jardim, espaço gourmet completo, churrasqueira, campo de futebol. Linda Vista para desfrutar do que a natureza tem de melhor!!!
 
-' , '2' , '3' , '2' , 'Chácara' , 'Venda' , '1000', '500000', 'Rua Costinha Nº 79' , 'Zona Rural' , '37540-000' , '4' , '2');
+' , '2' , '3' , '2' , 'Chácara' , 'Venda' , '1000', '500000', 'Rua Costinha Nº 79' , 'Zona Rural' , '37540-000' , '4' , '2', '/resources/img/post-single-2.jpg');
 
  INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)
  values ('3' , 'Maravilhosa casa, com um excelente construção, isso sem falar da área de laser..., casa em 2 pavimentos com uma escada bem generosa, ampla, clara e muito arejada, no primeiro pavimento com um amplo jardim na frente da casa, varandão e as vagas de garagem, existe um Soto em baixo da casa, piscina, área livre, uma academia, sauna, bar gourmet, sala de tv, quarto e um banheiro , essa é a parte de fora da casa, ainda no primeiro pavimento, salão em L quarto que é uma suíte, copa cozinha, lavabo, dispensa e lavanderia, casa com energia solar. Segundo pavimento- 3 quartos, todos com varanda, uma suíte e um banheiro social. Cômodos todos com armários.' 
-    , '4' , '3' , '2' , 'Casa' , 'Aluguel' , '400', '7000' ,'Rua Roberto Nº 145' , 'Jardim Paraiso' , '37550-000' , '4' , '3');
-
+    , '4' , '3' , '2' , 'Casa' , 'Aluguel' , '400', '7000' ,'Rua Roberto Nº 145' , 'Jardim Paraiso' , '37550-000' , '4' , '3', '/resources/img/post-single-2.jpg');
 
