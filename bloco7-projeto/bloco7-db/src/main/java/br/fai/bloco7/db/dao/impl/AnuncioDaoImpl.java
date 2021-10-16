@@ -54,7 +54,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
-				anuncio.setFoto(resultSet.getString("foto"));
+				anuncio.setFoto1(resultSet.getString("foto1"));
+				anuncio.setFoto2(resultSet.getString("foto2"));
+				anuncio.setFoto3(resultSet.getString("foto3"));
 				anuncios.add(anuncio);
 
 			}
@@ -109,7 +111,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
-				anuncio.setFoto(resultSet.getString("foto"));
+				anuncio.setFoto1(resultSet.getString("foto1"));
+				anuncio.setFoto2(resultSet.getString("foto2"));
+				anuncio.setFoto3(resultSet.getString("foto3"));
 
 			}
 
@@ -131,8 +135,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		String sql = "INSERT INTO anuncio";
 		sql += " (descricao, quartos, banheiros,";
-		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)";
-		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,? , ?)";
+		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3) ";
+		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		Long id = Long.valueOf(-1);
 
@@ -156,7 +160,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setString(11, entity.getCep());
 			preparedStatement.setLong(12, entity.getCidadeId());
 			preparedStatement.setLong(13, entity.getUsuarioAnuncianteId());
-			preparedStatement.setString(14, "/resources/img/" + entity.getFoto());
+			preparedStatement.setString(14, "/resources/img/" + entity.getFoto1());
+			preparedStatement.setString(15, "/resources/img/" + entity.getFoto2());
+			preparedStatement.setString(16, "/resources/img/" + entity.getFoto3());
 
 			preparedStatement.execute();
 

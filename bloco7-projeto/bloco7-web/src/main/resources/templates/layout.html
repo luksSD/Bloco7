@@ -320,6 +320,22 @@
 		class="back-to-top d-flex align-items-center justify-content-center"><i
 		class="bi bi-arrow-up-short"></i></a>
 
+	<script th:inline="javascript">
+		var inputA = document.getElementById("id1");
+		var inputB = document.getElementById("id2");
+		var inputC = document.getElementById("id3");
+	
+		function handleFileSelect(evt) {
+			var files = evt.target.files;
+			inputA.value = escape(this.files[0].name);
+			inputB.value = escape(this.files[1].name);
+			inputC.value = escape(this.files[2].name);
+		}
+	
+		document.getElementById('files').addEventListener('change', handleFileSelect, false);
+	</script>
+
+
 	<!-- Vendor JS Files -->
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/vendor/swiper/swiper-bundle.min.js"></script>

@@ -194,8 +194,11 @@
 								<div class="row">
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
-										<label for="status">Imagem</label> <input type="file"
-											th:field="${anuncio.foto}"> <br>
+										<label for="status">Imagem</label> 
+										<input type="file" id="files" name="files[]" multiple/> <br>
+										<input type='hidden' id='id1' th:field="${anuncio.foto1}"/>
+										<input type='hidden' id='id2' th:field="${anuncio.foto2}"/>
+										<input type='hidden' id='id3' th:field="${anuncio.foto3}"/>
 									</div>
 									<div class="col-md-1"></div>
 								</div>
