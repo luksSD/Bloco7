@@ -1,245 +1,208 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head>
-        <meta charset="utf-8">
-            <title>
-                Bloco7 | Conta
-            </title>
-        </meta>
-    </head>
-    <body>
-        <!-- 	Injeção do fragmento body -->
-        <div layout:fragment="body">
-            <!-- ======= Intro Perfil ======= -->
-            <section class="intro-single">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-8">
-                            <div class="title-single-box">
-                                <h1 class="title-single">
-                                    Conta
-                                </h1>
-                                <span class="color-text-a">
-                                    Informações gerais sobre conta
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4">
-                            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="index.html">
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li class="breadcrumb-item">
-                                        Conta
-                                    </li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Fim Intro Single-->
-            <!-- ======= Infos perfil ======= -->
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7 col-lg-7 section-md-t3">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="title-box-d">
-                                        <h3 class="title-d">
-                                            Informações do Perfíl
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="row">
-                <!-- Detalhes -->
-                <div>
-                    <div class="row col-12">
-                        <div class="col-3">
-                        </div>
-                        <div class="summary-list col-3">
-                            <ul class="list">
-                                <li class="d-flex justify-content-between">
-                                    <strong>
-                                        Nome:
-                                    </strong>
-                                    <span th:text="${pessoa.nome}">
-                                    </span>
-                                </li>
-                                <li class="d-flex justify-content-between">
-                                    <strong>
-                                        Telefone/Celular:
-                                    </strong>
-                                    <span th:text="${pessoa.celular}">
-                                    </span>
-                                </li>
-                                <span>
-                                </span>
-                            </ul>
-                        </div>
-                        <div class="summary-list col-3">
-                            <ul class="list">
-                                <li class="d-flex justify-content-between">
-                                    <strong>
-                                        Email:
-                                    </strong>
-                                    <span th:text="${pessoa.email}">
-                                    </span>
-                                </li>
-                                <li class="d-flex justify-content-between">
-                                    <strong>
-                                        ID
-									do Usuário:
-                                    </strong>
-                                    <span th:text="${pessoa.id}">
-                                        4
-                                    </span>
-                                </li>
-                                <span>
-                                </span>
-                            </ul>
-                        </div>
-                        <div class="col-3">
-                        </div>
-                        <div class="col-12 d-flex justify-content-center">
-                            <div class="row">
-                                <div class="col-4">
-                                    <a class="btn btn-b mt-1" th:href="@{/pessoa/edit/{id} (id=${pessoa.id})}">
-                                        Editar
-                                        <i class="fas fa-lock">
-                                        </i>
-                                    </a>
-                                </div>
-                                <div class="col-4">
-                                </div>
-                                <div class="col-4">
-                                    <a class="btn btn-b mt-1" th:href="@{/pessoa/logoff}">
-                                        Sair
-                                        <i class="fas fa-lock">
-                                        </i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sessão meus anuncios -->
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7 col-lg-7 section-md-t3 mt-5">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="title-box-d">
-                                        <h3 class="title-d">
-                                            Meus Anúncios
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 mb-5">
-                                    <a class="btn btn-b mt-1" th:href="@{/anuncios/register}">
-                                        Novo
-									Anúncio
-                                        <i class="fas fa-lock">
-                                        </i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- ======= Grid de anúncios ======= -->
-            <section class="property-grid grid">
-                <div class="container">
-                    <div class="row">
-                        <!-- Linha de cards de anuncio -->
-                        <div class="row">
-                            <div class="col-md-4" th:each="anuncio : ${listaAnunciosUsuario}">
-                                <div class="card-box-a card-shadow">
-                                    <div class="img-box-a">
-                                        <img alt="" th:src="@{{caminhoFoto} (caminhoFoto=${anuncio.foto1})}" class="img-a" >
-                                        
-                                    </div>
-                                    <div class="card-overlay">
-                                        <div class="card-overlay-u-content">
-                                            <div class="card-header-a">
-                                                <h2 class="card-title-a">
-                                                    <a th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}">
-                                                        <span th:text="${anuncio.nomeCidade}">
-                                                            Cidade aqui
-                                                        </span>
-                                                        <br>
-                                                            <span th:text="${anuncio.bairro}">
-                                                                Bairro aqui
-                                                            </span>
-                                                        </br>
-                                                    </a>
-                                                </h2>
-                                            </div>
-                                            <div class="card-body-a">
-                                                <div class="price-box d-flex">
-                                                    <span class="price-a" th:text="${anuncio.status + ' |  R$ '+ anuncio.preco}">
-                                                        rent
-													| $ 12.000
-                                                    </span>
-                                                </div>
-                                                <a class="link-a" th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}">
-                                                    Detalhes
-                                                    <span>
-                                                        |
-                                                    </span>
-                                                </a>
-                                                <a class="link-a ml-2" th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}">
-                                                    Editar
-                                                    <span>
-                                                        |
-                                                    </span>
-                                                </a>
-                                                <a class="link-a" onclick="return confirm('Atenção! Deseja realmente excluir?')" th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}">
-                                                    Excluir
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 					<div class="row"> -->
-                        <!-- 						<div class="col-sm-12"> -->
-                        <!-- 							<nav class="pagination-a"> -->
-                        <!-- 								<ul class="pagination justify-content-end"> -->
-                        <!-- 									<li class="page-item disabled"><a class="page-link" -->
-                        <!-- 										href="#" tabindex="-1"> <span class="bi bi-chevron-left"></span> -->
-                        <!-- 									</a></li> -->
-                        <!-- 									<li class="page-item"><a class="page-link" href="#">1</a></li> -->
-                        <!-- 									<li class="page-item active"><a class="page-link" href="#">2</a> -->
-                        <!-- 									</li> -->
-                        <!-- 									<li class="page-item"><a class="page-link" href="#">3</a></li> -->
-                        <!-- 									<li class="page-item next"><a class="page-link" href="#"> -->
-                        <!-- 											<span class="bi bi-chevron-right"></span> -->
-                        <!-- 									</a></li> -->
-                        <!-- 								</ul> -->
-                        <!-- 							</nav> -->
-                        <!-- 						</div> -->
-                        <!-- 					</div> -->
-                    </div>
-                </div>
-            </section>
-            <!-- Fim grid de anuncios-->
-            <!-- End Property Single-->
-        </div>
-        <script>
+<html layout:decorate="~{layout}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<title>Bloco7 | Conta</title>
+</meta>
+</head>
+<body>
+	<!-- 	Injeção do fragmento body -->
+	<div layout:fragment="body">
+		<!-- ======= Intro Perfil ======= -->
+		<section class="intro-single">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-10 col-lg-8 ">
+						<div class="title-single-box">
+							<h1 class="title-single">Conta</h1>
+							<span class="color-text-a"> Informações gerais sobre conta
+							</span>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-4">
+						<nav aria-label="breadcrumb"
+							class="breadcrumb-box d-flex justify-content-lg-end">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html"> Home
+								</a></li>
+								<li class="breadcrumb-item">Conta</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Fim Intro Single-->
+		<!-- ======= Infos perfil ======= -->
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-lg-7 section-md-t3">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="title-box-d">
+									<h3 class="title-d">Informações do Perfíl</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Detalhes -->
+
+		<section>
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-4"></div>
+
+					<div class="summary-list col-md-3 ml-5">
+						<ul class="list">
+							<li><strong> Nome: </strong> <span th:text="${pessoa.nome}">
+							</span></li>
+							<li><strong> Telefone/Celular: </strong> <span
+								th:text="${pessoa.celular}"> </span></li>
+							<span></span>
+						</ul>
+					</div>
+
+					<div class="summary-list col-md-3">
+						<ul class="list">
+							<li><strong> Email: </strong> <span
+								th:text="${pessoa.email}"> </span></li>
+							<li><strong> ID do Usuário: </strong> <span
+								th:text="${pessoa.id}"> 4 </span></li>
+							<span></span>
+						</ul>
+					</div>
+					
+					<div class="col-md-3"></div>
+					
+				</div>
+			</div>
+		</section>
+
+
+		<!-- botoes	 -->
+		<section>
+			<div class="col-12 d-flex justify-content-center">
+				<div class="row">
+					<div class="col-4">
+						<a class="btn btn-b mt-1"
+							th:href="@{/pessoa/edit/{id} (id=${pessoa.id})}"> Editar <i
+							class="fas fa-lock"> </i>
+						</a>
+					</div>
+					<div class="col-4"></div>
+					<div class="col-4">
+						<a class="btn btn-b mt-1" th:href="@{/pessoa/logoff}"> Sair <i
+							class="fas fa-lock"> </i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Sessão meus anuncios -->
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-lg-7 section-md-t3 mt-5">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="title-box-d">
+									<h3 class="title-d">Meus Anúncios</h3>
+								</div>
+							</div>
+							<div class="col-sm-12 mb-5">
+								<a class="btn btn-b mt-1" th:href="@{/anuncios/register}">
+									Novo Anúncio <i class="fas fa-lock"> </i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		<!-- ======= Grid de anúncios ======= -->
+		<section class="property-grid grid">
+			<div class="container">
+				<div class="row">
+					<!-- Linha de cards de anuncio -->
+					<div class="row">
+						<div class="col-md-4" th:each="anuncio : ${listaAnunciosUsuario}">
+							<div class="card-box-a card-shadow">
+								<div class="img-u">
+									<img alt=""
+										th:src="@{{caminhoFoto} (caminhoFoto=${anuncio.foto1})}"
+										class="img-a">
+
+								</div>
+								<div class="card-overlay">
+									<div class="card-overlay-u-content">
+										<div class="card-header-a">
+											<h2 class="card-title-a">
+												<a th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}">
+													<span th:text="${anuncio.nomeCidade}"> Cidade aqui </span>
+													<br> <span th:text="${anuncio.bairro}"> Bairro
+														aqui </span> </br>
+												</a>
+											</h2>
+										</div>
+										<div class="card-body-a">
+											<div class="price-box d-flex">
+												<span class="price-a"
+													th:text="${anuncio.status + ' |  R$ '+ anuncio.preco}">
+													rent | $ 12.000 </span>
+											</div>
+											<a class="link-a"
+												th:href="@{/anuncios/detalhes/{id} (id=${anuncio.id})}">
+												Detalhes <span> | </span>
+											</a> <a class="link-a ml-2"
+												th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}">
+												Editar <span> | </span>
+											</a> <a class="link-a"
+												onclick="return confirm('Atenção! Deseja realmente excluir?')"
+												th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}">
+												Excluir </a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 					<div class="row"> -->
+					<!-- 						<div class="col-sm-12"> -->
+					<!-- 							<nav class="pagination-a"> -->
+					<!-- 								<ul class="pagination justify-content-end"> -->
+					<!-- 									<li class="page-item disabled"><a class="page-link" -->
+					<!-- 										href="#" tabindex="-1"> <span class="bi bi-chevron-left"></span> -->
+					<!-- 									</a></li> -->
+					<!-- 									<li class="page-item"><a class="page-link" href="#">1</a></li> -->
+					<!-- 									<li class="page-item active"><a class="page-link" href="#">2</a> -->
+					<!-- 									</li> -->
+					<!-- 									<li class="page-item"><a class="page-link" href="#">3</a></li> -->
+					<!-- 									<li class="page-item next"><a class="page-link" href="#"> -->
+					<!-- 											<span class="bi bi-chevron-right"></span> -->
+					<!-- 									</a></li> -->
+					<!-- 								</ul> -->
+					<!-- 							</nav> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+				</div>
+			</div>
+		</section>
+		<!-- Fim grid de anuncios-->
+		<!-- End Property Single-->
+	</div>
+	<script>
             function confirmaExclusao() {
 		  
 		  if (!confirm("Atenção! Você deseja realmente excluir este anúncio?")) {
@@ -247,5 +210,5 @@
 		  } 
 		}
         </script>
-    </body>
+</body>
 </html>

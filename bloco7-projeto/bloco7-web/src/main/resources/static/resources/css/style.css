@@ -1104,7 +1104,7 @@ a:hover {
 
 /*------/ Intro Single /------*/
 .intro-single {
-	padding: 12rem 0 3rem;
+	padding: 12rem 0rem 3rem;
 }
 
 @media ( max-width : 767px) {
@@ -1232,6 +1232,16 @@ a:hover {
 	transition: 0.8s all ease-in-out;
 	max-height: 35rem;
 	margin-left: -30%;;
+}
+
+.card-box-a .img-u
+	{
+	transition: 0.8s all ease-in-out;
+	max-height: 20rem;
+	max-width: 100%;
+	margin-left: -50%;
+ 	
+	
 }
 
 @media ( min-width : 768px) {
