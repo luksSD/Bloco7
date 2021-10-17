@@ -144,3 +144,5 @@ bloco7-projeto/bloco7-db/target/classes/br/fai/bloco7/db/connection/ConnectionFa
 bloco7-projeto/bloco7-db/target/classes/META-INF/MANIFEST.MF
 bloco7-projeto/bloco7-model/target/classes/META-INF/MANIFEST.MF
 bloco7-projeto/bloco7-model/target/classes/META-INF/maven/br.fai.bloco7.model/bloco7-model/pom.properties
+bloco7-projeto/bloco7-model/.classpath
+bloco7-projeto/bloco7-db/.classpath
