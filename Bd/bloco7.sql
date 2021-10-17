@@ -67,7 +67,9 @@ CREATE TABLE anuncio
     cep VARCHAR (20) not null,
     cidade_id integer  not null,
     usuario_anunciante_id integer not null,
-    foto VARCHAR(200 ) not null
+    foto1 VARCHAR(200) not null
+    foto2 VARCHAR(200) not null
+    foto3 VARCHAR(200) not null
 );
 
 --Tornando cidade_id/usuario_anunciante_id uma FK de anuncio
@@ -165,19 +167,19 @@ values ('3' , '123.456.789.13' , 'Matheus Felipe de Souza' , 'Rua Crescêncio Ri
 
 
  INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3)
  values ('1' , 'Apartamento em frente a receita federal. Região central. Rápido acesso a bancos e lotéricas. Condomínio com segurança. Sala ampla, cozinha com armários. Possui elevador' 
-    , '4' , '2' , '1' , 'Apartamento' , 'Aluguel' , '100', '870' ,'Rua Francisco Nº 30' , 'Centro' , '37550-000' , '1' , '1', '/resources/img/post-single-2.jpg');
+    , '4' , '2' , '1' , 'Apartamento' , 'Aluguel' , '100', '870' ,'Rua Francisco Nº 30' , 'Centro' , '37550-000' , '1' , '1', '/resources/img/post-single-1.jpg', '/resources/img/post-single-2.jpg', '/resources/img/post-6.jpg');
 
 
 INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3)
  values ('2' , 'Casa sede em madeira com 140m a/c, 2 amplos dormitórios, sala em 2 ambientes, ampla cozinha e despensa. Na parte externa, piscina 4x8 com deck em pedra mineira, jardim, espaço gourmet completo, churrasqueira, campo de futebol. Linda Vista para desfrutar do que a natureza tem de melhor!!!
 
-' , '2' , '3' , '2' , 'Chácara' , 'Venda' , '1000', '500000', 'Rua Costinha Nº 79' , 'Zona Rural' , '37540-000' , '4' , '2', '/resources/img/post-single-2.jpg');
+' , '2' , '3' , '2' , 'Chácara' , 'Venda' , '1000', '500000', 'Rua Costinha Nº 79' , 'Zona Rural' , '37540-000' , '4' , '2', '/resources/img/post-single-1.jpg', '/resources/img/post-single-2.jpg', '/resources/img/post-6.jpg');
 
  INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto)
+ (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3)
  values ('3' , 'Maravilhosa casa, com um excelente construção, isso sem falar da área de laser..., casa em 2 pavimentos com uma escada bem generosa, ampla, clara e muito arejada, no primeiro pavimento com um amplo jardim na frente da casa, varandão e as vagas de garagem, existe um Soto em baixo da casa, piscina, área livre, uma academia, sauna, bar gourmet, sala de tv, quarto e um banheiro , essa é a parte de fora da casa, ainda no primeiro pavimento, salão em L quarto que é uma suíte, copa cozinha, lavabo, dispensa e lavanderia, casa com energia solar. Segundo pavimento- 3 quartos, todos com varanda, uma suíte e um banheiro social. Cômodos todos com armários.' 
-    , '4' , '3' , '2' , 'Casa' , 'Aluguel' , '400', '7000' ,'Rua Roberto Nº 145' , 'Jardim Paraiso' , '37550-000' , '4' , '3', '/resources/img/post-single-2.jpg');
+    , '4' , '3' , '2' , 'Casa' , 'Aluguel' , '400', '7000' ,'Rua Roberto Nº 145' , 'Jardim Paraiso' , '37550-000' , '4' , '3', '/resources/img/post-single-1.jpg', '/resources/img/post-single-2.jpg', '/resources/img/post-6.jpg');
 
