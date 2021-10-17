@@ -19,7 +19,7 @@
 
 				<!-- Primeiro elemento do carrossel -->
 				<div class="swiper-slide carousel-item-a intro-item bg-image"
-					style="background-image: url(resources/img/slide-1.jpg)"  th:each="anuncio : ${listaDeAnuncio}">
+					th:style="'background:url(' + @{{caminhoFoto} (caminhoFoto= ${anuncio.foto1})} + '); background-size: cover'"  th:each="anuncio : ${listaDeAnuncio}">
 					<div class="overlay overlay-a"></div>
 					<div class="intro-content display-table">
 						<div class="table-cell">
@@ -47,7 +47,7 @@
 
 		<main id="main">
 
-<!-- 			<!-- ======= Sessão de anuncios recentes ======= --> -->
+<!-- 			<!-- ======= Sessão de anuncios recentes ======= -->
 <!-- 			<section class="section-property section-t8"> -->
 <!-- 				<div class="container"> -->
 <!-- 					<div class="row"> -->
@@ -258,7 +258,7 @@
 
 <!-- 				</div> -->
 <!-- 			</section> -->
-<!-- 			<!-- Fim da sessão de anúncios recentes --> -->
+<!-- 			<!-- Fim da sessão de anúncios recentes -->
 
 
 			<!-- ======= Sessão de serviços ======= -->

@@ -1,348 +1,492 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-<title>EstateAgency Bootstrap Template - Index</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
-
-<!-- Favicons -->
-<link href="/resources/img/favicon.png" rel="icon">
-<link href="/resources/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link href="/resources/vendor/animate.css/animate.min.css"
-	rel="stylesheet">
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
-<link href="/resources/vendor/swiper/swiper-bundle.min.css"
-	rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="/resources/css/style.css" rel="stylesheet">
-
-<!-- =======================================================
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                <title>
+                    EstateAgency Bootstrap Template - Index
+                </title>
+                <meta content="" name="description">
+                    <meta content="" name="keywords">
+                        <!-- Favicons -->
+                        <link href="/resources/img/favicon.png" rel="icon">
+                            <link href="/resources/img/apple-touch-icon.png" rel="apple-touch-icon">
+                                <!-- Google Fonts -->
+                                <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+                                    <!-- Vendor CSS Files -->
+                                    <link href="/resources/vendor/animate.css/animate.min.css" rel="stylesheet">
+                                        <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                                            <link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+                                                <link href="/resources/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+                                                    <!-- Template Main CSS File -->
+                                                    <link href="/resources/css/style.css" rel="stylesheet">
+                                                        <!-- =======================================================
         * Template Name: EstateAgency - v4.5.0
         * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
         * Author: BootstrapMade.com
         * License: https://bootstrapmade.com/license/
         ======================================================== -->
-</head>
-
-<body>
-
-	<!-- ======= Seção de pesquisa ======= -->
-	<div class="click-closed"></div>
-	<!--/ Form Search Star /-->
-	<div class="box-collapse">
-		<div class="title-box-d">
-			<h3 class="title-d">Pesquisa</h3>
-		</div>
-		<span class="close-box-collapse right-boxed bi bi-x"></span>
-		<div class="box-collapse-wrap form">
-			<form class="form-a" th:action="@{/anuncios/pesquisar}" method="POST"
-				th:object="${anuncio}">
-
-				<div class="row">
-
-					<div class="col-md-12 mb-2">
-						<div class="form-group">
-							<label class="pb-2" for="tipo">Palavra-chave</label> <input
-								type="text" class="form-control form-control-lg form-control-a"
-								placeholder="Palavra-chave" th:field="${anuncio.descricao}">
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="tipo">Tipo de propriedade</label> <select
-								class="form-control form-select form-control-a" id="tipo"
-								name="selectTipo" th:field="${anuncio.tipo_propriedade}">
-								<option value="TODOS">Todos os Tipos</option>
-								<option value="Casa">Casa</option>
-								<option value="Apartamento">Apartamento</option>
-
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="status">Tipo de anúncio</label> <select
-								class="form-control form-select form-control-a" id="status"
-								name="selectStatus" th:field="${anuncio.status}">
-								<option value="TODOS">Todos os tipos</option>
-								<option value="'Venda'">Venda</option>
-								<option value="'Aluguel'">Aluguel</option>
-								<option value="'Temproada'">Temporada</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="cidade">Cidade</label> <select
-								class="form-control form-select form-control-a" id="cidade"
-								name="selectCidade" th:field="${anuncio.nomeCidade}">
-								<option value="TODOS">Todas as Cidades</option>
-								<option value="'Santa Rita do Sapucai'">Santa Rita do
-									Sapucaí</option>
-								<option value="'Pouso Alegre'">Pouso Alegre</option>
-								<option value="'Itajuba'">Itajubá</option>
-								<option value="'Poços de Caldas'">Poços de Caldas</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="quartos">Quartos</label> <select
-								class="form-control form-select form-control-a" id="quartos"
-								name="selectQuartos" th:field="${anuncio.quartos}">
-								<option type="number" value="0">Todos</option>
-								<option type="number" value="1">01</option>
-								<option type="number" value="2">02</option>
-								<option type="number" value="3">03</option>
-								<option type="number" value="4">04</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="garagens">Garages</label> <select
-								class="form-control form-select form-control-a" id="garagens"
-								name="selectGaragem" th:field="${anuncio.vaga_garagem}">
-								<option type="number" value="0">Todos</option>
-								<option type="number" value="1">01</option>
-								<option type="number" value="2">02</option>
-								<option type="number" value="3">03</option>
-								<option type="number" value="4">04</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="banheiros">Banheiros</label> <select
-								class="form-control form-select form-control-a" id="banheiros"
-								name="selectBanheiro" th:field="${anuncio.banheiros}">
-								<option type="number" value="0">Todos</option>
-								<option type="number" value="1">01</option>
-								<option type="number" value="2">02</option>
-								<option type="number" value="3">03</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 mb-2">
-						<div class="col-md-12 mt-4">
-							<button type="submit" class="btn btn-b mt-1">Pesquisar</button>
-						</div>
-					</div>
-
-				</div>
-			</form>
-		</div>
-	</div>
-
-	<!-- Fim da seção de pesquisa -->
-
-
-
-	<!-- ======= Header e Navbar ======= -->
-	<nav
-		class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-		<div class="container">
-			<button class="navbar-toggler collapsed" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarDefault"
-				aria-controls="navbarDefault" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span></span> <span></span> <span></span>
-			</button>
-			<a class="navbar-brand text-brand" href="/"><img class="logo"
-				src="/resources/img/Bloco7-Logo.jpg"></a>
-
-			<div class="navbar-collapse collapse justify-content-center"
-				id="navbarDefault">
-				<ul class="navbar-nav">
-
-					<li
-						th:class="${activePage == 'home'} ? 'nav-item active' : 'nav-item'"><a
-						class="nav-link" th:href="@{/}">Home</a></li>
-
-
-					<li
-						th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'"><a
-						class="nav-link " th:href="@{/anuncios/listar}">Anúncios</a></li>
-
-					<!-- 					<li -->
-					<!-- 						th:class="${activePage == 'conta'} ? 'nav-item active' : 'nav-item'"> -->
-					<!-- 						<a class="nav-link" th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">Conta</a>  -->
-					<!-- 						<a class="nav-link"	th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}">Conta</a> -->
-					<!-- 					</li> -->
-
-					<li
-						th:class="${activePage == 'conta'} ? 'nav-item active dropdown' : 'nav-item dropdown'">
-						
-						<a class="nav-link dropdown-toggle" th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Conta</a>
-						<a class="nav-link dropdown-toggle" th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Conta</a>
-						
-						<div class="dropdown-menu">
-								<a class="dropdown-item " th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">Login</a> 
-								<a class="dropdown-item " th:href="@{/pessoa/register}" th:if="${idUsuarioLogado == null}">Registrar</a>
-								<a class="dropdown-item " th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}">Perfíl</a> 
-								<a class="dropdown-item " th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}">Anunciar</a> 
-								<a class="dropdown-item " th:href="@{/pessoa/logoff}" th:unless="${idUsuarioLogado == null}">Sair</a>
-						</div>
-						
-						
-					</li>
-
-				</ul>
-			</div>
-
-			<button type="button"
-				class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
-				data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-				<i class="bi bi-search"></i>
-			</button>
-
-		</div>
-	</nav>
-	<!-- Fim Header/Navbar -->
-
-
-
-	<!-- fragment body -->
-	<main>
-
-		<div layout:fragment="body"></div>
-
-	</main>
-
-
-
-	<!-- ======= Footer ======= -->
-	<section class="section-footer">
-		<div class="container d-flex justify-content-center">
-			<div class="row">
-				<div class="col-md-2"></div>
-				>
-				<div class="col-sm-12 col-md-4">
-					<div class="widget-a">
-						<div class="w-header-a">
-							<h3 class="w-title-a text-brand">Bloco7</h3>
-						</div>
-						<div class="w-body-a">
-							<p class="w-text-a color-text-a">Descomplique a forma de locar ou vender seu imóvel!</p>
-						</div>
-						<div class="w-footer-a">
-							<ul class="list-unstyled">
-								<li class="color-a"><span class="color-text-a">Email
-										.</span> contato@bloco7.com</li>
-								<li class="color-a"><span class="color-text-a">Telefone
-										.</span>(35)9757-8408</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-4 ">
-					<div class="widget-a">
-						<div class="w-header-a">
-							<h3 class="w-title-a text-brand">A Empresa</h3>
-						</div>
-						<div class="w-body-a">
-							<div class="w-body-a">
-								<ul class="list-unstyled">
-									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
-										<a href="#">Mapa do Site</a></li>
-									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
-										<a href="#">Legal</a></li>
-									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
-										<a th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">Conta</a><a th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}">Conta</a></li>
-									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
-										<a href="#">Política de Pivacidade</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<nav class="nav-footer">
-						<ul class="list-inline">
-							<li class="list-inline-item"><a href="#">Home</a></li>
-							<li class="list-inline-item"><a href="/anuncios/listar">Anuncios</a></li>
-							<li class="list-inline-item"><a th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">Conta</a><a th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}">Conta</a></li>
-						</ul>
-					</nav>
-					<div class="copyright-footer">
-						<p class="copyright color-text-a">
-							&copy; Copyright <span class="color-a">EstateAgency</span> All
-							Rights Reserved.
-						</p>
-					</div>
-					<div class="credits">
-						<!--
+                                                    </link>
+                                                </link>
+                                            </link>
+                                        </link>
+                                    </link>
+                                </link>
+                            </link>
+                        </link>
+                    </meta>
+                </meta>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <!-- ======= Seção de pesquisa ======= -->
+        <div class="click-closed">
+        </div>
+        <!--/ Form Search Star /-->
+        <div class="box-collapse">
+            <div class="title-box-d">
+                <h3 class="title-d">
+                    Pesquisa
+                </h3>
+            </div>
+            <span class="close-box-collapse right-boxed bi bi-x">
+            </span>
+            <div class="box-collapse-wrap form">
+                <form class="form-a" method="POST" th:action="@{/anuncios/pesquisar}" th:object="${anuncio}">
+                    <div class="row">
+                        <div class="col-md-12 mb-2">
+                            <div class="form-group">
+                                <label class="pb-2" for="tipo">
+                                    Palavra-chave
+                                </label>
+                                <input class="form-control form-control-lg form-control-a" placeholder="Palavra-chave" th:field="${anuncio.descricao}" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group mt-3">
+                                <label class="pb-2" for="tipo">
+                                    Tipo de propriedade
+                                </label>
+                                <select class="form-control form-select form-control-a" id="tipo" name="selectTipo" th:field="${anuncio.tipo_propriedade}">
+                                    <option value="TODOS">
+                                        Todos os Tipos
+                                    </option>
+                                    <option value="Casa">
+                                        Casa
+                                    </option>
+                                    <option value="Apartamento">
+                                        Apartamento
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group mt-3">
+                                <label class="pb-2" for="status">
+                                    Tipo de anúncio
+                                </label>
+                                <select class="form-control form-select form-control-a" id="status" name="selectStatus" th:field="${anuncio.status}">
+                                    <option value="TODOS">
+                                        Todos os tipos
+                                    </option>
+                                    <option value="'Venda'">
+                                        Venda
+                                    </option>
+                                    <option value="'Aluguel'">
+                                        Aluguel
+                                    </option>
+                                    <option value="'Temproada'">
+                                        Temporada
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group mt-3">
+                                <label class="pb-2" for="cidade">
+                                    Cidade
+                                </label>
+                                <select class="form-control form-select form-control-a" id="cidade" name="selectCidade" th:field="${anuncio.nomeCidade}">
+                                    <option value="TODOS">
+                                        Todas as Cidades
+                                    </option>
+                                    <option value="'Santa Rita do Sapucai'">
+                                        Santa Rita do
+                                                                        Sapucaí
+                                    </option>
+                                    <option value="'Pouso Alegre'">
+                                        Pouso Alegre
+                                    </option>
+                                    <option value="'Itajuba'">
+                                        Itajubá
+                                    </option>
+                                    <option value="'Poços de Caldas'">
+                                        Poços de Caldas
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group mt-3">
+                                <label class="pb-2" for="quartos">
+                                    Quartos
+                                </label>
+                                <select class="form-control form-select form-control-a" id="quartos" name="selectQuartos" th:field="${anuncio.quartos}">
+                                    <option type="number" value="0">
+                                        Todos
+                                    </option>
+                                    <option type="number" value="1">
+                                        01
+                                    </option>
+                                    <option type="number" value="2">
+                                        02
+                                    </option>
+                                    <option type="number" value="3">
+                                        03
+                                    </option>
+                                    <option type="number" value="4">
+                                        04
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group mt-3">
+                                <label class="pb-2" for="garagens">
+                                    Garages
+                                </label>
+                                <select class="form-control form-select form-control-a" id="garagens" name="selectGaragem" th:field="${anuncio.vaga_garagem}">
+                                    <option type="number" value="0">
+                                        Todos
+                                    </option>
+                                    <option type="number" value="1">
+                                        01
+                                    </option>
+                                    <option type="number" value="2">
+                                        02
+                                    </option>
+                                    <option type="number" value="3">
+                                        03
+                                    </option>
+                                    <option type="number" value="4">
+                                        04
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group mt-3">
+                                <label class="pb-2" for="banheiros">
+                                    Banheiros
+                                </label>
+                                <select class="form-control form-select form-control-a" id="banheiros" name="selectBanheiro" th:field="${anuncio.banheiros}">
+                                    <option type="number" value="0">
+                                        Todos
+                                    </option>
+                                    <option type="number" value="1">
+                                        01
+                                    </option>
+                                    <option type="number" value="2">
+                                        02
+                                    </option>
+                                    <option type="number" value="3">
+                                        03
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="col-md-12 mt-4">
+                                <button class="btn btn-b mt-1" type="submit">
+                                    Pesquisar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Fim da seção de pesquisa -->
+        <!-- ======= Header e Navbar ======= -->
+        <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+            <div class="container">
+                <button aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler collapsed" data-bs-target="#navbarDefault" data-bs-toggle="collapse" type="button">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </button>
+                <a class="navbar-brand text-brand" href="/">
+                    <img class="logo" src="/resources/img/Bloco7-Logo.jpg"/>
+                </a>
+                <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+                    <ul class="navbar-nav">
+                        <li th:class="${activePage == 'home'} ? 'nav-item active' : 'nav-item'">
+                            <a class="nav-link" th:href="@{/}">
+                                Home
+                            </a>
+                        </li>
+                        <li th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'">
+                            <a class="nav-link " th:href="@{/anuncios/listar}">
+                                Anúncios
+                            </a>
+                        </li>
+                        <!--                                    <li -->
+                        <!--                                            th:class="${activePage == 'conta'} ? 'nav-item active' : 'nav-item'"> -->
+                        <!--                                            <a class="nav-link" th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">Conta</a>  -->
+                        <!--                                            <a class="nav-link"     th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}">Conta</a> -->
+                        <!--                                    </li> -->
+                        <li th:class="${activePage == 'conta'} ? 'nav-item active dropdown' : 'nav-item dropdown'">
+                            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button" th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">
+                                Conta
+                            </a>
+                            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button" th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}">
+                                Conta
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item " th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">
+                                    Login
+                                </a>
+                                <a class="dropdown-item " th:href="@{/pessoa/register}" th:if="${idUsuarioLogado == null}">
+                                    Registrar
+                                </a>
+                                <a class="dropdown-item " th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}">
+                                    Perfíl
+                                </a>
+                                <a class="dropdown-item " th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}">
+                                    Anunciar
+                                </a>
+                                <a class="dropdown-item " th:href="@{/pessoa/logoff}" th:unless="${idUsuarioLogado == null}">
+                                    Sair
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-target="#navbarTogglerDemo01" data-bs-toggle="collapse" type="button">
+                    <i class="bi bi-search">
+                    </i>
+                </button>
+            </div>
+        </nav>
+        <!-- Fim Header/Navbar -->
+        <!-- fragment body -->
+        <main>
+            <div layout:fragment="body">
+            </div>
+        </main>
+        <!-- ======= Footer ======= -->
+        <section class="section-footer">
+            <div class="container d-flex justify-content-center">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="widget-a">
+                            <div class="w-header-a col-6">
+                                <h3 class="w-title-a text-brand">
+                                    Bloco7
+                                </h3>
+                            </div>
+                            <div class="w-body-a">
+                                <p class="w-text-a color-text-a">
+                                    Descomplique a forma de
+                                                                locar ou vender seu imóvel!
+                                </p>
+                            </div>
+                            <div class="w-footer-a">
+                                <ul class="list-unstyled">
+                                    <li class="color-a">
+                                        <span class="color-text-a">
+                                            Email .
+                                        </span>
+                                        contato@bloco7.com
+                                    </li>
+                                    <li class="color-a">
+                                        <span class="color-text-a">
+                                            Telefone .
+                                        </span>
+                                        (35)9757-8408
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="widget-a">
+                            <div class="w-header-a">
+                                <h3 class="w-title-a text-brand">
+                                    A Empresa
+                                </h3>
+                            </div>
+                            <div class="w-body-a">
+                                <div class="w-body-a">
+                                    <ul class="list-unstyled">
+                                        <li class="item-list-a">
+                                            <i class="bi bi-chevron-right">
+                                            </i>
+                                            <a href="#">
+                                                Mapa do Site
+                                            </a>
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="bi bi-chevron-right">
+                                            </i>
+                                            <a href="#">
+                                                Legal
+                                            </a>
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="bi bi-chevron-right">
+                                            </i>
+                                            <a th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">
+                                                Conta
+                                            </a>
+                                            <a th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}">
+                                                Conta
+                                            </a>
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="bi bi-chevron-right">
+                                            </i>
+                                            <a href="#">
+                                                Política de Pivacidade
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="nav-footer">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="/anuncios/listar">
+                                        Anuncios
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}">
+                                        Conta
+                                    </a>
+                                    <a th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}">
+                                        Conta
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="copyright-footer">
+                            <p class="copyright color-text-a">
+                                © Copyright
+                                <span class="color-a">
+                                    EstateAgency
+                                </span>
+                                All
+                                                        Rights Reserved.
+                            </p>
+                        </div>
+                        <div class="credits">
+                            <!--
                   All the links in the footer should remain intact.
                   You can delete the links only if you purchased the pro version.
                   Licensing information: https://bootstrapmade.com/license/
                   Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
                 -->
-						Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Fim  Footer -->
+                            Designed by
+                            <a href="https://bootstrapmade.com/">
+                                BootstrapMade
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Fim  Footer -->
+        <div id="preloader">
+        </div>
+        <a class="back-to-top d-flex align-items-center justify-content-center" href="#">
+            <i class="bi bi-arrow-up-short">
+            </i>
+        </a>
+        
+        <script th:inline="javascript">
+           	 	var inputA = document.getElementById("id1");
+                var inputB = document.getElementById("id2");
+                var inputC = document.getElementById("id3");
+                var inputD = document.getElementById("id4");
+                var inputE = document.getElementById("id5");
+        
+                function handleFileSelect(evt) {
+                        var files = evt.target.files;
+                        
+                        if (files.length <= 5) {
+                        	document.getElementById("uploadErroMsg").style.visibility = "hidden";
+	                        inputA.value = escape(this.files[0].name);
+	                        inputB.value = escape(this.files[1].name);
+	                        inputC.value = escape(this.files[2].name);
+	                        inputD.value = escape(this.files[3].name);
+	                        inputE.value = escape(this.files[4].name);
+	                   	} else {
+	                		document.getElementById("files").value = "";
+	 	               		document.getElementById("uploadErroMsg").style.visibility = "visible"; 
+	 	               		console.log('lista limpa'); 
+	 	               		console.log(files.length); 
+ 	               		}
+                }
+        
+                document.getElementById('files').addEventListener('change', handleFileSelect, false);
+        </script>
 
-	<div id="preloader"></div>
-	<a href="#"
-		class="back-to-top d-flex align-items-center justify-content-center"><i
-		class="bi bi-arrow-up-short"></i></a>
+<!--         <script th:inline="javascript"> -->
+<!--             function handleFileSelect(evt) { -->
+            
+<!--                    var files = evt.target.files; // alimenta files com a lista de imagens inseridas -->
+				   
+				   				   	
+<!--                    // files é uma FileList de objetos file. List some properties. -->
+<!--                    var output = []; -->
+					
+<!-- 				   console.log(files.length);	 -->
+<!-- 				   if (files.length <= 5) { -->
+<!-- 				   	document.getElementById("uploadErroMsg").style.visibility = "hidden"; -->
+<!-- 	                   for (var i = 0, f; f = files[i]; i++) { -->
+<!-- 	                     output.push('<input type="text" value="', escape(f.name), '" th:field="${anuncio.foto', i+1, '}" />'); -->
+<!-- 	                   } -->
+<!-- 	               } else { -->
+<!-- 	               		document.getElementById("files").value = ""; -->
+<!-- 	               		document.getElementById("uploadErroMsg").style.visibility = "visible"; -->
+<!-- 	               		console.log('lista limpa'); -->
+<!-- 	               		 console.log(files.length); -->
+<!-- 	               } -->
 
-	<script th:inline="javascript">
-		var inputA = document.getElementById("id1");
-		var inputB = document.getElementById("id2");
-		var inputC = document.getElementById("id3");
-	
-		function handleFileSelect(evt) {
-			var files = evt.target.files;
-			inputA.value = escape(this.files[0].name);
-			inputB.value = escape(this.files[1].name);
-			inputC.value = escape(this.files[2].name);
-		}
-	
-		document.getElementById('files').addEventListener('change', handleFileSelect, false);
-	</script>
+<!--                    document.getElementById('list').innerHTML = output.join(''); -->
+<!--         } -->
 
-
-	<!-- Vendor JS Files -->
-	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/vendor/swiper/swiper-bundle.min.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="/resources/js/main.js"></script>
-
-</body>
-
+<!--          document.getElementById('files').addEventListener('change', handleFileSelect, false); -->
+<!--         </script> -->
+        
+        
+        <!-- Vendor JS Files -->
+        <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js">
+        </script>
+        <script src="/resources/vendor/swiper/swiper-bundle.min.js">
+        </script>
+        <!-- Template Main JS File -->
+        <script src="/resources/js/main.js">
+        </script>
+    </body>
 </html>
