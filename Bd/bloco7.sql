@@ -67,8 +67,8 @@ CREATE TABLE anuncio
     cep VARCHAR (20) not null,
     cidade_id integer  not null,
     usuario_anunciante_id integer not null,
-    foto1 VARCHAR(200) not null
-    foto2 VARCHAR(200) not null
+    foto1 VARCHAR(200) not null,
+    foto2 VARCHAR(200) not null,
     foto3 VARCHAR(200) not null
 );
 
