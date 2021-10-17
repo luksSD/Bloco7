@@ -37,9 +37,9 @@ public class HomeController {
 
 	}
 
-	@GetMapping("/teste")
-	public String getTeste() {
-		return "teste";
+	@GetMapping("/sobre")
+	public String getSobre(Anuncio anuncio) {
+		return "/sobre";
 	}
 
 }
