@@ -423,32 +423,31 @@
             </i>
         </a>
         
-        <script th:inline="javascript">
-           	 	var inputA = document.getElementById("id1");
-                var inputB = document.getElementById("id2");
-                var inputC = document.getElementById("id3");
-                var inputD = document.getElementById("id4");
-                var inputE = document.getElementById("id5");
-        
-                function handleFileSelect(evt) {
-                        var files = evt.target.files;
-                        
-                        if (files.length <= 5) {
-                        	document.getElementById("uploadErroMsg").style.visibility = "hidden";
-	                        inputA.value = escape(this.files[0].name);
-	                        inputB.value = escape(this.files[1].name);
-	                        inputC.value = escape(this.files[2].name);
-	                        inputD.value = escape(this.files[3].name);
-	                        inputE.value = escape(this.files[4].name);
-	                   	} else {
-	                		document.getElementById("files").value = "";
-	 	               		document.getElementById("uploadErroMsg").style.visibility = "visible"; 
-	 	               		console.log('lista limpa'); 
-	 	               		console.log(files.length); 
- 	               		}
-                }
-        
-                document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    <script th:inline="javascript">
+    
+    			if(window.location.href === "http://localhost:1000/anuncios/register"){
+	        
+	                function handleFileSelect(evt) {
+	                        var files = evt.target.files;
+	                        
+	                        if (files.length <= 5) {
+	                        	document.getElementById("uploadErroMsg").style.visibility = "hidden";
+		                        document.getElementById("id1").value = escape(this.files[0].name);
+		                        document.getElementById("id2").value = escape(this.files[1].name);
+		                        document.getElementById("id3").value = escape(this.files[2].name);
+		                        document.getElementById("id4").value = escape(this.files[3].name);
+		                        document.getElementById("id5").value = escape(this.files[4].name);
+		                   	} else {
+		                		document.getElementById("files").value = "";
+		 	               		document.getElementById("uploadErroMsg").style.visibility = "visible"; 
+		 	               		console.log('lista limpa'); 
+		 	               		console.log(files.length); 
+	 	               		}
+	                }
+	        
+	                document.getElementById('files').addEventListener('change', handleFileSelect, false);
+	           }
         </script>
 
 <!--         <script th:inline="javascript"> -->

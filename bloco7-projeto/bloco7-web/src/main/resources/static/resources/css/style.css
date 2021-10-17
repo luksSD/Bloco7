@@ -531,35 +531,22 @@ a:hover {
 	animation: animate-preloader 1s linear infinite;
 }
 
-@
--webkit-keyframes animate-preloader { 0% {
-	transform: rotate(0deg);
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-100
-%
-{
-transform
-:
-rotate(
-360deg
-);
-}
-}
-@
-keyframes animate-preloader { 0% {
-	transform: rotate(0deg);
-}
-
-100
-%
-{
-transform
-:
-rotate(
-360deg
-);
-}
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /*======================================
 //--//-->   BUTTON
@@ -1243,6 +1230,8 @@ rotate(
 .card-box-a .img-a, .card-box-a .img-b, .card-box-b .img-a, .card-box-b .img-b
 	{
 	transition: 0.8s all ease-in-out;
+	max-height: 35rem;
+	margin-left: -30%;;
 }
 
 @media ( min-width : 768px) {

@@ -167,9 +167,9 @@
                         <div class="row">
                             <div class="col-md-4" th:each="anuncio : ${listaAnunciosUsuario}">
                                 <div class="card-box-a card-shadow">
-                                    <div class="img-box-b">
-                                        <img alt="" class="img-a img-fluid" src="/resources/img/property-1.jpg">
-                                        </img>
+                                    <div class="img-box-a">
+                                        <img alt="" th:src="@{{caminhoFoto} (caminhoFoto=${anuncio.foto1})}" class="img-a" >
+                                        
                                     </div>
                                     <div class="card-overlay">
                                         <div class="card-overlay-u-content">

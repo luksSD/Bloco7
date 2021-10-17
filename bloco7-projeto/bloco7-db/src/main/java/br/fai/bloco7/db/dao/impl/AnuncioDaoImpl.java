@@ -327,6 +327,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
+				anuncio.setFoto1(resultSet.getString("foto1"));
+				anuncio.setFoto2(resultSet.getString("foto2"));
+				anuncio.setFoto3(resultSet.getString("foto3"));
 
 				anuncios.add(anuncio);
 
@@ -380,6 +383,9 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
+				anuncio.setFoto1(resultSet.getString("foto1"));
+				anuncio.setFoto2(resultSet.getString("foto2"));
+				anuncio.setFoto3(resultSet.getString("foto3"));
 
 				anuncios.add(anuncio);
 

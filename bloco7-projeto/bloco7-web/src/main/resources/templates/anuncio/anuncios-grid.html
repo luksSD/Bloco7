@@ -43,14 +43,14 @@
 			<div class="container">
 				<div class="row">
 					
-<!-- 					Linha de carts de anuncio -->
+<!-- 					Linha de cards de anuncio -->
 					<div class="row">
 					
 						<div class="col-md-4" th:each="anuncio : ${listaDeAnuncio}">
 						<div class="card-box-a card-shadow">
 							<div class="img-box-a">
-								<img src="/resources/img/property-1.jpg" alt=""
-									class="img-a img-fluid">
+								<img th:src="@{{caminhoFoto} (caminhoFoto=${anuncio.foto1})}" alt=""
+									class="img-a">
 							</div>
 							<div class="card-overlay">
 								<div class="card-overlay-a-content">
