@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Recentes;
 import br.fai.bloco7.web.service.AnuncioService;
 
 @Service
@@ -178,6 +179,30 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 		return response;
 
+	}
+
+	@Override
+	public List<Recentes> readRecents() {
+
+		final String endpoint = "http://localhost:2000/api/v1/anuncio/read-recents";
+
+		List<Recentes> response = null;
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+
+			final ResponseEntity<Recentes[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
+					httpEntity, Recentes[].class);
+
+			response = Arrays.asList(requestResponse.getBody());
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
 	}
 
 }

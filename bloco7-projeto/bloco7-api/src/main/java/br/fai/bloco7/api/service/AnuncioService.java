@@ -3,6 +3,7 @@ package br.fai.bloco7.api.service;
 import java.util.List;
 
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Recentes;
 
 public interface AnuncioService {
 
@@ -19,4 +20,6 @@ public interface AnuncioService {
 	List<Anuncio> readByCriteria(Anuncio pesquisa);
 
 	List<Anuncio> readByAnuncianteId(Long idAnunciante);
+
+	List<Recentes> readRecents();
 }

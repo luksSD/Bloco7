@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import br.fai.bloco7.db.connection.ConnectionFactory;
 import br.fai.bloco7.db.dao.AnuncioDao;
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Recentes;
 
 @Repository
 public class AnuncioDaoImpl implements AnuncioDao {
@@ -400,6 +401,60 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		}
 
 		return anuncios;
+	}
+
+	@Override
+	public List<Recentes> readRecents() {
+
+		final List<Recentes> recentes = new ArrayList<Recentes>();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = ConnectionFactory.getConnection();
+
+			final String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id order by A.id desc limit 3";
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				final Recentes recente = new Recentes();
+				recente.setId(resultSet.getLong("id"));
+				recente.setDescricao(resultSet.getString("descricao"));
+				recente.setQuartos(resultSet.getInt("quartos"));
+				recente.setBanheiros(resultSet.getInt("banheiros"));
+				recente.setVaga_garagem(resultSet.getInt("vaga_garagem"));
+				recente.setTipo_propriedade(resultSet.getString("tipo_propriedade"));
+				recente.setStatus(resultSet.getString("status"));
+				recente.setArea(resultSet.getInt("area"));
+				recente.setPreco(resultSet.getString("preco"));
+				recente.setEndereco(resultSet.getString("endereco"));
+				recente.setBairro(resultSet.getString("bairro"));
+				recente.setCep(resultSet.getString("cep"));
+				recente.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
+				recente.setCidadeId(resultSet.getLong("cidade_id"));
+				recente.setNomeCidade(resultSet.getString("nome"));
+				recente.setFoto1(resultSet.getString("foto1"));
+				recente.setFoto2(resultSet.getString("foto2"));
+				recente.setFoto3(resultSet.getString("foto3"));
+				recentes.add(recente);
+
+			}
+
+		} catch (final Exception e) {
+
+			System.out.println(e.getMessage());
+
+		} finally {
+			ConnectionFactory.close(resultSet, preparedStatement, connection);
+		}
+
+		return recentes;
 	}
 
 }

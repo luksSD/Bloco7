@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.fai.bloco7.api.service.AnuncioService;
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Recentes;
 
 @RestController
 @RequestMapping("/api/v1/anuncio")
@@ -71,6 +72,13 @@ public class AnuncioRestController {
 	public ResponseEntity<List<Anuncio>> readByAnunciante(@PathVariable("id") final long idAnunciante) {
 
 		return ResponseEntity.ok(service.readByAnuncianteId(idAnunciante));
+
+	}
+
+	@GetMapping("/read-recents")
+	public ResponseEntity<List<Recentes>> readRecents() {
+
+		return ResponseEntity.ok(service.readRecents());
 
 	}
 

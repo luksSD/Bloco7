@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.fai.bloco7.api.service.AnuncioService;
 import br.fai.bloco7.db.dao.AnuncioDao;
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Recentes;
 
 @Service
 public class AnuncioServiceImpl implements AnuncioService {
@@ -96,6 +97,12 @@ public class AnuncioServiceImpl implements AnuncioService {
 	public List<Anuncio> readByAnuncianteId(final Long idAnunciante) {
 
 		return dao.readByAnuncianteId(idAnunciante);
+	}
+
+	@Override
+	public List<Recentes> readRecents() {
+
+		return dao.readRecents();
 	}
 
 }

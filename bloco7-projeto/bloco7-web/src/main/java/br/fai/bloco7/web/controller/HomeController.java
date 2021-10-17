@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import br.fai.bloco7.model.Anuncio;
+import br.fai.bloco7.model.Recentes;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 
@@ -24,8 +25,11 @@ public class HomeController {
 	public String getHomePage(final Anuncio pesquisa, final Model model) {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
-
 		model.addAttribute("listaDeAnuncio", anuncios);
+
+		final List<Recentes> recentes = anuncioService.readRecents();
+		model.addAttribute("anunciosRecentes", recentes);
+
 		model.addAttribute("activePage", "home");
 		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
