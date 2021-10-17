@@ -97,16 +97,7 @@
 									</div>
 									<div class="col-md-1"></div>
 								</div>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-md-10">
-										<label for="bairro"> Descricao </label> <input
-											class="form-control" id="descricao" name="descricao"
-											placeholder="Descrição" required=""
-											th:field="${anuncio.descricao}" type="text"> <br>
-
-									</div>
-								</div>
+								
 								<div class="row">
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
@@ -115,6 +106,15 @@
 											name="tipo_propriedade"
 											placeholder="Casa / Apartamento / Chácara" required=""
 											th:field="${anuncio.tipo_propriedade}" type="text"> <br>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<label for="bairro"> Descricao </label> 
+											<textarea class="form-control" id="descricao" name="descricao"
+											placeholder="Insira aqui a descrição do anúncio." required th:field="${anuncio.descricao}" rows="5"> </textarea> <br>
 
 									</div>
 								</div>

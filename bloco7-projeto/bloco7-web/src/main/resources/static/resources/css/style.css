@@ -531,35 +531,22 @@ a:hover {
 	animation: animate-preloader 1s linear infinite;
 }
 
-@
--webkit-keyframes animate-preloader { 0% {
-	transform: rotate(0deg);
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-100
-%
-{
-transform
-:
-rotate(
-360deg
-);
-}
-}
-@
-keyframes animate-preloader { 0% {
-	transform: rotate(0deg);
-}
-
-100
-%
-{
-transform
-:
-rotate(
-360deg
-);
-}
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /*======================================
 //--//-->   BUTTON
