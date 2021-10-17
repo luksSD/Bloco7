@@ -9,10 +9,6 @@
 # General
 --------------------------------------------------------------*/
 
-.carousel-home {
-	margin-top: -70rem;
-	
-}
 
 body {
 	font-family: "Poppins", sans-serif;
@@ -1280,6 +1276,12 @@ a:hover {
 .card-shadow {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.card-shadow-h {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	margin-top: -380px;
 }
 
 .card-shadow:before {
