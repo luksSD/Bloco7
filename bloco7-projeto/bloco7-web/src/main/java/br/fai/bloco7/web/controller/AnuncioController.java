@@ -36,6 +36,9 @@ public class AnuncioController {
 	@GetMapping("/register")
 	public String getRegisterPage(final Anuncio anuncio, final Model model) {
 
+		if (PessoaController.idLogado == null) {
+			return "redirect:/pessoa/login";
+		}
 		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 		return "anuncio/register";
 	}
@@ -72,6 +75,7 @@ public class AnuncioController {
 
 		final Pessoa pessoa = pessoaService.readById(anuncio.getUsuarioAnuncianteId());
 		model.addAttribute("pessoa", pessoa);
+		model.addAttribute("idAnunciante", anuncio.getUsuarioAnuncianteId());
 
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
 		model.addAttribute("cidade", cidade);
@@ -96,17 +100,25 @@ public class AnuncioController {
 	@PostMapping("/create")
 	public String createAnuncio(final Anuncio anuncio, final Model model) {
 
-		anuncio.setUsuarioAnuncianteId(PessoaController.idLogado);
-		final Long id = anuncioService.create(anuncio);
+		if (PessoaController.idLogado == null) {
+			return "redirect:/pessoa/register";
 
-		if (id != -1) {
-			model.addAttribute("anuncio", id);
-			return getDetailPage(id, model);
+		} else {
+
+			anuncio.setUsuarioAnuncianteId(PessoaController.idLogado);
+			final Long id = anuncioService.create(anuncio);
+
+			if (id != -1) {
+				model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+				model.addAttribute("anuncio", id);
+				return getDetailPage(id, model);
+			} else {
+				model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+				model.addAttribute("anuncio", id);
+				return "anuncios/register";
+			}
+
 		}
-
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
-		model.addAttribute("anuncio", id);
-		return "anuncios/register";
 	}
 
 	@PostMapping("/update")
@@ -114,7 +126,8 @@ public class AnuncioController {
 
 		anuncioService.update(anuncio);
 
-		return getDetailPage(anuncio.getId(), model);
+//		return getDetailPage(anuncio.getId(), model);
+		return "redirect:/anuncios/detail/" + anuncio.getId();
 	}
 
 	@GetMapping("/delete/{id}")

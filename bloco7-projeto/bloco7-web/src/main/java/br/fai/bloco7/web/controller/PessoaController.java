@@ -43,6 +43,10 @@ public class PessoaController {
 	@GetMapping("/edit/{id}")
 	public String getEditPage(@PathVariable("id") final long id, final Model model) {
 
+		if (PessoaController.idLogado == null) {
+			return "redirect:/pessoa/login";
+		}
+
 		final Anuncio anuncio = new Anuncio();
 		final Pessoa pessoa = pessoaService.readById(id);
 		model.addAttribute("activePage", "conta");
@@ -55,6 +59,10 @@ public class PessoaController {
 
 	@GetMapping("/detail/{id}")
 	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
+
+		if (PessoaController.idLogado == null) {
+			return "redirect:/pessoa/login";
+		}
 
 		final Anuncio anuncio = new Anuncio();
 		model.addAttribute("anuncio", anuncio);
