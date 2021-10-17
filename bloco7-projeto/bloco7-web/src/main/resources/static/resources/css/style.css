@@ -8,8 +8,6 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
-
 body {
 	font-family: "Poppins", sans-serif;
 	color: #555555;
@@ -533,22 +531,35 @@ a:hover {
 	animation: animate-preloader 1s linear infinite;
 }
 
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@
+-webkit-keyframes animate-preloader { 0% {
+	transform: rotate(0deg);
 }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+100
+%
+{
+transform
+:
+rotate(
+360deg
+);
+}
+}
+@
+keyframes animate-preloader { 0% {
+	transform: rotate(0deg);
+}
+
+100
+%
+{
+transform
+:
+rotate(
+360deg
+);
+}
 }
 /*======================================
 //--//-->   BUTTON
@@ -1236,14 +1247,11 @@ a:hover {
 	margin-left: -30%;;
 }
 
-.card-box-a .img-u
-	{
+.card-box-a .img-u {
 	transition: 0.8s all ease-in-out;
 	max-height: 20rem;
 	max-width: 100%;
 	margin-left: -50%;
- 	
-	
 }
 
 @media ( min-width : 768px) {
@@ -1523,6 +1531,12 @@ a:hover {
 }
 
 /*------/ Property Single /-----*/
+.carousel-item-b {
+	width: auto;
+	height: 600px;
+	max-height: 600px;
+}
+
 .gallery-property {
 	margin-bottom: 3rem;
 }
