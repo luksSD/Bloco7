@@ -4,7 +4,7 @@ CREATE DATABASE bloco7 WITH OWNER = postgres
 ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 
 
-
+--Criando tabela cidade
 CREATE TABLE cidade
 (
     id BIGSERIAL primary key,
@@ -68,8 +68,10 @@ CREATE TABLE anuncio
     cidade_id integer  not null,
     usuario_anunciante_id integer not null,
     foto1 VARCHAR(200) not null,
-    foto2 VARCHAR(200) not null,
-    foto3 VARCHAR(200) not null
+    foto2 VARCHAR(200),
+    foto3 VARCHAR(200),
+    foto4 VARCHAR(200),
+    foto5 VARCHAR(200)
 );
 
 --Tornando cidade_id/usuario_anunciante_id uma FK de anuncio

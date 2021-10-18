@@ -49,7 +49,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div>
-						<div id="property-single-carousel" class="swiper">
+						<div id="property-single-carousel" class="anuncioSwiper">
 							<div class="swiper-wrapper">
 
 								<div
@@ -58,12 +58,22 @@
 										alt="">
 								</div>
 
-								<div
+								<div th:if="${anuncio.foto2 != null}"
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
 									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto2})}"
 										alt="">
 								</div>
-								<div
+								<div th:if="${anuncio.foto3 != null}"
+									class="carousel-item-b swiper-slide  d-flex justify-content-center">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}"
+										alt="">
+								</div>
+								<div th:if="${anuncio.foto4 != null}"
+									class="carousel-item-b swiper-slide  d-flex justify-content-center">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}"
+										alt="">
+								</div>
+								<div th:if="${anuncio.foto5 != null}"
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
 									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}"
 										alt="">

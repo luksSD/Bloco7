@@ -113,8 +113,18 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
 				anuncio.setFoto1(resultSet.getString("foto1"));
-				anuncio.setFoto2(resultSet.getString("foto2"));
-				anuncio.setFoto3(resultSet.getString("foto3"));
+				if (resultSet.getString("foto2") != null) {
+					anuncio.setFoto2(resultSet.getString("foto2"));
+				}
+				if (resultSet.getString("foto3") != null) {
+					anuncio.setFoto3(resultSet.getString("foto3"));
+				}
+				if (resultSet.getString("foto4") != null) {
+					anuncio.setFoto4(resultSet.getString("foto4"));
+				}
+				if (resultSet.getString("foto5") != null) {
+					anuncio.setFoto5(resultSet.getString("foto5"));
+				}
 
 			}
 
@@ -136,8 +146,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		String sql = "INSERT INTO anuncio";
 		sql += " (descricao, quartos, banheiros,";
-		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3) ";
-		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3, foto4, foto5) ";
+		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		Long id = Long.valueOf(-1);
 
@@ -162,8 +172,30 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			preparedStatement.setLong(12, entity.getCidadeId());
 			preparedStatement.setLong(13, entity.getUsuarioAnuncianteId());
 			preparedStatement.setString(14, "/resources/img/" + entity.getFoto1());
-			preparedStatement.setString(15, "/resources/img/" + entity.getFoto2());
-			preparedStatement.setString(16, "/resources/img/" + entity.getFoto3());
+
+			if (entity.getFoto2() != "") {
+				preparedStatement.setString(15, "/resources/img/" + entity.getFoto2());
+			} else {
+				preparedStatement.setString(15, null);
+			}
+
+			if (entity.getFoto3() != "") {
+				preparedStatement.setString(16, "/resources/img/" + entity.getFoto3());
+			} else {
+				preparedStatement.setString(16, null);
+			}
+
+			if (entity.getFoto4() != "") {
+				preparedStatement.setString(17, "/resources/img/" + entity.getFoto4());
+			} else {
+				preparedStatement.setString(17, null);
+			}
+
+			if (entity.getFoto5() != "") {
+				preparedStatement.setString(18, "/resources/img/" + entity.getFoto5());
+			} else {
+				preparedStatement.setString(18, null);
+			}
 
 			preparedStatement.execute();
 
@@ -175,6 +207,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			connection.commit();
 
 		} catch (final Exception e) {
+
+			System.out.println(e.getMessage());
 
 			try {
 				connection.rollback();
@@ -331,6 +365,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setFoto1(resultSet.getString("foto1"));
 				anuncio.setFoto2(resultSet.getString("foto2"));
 				anuncio.setFoto3(resultSet.getString("foto3"));
+				anuncio.setFoto4(resultSet.getString("foto4"));
+				anuncio.setFoto5(resultSet.getString("foto5"));
 
 				anuncios.add(anuncio);
 
@@ -387,6 +423,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setFoto1(resultSet.getString("foto1"));
 				anuncio.setFoto2(resultSet.getString("foto2"));
 				anuncio.setFoto3(resultSet.getString("foto3"));
+				anuncio.setFoto4(resultSet.getString("foto4"));
+				anuncio.setFoto5(resultSet.getString("foto5"));
 
 				anuncios.add(anuncio);
 
@@ -442,6 +480,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				recente.setFoto1(resultSet.getString("foto1"));
 				recente.setFoto2(resultSet.getString("foto2"));
 				recente.setFoto3(resultSet.getString("foto3"));
+				recente.setFoto4(resultSet.getString("foto4"));
+				recente.setFoto5(resultSet.getString("foto5"));
 				recentes.add(recente);
 
 			}
