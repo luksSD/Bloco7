@@ -8,6 +8,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
 	font-family: "Poppins", sans-serif;
 	color: #555555;
@@ -1276,7 +1277,7 @@ a:hover {
 .card-shadow-h {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-	margin-top: -380px;
+	margin-top: -420px;
 }
 
 .card-shadow:before {

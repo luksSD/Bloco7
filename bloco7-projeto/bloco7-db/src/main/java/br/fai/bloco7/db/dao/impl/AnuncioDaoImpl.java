@@ -415,7 +415,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 		try {
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id order by A.id desc limit 3";
+			final String sql = "select A.*, C.nome from anuncio A  inner join cidade C on C.id = A.cidade_id order by A.id desc limit 4";
 
 			preparedStatement = connection.prepareStatement(sql);
 
