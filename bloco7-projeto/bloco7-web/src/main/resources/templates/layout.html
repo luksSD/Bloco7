@@ -228,17 +228,23 @@
 						<div class="w-body-a">
 							<div class="w-body-a">
 								<ul class="list-unstyled">
-									<li class="item-list-a"><i class="bi bi-chevron-right">
-									</i> <a th:href="@{/sobre}"> Sobre nós </a></li>
-									<li class="item-list-a"><i class="bi bi-chevron-right">
-									</i> <a href="#"> Legal </a></li>
-									<li class="item-list-a"><i class="bi bi-chevron-right">
-									</i> <a th:href="@{/pessoa/login}"
-										th:if="${idUsuarioLogado == null}"> Conta </a> <a
-										th:href="@{/anuncios/register}"
-										th:unless="${idUsuarioLogado == null}"> Conta </a></li>
-									<li class="item-list-a"><i class="bi bi-chevron-right">
-									</i> <a href="#"> Política de Pivacidade </a></li>
+									<li class="item-list-a">
+										<i class="bi bi-chevron-right"></i> 
+										<a th:href="@{/sobre}"> Sobre nós </a>
+									</li>
+									<li class="item-list-a">
+										<i class="bi bi-chevron-right"></i> 
+										<a href="#"> Legal </a>
+									</li>
+									<li class="item-list-a">
+										<i class="bi bi-chevron-right"></i> 
+										<a th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}"> Conta </a> 
+										<a th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Conta </a>
+									</li>
+									<li class="item-list-a">
+										<i class="bi bi-chevron-right"></i> 
+										<a href="#"> Política de Pivacidade </a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -253,13 +259,12 @@
 				<div class="col-md-12">
 					<nav class="nav-footer">
 						<ul class="list-inline">
-							<li class="list-inline-item"><a href="#"> Home </a></li>
-							<li class="list-inline-item"><a href="/anuncios/listar">
+							<li class="list-inline-item"><a th:href="@{/}"> Home </a></li>
+							<li class="list-inline-item"><a th:href="@{/anuncios/listar}">
 									Anuncios </a></li>
-							<li class="list-inline-item"><a th:href="@{/pessoa/login}"
-								th:if="${idUsuarioLogado == null}"> Conta </a> <a
-								th:href="@{/anuncios/register}"
-								th:unless="${idUsuarioLogado == null}"> Conta </a></li>
+							<li class="list-inline-item">
+								<a th:href="@{/pessoa/login}"	th:if="${idUsuarioLogado == null}"> Conta </a> 
+								<a th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Conta </a></li>
 						</ul>
 					</nav>
 					<div class="copyright-footer">
