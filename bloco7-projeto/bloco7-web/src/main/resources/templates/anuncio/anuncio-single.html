@@ -49,8 +49,8 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div>
-						<div id="property-single-carousel" class="anuncioSwiper">
-							<div class="swiper-wrapper">
+						<div id="property-single-carousel" class="swiper swiper-container">
+							<div class="swiper-wrapper" th:class="${anuncio.foto2}? swiper-wrapper : disable">
 
 								<div
 									class="carousel-item-b swiper-slide d-flex justify-content-center">
