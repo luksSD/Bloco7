@@ -72,7 +72,7 @@
 									<div class="col-md-10">
 										<label for="endereco"> Endereço </label> <input
 											class="form-control" id="endereco" name="endereco"
-											placeholder="Av. Sinhá Moreira Nº 90" required=""
+											placeholder="Av. Sinhá Moreira Nº 90" required
 											th:field="${anuncio.endereco}" type="text"> <br>
 
 									</div>
@@ -83,7 +83,7 @@
 									<div class="col-md-10">
 										<label for="bairro"> Bairro </label> <input
 											class="form-control" id="bairro" name="bairro"
-											placeholder="Centro" required="" th:field="${anuncio.bairro}"
+											placeholder="Centro" required th:field="${anuncio.bairro}"
 											type="text"> <br>
 									</div>
 									<div class="col-md-1"></div>
@@ -92,7 +92,7 @@
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
 										<label for="cep"> CEP </label> <input class="form-control"
-											id="cep" name="cep" placeholder="00.000-000" required=""
+											id="cep" name="cep" placeholder="00.000-000" required
 											th:field="${anuncio.cep}" type="text"> <br>
 									</div>
 									<div class="col-md-1"></div>
@@ -104,7 +104,7 @@
 										<label for="bairro"> Tipo Propriedade </label> <input
 											class="form-control" id="tipo_propriedade"
 											name="tipo_propriedade"
-											placeholder="Casa / Apartamento / Chácara" required=""
+											placeholder="Casa / Apartamento / Chácara" required
 											th:field="${anuncio.tipo_propriedade}" type="text"> <br>
 
 									</div>
@@ -128,7 +128,7 @@
 									<div class="col-md-10">
 										<label for="quartos"> Quartos </label> <input
 											class="form-control" id="quartos" name="quartos"
-											placeholder="2" required="" th:field="${anuncio.quartos}"
+											placeholder="2" required th:field="${anuncio.quartos}"
 											type="number"> <br>
 									</div>
 									<div class="col-md-1"></div>
@@ -138,7 +138,7 @@
 									<div class="col-md-10">
 										<label for="banheiros"> Banheiros </label> <input
 											class="form-control" id="banheiros" name="banheiros"
-											placeholder="1" required="" th:field="${anuncio.banheiros}"
+											placeholder="1" required th:field="${anuncio.banheiros}"
 											type="number"> <br>
 									</div>
 									<div class="col-md-1"></div>
@@ -148,7 +148,7 @@
 									<div class="col-md-10">
 										<label for="vaga_garagem"> Vaga Garagem </label> <input
 											class="form-control" id="vaga_garagem" name="vaga_garagem"
-											placeholder="2" required=""
+											placeholder="2" required
 											th:field="${anuncio.vaga_garagem}" type="number"> <br>
 
 									</div>
@@ -159,7 +159,7 @@
 									<div class="col-md-10">
 										<label for="area"> Área m² </label> <input
 											class="form-control" id="area" name="area" placeholder="200"
-											required="" th:field="${anuncio.area}" type="number">
+											required th:field="${anuncio.area}" type="number">
 										<br>
 									</div>
 									<div class="col-md-1"></div>
@@ -168,7 +168,7 @@
 									<div class="col-md-1"></div>
 									<div class="col-md-10">
 										<label for="preco"> Preço </label> <input class="form-control"
-											id="preco" name="preco" placeholder="650" required=""
+											id="preco" name="preco" placeholder="650" required
 											th:field="${anuncio.preco}" type="text"> <br>
 									</div>
 									<div class="col-md-1"></div>
@@ -190,12 +190,11 @@
 										<label for="status"> Imagem </label> <input id="files"
 											multiple name="files[]" type="file" />
 										<!--                                             <output id="list"></output> -->
-										<span id="uploadErroMsg"
-											style="visibility: hidden; color: red;">*Insira até 5
-											imagens apena.</span> <br> <input id="id1"
-											th:field="${anuncio.foto1}" type="hidden" /> <input id="id2"
-											th:field="${anuncio.foto2}" type="hidden" /> <input id="id3"
-											th:field="${anuncio.foto3}" type="hidden" />
+										<span id="uploadErroMsg" style="visibility: hidden; color: red;">*Insira até 5 imagens apenas!</span> <br> 
+										<p id="resultado">&nbsp;</p>
+										<input id="id1"	th:field="${anuncio.foto1}" type="hidden" /> 
+										<input id="id2"	th:field="${anuncio.foto2}" type="hidden" /> 
+										<input id="id3"	th:field="${anuncio.foto3}" type="hidden" />
 										<!--                                                 <input id="id4" th:field="${anuncio.foto4}" type="hidden"/> -->
 										<!--                                                 <input id="id5" th:field="${anuncio.foto5}" type="hidden"/> -->
 
@@ -204,8 +203,7 @@
 								</div>
 							</div>
 							<div align="center">
-								<button class="btn btn-b mt-1" type="submit">Cadastrar
-								</button>
+								<button class="btn btn-b mt-1" type="submit" onclick="validaImagem()">Cadastrar	</button>
 							</div>
 						</div>
 					</form>
