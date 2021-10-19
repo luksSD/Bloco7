@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
 <head>
-<meta charset="UTF-8">
-<title>Editar Usuario</title>
+	<meta charset="UTF-8">
+	<title>Editar Usuario</title>
 
 
 </head>
+
 <body>
 
 	<div layout:fragment="body">
@@ -22,11 +23,11 @@
 						</div>
 					</div>
 					<div class="col-md-12 col-lg-4">
-						<nav aria-label="breadcrumb"
-							class="breadcrumb-box d-flex justify-content-lg-end">
+						<nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-								<li class="breadcrumb-item"><a th:href="@{/pessoa/detail/{id} (id=${pessoa.id})}">Conta</a></li>
+								<li class="breadcrumb-item"><a
+										th:href="@{/pessoa/detail/{id} (id=${pessoa.id})}">Conta</a></li>
 								<li class="breadcrumb-item">Atualizar Cadastro</li>
 							</ol>
 						</nav>
@@ -42,16 +43,14 @@
 			<div class="row mb-5">
 				<div class="col-md-12"></div>
 				<div class="col-12 mb-5">
-					<div
-						style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
+					<div style="width: 100%; height: 100%; border-radius: 20px; background-color: #FFFAFA; padding: 40px;"
 						class="col-md-10 ">
 
-						<form th:action="@{/pessoa/update}" method="POST"
-							th:object="${pessoa}">
+						<form th:action="@{/pessoa/update}" method="POST" th:object="${pessoa}">
 							<div class="row">
 
 								<div class="col-md-6">
-								
+
 									<div align="center">
 										<h2 style="margin-top: 40px">Dados Pessoais</h2>
 									</div>
@@ -60,9 +59,9 @@
 									<div class="row">
 										<div class="col-md-1"></div>
 										<div class="col-md-10">
-											<label for="nome">Nome</label> <input id="nome" required
-												type="text" placeholder="Digite seu nome"
-												class="form-control" th:field="${pessoa.nome}"> <br>
+											<label for="nome">Nome</label> <input id="nome" required type="text"
+												placeholder="Digite seu nome" class="form-control"
+												th:field="${pessoa.nome}"> <br>
 										</div>
 										<div class="col-md-1"></div>
 									</div>
@@ -71,8 +70,8 @@
 									<div class="row">
 										<div class="col-md-1"></div>
 										<div class="col-md-10">
-											<label for="rua">Logradouro</label> <input id="rua" required
-												type="text" placeholder="Av. Principal" class="form-control"
+											<label for="rua">Logradouro</label> <input id="rua" required type="text"
+												placeholder="Av. Principal" class="form-control"
 												th:field="${pessoa.logradouro}"> <br>
 										</div>
 										<div class="col-md-1"></div>
@@ -82,9 +81,9 @@
 									<div class="row">
 										<div class="col-md-1"></div>
 										<div class="col-md-10">
-											<label for="bairro">Bairro</label> <input id="bairro"
-												required type="text" placeholder="Centro"
-												class="form-control" th:field="${pessoa.bairro}"> <br>
+											<label for="bairro">Bairro</label> <input id="bairro" required type="text"
+												placeholder="Centro" class="form-control" th:field="${pessoa.bairro}">
+											<br>
 										</div>
 										<div class="col-md-1"></div>
 									</div>
@@ -92,8 +91,7 @@
 									<div class="row">
 										<div class="col-md-1"></div>
 										<div class="col-md-10">
-											<label for="cidade">Cidade</label> <select
-												class="form-control" id="cidade"
+											<label for="cidade">Cidade</label> <select class="form-control" id="cidade"
 												th:field="${pessoa.cidadeId}">
 												<option type="number" value=4>Santa Rita do Sapucaí</option>
 												<option type="number" value=1>Pouso Alegre</option>
@@ -104,63 +102,59 @@
 										<div class="col-md-1"></div>
 									</div>
 								</div>
-								
-<!-- ==================================================================== -->
-								
+
+								<!-- ==================================================================== -->
+
 								<div class="col-md-6">
 									<div align="center">
 										<h2 style="margin-top: 40px">Dados de Acesso</h2>
 									</div>
-									
-										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10">
-												<label for="celular">Celular</label> <input id="celular"
-													required type="text" placeholder="(XX) X XXXX-XXXX"
-													name="celular" class="form-control"
-													th:field="${pessoa.celular}"> <br>
-											</div>
-											<div class="col-md-1"></div>
-										</div>
-										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10">
-												<label for="email">Email</label> <input id="email" required
-													type="email" placeholder="email@example.com" name="email"
-													class="form-control" th:field="${pessoa.email}"> <br>
-											</div>
-											<div class="col-md-1"></div>
-										</div>
-										<div class="row">
-											<div class="col-md-3"></div>
-											<div class="col-md-6">
-											<a class="btn btn-b mt-1" th:href="@{/pessoa/edit/{id}/password (id=${pessoa.id})}" >Alterar Senha</a>
-											</div>
-											<div class="col-md-3"></div>
-										</div>
 
-										<div class="row">
-											
-											<div class="col-md-10 mr-1">
-												<div align="center">
-													<h4 style="color: #000; margin-top: 1px">Confirme os
-														dados para prosseguir com o atualização de cadastro!</h4>
-												</div>
-												<br>
-											</div>
-											
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											<label for="celular">Celular</label> <input id="celular" required
+												type="text" placeholder="(XX) X XXXX-XXXX" name="celular"
+												class="form-control" th:field="${pessoa.celular}"> <br>
 										</div>
+										<div class="col-md-1"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											<label for="email">Email</label> <input id="email" required type="email"
+												placeholder="email@example.com" name="email" class="form-control"
+												th:field="${pessoa.email}"> <br>
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+									<div class="row">
 
-										<div align="center">
-											<button class="btn btn-b mt-1"	type="submit">Atualizar</button>
-												
-											<a th:href="@{/pessoa/detail/{id}(id=${pessoa.id})}"
-									class="btn btn-b mt-1">Cancelar</a>
+										<div>
 
-											<input th:field="${pessoa.id}" type="hidden">
+											<div align="center">
+
+												<a class="btn btn-b mt-1 mb-4"
+													th:href="@{/pessoa/edit/{id}/password (id=${pessoa.id})}">Alterar
+													Senha</a>
+
+												<h4 style="color: #000; margin-top: 1px">Confirme os
+													dados para prosseguir com o atualização de cadastro!</h4>
+
+
+												<button class="btn btn-b mt-1" type="submit">Atualizar</button>
+
+												<a th:href="@{/pessoa/detail/{id}(id=${pessoa.id})}"
+													class="btn btn-b mt-1">Cancelar</a>
+
+												<input th:field="${pessoa.id}" type="hidden">
+											</div>
+
 										</div>
 									</div>
+
 								</div>
+							</div>
 						</form>
 
 
@@ -178,4 +172,5 @@
 	</div>
 
 </body>
+
 </html>
