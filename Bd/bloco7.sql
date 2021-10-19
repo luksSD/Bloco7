@@ -130,3 +130,17 @@ alter table mensagem add constraint fk1_mensagem foreign key (usuario_remetente_
 alter table mensagem add constraint fk2_mensagem foreign key (chat_id) references chat(id) on update cascade on delete cascade;
 
 
+
+--Adicionando cidades que o site vai atender inicialmente
+----------------------
+INSERT INTO cidade (id , estado, nome) 
+values ('1' , 'Minas Gerais' , 'Pouso Alegre');
+
+INSERT INTO cidade (id , estado, nome) 
+values ('2' , 'Minas Gerais' , 'Itajuba');
+
+INSERT INTO cidade (id , estado, nome) 
+values ('3' , 'Minas Gerais' , 'Poços de Caldas');
+
+INSERT INTO cidade (id , estado, nome) 
+values ('4' , 'Minas Gerais' , 'Santa Rita do Sapucai');
