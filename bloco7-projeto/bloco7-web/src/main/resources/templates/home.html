@@ -55,18 +55,17 @@
 
 
 
-
-			<!-- ======= Sessão de anuncios recentes ======= -->
+			<!-- ======= Latest Properties Section ======= -->
 			<section class="section-property section-t8">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="title-wrap d-flex justify-content-between">
 								<div class="title-box">
-									<h2 class="title-a">Anúncios recentes</h2>
+									<h2 class="title-a">Últimos Anúncios</h2>
 								</div>
 								<div class="title-link">
-									<a th:href="@{/anuncios/listar}">Todos os Anúnicos <span
+									<a th:href="@{/anuncios/listar}">Todos os anúncios <span
 										class="bi bi-chevron-right"></span>
 									</a>
 								</div>
@@ -74,16 +73,15 @@
 						</div>
 					</div>
 
-					<!-- Inicio carrossel de anuncios recentes -->
-					<div id="property-carousel" class="carousel-home swiper">
-						<div class="swiper-wrapper"
-							th:each="recentes : ${anunciosRecentes}">
+					<div id="property-carousel" class="swiper">
+						<div class="swiper-wrapper">
 
-							<div class="carousel-item-a swiper-slide">
-								<div class="card-box-a card-shadow-h">
+							<div class="carousel-item-b swiper-slide"
+								th:each="recentes : ${anunciosRecentes}">
+								<div class="card-box-a card-shadow">
 									<div class="img-box-a">
-										<img th:src="@{{recenteFoto} (recenteFoto=${recentes.foto1})}"
-											alt="" class="img-a">
+										<img th:src="@{{foto} (foto= ${recentes.foto1})}" alt=""
+											class="img-a">
 									</div>
 									<div class="card-overlay">
 										<div class="card-overlay-a-content">
@@ -109,7 +107,6 @@
 											</div>
 											<div class="card-footer-a">
 												<ul class="card-info d-flex justify-content-around">
-
 													<li>
 														<h4 class="card-info-title">Area</h4> <span
 														th:text="${recentes.area}">340m <sup>2</sup>
@@ -133,13 +130,18 @@
 									</div>
 								</div>
 							</div>
+							<!-- End carousel item -->
 						</div>
 					</div>
 					<div class="propery-carousel-pagination carousel-pagination"></div>
 
 				</div>
 			</section>
-			<!-- Fim da sessão de anúncios recentes -->
+			<!-- End Latest Properties Section -->
+
+
+
+
 
 
 			<!-- ======= Sessão de serviços ======= -->

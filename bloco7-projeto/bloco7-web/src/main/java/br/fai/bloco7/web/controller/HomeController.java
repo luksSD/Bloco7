@@ -38,8 +38,18 @@ public class HomeController {
 	}
 
 	@GetMapping("/sobre")
-	public String getSobre(Anuncio anuncio) {
+	public String getSobre(final Anuncio anuncio) {
 		return "/sobre";
+	}
+
+	@GetMapping("/politica")
+	public String getPolitica(final Anuncio anuncio) {
+		return "/politica";
+	}
+
+	@GetMapping("/termos")
+	public String getTermos(final Anuncio anuncio) {
+		return "/termos";
 	}
 
 }
