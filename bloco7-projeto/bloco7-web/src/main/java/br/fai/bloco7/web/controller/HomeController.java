@@ -47,4 +47,9 @@ public class HomeController {
 		return "/politica";
 	}
 
+	@GetMapping("/termos")
+	public String getTermos(final Anuncio anuncio) {
+		return "/termos";
+	}
+
 }
