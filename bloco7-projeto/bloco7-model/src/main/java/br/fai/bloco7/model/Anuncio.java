@@ -21,6 +21,15 @@ public class Anuncio extends BasePojo {
 	private String foto3;
 	private String foto4;
 	private String foto5;
+	private String video;
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(final String video) {
+		this.video = video;
+	}
 
 	public void setFoto3(final String foto3) {
 		this.foto3 = foto3;

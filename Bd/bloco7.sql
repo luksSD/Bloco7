@@ -71,7 +71,8 @@ CREATE TABLE anuncio
     foto2 VARCHAR(200),
     foto3 VARCHAR(200),
     foto4 VARCHAR(200),
-    foto5 VARCHAR(200)
+    foto5 VARCHAR(200),
+    video VARCHAR(200)
 );
 
 --Tornando cidade_id/usuario_anunciante_id uma FK de anuncio
@@ -128,60 +129,4 @@ CREATE TABLE mensagem
 alter table mensagem add constraint fk1_mensagem foreign key (usuario_remetente_id) references usuario(id) on update cascade on delete cascade;
 alter table mensagem add constraint fk2_mensagem foreign key (chat_id) references chat(id) on update cascade on delete cascade;
 
-
---Adicionando cidades que o site vai atender inicialmente
-----------------------
-INSERT INTO cidade (id , estado, nome) 
-values ('1' , 'Minas Gerais' , 'Pouso Alegre');
-
-INSERT INTO cidade (id , estado, nome) 
-values ('2' , 'Minas Gerais' , 'Itajuba');
-
-INSERT INTO cidade (id , estado, nome) 
-values ('3' , 'Minas Gerais' , 'Poços de Caldas');
-
-INSERT INTO cidade (id , estado, nome) 
-values ('4' , 'Minas Gerais' , 'Santa Rita do Sapucai');
-
-
-
---Adicionando valores para teste
-
-INSERT INTO usuario (id , senha, email, celular)
- values ('1' , '123' , 'vinicius@gmail.com' , '(35)99757-8408');
-
-INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id ) 
-values ('1' , '123.456.789.11' , 'Vinicius de Almeida Gonçalves' , 'Rua Lourdes de Souza Santos' , '90' , 'Coline Verde' , '37550000' , '1');
-
-
-INSERT INTO usuario (id , senha, email, celular)
- values ('2' , '123' , 'lucas@gmail.com' , '(35)99873-8536');
-
-INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id )
-values ('2' , '123.456.789.12' , 'Lucas Silva e Dias' , 'Avenida Barão do Rio Branco' , '46' , 'Centro' , '37540-000' , '4');
-
-
-INSERT INTO usuario (id , senha, email, celular)
- values ('3' , '123' , 'matheus@gmail.com' , '(35)99114-3152');
-
- INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, numero, bairro, cep, cidade_id )
-values ('3' , '123.456.789.13' , 'Matheus Felipe de Souza' , 'Rua Crescêncio Ribeiro' , '14' , 'Fernandes' , '37540-000' , '4');
-
-
- INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3)
- values ('1' , 'Apartamento em frente a receita federal. Região central. Rápido acesso a bancos e lotéricas. Condomínio com segurança. Sala ampla, cozinha com armários. Possui elevador' 
-    , '4' , '2' , '1' , 'Apartamento' , 'Aluguel' , '100', '870' ,'Rua Francisco Nº 30' , 'Centro' , '37550-000' , '1' , '1', '/resources/img/post-single-1.jpg', '/resources/img/post-single-2.jpg', '/resources/img/post-6.jpg');
-
-
-INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3)
- values ('2' , 'Casa sede em madeira com 140m a/c, 2 amplos dormitórios, sala em 2 ambientes, ampla cozinha e despensa. Na parte externa, piscina 4x8 com deck em pedra mineira, jardim, espaço gourmet completo, churrasqueira, campo de futebol. Linda Vista para desfrutar do que a natureza tem de melhor!!!
-
-' , '2' , '3' , '2' , 'Chácara' , 'Venda' , '1000', '500000', 'Rua Costinha Nº 79' , 'Zona Rural' , '37540-000' , '4' , '2', '/resources/img/post-single-1.jpg', '/resources/img/post-single-2.jpg', '/resources/img/post-6.jpg');
-
- INSERT INTO anuncio
- (id , descricao, quartos, banheiros, vaga_garagem , tipo_propriedade , status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3)
- values ('3' , 'Maravilhosa casa, com um excelente construção, isso sem falar da área de laser..., casa em 2 pavimentos com uma escada bem generosa, ampla, clara e muito arejada, no primeiro pavimento com um amplo jardim na frente da casa, varandão e as vagas de garagem, existe um Soto em baixo da casa, piscina, área livre, uma academia, sauna, bar gourmet, sala de tv, quarto e um banheiro , essa é a parte de fora da casa, ainda no primeiro pavimento, salão em L quarto que é uma suíte, copa cozinha, lavabo, dispensa e lavanderia, casa com energia solar. Segundo pavimento- 3 quartos, todos com varanda, uma suíte e um banheiro social. Cômodos todos com armários.' 
-    , '4' , '3' , '2' , 'Casa' , 'Aluguel' , '400', '7000' ,'Rua Roberto Nº 145' , 'Jardim Paraiso' , '37550-000' , '4' , '3', '/resources/img/post-single-1.jpg', '/resources/img/post-single-2.jpg', '/resources/img/post-6.jpg');
 

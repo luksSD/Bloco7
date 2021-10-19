@@ -112,6 +112,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 				anuncio.setUsuarioAnuncianteId(resultSet.getLong("usuario_anunciante_id"));
 				anuncio.setCidadeId(resultSet.getLong("cidade_id"));
 				anuncio.setNomeCidade(resultSet.getString("nome"));
+				anuncio.setVideo(resultSet.getString("video"));
 				anuncio.setFoto1(resultSet.getString("foto1"));
 				if (resultSet.getString("foto2") != null) {
 					anuncio.setFoto2(resultSet.getString("foto2"));
@@ -146,8 +147,8 @@ public class AnuncioDaoImpl implements AnuncioDao {
 
 		String sql = "INSERT INTO anuncio";
 		sql += " (descricao, quartos, banheiros,";
-		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3, foto4, foto5) ";
-		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql += " vaga_garagem, tipo_propriedade, status, area, preco , endereco, bairro, cep, cidade_id, usuario_anunciante_id, foto1, foto2, foto3, foto4, foto5, video) ";
+		sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		Long id = Long.valueOf(-1);
 
@@ -196,6 +197,7 @@ public class AnuncioDaoImpl implements AnuncioDao {
 			} else {
 				preparedStatement.setString(18, null);
 			}
+			preparedStatement.setString(19, entity.getVideo());
 
 			preparedStatement.execute();
 

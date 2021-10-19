@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 
 <head>
-<meta charset="UTF-8">
-<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco |
-	Anúncios</title>
+	<meta charset="UTF-8">
+	<title th:text="${'Bloco7 | Anúncio '  + anuncio.id}">Bloco |
+		Anúncios</title>
 </head>
 
 <body>
@@ -21,20 +20,17 @@
 					<div class="col-md-12 col-lg-8">
 						<div class="title-single-box">
 							<h1 class="title-single" th:text="${anuncio.status}">Aluguel</h1>
-							<span class="color-text-a"
-								th:text="${anuncio.bairro + ' | ' +  cidade.nome}">Pouso
+							<span class="color-text-a" th:text="${anuncio.bairro + ' | ' +  cidade.nome}">Pouso
 								Alegre - MG</span>
 						</div>
 					</div>
 					<div class="col-md-12 col-lg-4">
-						<nav aria-label="breadcrumb"
-							class="breadcrumb-box d-flex justify-content-lg-end">
+						<nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-								<li class="breadcrumb-item"><a
-									th:href="@{/anuncios/listar}">Anúncio</a></li>
-								<li class="breadcrumb-item active"
-									th:text="'Anúncio ' + ${anuncio.id}" aria-current="page">
+								<li class="breadcrumb-item"><a th:href="@{/anuncios/listar}">Anúncio</a></li>
+								<li class="breadcrumb-item active" th:text="'Anúncio ' + ${anuncio.id}"
+									aria-current="page">
 									Imóvel 304</li>
 							</ol>
 						</nav>
@@ -52,36 +48,29 @@
 						<div id="property-single-carousel" class="swiper swiper-container">
 							<div class="swiper-wrapper" th:class="${anuncio.foto2}? swiper-wrapper : disable">
 
-								<div
-									class="carousel-item-b swiper-slide d-flex justify-content-center">
-									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto1})}"
-										alt="">
+								<div class="carousel-item-b swiper-slide d-flex justify-content-center">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto1})}" alt="">
 								</div>
 
 								<div th:if="${anuncio.foto2 != null}"
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
-									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto2})}"
-										alt="">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto2})}" alt="">
 								</div>
 								<div th:if="${anuncio.foto3 != null}"
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
-									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}"
-										alt="">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}" alt="">
 								</div>
 								<div th:if="${anuncio.foto4 != null}"
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
-									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}"
-										alt="">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}" alt="">
 								</div>
 								<div th:if="${anuncio.foto5 != null}"
 									class="carousel-item-b swiper-slide  d-flex justify-content-center">
-									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}"
-										alt="">
+									<img th:src="@{{caminhoFoto} (caminhoFoto= ${anuncio.foto3})}" alt="">
 								</div>
 							</div>
 						</div>
-						<div
-							class="property-single-carousel-pagination carousel-pagination"></div>
+						<div class="property-single-carousel-pagination carousel-pagination"></div>
 					</div>
 				</div>
 			</div>
@@ -118,8 +107,8 @@
 									</div>
 								</div>
 								<div class="property-description">
-									<p class="description color-text-a"
-										th:text="${anuncio.descricao}">Texto de descrição aqui!.</p>
+									<p class="description color-text-a" th:text="${anuncio.descricao}">Texto de
+										descrição aqui!.</p>
 								</div>
 
 							</div>
@@ -145,11 +134,14 @@
 										<li class="d-flex justify-content-between"><strong>ID
 												do imóvel:</strong> <span th:text="${anuncio.id}">1134</span></li>
 										<li class="d-flex justify-content-between"><strong>Localização:</strong>
-											<span th:text="${anuncio.endereco}">Chicago, IL 606543</span></li>
+											<span th:text="${anuncio.endereco}">Chicago, IL 606543</span>
+										</li>
 										<li class="d-flex justify-content-between"><strong>Tipo:</strong>
-											<span th:text="${anuncio.tipo_propriedade}">House</span></li>
+											<span th:text="${anuncio.tipo_propriedade}">House</span>
+										</li>
 										<li class="d-flex justify-content-between"><strong>Status:</strong>
-											<span th:text="${anuncio.status}">Sale</span></li>
+											<span th:text="${anuncio.status}">Sale</span>
+										</li>
 									</ul>
 								</div>
 
@@ -157,13 +149,17 @@
 								<div class="summary-list col-4">
 									<ul class="list">
 										<li class="d-flex justify-content-between"><strong>Área:</strong>
-											<span th:text="${anuncio.area + 'm²'}">340m</span></li>
+											<span th:text="${anuncio.area + 'm²'}">340m</span>
+										</li>
 										<li class="d-flex justify-content-between"><strong>Quartos:</strong>
-											<span th:text="${anuncio.quartos}">4</span></li>
+											<span th:text="${anuncio.quartos}">4</span>
+										</li>
 										<li class="d-flex justify-content-between"><strong>Banheiros:</strong>
-											<span th:text="${anuncio.banheiros}">2</span></li>
+											<span th:text="${anuncio.banheiros}">2</span>
+										</li>
 										<li class="d-flex justify-content-between"><strong>Garagem:</strong>
-											<span th:text="${anuncio.vaga_garagem}">1</span></li>
+											<span th:text="${anuncio.vaga_garagem}">1</span>
+										</li>
 									</ul>
 								</div>
 
@@ -174,19 +170,22 @@
 
 				<!--  Sessao video -->
 				<div class="col-md-10 offset-md-1">
-					<ul class="nav nav-pills-a nav-pills mb-3 section-t3"
-						id="pills-tab" role="tablist">
-						<li class="nav-item"><a class="nav-link active"
-							id="pills-video-tab" data-bs-toggle="pill" href="#pills-video"
-							role="tab" aria-controls="pills-video" aria-selected="true">Video</a>
+					<ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
+						<li class="nav-item"><a class="nav-link active" id="pills-video-tab" data-bs-toggle="pill"
+								href="#pills-video" role="tab" aria-controls="pills-video"
+								aria-selected="true">Video</a>
 						</li>
 					</ul>
 					<div class="tab-content" id="pills-tabContent">
-						<div class="tab-pane fade show active" id="pills-video"
-							role="tabpanel" aria-labelledby="pills-video-tab">
-							<iframe src="https://player.vimeo.com/video/73221098"
-								width="100%" height="460" frameborder="0" webkitallowfullscreen
-								mozallowfullscreen allowfullscreen></iframe>
+						<div class="tab-pane fade show active" id="pills-video" role="tabpanel"
+							aria-labelledby="pills-video-tab">
+
+
+							<iframe width="680" height="435" th:src="@{{video} (video= ${anuncio.video})}"
+								title="YouTube video player" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+
 						</div>
 
 					</div>
@@ -199,17 +198,14 @@
 						<div class="col-12 d-flex justify-content-center">
 							<div class="row">
 								<div class="col-4">
-									<a class="btn btn-b mt-1"
-										th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}">
+									<a class="btn btn-b mt-1" th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}">
 										Editar <i class="fas fa-lock"> </i>
 									</a>
 								</div>
 								<div class="col-4"></div>
 								<div class="col-4">
-									<a
-										onclick="return confirm('Atenção! Deseja realmente excluir?')"
-										class="btn btn-b mt-1"
-										th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}">
+									<a onclick="return confirm('Atenção! Deseja realmente excluir?')"
+										class="btn btn-b mt-1" th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}">
 										Excluir <i class="fas fa-lock"> </i>
 									</a>
 								</div>
@@ -220,8 +216,7 @@
 
 
 				<!-- Contato exibe apenas se usario != usuarioAnucniante -->
-				<div class="col-md-12"
-					th:unless="${idUsuarioLogado == idAnunciante}">
+				<div class="col-md-12" th:unless="${idUsuarioLogado == idAnunciante}">
 					<div class="row section-t3">
 						<div class="col-sm-12">
 							<div class="title-box-d">
@@ -238,9 +233,12 @@
 								<ul class="list-unstyled">
 									<li class="d-flex justify-content-between"><strong>Telefone/Celular:</strong>
 										<span class="color-text-a" th:text="${pessoa.celular}">777
-											287 378 737</span></li>
+											287 378 737</span>
+									</li>
 									<li class="d-flex justify-content-between"><strong>Email:</strong>
-										<span class="color-text-a" th:text="${pessoa.email}">annabella@example.com</span></li>
+										<span class="color-text-a"
+											th:text="${pessoa.email}">annabella@example.com</span>
+									</li>
 								</ul>
 							</div>
 						</div>
