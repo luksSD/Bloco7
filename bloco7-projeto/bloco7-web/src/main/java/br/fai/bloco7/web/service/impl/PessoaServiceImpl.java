@@ -160,4 +160,28 @@ public class PessoaServiceImpl implements PessoaService {
 
 	}
 
+	@Override
+	public boolean passwordUpdate(final Pessoa entity) {
+
+		boolean response = false;
+
+		final String endpoint = "http://localhost:2000/api/v1/pessoa/update-password";
+
+		try {
+			final RestTemplate restTemplate = new RestTemplate();
+
+			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity);
+
+			final ResponseEntity<Boolean> responseEntity = restTemplate.exchange(endpoint, HttpMethod.PUT, httpEntity,
+					Boolean.class);
+
+			response = responseEntity.getBody();
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return response;
+	}
+
 }

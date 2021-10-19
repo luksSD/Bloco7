@@ -5,23 +5,6 @@
 <meta charset="UTF-8">
 <title>Editar Usuario</title>
 
-<script type="text/javascript">
-
-
-        function validaSenha() {
-
-            var senha = document.getElementById('senha').value;
-            var confirmar_senha = document.getElementById('confirma_senha').value;
-
-            if (confirmar_senha != senha) {
-              	document.getElementById("resultado").innerHTML="As senhas são diferentes!";
-              	document.getElementById("resultado").style.color ="#FF6347";
-              	event.preventDefault();
-        	  }
-        	   }
-        
-</script>
-
 
 </head>
 <body>
@@ -149,45 +132,30 @@
 											<div class="col-md-1"></div>
 										</div>
 										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10">
-												<label for="senha">Senha</label> <input id="senha" required
-													type="password" placeholder="********" name="senha"
-													class="form-control" th:field="${pessoa.senha}"> <br>
-
+											<div class="col-md-3"></div>
+											<div class="col-md-6">
+											<a class="btn btn-b mt-1" th:href="@{/pessoa/edit/{id}/password (id=${pessoa.id})}" >Alterar Senha</a>
 											</div>
-											<div class="col-md-1"></div>
+											<div class="col-md-3"></div>
 										</div>
 
 										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10">
-												<label for="confirma_senha">Confirme a senha</label> <input
-													id="confirma_senha" required type="password"
-													placeholder="********" name="confirma_senha"
-													class="form-control"> <br>
-												<div colspan="2">
-													<p id="resultado">&nbsp;</p>
-												</div>
-											</div>
-											<div class="col-md-1"></div>
-										</div>
-
-										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10">
+											
+											<div class="col-md-10 mr-1">
 												<div align="center">
 													<h4 style="color: #000; margin-top: 1px">Confirme os
-														dados para prosseguir com o cadastro!</h4>
+														dados para prosseguir com o atualização de cadastro!</h4>
 												</div>
 												<br>
 											</div>
-											<div class="col-md-1"></div>
+											
 										</div>
 
 										<div align="center">
-											<button class="btn btn-b mt-1" onclick="validaSenha();"
-												type="submit">Atualizar</button>
+											<button class="btn btn-b mt-1"	type="submit">Atualizar</button>
+												
+											<a th:href="@{/pessoa/detail/{id}(id=${pessoa.id})}"
+									class="btn btn-b mt-1">Cancelar</a>
 
 											<input th:field="${pessoa.id}" type="hidden">
 										</div>

@@ -59,10 +59,17 @@ public class PessoaRestController {
 		return ResponseEntity.ok(service.delete(id));
 
 	}
-	
+
 	@PostMapping("/authentication")
-	public ResponseEntity<Pessoa> authentication(@RequestBody final Pessoa pessoa){
+	public ResponseEntity<Pessoa> authentication(@RequestBody final Pessoa pessoa) {
 		return ResponseEntity.ok(service.authentication(pessoa));
+	}
+
+	@PutMapping("/update-password")
+	public ResponseEntity<Boolean> updatePassword(@RequestBody final Pessoa pessoa) {
+
+		return ResponseEntity.ok(service.updatePassword(pessoa));
+
 	}
 
 }

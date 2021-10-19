@@ -269,22 +269,20 @@ public class PessoaDaoImpl implements PessoaDao {
 			ConnectionFactory.close(preparedStatement, connection);
 		}
 	}
-	
-	
-	
+
 	@Override
-	public Pessoa authentication(Pessoa entity) {
-		
+	public Pessoa authentication(final Pessoa entity) {
+
 		Pessoa pessoa = null;
-		
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		
+
 		String sql = "select * from usuario where ";
 		sql += " email = ? ";
 		sql += " and senha = ?";
-		
+
 		try {
 
 			connection = ConnectionFactory.getConnection();
@@ -295,13 +293,13 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement.setString(2, entity.getSenha());
 
 			resultSet = preparedStatement.executeQuery();
-			
+
 			if (resultSet.next()) {
 				pessoa = new Pessoa();
 				pessoa.setId(resultSet.getLong("id"));
 				return pessoa;
 			}
-			
+
 		} catch (final Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -309,6 +307,42 @@ public class PessoaDaoImpl implements PessoaDao {
 		}
 		return null;
 	}
-	
+
+	@Override
+	public boolean updatePassword(final Pessoa entity) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String sql = "UPDATE usuario SET";
+		sql += " senha = ?";
+		sql += " where id = ?;";
+
+		try {
+
+			connection = ConnectionFactory.getConnection();
+			connection.setAutoCommit(false);
+
+			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			preparedStatement.setString(1, entity.getSenha());
+			preparedStatement.setLong(2, entity.getId());
+			preparedStatement.execute();
+
+			connection.commit();
+			return true;
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+			try {
+				connection.rollback();
+			} catch (final SQLException e1) {
+				System.out.println(e1.getMessage());
+
+			}
+			return false;
+		} finally {
+			ConnectionFactory.close(preparedStatement, connection);
+		}
+	}
 
 }

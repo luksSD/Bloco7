@@ -144,15 +144,29 @@ public class PessoaController {
 		return "redirect:/";
 	}
 
-	@GetMapping("/password")
-	public String getPasswordPage(final Anuncio anuncio, final Model model) {
+	@GetMapping("/edit/{id}/password")
+	public String getPasswordPage(@PathVariable("id") final long id, final Model model) {
 
+		if (PessoaController.idLogado == null) {
+			return "redirect:/pessoa/login";
+		}
+
+		final Anuncio anuncio = new Anuncio();
+		final Pessoa pessoa = pessoaService.readById(id);
 		model.addAttribute("activePage", "conta");
-
-		final Pessoa pessoa = new Pessoa();
-		model.addAttribute("senhaAtual", pessoa);
+		model.addAttribute("anuncio", anuncio);
+		model.addAttribute("pessoa", pessoa);
 		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+
 		return "pessoa/password";
+	}
+
+	@PostMapping("/update-password")
+	public String updatePassword(final Pessoa pessoa, final Model model) {
+
+		pessoaService.passwordUpdate(pessoa);
+
+		return getEditPage(pessoa.getId(), model);
 	}
 
 }
