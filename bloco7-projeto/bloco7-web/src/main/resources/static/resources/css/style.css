@@ -1151,6 +1151,59 @@ a:hover {
 
 /*--------------------------------------------------------------
 
+/*------/ Intro Single2 /------*/
+.intro-single2 {
+	padding: 2rem 0rem 3rem;
+}
+
+@media ( max-width : 767px) {
+	.intro-single2 {
+		padding-top: 9rem;
+	}
+}
+
+.intro-single2 .title-single-box {
+	padding: 1rem 0 1rem 2rem;
+}
+
+.intro-single2 .title-single-box {
+	border-left: 3px solid #ffce00;
+}
+
+.intro-single2 .title-single-box .title-single {
+	font-weight: 600;
+	font-size: 2.2rem;
+}
+
+@media ( min-width : 768px) {
+	.intro-single2 .title-single-box .title-single {
+		font-size: 2.1rem;
+	}
+}
+
+@media ( min-width : 992px) {
+	.intro-single2 .title-single-box .title-single {
+		font-size: 2.5rem;
+	}
+}
+
+.intro-single2 .breadcrumb-box {
+	padding: 1rem 0 0 0.5rem;
+}
+
+.intro-single2 .breadcrumb {
+	background-color: transparent;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+/*--------------------------------------------------------------
+
+
+
+
+
+
 /*------/ Second Intro Single /------*/
 .second-intro-single {
 	padding: 3rem 0 3rem;
