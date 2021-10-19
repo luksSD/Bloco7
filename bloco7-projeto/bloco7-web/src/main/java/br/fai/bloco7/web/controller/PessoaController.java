@@ -126,12 +126,14 @@ public class PessoaController {
 		final Pessoa response = pessoaService.authentication(pessoa);
 
 		if (response == null) {
+			model.addAttribute("activePage", "conta");
 			redirectAttributes.addFlashAttribute("errorMessage", "* Usuário ou senha inválidos");
 			return "redirect:/pessoa/login";
 		} else {
 			final RedirectAttributes pessoaId = redirectAttributes.addFlashAttribute("userId", response.getId());
 			final Long id = Long.valueOf(response.getId());
 			idLogado = id;
+			model.addAttribute("activePage", "conta");
 			return "redirect:/" + getDetailPage(id, model) + "/" + id;
 		}
 	}
@@ -140,6 +142,17 @@ public class PessoaController {
 	public String logoff() {
 		idLogado = null;
 		return "redirect:/";
+	}
+
+	@GetMapping("/password")
+	public String getPasswordPage(final Anuncio anuncio, final Model model) {
+
+		model.addAttribute("activePage", "conta");
+
+		final Pessoa pessoa = new Pessoa();
+		model.addAttribute("senhaAtual", pessoa);
+		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+		return "pessoa/password";
 	}
 
 }
