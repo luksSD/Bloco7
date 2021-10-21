@@ -126,8 +126,7 @@ public class AnuncioController {
 
 		anuncioService.update(anuncio);
 
-//		return getDetailPage(anuncio.getId(), model);
-		return "redirect:/anuncios/detail/" + anuncio.getId();
+		return getDetailPage(anuncio.getId(), model);
 	}
 
 	@GetMapping("/delete/{id}")
