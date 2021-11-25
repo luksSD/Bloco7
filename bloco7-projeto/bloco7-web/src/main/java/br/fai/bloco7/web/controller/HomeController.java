@@ -52,4 +52,10 @@ public class HomeController {
 		return "/termos";
 	}
 
+	@GetMapping("/not-found")
+	public String getNotFoundPage() {
+
+		return "exception/not-found";
+	}
+
 }

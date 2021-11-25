@@ -9,6 +9,8 @@ public class Pessoa extends Usuario {
 	private String bairro;
 	private String cep;
 	private Long cidadeId;
+	private String tipo;
+	private String token;
 
 	public String getNome() {
 		return nome;
@@ -64,6 +66,22 @@ public class Pessoa extends Usuario {
 
 	public void setCidadeId(final Long cidadeId) {
 		this.cidadeId = cidadeId;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(final String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(final String token) {
+		this.token = token;
 	}
 
 }
