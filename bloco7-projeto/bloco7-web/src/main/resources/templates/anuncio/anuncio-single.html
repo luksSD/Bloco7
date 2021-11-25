@@ -193,77 +193,79 @@
 
 				<!-- Editar Anuncio, exibe so se usuari logado = usuario anunciante -->
 				<!-- botoes	 -->
-				<section th:if="${idUsuarioLogado == idAnunciante}">
-					<div class="row section-t3">
-						<div class="col-12 d-flex justify-content-center">
-							<div class="row">
-								<div class="col-4">
-									<a class="btn btn-b mt-1" th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}">
-										Editar <i class="fas fa-lock"> </i>
-									</a>
-								</div>
-								<div class="col-4"></div>
-								<div class="col-4">
-									<a onclick="return confirm('Atenção! Deseja realmente excluir?')"
-										class="btn btn-b mt-1" th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}">
-										Excluir <i class="fas fa-lock"> </i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+<!-- 				<section th:if="${idUsuarioLogado == idAnunciante}"> -->
+<!-- 					<div class="row section-t3"> -->
+<!-- 						<div class="col-12 d-flex justify-content-center"> -->
+<!-- 							<div class="row"> -->
+<!-- 								<div class="col-4"> -->
+<!-- 									<a class="btn btn-b mt-1" th:href="@{/anuncios/edit/{id} (id=${anuncio.id})}"> -->
+<!-- 										Editar <i class="fas fa-lock"> </i> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="col-4"></div> -->
+<!-- 								<div class="col-4"> -->
+<!-- 									<a onclick="return confirm('Atenção! Deseja realmente excluir?')" -->
+<!-- 										class="btn btn-b mt-1" th:href="@{/anuncios/delete/{id} (id=${anuncio.id})}"> -->
+<!-- 										Excluir <i class="fas fa-lock"> </i> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</section> -->
 
 
 				<!-- Contato exibe apenas se usario != usuarioAnucniante -->
-				<div class="col-md-12" th:unless="${idUsuarioLogado == idAnunciante}">
-					<div class="row section-t3">
-						<div class="col-sm-12">
-							<div class="title-box-d">
-								<h3 class="title-d">Entre em contato</h3>
-							</div>
-						</div>
-					</div>
-					<div class="row">
+<!-- 				<div class="col-md-12" th:unless="${idUsuarioLogado == idAnunciante}"> -->
+<!-- 					<div class="row section-t3"> -->
+<!-- 						<div class="col-sm-12"> -->
+<!-- 							<div class="title-box-d"> -->
+<!-- 								<h3 class="title-d">Entre em contato</h3> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
 
-						<div class="col-md-6 col-lg-4">
-							<div class="property-agent">
-								<h4 class="title-agent" th:text="${pessoa.nome}">Anabella
-									Geller</h4>
-								<ul class="list-unstyled">
-									<li class="d-flex justify-content-between"><strong>Telefone/Celular:</strong>
-										<span class="color-text-a" th:text="${pessoa.celular}">777
-											287 378 737</span>
-									</li>
-									<li class="d-flex justify-content-between"><strong>Email:</strong>
-										<span class="color-text-a"
-											th:text="${pessoa.email}">annabella@example.com</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-12 col-lg-8">
-							<div class="property-contact">
-								<div class="row">
-									<div class="col-md-3"></div>
-									<div class="col-md-6">
-										<div align="center">
-											<h3>Gostou do anúncio? Entre em contato agora!</h3>
-										</div>
-										<hr>
-										<div align="center">
-											<a class="btn btn-success"
-												th:href="@{'https://api.whatsapp.com/send?phone=55' + ${pessoa.celular} + '&text=Olá,%20estou%20interessado%20neste%20anuncio%20http://localhost:1000/anuncios/detalhes/'+ ${anuncio.id}}">
-												<i class="bi bi-whatsapp" aria-hidden="true"> Whatsapp</i>
-											</a>
-										</div>
-									</div>
-									<div class="col-md-3"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 						<div class="col-md-6 col-lg-4"> -->
+<!-- 							<div class="property-agent"> -->
+<!-- 								<h4 class="title-agent" th:text="${pessoa.nome}">Anabella -->
+<!-- 									Geller</h4> -->
+<!-- 								<ul class="list-unstyled"> -->
+<!-- 									<li class="d-flex justify-content-between"><strong>Telefone/Celular:</strong> -->
+<!-- 										<span class="color-text-a" th:text="${pessoa.celular}">777 -->
+<!-- 											287 378 737</span> -->
+<!-- 									</li> -->
+<!-- 									<li class="d-flex justify-content-between"><strong>Email:</strong> -->
+<!-- 										<span class="color-text-a" -->
+<!-- 											th:text="${pessoa.email}">annabella@example.com</span> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-12 col-lg-8"> -->
+<!-- 							<div class="property-contact"> -->
+<!-- 								<div class="row"> -->
+<!-- 									<div class="col-md-3"></div> -->
+<!-- 									<div class="col-md-6"> -->
+<!-- 										<div align="center"> -->
+<!-- 											<h3>Gostou do anúncio? Entre em contato agora!</h3> -->
+<!-- 										</div> -->
+<!-- 										<hr> -->
+<!-- 										<div align="center"> -->
+<!-- 											<a class="btn btn-success" -->
+<!-- 												th:href="@{'https://api.whatsapp.com/send?phone=55' + ${pessoa.celular} + '&text=Olá,%20estou%20interessado%20neste%20anuncio%20http://localhost:1000/anuncios/detalhes/'+ ${anuncio.id}}"> -->
+<!-- 												<i class="bi bi-whatsapp" aria-hidden="true"> Whatsapp</i> -->
+<!-- 											</a> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="col-md-3"></div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				
+				
 			</div>
 		</section>
 		<!-- End Property Single-->

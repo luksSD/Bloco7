@@ -36,10 +36,10 @@ public class AnuncioController {
 	@GetMapping("/register")
 	public String getRegisterPage(final Anuncio anuncio, final Model model) {
 
-		if (PessoaController.idLogado == null) {
-			return "redirect:/pessoa/login";
-		}
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+//		if (PessoaController.idLogado == null) {
+//			return "redirect:/pessoa/login";
+//		}
+//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 		return "anuncio/register";
 	}
 
@@ -49,22 +49,12 @@ public class AnuncioController {
 
 		final List<Anuncio> anuncios = anuncioService.readAll();
 
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 		model.addAttribute("listaDeAnuncio", anuncios);
 		model.addAttribute("activePage", "anuncio");
 
 		return "anuncio/anuncios-grid";
 	}
-
-//	@GetMapping("/listar-logado")
-//	public String getAnuncioGridPageLogado(final Anuncio pesquisa, final Model model) {
-//
-//		final List<Anuncio> anuncios = anuncioService.readAll();
-//
-//		model.addAttribute("listaDeAnuncio", anuncios);
-//
-//		return "anuncio/anuncios-grid-logado";
-//	}
 
 //	Metodo para detalhes de anuncio especifico
 	@GetMapping("/detalhes/{id}")
@@ -80,7 +70,7 @@ public class AnuncioController {
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
 		model.addAttribute("cidade", cidade);
 
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 		model.addAttribute("activePage", "anuncio");
 
 		return "anuncio/anuncio-single";
@@ -92,7 +82,7 @@ public class AnuncioController {
 		final Anuncio anuncio = anuncioService.readById(id);
 
 		model.addAttribute("anuncio", anuncio);
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "anuncio/edit";
 	}
@@ -100,25 +90,25 @@ public class AnuncioController {
 	@PostMapping("/create")
 	public String createAnuncio(final Anuncio anuncio, final Model model) {
 
-		if (PessoaController.idLogado == null) {
-			return "redirect:/pessoa/register";
+//		if (PessoaController.idLogado == null) {
+//			return "redirect:/pessoa/register";
+//
+//		} else {
 
+//			anuncio.setUsuarioAnuncianteId(PessoaController.idLogado);
+		anuncio.setUsuarioAnuncianteId(1L);
+		final Long id = anuncioService.create(anuncio);
+
+		if (id != -1) {
+//				model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+			model.addAttribute("anuncio", id);
+			return getDetailPage(id, model);
 		} else {
-
-			anuncio.setUsuarioAnuncianteId(PessoaController.idLogado);
-			final Long id = anuncioService.create(anuncio);
-
-			if (id != -1) {
-				model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
-				model.addAttribute("anuncio", id);
-				return getDetailPage(id, model);
-			} else {
-				model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
-				model.addAttribute("anuncio", id);
-				return "anuncios/register";
-			}
-
+//				model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+			model.addAttribute("anuncio", id);
+			return "anuncios/register";
 		}
+
 	}
 
 	@PostMapping("/update")
@@ -134,7 +124,8 @@ public class AnuncioController {
 
 		anuncioService.deleteById(id);
 
-		return pessoaController.getDetailPage(pessoaController.idLogado, model);
+//		return pessoaController.getDetailPage(pessoaController.idLogado, model);
+		return pessoaController.getDetailPage(1, model);
 	}
 
 //	Metodo para realizar pesquisa
@@ -150,7 +141,7 @@ public class AnuncioController {
 		// Indicador de pagina ativa
 		model.addAttribute("activePage", "anuncio");
 
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		// Retorna pagina de pesquisa
 		return "anuncio/anuncios-pesquisa";

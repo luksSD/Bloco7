@@ -31,7 +31,7 @@ public class HomeController {
 		model.addAttribute("anunciosRecentes", recentes);
 
 		model.addAttribute("activePage", "home");
-		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
+//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 
 		return "home";
 
