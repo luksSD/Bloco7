@@ -29,9 +29,9 @@ public class RestService {
 
 		} catch (final Exception e) {
 			System.out.println(e.getMessage());
-			return null;
-		}
 
+		}
+		return null;
 	}
 
 	public static HttpHeaders getRequestHeaders() {

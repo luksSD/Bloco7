@@ -356,7 +356,9 @@ public class PessoaDaoImpl implements PessoaDao {
 
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM usuario WHERE nome_usuario = ? AND senha = ?;";
+//			final String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?;";
+
+			final String sql = "select * from pessoa P inner join Usuario U on U.id = P.usuario_id WHERE email = ? AND senha = ?;";
 
 			preparedStatement = connection.prepareStatement(sql);
 
