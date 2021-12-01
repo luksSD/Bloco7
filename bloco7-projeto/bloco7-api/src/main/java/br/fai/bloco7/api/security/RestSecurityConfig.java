@@ -24,6 +24,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.POST, "/api/v1/pessoa/create").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/v1/anuncio/read-all").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/v1/anuncio/read-by-id/**").permitAll()
+			.antMatchers(HttpMethod.GET, "/api/v1/cidade/**").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/v1/anuncio/pesquisar").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/v1/anuncio/read-recents").permitAll()
 		.anyRequest().authenticated();
