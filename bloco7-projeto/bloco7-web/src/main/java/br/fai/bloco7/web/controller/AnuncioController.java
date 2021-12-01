@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Cidade;
 import br.fai.bloco7.model.Pessoa;
+import br.fai.bloco7.web.security.provider.Bloco7AuthenticationProvider;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
@@ -32,6 +33,9 @@ public class AnuncioController {
 
 	@Autowired
 	private CidadeService cidadeService;
+
+	@Autowired
+	private Bloco7AuthenticationProvider authenticationProvider;
 
 	@GetMapping("/register")
 	public String getRegisterPage(final Anuncio anuncio, final Model model) {
@@ -96,7 +100,8 @@ public class AnuncioController {
 //		} else {
 
 //			anuncio.setUsuarioAnuncianteId(PessoaController.idLogado);
-		anuncio.setUsuarioAnuncianteId(1L);
+		final Pessoa pessoa = authenticationProvider.getAuthenticatedUser();
+		anuncio.setUsuarioAnuncianteId(pessoa.getId());
 		final Long id = anuncioService.create(anuncio);
 
 		if (id != -1) {
