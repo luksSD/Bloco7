@@ -119,7 +119,7 @@ public class PessoaDaoImpl implements PessoaDao {
 
 		final String sql = " INSERT INTO usuario (senha, email, celular) values (? , ? , ?);";
 
-		final String sql2 = "INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, bairro, cidade_id ) values (? , ? , ? , ? , ? , ? );";
+		final String sql2 = "INSERT INTO pessoa (usuario_id , cpf, nome, logradouro, bairro, cidade_id, tipo ) values (? , ? , ? , ? , ? , ? , ? );";
 
 		Long id = Long.valueOf(-1);
 
@@ -150,6 +150,7 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement2.setString(4, entity.getLogradouro());
 			preparedStatement2.setString(5, entity.getBairro());
 			preparedStatement2.setLong(6, entity.getCidadeId());
+			preparedStatement2.setString(7, entity.getTipo());
 			preparedStatement2.execute();
 			connection.commit();
 
@@ -268,43 +269,43 @@ public class PessoaDaoImpl implements PessoaDao {
 		}
 	}
 
-	@Override
-	public Pessoa authentication(final Pessoa entity) {
-
-		Pessoa pessoa = null;
-
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-
-		String sql = "select * from usuario where ";
-		sql += " email = ? ";
-		sql += " and senha = ?";
-
-		try {
-
-			connection = ConnectionFactory.getConnection();
-
-			preparedStatement = connection.prepareStatement(sql);
-
-			preparedStatement.setString(1, entity.getEmail());
-			preparedStatement.setString(2, entity.getSenha());
-
-			resultSet = preparedStatement.executeQuery();
-
-			if (resultSet.next()) {
-				pessoa = new Pessoa();
-				pessoa.setId(resultSet.getLong("id"));
-				return pessoa;
-			}
-
-		} catch (final Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			ConnectionFactory.close(resultSet, preparedStatement, connection);
-		}
-		return null;
-	}
+//	@Override
+//	public Pessoa authentication(final Pessoa entity) {
+//
+//		Pessoa pessoa = null;
+//
+//		Connection connection = null;
+//		PreparedStatement preparedStatement = null;
+//		ResultSet resultSet = null;
+//
+//		String sql = "select * from usuario where ";
+//		sql += " email = ? ";
+//		sql += " and senha = ?";
+//
+//		try {
+//
+//			connection = ConnectionFactory.getConnection();
+//
+//			preparedStatement = connection.prepareStatement(sql);
+//
+//			preparedStatement.setString(1, entity.getEmail());
+//			preparedStatement.setString(2, entity.getSenha());
+//
+//			resultSet = preparedStatement.executeQuery();
+//
+//			if (resultSet.next()) {
+//				pessoa = new Pessoa();
+//				pessoa.setId(resultSet.getLong("id"));
+//				return pessoa;
+//			}
+//
+//		} catch (final Exception e) {
+//			System.out.println(e.getMessage());
+//		} finally {
+//			ConnectionFactory.close(resultSet, preparedStatement, connection);
+//		}
+//		return null;
+//	}
 
 	@Override
 	public boolean updatePassword(final Pessoa entity) {
@@ -341,6 +342,56 @@ public class PessoaDaoImpl implements PessoaDao {
 		} finally {
 			ConnectionFactory.close(preparedStatement, connection);
 		}
+	}
+
+	@Override
+	public Pessoa validadeEmailAndPassword(final String email, final String password) {
+		Pessoa pessoa = null;
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+
+			connection = ConnectionFactory.getConnection();
+
+			final String sql = "SELECT * FROM usuario WHERE nome_usuario = ? AND senha = ?;";
+
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, password);
+
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+
+				pessoa = new Pessoa();
+				pessoa.setId(resultSet.getLong("id"));
+				pessoa.setCelular(resultSet.getString("celular"));
+				pessoa.setSenha(resultSet.getString("senha"));
+				pessoa.setEmail(resultSet.getString("email"));
+				pessoa.setCpf(resultSet.getString("cpf"));
+				pessoa.setNome(resultSet.getString("nome"));
+				pessoa.setLogradouro(resultSet.getString("logradouro"));
+				pessoa.setBairro(resultSet.getString("bairro"));
+				pessoa.setCidadeId(resultSet.getLong("cidade_id"));
+				pessoa.setCep(resultSet.getString("cep"));
+				pessoa.setNumero(resultSet.getString("numero"));
+				pessoa.setTipo(resultSet.getString("tipo"));
+
+			}
+
+		} catch (final Exception e) {
+
+			System.out.println(e.getMessage());
+
+		} finally {
+
+			ConnectionFactory.close(resultSet, preparedStatement, connection);
+		}
+		return pessoa;
 	}
 
 }

@@ -16,8 +16,10 @@ public interface PessoaDao {
 
 	boolean delete(Long id);
 
-	Pessoa authentication(Pessoa entity);
+//	Pessoa authentication(Pessoa entity);
 
 	boolean updatePassword(Pessoa entity);
+
+	Pessoa validadeEmailAndPassword(final String email, String password);
 
 }

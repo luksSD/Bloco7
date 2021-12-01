@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -140,8 +141,8 @@
 		</div>
 	</div>
 	<!-- Fim da seção de pesquisa -->
-	
-	
+
+
 	<!-- ======= Header e Navbar ======= -->
 	<nav
 		class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -166,18 +167,20 @@
 						th:class="${activePage == 'anuncio'} ? 'nav-item active' : 'nav-item'">
 						<a class="nav-link " th:href="@{/anuncios/listar}"> Anúncios </a>
 					</li>
-					
-					<li	th:class="${activePage == 'conta'} ? 'nav-item active dropdown' : 'nav-item dropdown'">
-						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button" th:href="@{/pessoa/login}"
-						th:if="${idUsuarioLogado == null}"> Conta </a> 
-						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button"
-						th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Conta </a>
+
+					<li
+						th:class="${activePage == 'conta'} ? 'nav-item active dropdown' : 'nav-item dropdown'">
+						<a aria-expanded="false" aria-haspopup="true"
+						class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+						id="navbarDropdown" role="button" th:href="@{/pessoa/login}">Conta </a>
+
 						<div class="dropdown-menu">
-							<a class="dropdown-item " th:href="@{/pessoa/login}"> Login </a> 
-							<a class="dropdown-item " th:href="@{/pessoa/register}"> Registrar </a> 
-							<a	class="dropdown-item "> Perfíl </a> 
-							<a class="dropdown-item " th:href="@{/anuncios/register}"> Anunciar </a> 
-							<a class="dropdown-item " th:href="@{/pessoa/logoff}"> Sair </a>
+							<a class="dropdown-item " sec:authorize="!isAuthenticated()" th:href="@{/pessoa/login}" > Login </a>
+							<a class="dropdown-item " sec:authorize="!isAuthenticated()" th:href="@{/pessoa/register}">
+								Registrar </a> 
+							<a class="dropdown-item " sec:authorize="isAuthenticated()"> Perfíl </a> 
+							<a class="dropdown-item " sec:authorize="isAuthenticated()" th:href="@{/anuncios/register}">Anunciar </a> 
+							<a class="dropdown-item " sec:authorize="isAuthenticated()" th:href="@{/pessoa/logoff}">Sair </a>
 						</div>
 					</li>
 				</ul>
@@ -226,23 +229,14 @@
 						<div class="w-body-a">
 							<div class="w-body-a">
 								<ul class="list-unstyled">
-									<li class="item-list-a">
-										<i class="bi bi-chevron-right"></i> 
-										<a th:href="@{/sobre}"> Sobre nós </a>
-									</li>
-									<li class="item-list-a">
-										<i class="bi bi-chevron-right"></i> 
-										<a th:href="@{/termos}"> Termos de Uso </a>
-									</li>
-									<li class="item-list-a">
-										<i class="bi bi-chevron-right"></i> 
-										<a> Conta </a> 
-										<a> Conta </a>
-									</li>
-									<li class="item-list-a">
-										<i class="bi bi-chevron-right"></i> 
-										<a th:href="@{/politica}"> Política de Pivacidade </a>
-									</li>
+									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
+										<a th:href="@{/sobre}"> Sobre nós </a></li>
+									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
+										<a th:href="@{/termos}"> Termos de Uso </a></li>
+									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
+										<a> Conta </a> <a> Conta </a></li>
+									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
+										<a th:href="@{/politica}"> Política de Pivacidade </a></li>
 								</ul>
 							</div>
 						</div>
@@ -258,11 +252,10 @@
 					<nav class="nav-footer">
 						<ul class="list-inline">
 							<li class="list-inline-item"><a th:href="@{/}"> Home </a></li>
-							<li class="list-inline-item"><a th:href="@{/anuncios/listar}">
-									Anuncios </a></li>
-							<li class="list-inline-item">
-								<a th:href="@{/pessoa/login}"> Conta </a> 
-								<a> Conta </a></li>
+							<li class="list-inline-item"><a
+								th:href="@{/anuncios/listar}"> Anuncios </a></li>
+							<li class="list-inline-item"><a th:href="@{/pessoa/login}">
+									Conta </a> <a> Conta </a></li>
 						</ul>
 					</nav>
 					<div class="copyright-footer">

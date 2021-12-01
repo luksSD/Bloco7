@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Recentes;
 import br.fai.bloco7.web.service.AnuncioService;
+import br.fai.bloco7.web.service.RestService;
 
 @Service
 public class AnuncioServiceImpl implements AnuncioService {
@@ -24,9 +26,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		List<Anuncio> response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
 					httpEntity, Anuncio[].class);
@@ -49,8 +53,10 @@ public class AnuncioServiceImpl implements AnuncioService {
 
 		try {
 
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
-			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(entity);
+			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(entity, headers);
 			final ResponseEntity<Long> responseEntity = restTemplate.exchange(endpoint, HttpMethod.POST, httpEntity,
 					Long.class);
 			id = responseEntity.getBody();
@@ -70,9 +76,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		Anuncio response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Anuncio> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
 					Anuncio.class);
@@ -93,9 +101,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		final String endpoint = "http://localhost:2000/api/v1/anuncio/update";
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(entity);
+			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(entity, headers);
 
 			final ResponseEntity<Boolean> responseEntity = restTemplate.exchange(endpoint, HttpMethod.PUT, httpEntity,
 					Boolean.class);
@@ -116,9 +126,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		final String endpoint = "http://localhost:2000/api/v1/anuncio/delete/" + id;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Boolean> requestResponse = restTemplate.exchange(endpoint, HttpMethod.DELETE,
 					httpEntity, Boolean.class);
@@ -140,9 +152,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		List<Anuncio> response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(pesquisa);
+			final HttpEntity<Anuncio> httpEntity = new HttpEntity<Anuncio>(pesquisa, headers);
 
 			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.POST,
 					httpEntity, Anuncio[].class);
@@ -164,9 +178,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		List<Anuncio> response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Long> httpEntity = new HttpEntity<Long>(id);
+			final HttpEntity<Long> httpEntity = new HttpEntity<Long>(id, headers);
 
 			final ResponseEntity<Anuncio[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
 					httpEntity, Anuncio[].class);
@@ -189,9 +205,11 @@ public class AnuncioServiceImpl implements AnuncioService {
 		List<Recentes> response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Recentes[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET,
 					httpEntity, Recentes[].class);

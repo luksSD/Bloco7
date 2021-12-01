@@ -9,19 +9,19 @@ import br.fai.bloco7.model.Pessoa;
 
 public class CustomUserDetails extends User {
 
-	public CustomUserDetails(final String username, final String password,
-			final Collection<? extends GrantedAuthority> authorities, final Pessoa user) {
+	public CustomUserDetails(final String email, final String password,
+			final Collection<? extends GrantedAuthority> authorities, final Pessoa pessoa) {
 
-		super(username, password, true, true, true, true, authorities);
+		super(email, password, true, true, true, true, authorities);
 
-		this.user = user;
+		this.pessoa = pessoa;
 
 	}
 
-	private final Pessoa user;
+	private final Pessoa pessoa;
 
 	public Pessoa getUsuario() {
-		return user;
+		return pessoa;
 	}
 
 }

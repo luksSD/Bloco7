@@ -94,7 +94,7 @@ public class PessoaController {
 		return getListPage(model, anuncio);
 	}
 
-	@GetMapping("/login")
+	@GetMapping("/login-page")
 	public String getLoginPage(final Pessoa pessoa, final Anuncio anuncio, final Model model) {
 
 		model.addAttribute("activePage", "conta");

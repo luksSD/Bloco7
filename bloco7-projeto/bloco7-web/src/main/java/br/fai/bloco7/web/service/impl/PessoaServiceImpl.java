@@ -26,9 +26,11 @@ public class PessoaServiceImpl implements PessoaService {
 		List<Pessoa> response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Pessoa[]> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
 					Pessoa[].class);
@@ -74,9 +76,11 @@ public class PessoaServiceImpl implements PessoaService {
 		Pessoa response = null;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Pessoa> requestResponse = restTemplate.exchange(endpoint, HttpMethod.GET, httpEntity,
 					Pessoa.class);
@@ -98,9 +102,11 @@ public class PessoaServiceImpl implements PessoaService {
 		final String endpoint = "http://localhost:2000/api/v1/pessoa/update";
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity);
+			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity, headers);
 
 			final ResponseEntity<Boolean> responseEntity = restTemplate.exchange(endpoint, HttpMethod.PUT, httpEntity,
 					Boolean.class);
@@ -122,9 +128,11 @@ public class PessoaServiceImpl implements PessoaService {
 		final String endpoint = "http://localhost:2000/api/v1/pessoa/delete/" + id;
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<String> httpEntity = new HttpEntity<String>("");
+			final HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 
 			final ResponseEntity<Boolean> requestResponse = restTemplate.exchange(endpoint, HttpMethod.DELETE,
 					httpEntity, Boolean.class);
@@ -171,9 +179,11 @@ public class PessoaServiceImpl implements PessoaService {
 		final String endpoint = "http://localhost:2000/api/v1/pessoa/update-password";
 
 		try {
+			final HttpHeaders headers = RestService.getRequestHeaders();
+
 			final RestTemplate restTemplate = new RestTemplate();
 
-			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity);
+			final HttpEntity<Pessoa> httpEntity = new HttpEntity<Pessoa>(entity, headers);
 
 			final ResponseEntity<Boolean> responseEntity = restTemplate.exchange(endpoint, HttpMethod.PUT, httpEntity,
 					Boolean.class);

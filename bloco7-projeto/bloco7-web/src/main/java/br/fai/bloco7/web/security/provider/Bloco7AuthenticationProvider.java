@@ -23,7 +23,7 @@ import br.fai.bloco7.web.service.PessoaService;
 public class Bloco7AuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private PessoaService userService;
+	private PessoaService pessoaService;
 
 	@Override
 	public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
@@ -31,18 +31,18 @@ public class Bloco7AuthenticationProvider implements AuthenticationProvider {
 		final String email = authentication.getName();
 		final String password = authentication.getCredentials().toString();
 
-		System.out.println("Username: " + email + "  Password: " + password);
+		System.out.println("Email: " + email + "  Password: " + password);
 
-		final Pessoa user = userService.validateEmailAndPassword(email, password);
+		final Pessoa pessoa = pessoaService.validateEmailAndPassword(email, password);
 
-		if (user == null) {
+		if (pessoa == null) {
 			return null;
 		}
 
 		final List<GrantedAuthority> grantedAuthorityList = new ArrayList<GrantedAuthority>();
-		grantedAuthorityList.add(new SimpleGrantedAuthority("ROLE_" + user.getTipo()));
+		grantedAuthorityList.add(new SimpleGrantedAuthority("ROLE_" + pessoa.getTipo()));
 
-		final UserDetails principal = new CustomUserDetails(email, password, grantedAuthorityList, user);
+		final UserDetails principal = new CustomUserDetails(email, password, grantedAuthorityList, pessoa);
 
 		return new UsernamePasswordAuthenticationToken(principal, password, grantedAuthorityList);
 	}

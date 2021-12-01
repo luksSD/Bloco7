@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -60,15 +61,29 @@ public class PessoaRestController {
 
 	}
 
-	@PostMapping("/authentication")
-	public ResponseEntity<Pessoa> authentication(@RequestBody final Pessoa pessoa) {
-		return ResponseEntity.ok(service.authentication(pessoa));
-	}
+//	@PostMapping("/authentication")
+//	public ResponseEntity<Pessoa> authentication(@RequestBody final Pessoa pessoa) {
+//		return ResponseEntity.ok(service.authentication(pessoa));
+//	}
 
 	@PutMapping("/update-password")
 	public ResponseEntity<Boolean> updatePassword(@RequestBody final Pessoa pessoa) {
 
 		return ResponseEntity.ok(service.updatePassword(pessoa));
+
+	}
+
+	@PostMapping("/login")
+	public ResponseEntity<Pessoa> login(@RequestHeader("Authorization") final String encodedData) {
+
+		final Pessoa pessoa = service.validateLogin(encodedData);
+
+		if (pessoa == null) {
+			return ResponseEntity.badRequest().build();
+
+		}
+
+		return ResponseEntity.ok(pessoa);
 
 	}
 
