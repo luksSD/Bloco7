@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.fai.bloco7.model.Anuncio;
 import br.fai.bloco7.model.Pessoa;
+import br.fai.bloco7.web.security.provider.Bloco7AuthenticationProvider;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.PessoaService;
 
@@ -26,6 +27,9 @@ public class PessoaController {
 
 	@Autowired
 	private AnuncioService anuncioService;
+
+	@Autowired
+	private Bloco7AuthenticationProvider authenticationProvider;
 
 	@GetMapping("/list")
 	public String getListPage(final Model model, final Anuncio anuncio) {
@@ -56,8 +60,8 @@ public class PessoaController {
 		return "pessoa/edit";
 	}
 
-	@GetMapping("/detail/{id}")
-	public String getDetailPage(@PathVariable("id") final long id, final Model model) {
+	@GetMapping("/detail")
+	public String getDetailPage(final Model model) {
 
 //		if (PessoaController.idLogado == null) {
 //			return "redirect:/pessoa/login";
@@ -66,10 +70,10 @@ public class PessoaController {
 		final Anuncio anuncio = new Anuncio();
 		model.addAttribute("anuncio", anuncio);
 
-		final Pessoa pessoa = pessoaService.readById(id);
+		final Pessoa pessoa = authenticationProvider.getAuthenticatedUser();
 		model.addAttribute("pessoa", pessoa);
 
-		final List<Anuncio> anuncios = anuncioService.readByAnuncianteId(1L);
+		final List<Anuncio> anuncios = anuncioService.readByAnuncianteId(pessoa.getId());
 		model.addAttribute("listaAnunciosUsuario", anuncios);
 
 		model.addAttribute("activePage", "conta");
@@ -83,7 +87,7 @@ public class PessoaController {
 
 		pessoaService.update(pessoa);
 
-		return getDetailPage(pessoa.getId(), model);
+		return getDetailPage(model);
 	}
 
 	@GetMapping("/delete/{id}")
@@ -113,7 +117,7 @@ public class PessoaController {
 	public String createPessoa(final Pessoa pessoa) {
 		final Long id = pessoaService.create(pessoa);
 		if (id != -1) {
-			return "redirect:/pessoa/login";
+			return "redirect:/pessoa/login-page";
 
 		}
 		return "redirect:/";

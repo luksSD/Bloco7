@@ -150,7 +150,7 @@ public class PessoaDaoImpl implements PessoaDao {
 			preparedStatement2.setString(4, entity.getLogradouro());
 			preparedStatement2.setString(5, entity.getBairro());
 			preparedStatement2.setLong(6, entity.getCidadeId());
-			preparedStatement2.setString(7, entity.getTipo());
+			preparedStatement2.setString(7, "USUARIO");
 			preparedStatement2.execute();
 			connection.commit();
 
@@ -356,7 +356,7 @@ public class PessoaDaoImpl implements PessoaDao {
 
 			connection = ConnectionFactory.getConnection();
 
-			final String sql = "SELECT * FROM usuario WHERE nome_usuario = ? AND senha = ?;";
+			final String sql = "select * from pessoa P inner join Usuario U on U.id = P.usuario_id WHERE email = ? AND senha = ?;";
 
 			preparedStatement = connection.prepareStatement(sql);
 

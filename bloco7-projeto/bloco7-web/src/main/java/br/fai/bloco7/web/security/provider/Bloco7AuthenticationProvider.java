@@ -15,7 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import br.fai.bloco7.model.Pessoa;
-import br.fai.bloco7.model.Usuario;
 import br.fai.bloco7.web.security.CustomUserDetails;
 import br.fai.bloco7.web.service.PessoaService;
 
@@ -53,7 +52,7 @@ public class Bloco7AuthenticationProvider implements AuthenticationProvider {
 		return authentication.equals(UsernamePasswordAuthenticationToken.class);
 	}
 
-	public Usuario getAuthenticatedUser() {
+	public Pessoa getAuthenticatedUser() {
 
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		final CustomUserDetails userDatails = (CustomUserDetails) authentication.getPrincipal();

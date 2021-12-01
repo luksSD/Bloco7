@@ -53,7 +53,10 @@ public class HomeController {
 	}
 
 	@GetMapping("/not-found")
-	public String getNotFoundPage() {
+	public String getNotFoundPage(final Model model) {
+
+		final Anuncio anuncio = new Anuncio();
+		model.addAttribute("anuncio", anuncio);
 
 		return "exception/not-found";
 	}

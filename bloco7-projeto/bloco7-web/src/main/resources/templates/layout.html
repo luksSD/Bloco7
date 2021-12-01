@@ -172,15 +172,15 @@
 						th:class="${activePage == 'conta'} ? 'nav-item active dropdown' : 'nav-item dropdown'">
 						<a aria-expanded="false" aria-haspopup="true"
 						class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-						id="navbarDropdown" role="button" th:href="@{/pessoa/login}">Conta </a>
+						id="navbarDropdown" role="button" th:href="@{/pessoa/login-page}">Conta </a>
 
 						<div class="dropdown-menu">
-							<a class="dropdown-item " sec:authorize="!isAuthenticated()" th:href="@{/pessoa/login}" > Login </a>
+							<a class="dropdown-item " sec:authorize="!isAuthenticated()" th:href="@{/pessoa/login-page}" > Login </a>
 							<a class="dropdown-item " sec:authorize="!isAuthenticated()" th:href="@{/pessoa/register}">
 								Registrar </a> 
-							<a class="dropdown-item " sec:authorize="isAuthenticated()"> Perfíl </a> 
+							<a class="dropdown-item " sec:authorize="isAuthenticated()" th:href="@{/pessoa/detail}"> Perfíl </a> 
 							<a class="dropdown-item " sec:authorize="isAuthenticated()" th:href="@{/anuncios/register}">Anunciar </a> 
-							<a class="dropdown-item " sec:authorize="isAuthenticated()" th:href="@{/pessoa/logoff}">Sair </a>
+							<a class="dropdown-item " sec:authorize="isAuthenticated()" th:href="@{/logout}">Sair </a>
 						</div>
 					</li>
 				</ul>
@@ -234,7 +234,7 @@
 									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
 										<a th:href="@{/termos}"> Termos de Uso </a></li>
 									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
-										<a> Conta </a> <a> Conta </a></li>
+										<a th:href="@{/pessoa/detail}"> Conta </a></li>
 									<li class="item-list-a"><i class="bi bi-chevron-right"></i>
 										<a th:href="@{/politica}"> Política de Pivacidade </a></li>
 								</ul>
@@ -254,8 +254,8 @@
 							<li class="list-inline-item"><a th:href="@{/}"> Home </a></li>
 							<li class="list-inline-item"><a
 								th:href="@{/anuncios/listar}"> Anuncios </a></li>
-							<li class="list-inline-item"><a th:href="@{/pessoa/login}">
-									Conta </a> <a> Conta </a></li>
+							<li class="list-inline-item"><a th:href="@{/pessoa/detail}">
+									Conta </a></li>
 						</ul>
 					</nav>
 					<div class="copyright-footer">

@@ -65,7 +65,7 @@ public class AnuncioController {
 
 		final Pessoa pessoa = pessoaService.readById(anuncio.getUsuarioAnuncianteId());
 		model.addAttribute("pessoa", pessoa);
-		model.addAttribute("idAnunciante", anuncio.getUsuarioAnuncianteId());
+//		model.addAttribute("idAnunciante", anuncio.getUsuarioAnuncianteId());
 
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
 		model.addAttribute("cidade", cidade);
@@ -125,7 +125,7 @@ public class AnuncioController {
 		anuncioService.deleteById(id);
 
 //		return pessoaController.getDetailPage(pessoaController.idLogado, model);
-		return pessoaController.getDetailPage(1, model);
+		return pessoaController.getDetailPage(model);
 	}
 
 //	Metodo para realizar pesquisa
