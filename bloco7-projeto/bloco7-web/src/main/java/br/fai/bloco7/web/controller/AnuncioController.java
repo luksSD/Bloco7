@@ -69,13 +69,14 @@ public class AnuncioController {
 
 		final Pessoa pessoa = pessoaService.readById(anuncio.getUsuarioAnuncianteId());
 		model.addAttribute("pessoa", pessoa);
-//		model.addAttribute("idAnunciante", anuncio.getUsuarioAnuncianteId());
 
 		final Cidade cidade = cidadeService.readById(anuncio.getCidadeId());
 		model.addAttribute("cidade", cidade);
 
-//		model.addAttribute("idUsuarioLogado", PessoaController.idLogado);
 		model.addAttribute("activePage", "anuncio");
+
+		final Pessoa pessoaLogada = authenticationProvider.getAuthenticatedUser();
+		model.addAttribute("idLogado", pessoaLogada.getId());
 
 		return "anuncio/anuncio-single";
 	}
