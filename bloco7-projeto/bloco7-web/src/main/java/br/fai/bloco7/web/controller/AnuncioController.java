@@ -1,8 +1,16 @@
 package br.fai.bloco7.web.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +25,7 @@ import br.fai.bloco7.web.security.provider.Bloco7AuthenticationProvider;
 import br.fai.bloco7.web.service.AnuncioService;
 import br.fai.bloco7.web.service.CidadeService;
 import br.fai.bloco7.web.service.PessoaService;
+import br.fai.bloco7.web.service.ReportService;
 
 @Controller
 @RequestMapping("/anuncios")
@@ -36,6 +45,9 @@ public class AnuncioController {
 
 	@Autowired
 	private Bloco7AuthenticationProvider authenticationProvider;
+
+	@Autowired
+	private ReportService reportService;
 
 	@GetMapping("/register")
 	public String getRegisterPage(final Anuncio anuncio, final Model model) {
@@ -151,6 +163,38 @@ public class AnuncioController {
 
 		// Retorna pagina de pesquisa
 		return "anuncio/anuncios-pesquisa";
+	}
+
+	@GetMapping("/report/read-all")
+	public ResponseEntity<byte[]> getAllUsersReport() {
+
+		final String filePath = reportService.generateAndGetPdfFilePath();
+
+		if (filePath.isEmpty()) {
+			return ResponseEntity.badRequest().build();
+		}
+
+		final File pdfFile = Paths.get(filePath).toFile();
+
+		try {
+			final byte[] fileContent = Files.readAllBytes(pdfFile.toPath());
+
+			final HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.parseMediaType("application/pdf"));
+
+//			headers.add("Content-Disposition", "attachment; filename=" + pdfFile.getName());
+			headers.add("Content-Disposition", "inline; filename=" + pdfFile.getName());
+			headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+
+			return new ResponseEntity<byte[]>(fileContent, headers, HttpStatus.OK);
+
+		} catch (final IOException e) {
+
+			System.out.println(e.getMessage());
+
+			return ResponseEntity.badRequest().build();
+		}
+
 	}
 
 }
