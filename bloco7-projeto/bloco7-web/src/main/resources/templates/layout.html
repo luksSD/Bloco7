@@ -176,7 +176,7 @@
 						th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Conta </a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item " th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}"> Login </a> 
-							<a class="dropdown-item " th:href="@{/pessoa/register}"	th:if="${idUsuarioLogado == null}"> Registrar </a> 
+							<a class="dropdown-item " th:href="@{/pessoa/register}"	th:if="${idUsuarioLogado == null}" id="registrar"> Registrar </a> 
 							<a	class="dropdown-item "	th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Perfíl </a> 
 							<a class="dropdown-item " th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}"> Anunciar </a> 
 							<a class="dropdown-item " th:href="@{/pessoa/logoff}" th:unless="${idUsuarioLogado == null}"> Sair </a>

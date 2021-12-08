@@ -7,6 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,7 +19,6 @@ public class PessoaRegisterTest {
 
 		System.out.println("Inciando construtor");
 		this.driver = new ChromeDriver();
-		driver.get("https://www.fai-mg.br/faionline/");
 	}
 
 	@BeforeClass
@@ -30,23 +30,26 @@ public class PessoaRegisterTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+
 	}
 
 	@Before
 	public void setUp() throws Exception {
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		driver.quit();
+
 	}
 
 	@Test
 	public void testGetRegisterPage() {
-		fail("Not yet implemented");
-	}
+		driver.get("http://localhost:1000/");
 
-	@Test
-	public void testCreatePessoa() {
+		driver.findElement(By.id("")).click();
+
 		fail("Not yet implemented");
 	}
 
