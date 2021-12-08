@@ -171,12 +171,12 @@
 					<!--                                    </li> -->
 					<li	th:class="${activePage == 'conta'} ? 'nav-item active dropdown' : 'nav-item dropdown'">
 						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button" th:href="@{/pessoa/login}"
-						th:if="${idUsuarioLogado == null}"> Conta </a> 
+						th:if="${idUsuarioLogado == null}"><span>Conta</span> </a> 
 						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button"
-						th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Conta </a>
+						th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> <span>Conta</span></a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item " th:href="@{/pessoa/login}" th:if="${idUsuarioLogado == null}"> Login </a> 
-							<a class="dropdown-item " th:href="@{/pessoa/register}"	th:if="${idUsuarioLogado == null}" id="registrar"> Registrar </a> 
+							<a class="dropdown-item " th:href="@{/pessoa/register}"	th:if="${idUsuarioLogado == null}" > <span>Registrar</span> </a> 
 							<a	class="dropdown-item "	th:href="@{/pessoa/detail/{id} (id=${idUsuarioLogado})}" th:unless="${idUsuarioLogado == null}"> Perfíl </a> 
 							<a class="dropdown-item " th:href="@{/anuncios/register}" th:unless="${idUsuarioLogado == null}"> Anunciar </a> 
 							<a class="dropdown-item " th:href="@{/pessoa/logoff}" th:unless="${idUsuarioLogado == null}"> Sair </a>

@@ -1,7 +1,5 @@
 package br.fai.bloco7.web.test;
 
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,7 +7,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class PessoaRegisterTest {
 
@@ -40,17 +40,21 @@ public class PessoaRegisterTest {
 
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testGetRegisterPage() {
 		driver.get("http://localhost:1000/");
 
-		driver.findElement(By.id("")).click();
+		final WebElement target1 = driver.findElement(By.xpath("//span[text()='Conta']"));
+		final WebElement target2 = driver.findElement(By.xpath("//a[text()=' Registrar ']"));
+		final Actions s = new Actions(driver);
+		s.moveToElement(target1);
+		s.click(target2);
+		s.build().perform();
 
-		fail("Not yet implemented");
 	}
 
 }
